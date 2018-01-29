@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>nl.beinformed.bi.layout.general.modularui</groupId>
-	<artifactId>nl.beinformed.bi.layout.general.modularui</artifactId>
+	<groupId>nl.beinformed.bi.layout.fsdemo</groupId>
+	<artifactId>nl.beinformed.bi.layout.fsdemo</artifactId>
 	<version>1.0.0</version>
 	<build>
 		<plugins>
