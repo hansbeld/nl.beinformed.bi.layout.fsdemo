@@ -1,0 +1,129 @@
+{
+  "Login.Header": "Inloggen",
+  "Login.Msg.IncorrectUsernamePassword": "Ongeldige gebruikersnaam of wachtwoord",
+  "Login.Username": "Gebruikersnaam",
+  "Login.Username.Placeholder": "Vul gebruikersnaam in",
+  "Login.Password": "Watchwoord",
+  "Login.Password.Placeholder": "Vul wachtwoord in",
+  "Login.Button.Close": "Sluiten",
+  "Login.Button.Login": "Inloggen",
+
+  "ComponentChooser.Menu.SelectComponent": "Selecteer component",
+
+  "UserLinks.Menu.UserProfile": "Gebruikersprofiel",
+  "UserLinks.Menu.LogOut": "Log uit",
+  "UserLinks.Menu.LogIn": "Inloggen",
+
+  "UserProfile.Button.Close": "Sluiten",
+  "UserProfile.Header": "User Profile",
+
+  "Choice.Boolean.True": "Ja",
+  "Choice.Boolean.False": "Nee",
+
+  "ChoiceField.Msg.NotSupported": "Veld wordt niet ondersteund",
+  "ChoiceField.Msg.NoOptionsAvailable": "Geen opties beschikbaar",
+
+  "LookupInput.Msg.NoOptions": "Geen opties gevonden",
+  "LookupInput.Placeholder": "Vul één of meer tekens in",
+  "LookupInput.Button.Lookup": "Zoek",
+  "LookupInput.AltText.RemoveActiveOption": "Verwijder optie",
+
+  "SelectField.Placeholder": "Kies een optie",
+
+  "Filters.Button.ClearAll": "Herstel alle filters",
+
+  "ActionChooser.Button.Actions": "Acties",
+
+  "List.AriaLabel.HeaderToolbar": "Beschikbare acties voor {LIST_LABEL} lijst",
+
+  "ListViewTypeToggle.AriaLabel": "List type aanpassen",
+  "ListViewTypeToggle.AltText.ListViewToggle": "Toon als {VIEWTYPE}",
+  "ListViewTypeToggle.AltText.TableViewToggle": "Toon als {VIEWTYPE}",
+
+  "ListNoResults.Msg.EnterSearchTerm": "Vul een zoek term in om te zoeken",
+  "ListNoResults.Msg.NoResults": "Geen resultaten beschikbaar",
+
+  "ListDetailGivenAnswers.Title": "Gegeven antwoorden",
+
+  "PagingInfo.Information": "{FIRSTITEM} - {LASTITEM} of {TOTALRESULTS}",
+  "PagingInfo.TotalResults": "{TOTALRESULTS, plural, =0{geen resultaten} one{1 resultaat} other{# resultaten}}",
+
+  "PagesizeChooser.PageSize": "Pagina grootte: {PAGESIZE}",
+
+  "PagingItem.AriaLabel.GotoFirstPage": "Ga naar de eerste pagina",
+  "PagingItem.AriaLabel.GotoPreviousPage": "Ga naar de vorige pagina, pagina nummer {PREVIOUS_PAGE_NUMBER}",
+  "PagingItem.AriaLabel.GotoNextPage": "Ga naar de volgende pagina, pagina nummer {NEXT_PAGE_NUMBER}",
+  "PagingItem.AriaLabel.GotoLastPage": "Ga naar de laatste pagina, pagina nummer {LAST_PAGE_NUMBER}",
+  "PagingItem.AriaLabel.GotoPage": "Ga naar pagina {PAGE_NUMBER}",
+
+  "QuickSearchInput.Placeholder": "Zoek op {SEARCHOPTION_LABEL}",
+  "QuickSearchInput.SearchLabel": "Zoeken",
+
+  "QuickSearchResuls.Msg.NoResults": "Geen zoekresultaten",
+
+  "SortChooser.SortDefaultLabel": "Sorteer op relevantie",
+  "SortChooser.SortBy": "Sorteer op {COLUMN_NAME}",
+
+  "Notification.Msg.Create": "Er is succesvol een nieuw item gecreëerd.",
+  "Notification.Msg.Update": "Het item is succesvol gewijzigd.",
+  "Notification.Msg.Delete": "Het is is succesvol verwijderd.",
+
+  "ModelCatalog.Menu": "Model catalogus",
+  "ContentBrowser.Menu": "Content browser",
+  "BusinessModelOverview.Header": "Business model overview",
+  "TargetOperatingModel.Header": "Target operating model",
+  "ModelCatalogSearch.Placeholder": "Zoek op label",
+
+  "BusinessScenario.Header": "Business scenario",
+
+  "ModelOverviewLane.Role": "Rollen",
+  "ModelOverviewLane.Channel": "Kanalen",
+  "ModelOverviewLane.Product": "Producten",
+  "ModelOverviewLane.Case": "Zaken",
+  "ModelOverviewLane.Register": "Registraties",
+
+  "ModelOverviewLane.CustomerSegment": "Klantensegment",
+  "ModelOverviewLane.InteractionChannel": "Interactiekanaal",
+  "ModelOverviewLane.ProductFamily": "Productfamilie",
+  "ModelOverviewLane.SharedPolicy": "Gedeeld beleid",
+  "ModelOverviewLane.BusinessFunction": "Bedrijfsfunctie",
+  "ModelOverviewLane.RegistrationFunction": "Registratie functie",
+
+  "Form.Button.Previous": "Vorige",
+  "Form.Button.Next": "Volgende",
+  "Form.Button.Finish": "Voltooien",
+  "Form.Button.Cancel": "Annuleren",
+
+  "Homepage.Header": "Hallo",
+  "Homepage.Msg": "Dit is een voorbeeldhomepage",
+
+  "ConceptFormula.Header": "Formule",
+  "ConceptLabels.Header": "Alternatieve labels",
+  "ConceptProperties.Header": "Eigenschappen",
+  "ConceptRelations.Outgoing.Header": "Uitgaand",
+  "ConceptRelations.Incoming.Header": "Inkomend",
+  "ConceptTextFragments.Header": "Tekstfragmenten",
+  "SourceReferences.Header": "Bron referenties",
+  "ConceptIndex.Header": "Concept index",
+  "ContentIndex.Header": "Content index",
+  "RelatedConcepts.Header": "Gerelateerde concepten",
+
+  "Concept.Icon.AltText": "Icon van {SUBJECT}",
+
+  "GENERAL_ERROR": "Er is een onbekende fout opgetreden van het type: {type}",
+
+  "UploadField.placeholder": "Kies een bestand...",
+  "UploadField.errorExceedsMaxFileSize": "Bestandsgrootte van {ACTUAL_FILESIZE} is meer dan de maximaal toegestane bestandsgrootte van {MAXIMUM_FILESIZE}",
+  "UploadField.errorExtensionNotAllowed": "Bestand met extensie {EXTENSION} is niet toegestaan",
+
+  "Constraint.Date.InexactDate": "Datum moet ${date} zijn",
+  "Constraint.Number.InexactNumber": "Moet ${number} zijn.",
+
+  "Constraint.File.maxFilesize": "Maximale bestandsgroote is ${max-filesize}",
+
+  "Constraint.XML.InvalidFormat": "Moet een geldig XML structuur zijn",
+
+  "Password.Confirm.Label": "Bevestig ${label}",
+
+  "Constraint.Password.ConfirmMismatch": "Moet overeenkomen met ${other} veld"
+}

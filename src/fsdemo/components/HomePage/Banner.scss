@@ -1,0 +1,29 @@
+@import "../../../variables";
+
+.homepage-banner {
+  position: relative;
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+.homepage-message {
+  position: absolute;
+  top: 20%;
+
+  right: 20px;
+
+  width: 40%;
+
+  padding: $spacer * 2;
+
+  color: #fff;
+
+  background-color: rgba(51, 51, 51, 0.5);
+
+  p {
+    font-size: 1.3em;
+  }
+}

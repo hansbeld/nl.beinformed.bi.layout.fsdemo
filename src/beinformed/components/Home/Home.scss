@@ -1,0 +1,25 @@
+@import "../../../variables";
+
+.banner {
+  height: 325px;
+
+  color: theme-color("dark");
+
+  div {
+    position: relative;
+    top: 50%;
+
+    text-align: center;
+
+    transform: translateY(-50%);
+  }
+
+  img {
+    margin-top: -0.3em;
+    margin-bottom: 0.5em;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,17 @@
+@import "../../../variables";
+
+.status-bar {
+  padding: ($spacer / 2) $spacer;
+
+  background-color: $orange-lightest;
+
+  .application-location {
+    font-size: $font-size-lg;
+  }
+
+  .userinfo {
+    display: flex;
+
+    align-items: center;
+  }
+}

@@ -1,0 +1,13 @@
+@import "../../../variables";
+
+.caseview-header {
+  padding: $spacer;
+
+  background-color: $caseview-header-background;
+
+  margin-bottom: $spacer;
+
+  .caseview-header-info-item {
+    margin-right: $spacer;
+  }
+}

@@ -1,0 +1,28 @@
+@import "../../../variables";
+
+.captcha-image {
+  position: relative;
+
+  padding: $spacer;
+
+  border: 1px solid #ccc;
+  border-radius: $border-radius;
+
+  margin-bottom: $spacer / 4;
+
+  img {
+    min-height: 50px;
+  }
+
+  .btn-captcha-refresh {
+    position: absolute;
+    top: $spacer / 2;
+    right: $spacer / 2;
+
+    font-size: $font-size-sm;
+  }
+}
+
+.captcha-answered .icon {
+  color: $green;
+}

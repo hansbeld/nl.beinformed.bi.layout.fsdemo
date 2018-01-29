@@ -1,0 +1,239 @@
+{
+  "AccountMenu.Register": "Aanmelden",
+
+  "ActionChooser.Button.Actions": "Acties",
+
+  "AdviceExplain.title": "Jouw situatie",
+
+  "ApplicationFooter.About": "Over Be Informed Banking",
+  "ApplicationFooter.AboutUs": "Over ons",
+  "ApplicationFooter.Accounts": "Betalen",
+  "ApplicationFooter.BankingWithUs": "Bankieren",
+  "ApplicationFooter.Careers": "Vacatures",
+  "ApplicationFooter.ContactUs": "Contact",
+  "ApplicationFooter.CreditCards": "Creditcard",
+  "ApplicationFooter.FindBranch": "Vestiging zoeken",
+  "ApplicationFooter.FraudDetection": "Fraude detectie",
+  "ApplicationFooter.HelpAndFAQs": "Hulp",
+  "ApplicationFooter.Insurance": "Verzekeren",
+  "ApplicationFooter.Investment": "Beleggen",
+  "ApplicationFooter.Loans": "Lenen",
+  "ApplicationFooter.LostStolenCard": "Pas verloren?",
+  "ApplicationFooter.Mortgages": "Hypotheken",
+  "ApplicationFooter.News": "Nieuws",
+  "ApplicationFooter.Partners": "Partners",
+  "ApplicationFooter.Products": "Producten",
+  "ApplicationFooter.ServiceStatus": "Service status",
+  "ApplicationFooter.SupportAndServices": "Hulp en service",
+  "ApplicationFooter.Testimonials": "Sponsoring",
+  "ApplicationHeader.Accounts": "Betalen",
+  "ApplicationHeader.Business": "Zakelijk",
+  "ApplicationHeader.CreditCards": "Krediet",
+  "ApplicationHeader.Insurance": "Verzekeren",
+  "ApplicationHeader.International": "Internationaal",
+  "ApplicationHeader.Investments": "Beleggen",
+  "ApplicationHeader.Loans": "Lenen",
+  "ApplicationHeader.Mortgages": "Hypotheken",
+  "ApplicationHeader.Personal": "Persoonlijk",
+  "ApplicationHeader.Private": "Prive",
+
+  "ApplyForMortgage.title": "Hypotheekaanvraag",
+  "ApplyForMortgageLink.link": "Vraag nu aan",
+
+  "BankChannels.App.description": "Beheer uw geld en producten vanaf uw mobiel of tablet altijd en overal.",
+  "BankChannels.App.title": "Mobiele app",
+  "BankChannels.contact": "Neem contact met ons op:",
+  "BankChannels.Online.description": "Snel, veilig en makkelijk toegang tot uw bank zaken met onze online diensten.",
+  "BankChannels.Online.title": "Online",
+  "BankChannels.visit.description": "Loop binnen bij een van onze vestigingen voor advies, of het aanvragen van onze producten.",
+  "BankChannels.visit.title": "Bezoek een vestiging",
+  "BankChannels.WaysToBank.title": "Manieren om te bankieren",
+
+  "BankingChannels.DownloadApp": "Download app",
+  "BankingChannels.FindBranch": "Zoek vestiging",
+  "BankingChannels.LogIn": "Log in",
+  "BankingChannels.MoreContactInfo": "Meer contactgegevens",
+  "BankingChannels.RegisterNow": "Registreer",
+
+  "BusinessModelOverview.Header": "Business model overview",
+
+  "BusinessScenario.Header": "Business scenario",
+
+  "CheckEligibility.Link": "Geschikt ?",
+
+  "Choice.Boolean.False": "Nee",
+  "Choice.Boolean.True": "Ja",
+
+  "ChoiceField.Msg.NoOptionsAvailable": "Geen opties beschikbaar",
+  "ChoiceField.Msg.NotSupported": "Veld wordt niet ondersteund",
+
+  "ComponentChooser.Menu.SelectComponent": "Selecteer component",
+
+  "Concept.Icon.AltText": "Icon van {SUBJECT}",
+
+  "ConceptFormula.Header": "Formule",
+
+  "ConceptIndex.Header": "Concept index",
+  "ConceptLabels.Header": "Alternatieve labels",
+  "ConceptProperties.Header": "Eigenschappen",
+  "ConceptRelations.Incoming.Header": "Inkomend",
+  "ConceptRelations.Outgoing.Header": "Uitgaand",
+  "ConceptTextFragments.Header": "Tekstfragmenten",
+
+  "Constraint.Date.InexactDate": "Datum moet ${date} zijn",
+  "Constraint.File.maxFilesize": "Maximale bestandsgroote is ${max-filesize}",
+  "Constraint.Number.InexactNumber": "Moet ${number} zijn.",
+  "Constraint.XML.InvalidFormat": "Moet een geldig XML structuur zijn",
+
+  "ContentBrowser.Menu": "Content browser",
+  "ContentIndex.Header": "Content index",
+
+  "Filters.Button.ClearAll": "Herstel alle filters",
+
+  "Form.Button.Calculate": "Bereken",
+  "Form.Button.Cancel": "Annuleren",
+  "Form.Button.Check": "Controleer",
+  "Form.Button.CheckAgain": "Controleer",
+  "Form.Button.Close": "Sluiten",
+  "Form.Button.Finish": "Voltooien",
+  "Form.Button.Next": "Volgende",
+  "Form.Button.Previous": "Vorige",
+  "Form.Button.Recalculate": "Herbereken",
+  "Form.Button.Confirm": "Bevestigen",
+  "Form.Button.Submit": "Indienen",
+
+  "GENERAL_ERROR": "Er is een onbekende fout opgetreden van het type: {type}",
+
+  "Homepage.banner.calculators": "Hypotheekadvies",
+  "Homepage.banner.description": "Of je nu je eerste huis koopt, gaat verhuizen of koopt om te verhuren wij hebben altijd een passende hypotheek.",
+  "Homepage.banner.info": "Hypotheekinfo",
+  "Homepage.Header": "Hallo",
+  "Homepage.Msg": "Dit is een voorbeeldhomepage",
+
+  "List.AriaLabel.HeaderToolbar": "Beschikbare acties voor {LIST_LABEL} lijst",
+  "ListDetailGivenAnswers.Title": "Gegeven antwoorden",
+  "ListNoResults.Msg.EnterSearchTerm": "Vul een zoek term in om te zoeken",
+  "ListNoResults.Msg.NoResults": "Geen resultaten beschikbaar",
+  "ListViewTypeToggle.AltText.ListViewToggle": "Toon als {VIEWTYPE}",
+  "ListViewTypeToggle.AltText.TableViewToggle": "Toon als {VIEWTYPE}",
+  "ListViewTypeToggle.AriaLabel": "List type aanpassen",
+
+  "Login.Button.Close": "Sluiten",
+  "Login.Button.Login": "Inloggen",
+  "Login.Header": "Inloggen",
+  "Login.Msg.IncorrectUsernamePassword": "Ongeldige gebruikersnaam of wachtwoord",
+  "Login.Password": "Wachtwoord",
+  "Login.Password.Placeholder": "Vul wachtwoord in",
+  "Login.register.link": "Registreer je hier ",
+  "Login.register.question": "Nog geen account?",
+  "Login.Username": "Gebruikersnaam",
+  "Login.Username.Placeholder": "Vul gebruikersnaam in",
+
+  "LookupInput.AltText.RemoveActiveOption": "Verwijder optie",
+  "LookupInput.Button.Lookup": "Zoek",
+  "LookupInput.Msg.NoOptions": "Geen opties gevonden",
+  "LookupInput.Placeholder": "Vul één of meer tekens in",
+
+  "MakeAnAppointment" : "Maak een afspraak",
+  "MortgageIllustrationDoc" : "Hypotheek voorbeeld document",
+
+  "ModelCatalog.Menu": "Model catalogus",
+  "ModelCatalogSearch.Placeholder": "Zoek op label",
+
+  "ModelOverviewLane.BusinessFunction": "Bedrijfsfunctie",
+  "ModelOverviewLane.Case": "Zaken",
+  "ModelOverviewLane.Channel": "Kanalen",
+  "ModelOverviewLane.CustomerSegment": "Klantensegment",
+  "ModelOverviewLane.InteractionChannel": "Interactiekanaal",
+  "ModelOverviewLane.Product": "Producten",
+  "ModelOverviewLane.ProductFamily": "Productfamilie",
+  "ModelOverviewLane.Register": "Registraties",
+  "ModelOverviewLane.RegistrationFunction": "Registratie functie",
+  "ModelOverviewLane.Role": "Rollen",
+  "ModelOverviewLane.SharedPolicy": "Gedeeld beleid",
+
+  "MortgageComparison.Details": "Details",
+  "MortgageComparison.MortgageAmount": "Hypotheek bedrag",
+  "MortgageComparison.MortgageCost": "Totale kosten",
+  "MortgageComparison.MortgageFee": "Afsluitkosten",
+  "MortgageComparison.MortgageFollowonPayment": "Vervolg maandbedrag",
+  "MortgageComparison.MortgageInitialPayment": "Start maandbedrag",
+  "MortgageComparison.MortgageInitialRate": "Start rentetarief",
+  "MortgageComparison.MortgageOptions": "Hypotheek mogelijkheden",
+  "MortgageComparison.MortgageRate": "Rentesoort",
+  "MortgageComparison.MortgageTerm": "Hypotheek duur",
+  "MortgageComparison.MortgageType": "Hypotheektype",
+
+  "MortgageOption.pin": "Vastzetten",
+  "MortgageOption.unpin": "Los maken",
+
+  "MortgageOptionDetail.description": "Hieronder vind je een samenvatting van de geselecteerde hypotheek. Voor meer informatie lees ",
+  "MortgageOptionDetail.title": "Samenvatting hypotheek",
+  "MortgageOptionDetail.whatsnext.description": "Als u zeker bent van uw keuze dan kunt u de hypotheek online aanvragen. U kunt ook een gesprek aanvragen met een van onze adviseurs. ",
+  "MortgageOptionDetail.whatsnext.title": "Volgende stap",
+
+  "Notification.Msg.Create": "Er is succesvol een nieuw item gecreëerd.",
+  "Notification.Msg.Delete": "Het is is succesvol verwijderd.",
+  "Notification.Msg.Update": "Het item is succesvol gewijzigd.",
+
+  "PagesizeChooser.PageSize": "Pagina grootte: {PAGESIZE}",
+  "PagingInfo.Information": "{FIRSTITEM} - {LASTITEM} of {TOTALRESULTS}",
+  "PagingInfo.TotalResults": "{TOTALRESULTS, plural, =0{geen resultaten} one{1 resultaat} other{# resultaten}}",
+
+  "PagingItem.AriaLabel.GotoFirstPage": "Ga naar de eerste pagina",
+  "PagingItem.AriaLabel.GotoLastPage": "Ga naar de laatste pagina, pagina nummer {LAST_PAGE_NUMBER}",
+  "PagingItem.AriaLabel.GotoNextPage": "Ga naar de volgende pagina, pagina nummer {NEXT_PAGE_NUMBER}",
+  "PagingItem.AriaLabel.GotoPage": "Ga naar pagina {PAGE_NUMBER}",
+  "PagingItem.AriaLabel.GotoPreviousPage": "Ga naar de vorige pagina, pagina nummer {PREVIOUS_PAGE_NUMBER}",
+
+  "ProductSuggestions.title": "Misschien heet u ook interesse in ...",
+
+  "QuickSearchInput.Placeholder": "Zoek op {SEARCHOPTION_LABEL}",
+  "QuickSearchInput.SearchLabel": "Zoeken",
+  "QuickSearchResuls.Msg.NoResults": "Geen zoekresultaten",
+
+  "quicktransfer.btn-transfer": "Overboeken",
+
+  "RelatedConcepts.Header": "Gerelateerde concepten",
+
+  "Result.HowMuchCanIBorrow?": "Hoeveel kan ik lenen?",
+  "Result.howMuchCanIBorrowLabel": "Hoeveel kan ik lenen?",
+  "Result.whatsNext": "Vervolgstappen",
+  "Result.whatsNextBorrowDesccription": "Ontdek hoeveel u kunt lenen gepersonliseerd op uw situatie.",
+  "Result.whatsNextCostDescription": "Gebruik onze kostencalulator om uw maandelijkse kosten te berekenen en verschillende mogelijkheden te vergelijken",
+  "Result.whatWillItCost": "Wat zijn de kosten?",
+
+  "ResultMortgageCost.apply.description": "Online uw hypotheek aanvragen.",
+  "ResultMortgageCost.comparison.button": "Toevoegen aan vergelijking",
+  "ResultMortgageCost.comparison.buttonRates": "Vergelijk tarieven",
+  "ResultMortgageCost.comparison.description": "Dit toevoegen aan uw vergelijking",
+  "ResultMortgageCost.comparison.descriptionRates": "Vergelijk uw hypotheek met andere rente tarieven.",
+  "ResultMortgageCost.whatsNext": "Volgende stap",
+
+  "SelectField.Placeholder": "Kies een optie",
+
+  "SortChooser.SortBy": "Sorteer op {COLUMN_NAME}",
+  "SortChooser.SortDefaultLabel": "Sorteer op relevantie",
+
+  "SourceReferences.Header": "Bron referenties",
+
+  "Statusbar.onlineBanking": "Online bankieren",
+  "Statusbar.welcome": "Welkom",
+
+  "SuitableMortgageOptions.Eligible": "Geschikt?",
+
+  "TargetOperatingModel.Header": "Target operating model",
+
+  "UploadField.errorExceedsMaxFileSize": "Bestandsgrootte van {ACTUAL_FILESIZE} is meer dan de maximaal toegestane bestandsgrootte van {MAXIMUM_FILESIZE}",
+  "UploadField.errorExtensionNotAllowed": "Bestand met extensie {EXTENSION} is niet toegestaan",
+
+  "UserLinks.Menu.LogIn": "Inloggen",
+  "UserLinks.Menu.LogOut": "Log uit",
+  "UserLinks.Menu.UserProfile": "Gebruikersprofiel",
+
+  "UserProfile.Button.Close": "Sluiten",
+  "UserProfile.Header": "User Profile",
+
+  "YearAmountInput.Monthly": "Per maand",
+  "YearAmountInput.Yearly": "Per jaar"
+}

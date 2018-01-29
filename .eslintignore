@@ -1,0 +1,12 @@
+**/\.vscode/**
+**/coverage/**
+**/flow-decls/**
+**/flow-stubs/**
+**/flow-typed/**
+**/jest/**
+**/lib/**
+**/META-INF/**
+**/node_modules/**
+**/WEB-INF/**
+**/webpack/**
+**/*.spec.js

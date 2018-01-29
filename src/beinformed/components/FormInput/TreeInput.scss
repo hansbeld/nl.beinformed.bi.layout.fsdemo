@@ -1,0 +1,30 @@
+@import "../../../variables";
+
+.choice-tree,
+.choice-tree ul {
+  list-style: none;
+}
+
+.choice-tree {
+  padding-left: $custom-control-gutter;
+
+  > li > ul {
+    padding-left: $custom-control-gutter;
+  }
+}
+
+.choice-tree-toggle {
+  padding-right: 4px;
+
+  margin-left: -$custom-control-gutter;
+
+  cursor: pointer;
+
+  &.tree-node-closed {
+    margin-left: -15px;
+  }
+}
+
+.tree-option .content {
+  padding-left: $custom-control-gutter;
+}

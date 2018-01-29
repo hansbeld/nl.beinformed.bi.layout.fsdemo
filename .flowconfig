@@ -1,0 +1,31 @@
+[ignore]
+.*/.settings/.*
+.*/_PLUGIN/.*
+.*/coverage/.*
+.*/jest/.*
+.*/META-INF/.*
+.*/node/.*
+.*/target/.*
+.*/WEB-INF/.*
+.*/webpack/.*
+
+.*/node_modules/stylelint/.*
+.*/node_modules/eslint-plugin-jsx-a11y/.*
+
+.*\.scss
+
+[libs]
+./flow/flow-decls/
+./flow/flow-typed/npm/
+
+[options]
+sharedmemory.hash_table_pow=21
+
+# webpack loaders
+module.name_mapper='.*\.s?css$' -> '<PROJECT_ROOT>/flow/flow-stubs/css-module.js'
+module.name_mapper='.*\.\(svg\|png\|jpg\|gif\|ico\|xml\)$' -> '<PROJECT_ROOT>/flow/flow-stubs/url-loader.js'
+
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
+
+# resolve src root folder
+module.system.node.resolve_dirname=src

@@ -1,0 +1,36 @@
+@import "../../../variables";
+@import "~bootstrap/scss/mixins/border-radius";
+
+.modelcatalog-search {
+  position: absolute;
+  top: -$spacer / 2;
+  right: 0;
+  z-index: 0;
+
+  width: 200px;
+
+  .modelcatalog-search-result {
+    @include border-radius($border-radius);
+
+    @if $enable-shadows {
+      box-shadow: $dropdown-box-shadow;
+    }
+
+    position: absolute;
+    right: 0;
+
+    overflow: auto;
+
+    min-width: 400px;
+    max-height: 50vh;
+
+    padding: $spacer / 2;
+
+    color: $body-color;
+    background-color: $dropdown-bg;
+
+    border: $dropdown-border-width solid $dropdown-border-color;
+
+    margin-top: 1px;
+  }
+}

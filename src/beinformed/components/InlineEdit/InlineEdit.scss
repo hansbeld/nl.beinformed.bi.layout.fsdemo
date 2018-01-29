@@ -1,0 +1,59 @@
+$inline-edit-action-width: 76px;
+
+.table-inline-edit {
+  .table-row:hover {
+    background: transparent;
+
+    cursor: default;
+  }
+
+  .table-cell-inline-edit {
+    position: relative;
+
+    overflow: visible;
+
+    padding: 0.25rem;
+  }
+
+  .form-group {
+    margin-bottom: 0;
+  }
+
+  .cell-assistant {
+    margin-top: 7px;
+  }
+
+  .custom-control {
+    display: block;
+
+    margin-left: 0;
+  }
+
+  &.has-clone-task,
+  &.has-delete-task {
+    .table-header,
+    .table-row {
+      position: relative;
+
+      padding-right: $inline-edit-action-width;
+    }
+
+    .table-cell-inline-actions {
+      width: $inline-edit-action-width;
+
+      padding: 0.25rem;
+
+      margin-right: -$inline-edit-action-width;
+
+      > .btn {
+        float: left;
+      }
+
+      .fa {
+        min-width: 16px;
+
+        margin: 0 -4px;
+      }
+    }
+  }
+}

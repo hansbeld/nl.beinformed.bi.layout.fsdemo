@@ -1,0 +1,32 @@
+@import "../../../variables";
+
+.apply-for-mortgage-table-cell {
+  > div {
+    float: left;
+  }
+
+  .label {
+    padding: $spacer / 4;
+  }
+}
+
+[data-id="addproofofidentity"] .table-cell,
+[data-id="addinformationaboutrisks"] .table-cell {
+  display: block;
+  clear: both;
+
+  > div {
+    position: relative;
+
+    display: block;
+    float: none;
+
+    padding: 0;
+
+    margin-bottom: $spacer / 2;
+
+    &.label {
+      font-weight: 600;
+    }
+  }
+}

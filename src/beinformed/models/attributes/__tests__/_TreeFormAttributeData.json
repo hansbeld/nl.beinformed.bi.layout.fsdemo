@@ -1,0 +1,27 @@
+[
+  {
+    "elementid": "TotaleBoeteBedrag",
+    "static": true
+  },
+  {
+    "elementid": "Snelheid",
+    "static": true
+  },
+  {
+    "elementid": "KmhTeHard"
+  },
+  {
+    "elementid": "GordelDragen",
+    "static": true
+  },
+  {
+    "elementid": "GordelOm"
+  },
+  {
+    "elementid": "Drank",
+    "static": true
+  },
+  {
+    "elementid": "GemetenGl"
+  }
+]

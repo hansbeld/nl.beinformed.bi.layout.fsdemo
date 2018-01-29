@@ -1,0 +1,22 @@
+@import "../../../variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.customer {
+  margin: 4px 0 4px auto;
+
+  .btn.register {
+    color: $orange;
+
+    text-decoration: underline;
+  }
+
+  .btn.signin {
+    color: #fff;
+  }
+
+  @include media-breakpoint-down(lg) {
+    .btn.signin .fa {
+      display: none;
+    }
+  }
+}

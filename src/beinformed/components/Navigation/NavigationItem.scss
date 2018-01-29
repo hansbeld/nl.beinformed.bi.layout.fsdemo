@@ -1,0 +1,9 @@
+@import "../../../variables";
+
+.nav-item .fa {
+  margin-right: $spacer / 2;
+
+  &:first-child a {
+    padding-left: 0;
+  }
+}

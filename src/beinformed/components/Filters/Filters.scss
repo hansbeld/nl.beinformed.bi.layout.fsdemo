@@ -1,0 +1,14 @@
+@import "../../../variables";
+
+.filters {
+  font-size: 80%;
+
+  .btn,
+  .form-control {
+    font-size: 0.8rem;
+  }
+}
+
+.choicefilter {
+  padding-bottom: $spacer;
+}

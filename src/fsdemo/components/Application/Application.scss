@@ -1,0 +1,12 @@
+@import "../../../variables";
+
+.btn-primary {
+  color: #fff;
+  background-color: $orange;
+}
+
+.application-body {
+  min-height: $spacer * 25;
+
+  padding-top: $spacer / 2;
+}

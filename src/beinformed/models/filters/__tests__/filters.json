@@ -1,0 +1,91 @@
+{
+  "filter": {
+    "STRING": {
+      "name": "STRING",
+      "param": "STRING"
+    },
+    "CHECKBOX": {
+      "name": "CHECKBOX",
+      "param": "CHECKBOX",
+      "options": [
+        {
+          "key": "Hardcover",
+          "count": 11
+        },
+        {
+          "key": "Paperback",
+          "count": 18
+        },
+        {
+          "key": "Ebook",
+          "count": 1
+        },
+        {
+          "key": "Audio",
+          "count": 2
+        }
+      ]
+    },
+    "RADIO": {
+      "name": "RADIO",
+      "param": "RADIO",
+      "options": [
+        {
+          "key": "Hardcover",
+          "count": 11
+        },
+        {
+          "key": "Paperback",
+          "count": 18
+        },
+        {
+          "key": "Ebook",
+          "count": 1
+        },
+        {
+          "key": "Audio",
+          "count": 2
+        }
+      ]
+    },
+    "DATERANGE": {
+      "name": "DATERANGE",
+      "startDate": {
+        "param": "StartDate"
+      },
+      "endDate": {
+        "param": "EndDate"
+      }
+    },
+    "NUMBERRANGE": {
+      "name": "NUMBERRANGE",
+      "startNumber": {
+        "param": "StartNumber"
+      },
+      "endNumber": {
+        "param": "EndNumber"
+      }
+    },
+    "ASSIGNMENT": {
+      "name": "ASSIGNMENT",
+      "USERKEY": {
+        "param": "USERKEY",
+        "name": "USERKEY",
+        "_links": {
+          "lookupservice": {
+            "href": "/lookupOptions?lookupToken=4dd421d2-4c9f-494c-a31b-2fb458381e07"
+          }
+        }
+      },
+      "ASSIGNMENTTYPE": {
+        "param": "ASSIGNMENTTYPE",
+        "name": "ASSIGNMENTTYPE",
+        "options": [
+          {
+            "key": "Practitioner"
+          }
+        ]
+      }
+    }
+  }
+}

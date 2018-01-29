@@ -1,0 +1,3 @@
+@function get-width($key: "control") {
+  @return map-get($form-controls-width, $key);
+}

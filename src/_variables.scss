@@ -1,0 +1,13 @@
+@import "~bootstrap/scss/functions";
+@import "./fsdemo/functions";
+// First declare global bootstrap variables,
+// so that they can be used in our project variables.
+// Use bootstrap_variables to overwrite variables defined in bootstrap
+@import "./bootstrap_variables";
+@import "~bootstrap/scss/variables";
+
+// Project variables before beinformed variables:
+// !default flags are used on bootstrap and beinformed variables, see:
+// http://sass-lang.com/documentation/file.SASS_REFERENCE.html#Variable_Defaults___default
+@import "./fsdemo/variables";
+@import "./beinformed/variables";

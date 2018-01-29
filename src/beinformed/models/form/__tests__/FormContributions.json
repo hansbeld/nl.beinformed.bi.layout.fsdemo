@@ -1,0 +1,523 @@
+{
+  "label": "Create person",
+  "resourcetype": "Form",
+  "objects": {
+    "Person": {
+      "repeatable": false,
+      "label": "Create person",
+      "attributes": [
+        {
+          "Name": {
+            "type": "string",
+            "label": "Name",
+            "mandatory": true,
+            "displaysize": 50
+          }
+        },
+        {
+          "DateOfBirth": {
+            "type": "date",
+            "label": "Date of birth",
+            "mandatory": false,
+            "format": "dd-MM-yyyy",
+            "formatlabel": "dd-mm-jjjj"
+          }
+        },
+        {
+          "DateOfDeath": {
+            "type": "date",
+            "label": "Date of death",
+            "mandatory": false,
+            "format": "dd-MM-yyyy",
+            "formatlabel": "dd-mm-jjjj"
+          }
+        }
+      ]
+    },
+    "Details": {
+      "repeatable": true,
+      "label": "Add details",
+      "attributes": [
+        {
+          "Address": {
+            "type": "string",
+            "label": "Address",
+            "mandatory": false,
+            "displaysize": 50
+          }
+        },
+        {
+          "Zipcode": {
+            "type": "string",
+            "label": "Zipcode",
+            "mandatory": false,
+            "regexp": "[1-9]{1}[0-9]{3}[\\s]?[a-zA-Z]{2}",
+            "layouthint": [
+              "zipcode"
+            ]
+          }
+        },
+        {
+          "City": {
+            "type": "string",
+            "label": "City",
+            "mandatory": false,
+            "displaysize": 50
+          }
+        },
+        {
+          "Type": {
+            "type": "string",
+            "label": "Type",
+            "mandatory": true,
+            "optionMode": "static",
+            "multiplechoice": false,
+            "layouthint": [
+              "combobox"
+            ],
+            "enumerated": true,
+            "options": [
+              {
+                "code": "Home",
+                "label": "Home"
+              },
+              {
+                "code": "Work",
+                "label": "Work"
+              },
+              {
+                "code": "Other",
+                "label": "Other"
+              }
+            ]
+          }
+        },
+        {
+          "PhoneNumber": {
+            "type": "string",
+            "label": "Phone number",
+            "mandatory": false,
+            "displaysize": 50
+          }
+        },
+        {
+          "E_mailAddress": {
+            "type": "string",
+            "label": "E-mail address",
+            "mandatory": false,
+            "regexp": "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+            "layouthint": [
+              "email"
+            ],
+            "displaysize": 50,
+            "maxLength": 128
+          }
+        },
+        {
+          "BankAccountNumber": {
+            "type": "string",
+            "label": "Bank account number",
+            "mandatory": false,
+            "postfix": "Enter a valid IBAN.",
+            "layouthint": [
+              "bankaccountnumber",
+              "iban"
+            ],
+            "displaysize": 50,
+            "maxLength": 30
+          }
+        },
+        {
+          "ChoiceRadioButton": {
+            "type": "string",
+            "label": "Choice radio button",
+            "mandatory": false,
+            "optionMode": "static",
+            "multiplechoice": false,
+            "layouthint": [
+              "radiobutton"
+            ],
+            "enumerated": true,
+            "options": [
+              {
+                "code": "A",
+                "label": "A"
+              },
+              {
+                "code": "B",
+                "label": "B"
+              }
+            ]
+          }
+        },
+        {
+          "ChoiceCheckBox": {
+            "type": "array",
+            "label": "Choice check box",
+            "mandatory": false,
+            "optionMode": "static",
+            "multiplechoice": true,
+            "layouthint": [
+              "checkbox"
+            ],
+            "enumerated": true,
+            "options": [
+              {
+                "code": "A",
+                "label": "A"
+              },
+              {
+                "code": "B",
+                "label": "B"
+              }
+            ]
+          }
+        },
+        {
+          "ChoiceListView": {
+            "type": "string",
+            "label": "Choice list view",
+            "mandatory": false,
+            "optionMode": "static",
+            "multiplechoice": false,
+            "layouthint": [
+              "listview"
+            ],
+            "enumerated": true,
+            "options": [
+              {
+                "code": "A",
+                "label": "A"
+              },
+              {
+                "code": "B",
+                "label": "B"
+              }
+            ]
+          }
+        },
+        {
+          "ChoiceComboBox": {
+            "type": "string",
+            "label": "Choice combo box",
+            "mandatory": false,
+            "optionMode": "static",
+            "multiplechoice": false,
+            "layouthint": [
+              "combobox"
+            ],
+            "enumerated": true,
+            "options": [
+              {
+                "code": "A",
+                "label": "A"
+              },
+              {
+                "code": "B",
+                "label": "B"
+              }
+            ]
+          }
+        },
+        {
+          "Date": {
+            "type": "date",
+            "label": "Date",
+            "mandatory": false,
+            "format": "dd-MM-yyyy",
+            "formatlabel": "dd-mm-jjjj"
+          }
+        },
+        {
+          "DateRange": {
+            "type": "range",
+            "label": "Date range",
+            "mandatory": false,
+            "children": [
+              {
+                "BeginDate": {
+                  "type": "date",
+                  "label": "Begin",
+                  "mandatory": true,
+                  "format": "dd-MM-yyyy",
+                  "formatlabel": "dd-mm-jjjj"
+                }
+              },
+              {
+                "EndDate": {
+                  "type": "date",
+                  "label": "End",
+                  "mandatory": true,
+                  "format": "dd-MM-yyyy",
+                  "formatlabel": "dd-mm-jjjj"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "E_mail": {
+            "type": "string",
+            "label": "E-mail",
+            "mandatory": false,
+            "regexp": "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+            "postfix": "This e-mail address cannot be altered.",
+            "readonly": true,
+            "layouthint": [
+              "email"
+            ],
+            "displaysize": 50,
+            "maxLength": 128
+          }
+        },
+        {
+          "HelpText1": {
+            "type": "string",
+            "label": "Help text 1",
+            "mandatory": false,
+            "text": "<p>Dit is <strike>een</strike> helptekst!<br />Hallo <em>daar</em>.<br />Even <u>wat</u> meer <strong>regels.</strong></p>",
+            "readonly": true
+          }
+        },
+        {
+          "Label1": {
+            "type": "string",
+            "label": "Label 1",
+            "mandatory": false,
+            "readonly": true,
+            "layouthint": [
+              "label"
+            ]
+          }
+        },
+        {
+          "Memo": {
+            "type": "string",
+            "label": "Memo",
+            "mandatory": false,
+            "rows": 5,
+            "columns": 50,
+            "formatted": false
+          }
+        },
+        {
+          "Number": {
+            "type": "number",
+            "label": "Number",
+            "mandatory": false,
+            "format": "0",
+            "groupingSeparator": ".",
+            "decimalSeparator": ",",
+            "assistant": "This is an assistant message.",
+            "minimum": 0,
+            "maximum": 10
+          }
+        },
+        {
+          "Password": {
+            "type": "string",
+            "label": "Password",
+            "mandatory": false,
+            "layouthint": [
+              "password"
+            ],
+            "displaysize": 50,
+            "maxLength": 50
+          }
+        },
+        {
+          "BSN": {
+            "type": "string",
+            "label": "BSN",
+            "mandatory": false,
+            "layouthint": [
+              "bsn"
+            ]
+          }
+        },
+        {
+          "NativeCountry": {
+            "type": "string",
+            "label": "Native country",
+            "mandatory": false,
+            "optionMode": "static",
+            "multiplechoice": false,
+            "layouthint": [
+              "radiobutton"
+            ],
+            "enumerated": true,
+            "options": [
+              {
+                "code": "NativeCountry",
+                "label": "Native country",
+                "children": [
+                  {
+                    "code": "Netherlands",
+                    "label": "Netherlands",
+                    "_links": {
+                      "concept": {
+                        "href": "/concepts/Persons/Knowledge model/Taxonomy.bixml/Netherlands"
+                      }
+                    }
+                  },
+                  {
+                    "code": "UnitedKingdom",
+                    "label": "United Kingdom",
+                    "_links": {
+                      "concept": {
+                        "href": "/concepts/Persons/Knowledge model/Taxonomy.bixml/UnitedKingdom"
+                      }
+                    }
+                  },
+                  {
+                    "code": "Germany",
+                    "label": "Germany",
+                    "_links": {
+                      "concept": {
+                        "href": "/concepts/Persons/Knowledge model/Taxonomy.bixml/Germany"
+                      }
+                    }
+                  },
+                  {
+                    "code": "Belgium",
+                    "label": "Belgium",
+                    "_links": {
+                      "concept": {
+                        "href": "/concepts/Persons/Knowledge model/Taxonomy.bixml/Belgium"
+                      }
+                    }
+                  }
+                ],
+                "_links": {
+                  "concept": {
+                    "href": "/concepts/Persons/Knowledge model/Taxonomy.bixml/NativeCountry"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Time": {
+            "type": "time",
+            "label": "Time",
+            "mandatory": false,
+            "format": "HH:mm",
+            "formatlabel": "uu:mm"
+          }
+        },
+        {
+          "TimeRange": {
+            "type": "range",
+            "label": "Time range",
+            "mandatory": false,
+            "children": [
+              {
+                "BeginTime": {
+                  "type": "time",
+                  "label": "Begin",
+                  "mandatory": true,
+                  "format": "HH:mm",
+                  "formatlabel": "uu:mm"
+                }
+              },
+              {
+                "EndTime": {
+                  "type": "time",
+                  "label": "End",
+                  "mandatory": true,
+                  "format": "HH:mm",
+                  "formatlabel": "uu:mm"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Timestamp": {
+            "type": "datetime",
+            "label": "Timestamp",
+            "mandatory": false,
+            "format": "dd-MM-yyyy HH:mm:ss.SSS",
+            "formatlabel": "dd-mm-jjjj uu:mm:ss.fff"
+          }
+        },
+        {
+          "TimestampRange": {
+            "type": "range",
+            "label": "Timestamp range",
+            "mandatory": false,
+            "children": [
+              {
+                "BeginTimestamp": {
+                  "type": "datetime",
+                  "label": "Begin",
+                  "mandatory": true,
+                  "format": "dd-MM-yyyy HH:mm:ss.SSS",
+                  "formatlabel": "dd-mm-jjjj uu:mm:ss.fff"
+                }
+              },
+              {
+                "EndTimestamp": {
+                  "type": "datetime",
+                  "label": "End",
+                  "mandatory": true,
+                  "format": "dd-MM-yyyy HH:mm:ss.SSS",
+                  "formatlabel": "dd-mm-jjjj uu:mm:ss.fff"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Upload": {
+            "type": "binary",
+            "label": "Upload",
+            "mandatory": false,
+            "multiple": true,
+            "uploadMaxFileSize": 10000000
+          }
+        },
+        {
+          "XML": {
+            "type": "string",
+            "label": "XML",
+            "mandatory": false,
+            "layouthint": [
+              "xml"
+            ]
+          }
+        },
+        {
+          "FormattedMemo": {
+            "type": "string",
+            "label": "Formatted memo",
+            "mandatory": false,
+            "rows": 5,
+            "columns": 50,
+            "formatted": true
+          }
+        },
+        {
+          "Zipcode2": {
+            "type": "string",
+            "label": "Zipcode2",
+            "mandatory": false,
+            "regexp": "[1-9]{1}[0-9]{3}[\\s]?[a-zA-Z]{2}",
+            "layouthint": [
+              "zipcode"
+            ]
+          }
+        },
+        {
+          "Location": {
+            "type": "string",
+            "label": "Location",
+            "mandatory": false,
+            "displaysize": 50
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "tab": {
+    "_links": {
+      "self": {
+        "href": "/books"
+      },
+      "api_doc": {
+        "href": "/api-docs/books"
+      },
+      "contributions": {
+        "href": "/contributions/books"
+      },
+      "component": [
+        {
+          "href": "/books/books",
+          "name": "Books"
+        },
+        {
+          "href": "/books/booksbypersonrole",
+          "name": "BooksByPersonRole"
+        },
+        {
+          "href": "/books/BookPrints",
+          "name": "BookPrints"
+        },
+        {
+          "href": "/books/LatestBooks",
+          "name": "LatestBooks"
+        }
+      ]
+    }
+  }
+}

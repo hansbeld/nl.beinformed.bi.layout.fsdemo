@@ -1,0 +1,11 @@
+@import "../../../variables";
+
+.groupingpanel .panel-label {
+  color: $headings-color;
+
+  margin-bottom: $headings-margin-bottom;
+
+  font-weight: $headings-font-weight;
+  font-family: $headings-font-family;
+  line-height: $headings-line-height;
+}

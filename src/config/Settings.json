@@ -1,0 +1,57 @@
+{
+  "USE_CACHE": {
+    "description":
+      "Indicates if contributions and routeprovider should be cached",
+    "value": true
+  },
+
+  "DEFAULT_CONTEXTPATH": {
+    "description":
+      "Context path is set from request, but uses this as fallback",
+    "value": "/BeInformed"
+  },
+
+  "HIDE_NOTIFICATION_TIMEOUT": {
+    "description": "Time to show the notification bar",
+    "value": 3000
+  },
+
+  "ALWAYS_COMMIT_FORM": {
+    "description":
+      "Always commit form, does not show result pages for instruments",
+    "value": false
+  },
+
+  "HORIZONTAL_FORM_LABEL_CLASS": {
+    "description":
+      "CSS class that sets the width of the attribute labels. Range from 1 to 11",
+    "value": "col-sm-5"
+  },
+
+  "RENDER_QUESTION_LABELS": {
+    "description":
+      "Render instrument and event question labels on forms (might result in duplicate labels)",
+    "value": false
+  },
+
+  "AVAILABLE_LIST_VIEWS": {
+    "description":
+      "Renders a toggle with supported list views, options are ListView and TableView",
+    "value": ["ListView"]
+  },
+
+  "LOGIN_PATH": {
+    "description": "Deeplink to login page / component",
+    "value": "/signin"
+  },
+
+  "LOGOUT_PATH": {
+    "description": "Deeplink to logout page / component",
+    "value": "/signoff"
+  },
+
+  "CHANGEPASSWORD_PATH": {
+    "description": "Deeplink to change password page / component",
+    "value": "/change-password"
+  }
+}

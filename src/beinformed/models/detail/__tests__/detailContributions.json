@@ -1,0 +1,128 @@
+{
+  "Book": {
+    "label": "Book",
+    "resourcetype": "CaseView",
+    "texts": [
+      {
+        "type": "master",
+        "text": "<p>This view contains all the data about this book. It contains a list of the creators and editions. A person can be an author(1) or an illustrator(2)<br /><br />This is a list of books that is ordered by the role (author (1), co-author, illustrator(2)) of the person that contributed to the book.<br /><br />1) An author is broadly defined as &quot;the person who originated or gave existence to anything&quot; and whose authorship determines responsibility for what was created. Narrowly defined, an author is the originator of any written work and can also be described as a writer.<br /><br />2) An illustrator is an artist who specializes in enhancing writing or elucidating concepts by providing a visual representation that corresponds to the content of the associated text or idea. The illustration may be intended to clarify complicated concepts or objects that are difficult to describe textually, which is the reason illustrations are often found in children&#39;s books.<br /></p>"
+      }
+    ],
+    "_links": {
+      "panel": [
+        {
+          "name": "Creator",
+          "label": "Creator",
+          "resourcetype": "CaseRelationListPanel"
+        },
+        {
+          "name": "Editions",
+          "label": "Editions",
+          "resourcetype": "RecordListPanel"
+        }
+      ],
+      "taskgroup": [
+        {
+          "name": "Tasks",
+          "label": "Tasks",
+          "resourcetype": "TaskGroup"
+        }
+      ]
+    },
+    "metadata": {
+      "_id": {
+        "label": "Id",
+        "type": "integer"
+      },
+      "CaseName": {
+        "label": "Case name",
+        "type": "string"
+      },
+      "CaseType": {
+        "label": "Case type",
+        "type": "string"
+      },
+      "Owner": {
+        "label": "Case owner",
+        "type": "string"
+      },
+      "State": {
+        "label": "State",
+        "type": "string",
+        "options": [
+          {
+            "code": "Registered",
+            "label": "Registered"
+          }
+        ]
+      }
+    },
+    "attributes": [
+      {
+        "Format": {
+          "label": "Format",
+          "type": "string",
+          "layouthint": [
+            "combobox"
+          ],
+          "options": [
+            {
+              "code": "Hardcover",
+              "label": "Hardcover"
+            },
+            {
+              "code": "Paperback",
+              "label": "Paperback"
+            },
+            {
+              "code": "Ebook",
+              "label": "Ebook"
+            },
+            {
+              "code": "Audio",
+              "label": "Audio book"
+            }
+          ]
+        }
+      },
+      {
+        "ISBN10": {
+          "label": "ISBN10",
+          "type": "string"
+        }
+      },
+      {
+        "ISBN13": {
+          "label": "ISBN13",
+          "type": "string"
+        }
+      },
+      {
+        "Language": {
+          "label": "Language",
+          "type": "string",
+          "layouthint": [
+            "radiobutton"
+          ],
+          "options": [
+            {
+              "code": "EN",
+              "label": "English"
+            },
+            {
+              "code": "DU",
+              "label": "Dutch"
+            }
+          ]
+        }
+      },
+      {
+        "NumberOfPages": {
+          "label": "Number of pages",
+          "type": "number",
+          "format": "0"
+        }
+      }
+    ]
+  }
+}

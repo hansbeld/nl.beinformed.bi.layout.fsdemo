@@ -1,0 +1,30 @@
+@import "../../../variables";
+
+.form-result {
+  padding: ($spacer / 2);
+
+  background-color: $form-result-background;
+
+  margin-bottom: $spacer;
+
+  &.suitable-mortgage-explain {
+    padding: 0;
+
+    background-color: transparent;
+
+    margin: 0;
+  }
+
+  .is-readonly > * {
+    padding: 0 0 ($spacer / 2);
+
+    background: transparent;
+
+    border: 0;
+    box-shadow: none;
+
+    &.input-group-addon::after {
+      content: "\00a0";
+    }
+  }
+}

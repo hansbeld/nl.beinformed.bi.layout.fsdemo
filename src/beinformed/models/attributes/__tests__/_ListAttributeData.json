@@ -1,0 +1,70 @@
+{
+  "actions": [
+    {
+      "name": "addauthor",
+      "method": "POST",
+      "href": "/books/books/24/addauthor",
+      "fields": [
+        {
+          "name": "ID",
+          "type": "number",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "name": "addco-author",
+      "method": "POST",
+      "href": "/books/books/24/addco-author",
+      "fields": [
+        {
+          "name": "ID",
+          "type": "number",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "name": "addillustrator",
+      "method": "POST",
+      "href": "/books/books/24/addillustrator",
+      "fields": [
+        {
+          "name": "ID",
+          "type": "number",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "name": "addedition",
+      "method": "POST",
+      "href": "/books/books/24/addedition",
+      "fields": [
+        {
+          "name": "ID",
+          "type": "number",
+          "value": 24
+        }
+      ]
+    }
+  ],
+  "_id": 24,
+  "_links": {
+    "self": {
+      "href": "/books/book/24"
+    },
+    "Contributors": {
+      "href": "/books/books/24/contributors"
+    },
+    "PublishedByPublishingHouse": {
+      "href": "/books/books/24/publishedbypublishinghouse"
+    }
+  },
+  "Title": "The safety of objects",
+  "ISBN10": "1847087302",
+  "ISBN13": "9781847087300",
+  "NumberOfPages": 176,
+  "Format": "Paperback",
+  "Language": "EN"
+}

@@ -1,0 +1,119 @@
+[
+  {
+    "TotaleBoeteBedrag": {
+      "type": "number",
+      "label": "Totale boete bedrag",
+      "mandatory": false,
+      "readonly": true,
+      "decimalSeparator": ",",
+      "_links": {
+        "concept": {
+          "href": "/concepts/Incident/Business design/Process elementen/Boete berekenen.bixml/TotaleBoeteBedrag"
+        }
+      },
+      "format": "#.##",
+      "groupingSeparator": ".",
+      "children": [
+        {
+          "Snelheid": {
+            "type": "number",
+            "label": "Snelheid",
+            "mandatory": false,
+            "readonly": true,
+            "decimalSeparator": ",",
+            "_links": {
+              "concept": {
+                "href": "/concepts/Incident/Business design/Process elementen/Boete berekenen.bixml/Snelheid"
+              }
+            },
+            "format": "#.##",
+            "groupingSeparator": ".",
+            "children": [
+              {
+                "KmhTeHard": {
+                  "type": "number",
+                  "label": "Hoeveel Km/h reed u te hard?",
+                  "mandatory": false,
+                  "format": "#.##",
+                  "groupingSeparator": ".",
+                  "decimalSeparator": ",",
+                  "_links": {
+                    "concept": {
+                      "href": "/concepts/Incident/Business design/Process elementen/Boete berekenen.bixml/KmhTeHard"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "GordelDragen": {
+            "type": "number",
+            "label": "Gordel dragen",
+            "mandatory": false,
+            "readonly": true,
+            "decimalSeparator": ",",
+            "_links": {
+              "concept": {
+                "href": "/concepts/Incident/Business design/Process elementen/Boete berekenen.bixml/GordelDragen"
+              }
+            },
+            "format": "#.##",
+            "groupingSeparator": ".",
+            "children": [
+              {
+                "GordelOm": {
+                  "type": "boolean",
+                  "label": "Had u een gordel om?",
+                  "mandatory": false,
+                  "_links": {
+                    "concept": {
+                      "href": "/concepts/Incident/Business design/Process elementen/Boete berekenen.bixml/GordelOm"
+                    }
+                  },
+                  "layouthint": [
+                    "radiobutton"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Drank": {
+            "type": "number",
+            "label": "Drank",
+            "mandatory": false,
+            "readonly": true,
+            "decimalSeparator": ",",
+            "_links": {
+              "concept": {
+                "href": "/concepts/Incident/Business design/Process elementen/Boete berekenen.bixml/Drank"
+              }
+            },
+            "format": "#.##",
+            "groupingSeparator": ".",
+            "children": [
+              {
+                "GemetenGl": {
+                  "type": "number",
+                  "label": "Wat was de gemeten waarde in promille?",
+                  "mandatory": false,
+                  "format": "#.##",
+                  "groupingSeparator": ".",
+                  "decimalSeparator": ",",
+                  "_links": {
+                    "concept": {
+                      "href": "/concepts/Incident/Business design/Process elementen/Boete berekenen.bixml/GemetenGl"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

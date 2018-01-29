@@ -1,0 +1,13 @@
+@import "../../../variables";
+
+.concept-link {
+  display: inline-block;
+
+  .concept-icon-wrapper {
+    margin-right: $spacer / 2;
+  }
+
+  img {
+    height: 16px;
+  }
+}

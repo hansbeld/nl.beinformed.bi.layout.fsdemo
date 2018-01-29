@@ -1,0 +1,115 @@
+[
+  {
+    "elementid": "Address"
+  },
+  {
+    "elementid": "Zipcode"
+  },
+  {
+    "elementid": "City"
+  },
+  {
+    "elementid": "Type"
+  },
+  {
+    "elementid": "PhoneNumber"
+  },
+  {
+    "elementid": "E_mailAddress"
+  },
+  {
+    "elementid": "BankAccountNumber"
+  },
+  {
+    "elementid": "ChoiceRadioButton"
+  },
+  {
+    "elementid": "ChoiceCheckBox"
+  },
+  {
+    "elementid": "ChoiceListView"
+  },
+  {
+    "elementid": "ChoiceComboBox"
+  },
+  {
+    "elementid": "ChoiceTable"
+  },
+  {
+    "elementid": "Date"
+  },
+  {
+    "elementid": "BeginDate"
+  },
+  {
+    "elementid": "EndDate"
+  },
+  {
+    "elementid": "E_mail",
+    "static": true,
+    "value": "info@beinformed.com"
+  },
+  {
+    "elementid": "HelpText1",
+    "static": true,
+    "value": "<p>Dit is <strike>een</strike> helptekst!<br />Hallo <em>daar</em>.<br />Even <u>wat</u> meer <strong>regels.</strong></p>"
+  },
+  {
+    "elementid": "Label1",
+    "static": true,
+    "value": "Label 1"
+  },
+  {
+    "elementid": "Memo"
+  },
+  {
+    "elementid": "Number"
+  },
+  {
+    "elementid": "Password"
+  },
+  {
+    "elementid": "BSN"
+  },
+  {
+    "elementid": "NativeCountry"
+  },
+  {
+    "elementid": "Time"
+  },
+  {
+    "elementid": "BeginTime"
+  },
+  {
+    "elementid": "EndTime"
+  },
+  {
+    "elementid": "Timestamp"
+  },
+  {
+    "elementid": "BeginTimestamp"
+  },
+  {
+    "elementid": "EndTimestamp"
+  },
+  {
+    "elementid": "Upload"
+  },
+  {
+    "elementid": "XML"
+  },
+  {
+    "elementid": "FormattedMemo",
+    "suggestion": [
+      "test <b>Bold</b>"
+    ]
+  },
+  {
+    "elementid": "Zipcode2"
+  },
+  {
+    "elementid": "Location",
+    "static": true,
+    "value": "/tmp"
+  }
+]

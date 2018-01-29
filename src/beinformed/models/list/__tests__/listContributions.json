@@ -1,0 +1,378 @@
+{
+  "Books": {
+    "label": "Books",
+    "resourcetype": "CaseList",
+    "layouthint": [
+      "CardView",
+      "ListView",
+      "TableView"
+    ],
+    "texts": [
+      {
+        "type": "master",
+        "text": "<p>This is a list of <em>books</em><br />For each book the <strong>contributers</strong> and the <strong>publishers</strong> are added as <u>additional details</u>.<br />For more information see amazon</p>"
+      }
+    ],
+    "actions": [
+      {
+        "name": "createbook",
+        "label": "Create book",
+        "type": "create",
+        "layouthint": [
+          "create"
+        ]
+      }
+    ],
+    "filter": [
+      {
+        "Title": {
+          "type": "stringfilter",
+          "label": "Title",
+          "layouthint": []
+        }
+      },
+      {
+        "Format": {
+          "type": "choicefilter",
+          "label": "Format",
+          "layouthint": [
+            "checkbox"
+          ],
+          "multiplechoice": true,
+          "options": [
+            {
+              "key": "Hardcover",
+              "label": "Hardcover"
+            },
+            {
+              "key": "Paperback",
+              "label": "Paperback"
+            },
+            {
+              "key": "Ebook",
+              "label": "Ebook"
+            },
+            {
+              "key": "Audio",
+              "label": "Audio book"
+            }
+          ]
+        }
+      },
+      {
+        "Language": {
+          "type": "choicefilter",
+          "label": "Language",
+          "layouthint": [
+            "checkbox"
+          ],
+          "multiplechoice": true,
+          "options": [
+            {
+              "key": "EN",
+              "label": "English"
+            },
+            {
+              "key": "DU",
+              "label": "Dutch"
+            }
+          ]
+        }
+      },
+      {
+        "NumberOfPages": {
+          "type": "numberrangefilter",
+          "label": "Number of pages",
+          "layouthint": [
+            "slider"
+          ],
+          "startNumber": {
+            "label": "is groter dan",
+            "name": "NumberOfPages",
+            "layouthint": [],
+            "format": "0",
+            "minimum": 1
+          },
+          "endNumber": {
+            "label": "is kleiner",
+            "name": "endNumberOfPages",
+            "layouthint": [],
+            "format": "0",
+            "maximum": 1000
+          }
+        }
+      },
+      {
+        "C1_1_Name": {
+          "type": "stringfilter",
+          "label": "Name",
+          "layouthint": [],
+          "contextid": "C1_1_"
+        }
+      },
+      {
+        "C2_1_Name": {
+          "type": "stringfilter",
+          "label": "Name",
+          "layouthint": [],
+          "contextid": "C2_1_"
+        }
+      },
+      {
+        "AssignmentsBooks": {
+          "type": "assignmentfilter",
+          "label": "Assignments",
+          "layouthint": [],
+          "USERKEY": {
+            "type": "choicefilter",
+            "label": "User id",
+            "layouthint": [
+              "checkbox"
+            ],
+            "multiplechoice": true,
+            "options": []
+          },
+          "ASSIGNMENTTYPE": {
+            "type": "choicefilter",
+            "label": "Type",
+            "layouthint": [
+              "checkbox"
+            ],
+            "multiplechoice": true,
+            "options": [
+              {
+                "key": "Practitioner",
+                "label": "Practitioner"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "DatumAangemaakt": {
+          "type": "daterangefilter",
+          "label": "Datum aangemaakt",
+          "layouthint": [],
+          "startDate": {
+            "label": "is groter of gelijk aan",
+            "name": "DATECREATED",
+            "layouthint": [],
+            "format": "dd-MM-yyyy"
+          },
+          "endDate": {
+            "label": "is kleiner of gelijk aan",
+            "name": "endDATECREATED",
+            "layouthint": [],
+            "format": "dd-MM-yyyy"
+          }
+        }
+      }
+    ],
+    "paging": {
+      "pagesize": {
+        "options": [
+          10,
+          25,
+          50
+        ]
+      }
+    },
+    "sorting": {
+      "attributes": [
+        "ISBN10",
+        "Title",
+        "ISBN13",
+        "NumberOfPages"
+      ]
+    },
+    "contexts": [
+      {
+        "id": "C1_1_",
+        "label": "Contributor"
+      },
+      {
+        "id": "C2_1_",
+        "label": "Publishing house"
+      }
+    ],
+    "results": {
+      "Book": {
+        "_links": {
+          "panel": [
+            {
+              "name": "Contributors",
+              "label": "Contributors",
+              "resourcetype": "list-related-cases"
+            },
+            {
+              "name": "PublishedByPublishingHouse",
+              "label": "Published by publishing house",
+              "resourcetype": "list-related-cases"
+            }
+          ]
+        },
+        "metadata": {
+          "_id": {
+            "type": "number"
+          }
+        },
+        "attributes": [
+          {
+            "Title": {
+              "type": "string",
+              "label": "Title",
+              "displaysize": 50
+            }
+          },
+          {
+            "ISBN10": {
+              "type": "string",
+              "label": "ISBN10",
+              "displaysize": 50
+            }
+          },
+          {
+            "ISBN13": {
+              "type": "string",
+              "label": "ISBN13",
+              "displaysize": 50
+            }
+          },
+          {
+            "NumberOfPages": {
+              "type": "number",
+              "label": "Number of pages",
+              "format": "0",
+              "groupingSeparator": ".",
+              "decimalSeparator": ",",
+              "minimum": 1,
+              "maximum": 1000
+            }
+          },
+          {
+            "Format": {
+              "type": "string",
+              "label": "Format",
+              "optionMode": "static",
+              "multiplechoice": false,
+              "layouthint": [
+                "combobox"
+              ],
+              "enumerated": true,
+              "options": [
+                {
+                  "code": "Hardcover",
+                  "label": "Hardcover"
+                },
+                {
+                  "code": "Paperback",
+                  "label": "Paperback"
+                },
+                {
+                  "code": "Ebook",
+                  "label": "Ebook"
+                },
+                {
+                  "code": "Audio",
+                  "label": "Audio book"
+                }
+              ]
+            }
+          },
+          {
+            "Language": {
+              "type": "string",
+              "label": "Language",
+              "optionMode": "static",
+              "multiplechoice": false,
+              "layouthint": [
+                "radiobutton"
+              ],
+              "enumerated": true,
+              "options": [
+                {
+                  "code": "EN",
+                  "label": "English"
+                },
+                {
+                  "code": "DU",
+                  "label": "Dutch"
+                }
+              ]
+            }
+          }
+        ],
+        "actions": [
+          {
+            "name": "addauthor",
+            "label": "Add author",
+            "type": "contextaware",
+            "fields": [
+              {
+                "ID": {
+                  "type": "number",
+                  "label": "Case ID",
+                  "mandatory": true,
+                  "format": "0",
+                  "groupingSeparator": ".",
+                  "decimalSeparator": ","
+                }
+              }
+            ]
+          },
+          {
+            "name": "addco-author",
+            "label": "Add co-author",
+            "type": "contextaware",
+            "fields": [
+              {
+                "ID": {
+                  "type": "number",
+                  "label": "Case ID",
+                  "mandatory": true,
+                  "format": "0",
+                  "groupingSeparator": ".",
+                  "decimalSeparator": ","
+                }
+              }
+            ]
+          },
+          {
+            "name": "addillustrator",
+            "label": "Add illustrator",
+            "type": "contextaware",
+            "fields": [
+              {
+                "ID": {
+                  "type": "number",
+                  "label": "Case ID",
+                  "mandatory": true,
+                  "format": "0",
+                  "groupingSeparator": ".",
+                  "decimalSeparator": ","
+                }
+              }
+            ]
+          },
+          {
+            "name": "addedition",
+            "label": "Add edition",
+            "type": "contextaware",
+            "fields": [
+              {
+                "ID": {
+                  "type": "number",
+                  "label": "Case ID",
+                  "mandatory": true,
+                  "format": "0",
+                  "groupingSeparator": ".",
+                  "decimalSeparator": ","
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

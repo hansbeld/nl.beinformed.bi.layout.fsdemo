@@ -1,0 +1,24 @@
+@import "../../../variables";
+
+.select-field .dropdown-toggle {
+  min-width: $dropdown-min-width;
+
+  text-align: left;
+
+  &::after {
+    right: $spacer;
+  }
+}
+
+.lookup-active-option {
+  .lookup-remove-active-option {
+    color: $gray-400;
+    background: transparent;
+
+    border: 0;
+  }
+
+  &:hover .lookup-remove-active-option {
+    color: $gray-600;
+  }
+}

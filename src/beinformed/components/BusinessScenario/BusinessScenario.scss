@@ -1,0 +1,22 @@
+@import "../../../variables";
+
+.business-scenario {
+  .business-scenario-actors {
+    position: relative;
+
+    .business-scenario-actor {
+      position: absolute;
+      left: $spacer;
+
+      max-height: 40px;
+
+      font-size: $small-font-size;
+    }
+  }
+
+  .business-scenario-steps {
+    overflow: auto;
+
+    margin: 0 $spacer;
+  }
+}

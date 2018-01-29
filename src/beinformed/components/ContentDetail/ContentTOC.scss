@@ -1,0 +1,11 @@
+@import "../../../variables";
+
+.content-toc {
+  .nav-item > .nav {
+    padding-left: $spacer;
+  }
+
+  .active {
+    font-weight: bold;
+  }
+}

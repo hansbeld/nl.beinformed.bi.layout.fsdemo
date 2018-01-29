@@ -1,0 +1,60 @@
+@import "~bootstrap/scss/mixins/clearfix";
+
+// Datepicker time
+.datepicker-time {
+  .datepicker-time-select {
+    @include clearfix;
+
+    padding: 60px 20px 40px;
+
+    .datepicker-hours,
+    .datepicker-minutes,
+    .datepicker-seconds {
+      float: left;
+
+      width: 33%;
+
+      text-align: center;
+
+      .datepicker-content {
+        padding: 10px 0;
+      }
+    }
+
+    .datepicker-hours,
+    .datepicker-minutes {
+      position: relative;
+
+      .datepicker-content::after {
+        content: ":";
+
+        position: absolute;
+        top: 50%;
+
+        padding-left: 10px;
+
+        transform: translateY(-50%);
+      }
+    }
+
+    .datepicker-confirm {
+      clear: both;
+
+      padding: 15px;
+
+      .datepicker-content .btn {
+        width: 100%;
+      }
+    }
+  }
+
+  .table {
+    margin-bottom: 0;
+  }
+
+  .datepicker-hour,
+  .datepicker-minute,
+  .datepicker-second {
+    text-align: center;
+  }
+}

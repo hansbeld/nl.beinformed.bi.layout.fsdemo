@@ -1,0 +1,28 @@
+@import "../../../variables";
+
+.form-result-decision {
+  padding-bottom: $spacer / 2;
+  padding-left: $spacer * 1.5;
+
+  .icon {
+    color: $red;
+  }
+
+  &.active {
+    .icon {
+      color: $green;
+    }
+  }
+
+  .form-label {
+    position: relative;
+
+    margin-bottom: $spacer / 2;
+
+    .icon {
+      position: absolute;
+      top: $spacer / 4;
+      left: ($spacer * -1.5);
+    }
+  }
+}

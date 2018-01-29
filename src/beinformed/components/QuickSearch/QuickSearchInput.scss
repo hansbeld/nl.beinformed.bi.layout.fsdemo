@@ -1,0 +1,13 @@
+@import "../../../variables";
+
+.quicksearch-input {
+  min-width: 200px;
+
+  border-color: $input-border-color;
+}
+
+.quick-search-field + .quick-search-field {
+  .quicksearch-input {
+    border-radius: 0;
+  }
+}

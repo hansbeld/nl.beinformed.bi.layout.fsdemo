@@ -1,0 +1,61 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": ["IE 11", "> 1% in NL", "> 1% in GB", "> 1% in US"]
+        },
+        "modules": false,
+        "exclude": ["transform-regenerator", "transform-async-to-generator"],
+        "useBuiltIns": true
+      }
+    ],
+    "flow",
+    "react"
+  ],
+  "plugins": [
+    "transform-object-rest-spread",
+    "transform-class-properties",
+    "syntax-dynamic-import",
+    [
+      "module-resolver",
+      {
+        "root": ["./src"]
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": 4
+            },
+            "modules": false,
+            "exclude": [
+              "transform-regenerator",
+              "transform-async-to-generator"
+            ],
+            "useBuiltIns": true
+          }
+        ],
+        "react"
+      ],
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    },
+    "production": {
+      "plugins": [
+        "transform-react-constant-elements",
+        "transform-react-inline-elements"
+      ]
+    },
+    "development": {
+      "plugins": ["transform-react-jsx-source"]
+    }
+  }
+}

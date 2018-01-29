@@ -1,0 +1,63 @@
+@import "../../../../variables";
+@import "~bootstrap/scss/mixins/clearfix";
+@import "~bootstrap/scss/mixins/border-radius";
+
+.list-group-item-action {
+  @if $enable-shadows {
+    .btn-light {
+      box-shadow: none;
+    }
+  }
+
+  a {
+    display: block;
+
+    color: inherit;
+
+    &:active,
+    &:hover {
+      color: inherit;
+
+      text-decoration: none;
+    }
+  }
+}
+
+.nojs [role="button"] {
+  cursor: default;
+}
+
+.js .list-group-item-action,
+.js [role="button"] {
+  cursor: pointer;
+}
+
+.list-group-item-heading {
+  color: $headings-color;
+
+  margin-bottom: $headings-margin-bottom;
+
+  font-weight: $headings-font-weight;
+  font-family: $headings-font-family;
+  line-height: $headings-line-height;
+}
+
+.grouped-list-group {
+  @include clearfix();
+
+  margin-bottom: $spacer;
+}
+
+.grouped-list-header.h4 {
+  margin-bottom: $card-spacer-y;
+}
+
+.grouped-list-group .grouped-list-group {
+  @include border-radius($card-border-radius);
+
+  .grouped-list-header {
+    padding: $card-spacer-y $card-spacer-x;
+
+    background-color: $card-cap-bg;
+  }
+}

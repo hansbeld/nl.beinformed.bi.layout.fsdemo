@@ -1,0 +1,62 @@
+@import "~bootstrap/scss/mixins/clearfix";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~bootstrap/scss/mixins/grid";
+@import "../../../variables";
+
+.attributelist {
+  .attribute-label,
+  .attribute-value {
+    padding: ($spacer / 4) 0;
+  }
+
+  .attribute {
+    @include make-row();
+
+    .attribute-label {
+      @include make-col-ready();
+
+      @include media-breakpoint-up(md) {
+        @include make-col(5);
+      }
+    }
+
+    > .attribute-composite-value,
+    > .attribute-value {
+      @include make-col-ready();
+
+      @include media-breakpoint-up(md) {
+        @include make-col(7);
+      }
+    }
+  }
+}
+
+/**
+ * Horizontal list of attributes, used amongst other on CaseView.js
+ */
+.horizontal-attributelist {
+  @include clearfix;
+
+  .attribute {
+    display: inline-block;
+
+    padding: ($spacer / 2) $spacer ($spacer / 2) 0;
+
+    border-right: $border-width solid theme-color("light");
+
+    margin-right: $spacer;
+
+    .attribute-label {
+      font-weight: $headings-font-weight;
+      font-size: $font-size-sm;
+    }
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+}
+
+.list-group-item .horizontal-attributelist {
+  margin-bottom: 0;
+}

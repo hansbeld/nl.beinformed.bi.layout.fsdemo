@@ -1,0 +1,37 @@
+{
+  "Book": {
+    "_links": {
+      "self": {
+        "href": "/books/book/24"
+      },
+      "api_doc": {
+        "href": "/api-docs/books/book/24"
+      },
+      "contributions": {
+        "href": "/contributions/books/book/24"
+      },
+      "Creator": {
+        "href": "/books/book/24/creator"
+      },
+      "Editions": {
+        "href": "/books/book/24/editions"
+      },
+      "taskgroup": [
+        {
+          "href": "/books/book/24/Tasks",
+          "name": "Tasks"
+        }
+      ]
+    },
+    "_id": 24,
+    "CaseName": "The safety of objects",
+    "CaseType": "Book",
+    "Owner": "Arnold",
+    "Format": "Paperback",
+    "ISBN10": "1847087302",
+    "ISBN13": "9781847087300",
+    "Language": "EN",
+    "NumberOfPages": 176,
+    "State": "Registered"
+  }
+}

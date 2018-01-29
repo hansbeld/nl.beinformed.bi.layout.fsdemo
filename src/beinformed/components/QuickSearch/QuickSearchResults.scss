@@ -1,0 +1,48 @@
+@import "../../../variables";
+@import "~bootstrap/scss/mixins/border-radius";
+
+.quicksearch-results {
+  @include border-radius($border-radius);
+
+  @if $enable-shadows {
+    box-shadow: $dropdown-box-shadow;
+  }
+
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: $quick-search-results-zindex;
+
+  overflow: auto;
+
+  min-width: 600px;
+  max-height: 50vh;
+
+  color: $body-color;
+  background-color: $dropdown-bg;
+
+  border: $dropdown-border-width solid $dropdown-border-color;
+
+  .list-group-item {
+    background: transparent;
+
+    border: 0;
+    border-top: $dropdown-border-width solid $dropdown-border-color;
+
+    &:first-child {
+      border-top: 0;
+    }
+
+    &:hover {
+      background-color: $list-group-hover-bg;
+
+      cursor: pointer;
+    }
+  }
+
+  &.no-results {
+    width: 100%;
+
+    padding: $card-spacer-x;
+  }
+}

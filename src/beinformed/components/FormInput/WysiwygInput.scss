@@ -1,0 +1,33 @@
+@import "../../../variables";
+
+.wysiwyg.form-control {
+  padding: 0;
+
+  .wysiwyg-hidden-input {
+    display: none;
+  }
+
+  .wysiwyg-toolbar {
+    background: $wysiwyg-toolbar-background-color;
+
+    border-bottom: $input-btn-border-width solid $input-border-color;
+
+    border-radius: $border-radius $border-radius 0 0;
+
+    margin-left: 0;
+
+    .btn-group {
+      margin-left: $spacer / 4;
+
+      .btn {
+        margin-left: 1px;
+      }
+    }
+  }
+
+  .wysiwyg-content {
+    overflow: auto;
+
+    padding: $input-btn-padding-y $input-btn-padding-x;
+  }
+}

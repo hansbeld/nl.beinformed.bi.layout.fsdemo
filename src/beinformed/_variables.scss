@@ -1,0 +1,73 @@
+// General layout
+
+// transparent
+$transparent: rgba(0, 0, 0, 0);
+
+// Application
+$application-header-background: theme-color("light") !default;
+$application-header-link-color: theme-color("dark") !default;
+$application-header-link-hover-color: $black !default;
+
+// Top header
+$top-header-background: theme-color("light") !default;
+
+// Caseview header
+$caseview-header-background: theme-color("light") !default;
+
+// Icons
+$icon-spacer: 0 0.5em 0 0 !default;
+
+// Datepicker
+$datepicker-item-disabled-background-color: $input-disabled-bg !default;
+$datepicker-today-background-color: theme-color("primary") !default;
+
+// Password field
+$password-strength-transparent: rgba(255, 255, 255, 0) !default;
+$password-strength-level-0: rgba(217, 83, 79, 1) !default;
+$password-strength-level-1: rgba(238, 127, 78, 1) !default;
+$password-strength-level-2: rgba(240, 173, 78, 1) !default;
+$password-strength-level-3: rgba(157, 184, 90, 1) !default;
+$password-strength-level-4: rgba(92, 184, 92, 1) !default;
+
+// WYSIWYG field
+$wysiwyg-toolbar-background-color: #efefef !default;
+
+// Inidicator
+$progress-indicator-error-color: #fff !default;
+
+// Modal
+$modal-background-color: rgba(0, 0, 0, 0.4) !default;
+
+// Table
+$table-table-td-background-color: #fff !default;
+
+// Taskmenu
+$taskmenu-color: $white !default;
+$taskmenu-background-color: darken(theme-color("primary"), 10%) !default;
+$taskmenu-background-color-active: darken(theme-color("primary"), 30%) !default;
+
+// Tooltip
+$tooltip-hover-after-background: rgba(0, 0, 0, 0.8) !default;
+$tooltip-hover-after-color: #fff !default;
+
+$tooltip-hover-before-border-color: #333 transparent !default;
+
+// Quicksearch
+$btn-quick-search-background-color: #fff !default;
+$quick-search-results-zindex: 1000 !default;
+
+// Model catalog / Source browser
+$subsection-highlight: #ffc !default;
+
+// Progress indicator
+$progressindicator-background-color: rgba(255, 255, 255, 0.9) !default;
+$progressindicator-color: theme-color("primary") !default;
+
+//Concept details
+$concept-header-background: theme-color("light") !default;
+
+// Content details
+$content-header-background: theme-color("light") !default;
+
+// Form results
+$form-result-background: theme-color("light") !default;

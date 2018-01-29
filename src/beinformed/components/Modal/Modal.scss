@@ -1,0 +1,15 @@
+@import "../../../variables";
+
+.modal {
+  display: block !important;
+
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+
+  background-color: $modal-background-color;
+}
+
+.modal-footer .btn + .btn {
+  margin-bottom: 0;
+  margin-left: 5px;
+}

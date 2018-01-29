@@ -1,0 +1,27 @@
+@import "../../../variables";
+
+.apply-for-mortgage-information {
+  ul {
+    list-style: none;
+
+    padding-left: 0;
+
+    li {
+      position: relative;
+
+      padding-left: 23px;
+
+      &::before {
+        content: "\f00c";
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        color: $orange;
+
+        font-family: FontAwesome, serif;
+      }
+    }
+  }
+}

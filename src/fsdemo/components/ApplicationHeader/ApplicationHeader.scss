@@ -1,0 +1,69 @@
+@import "../../../variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.app-header {
+  .main-header {
+    background: #fff;
+
+    a {
+      padding: $spacer / 2;
+    }
+  }
+
+  .personal-menu {
+    padding-top: 0.8em;
+
+    a {
+      position: relative;
+
+      padding-right: 19px;
+
+      color: theme-color("dark");
+
+      &::after {
+        content: "\f078";
+
+        position: absolute;
+        top: 13px;
+        right: 4px;
+
+        font-size: 10px;
+        font-family: FontAwesome, serif;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(xl) {
+    .personal-menu a {
+      padding-right: 30px;
+
+      &::after {
+        right: 15px;
+      }
+    }
+  }
+
+  .top-header {
+    padding-left: $spacer * 3;
+
+    background-color: #333;
+
+    .top-header-menu,
+    .languageselector .dropdown-toggle {
+      color: #fff;
+
+      a {
+        display: inline-block;
+
+        padding: $spacer / 2;
+
+        color: #fff;
+
+        &.active {
+          color: #333;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}

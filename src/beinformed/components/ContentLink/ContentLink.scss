@@ -1,0 +1,19 @@
+@import "../../../variables";
+
+.content-toc .content-nav-item {
+  position: relative;
+
+  padding-left: 20px;
+
+  .content-toc-toggle {
+    position: absolute;
+    top: 5px;
+    left: 0;
+  }
+}
+
+.content-link .content-icon {
+  max-height: 16px;
+
+  margin-right: $spacer / 2;
+}

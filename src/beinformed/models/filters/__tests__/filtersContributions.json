@@ -1,0 +1,116 @@
+{
+  "filter": [
+    {
+      "STRING": {
+        "name": "STRING",
+        "label": "Stringfilter",
+        "type": "stringfilter"
+      }
+    },
+    {
+      "CHECKBOX": {
+        "name": "CHECKBOX",
+        "type": "choicefilter",
+        "label": "Checkboxfilter",
+        "layouthint": [
+          "checkbox"
+        ],
+        "multiplechoice": true,
+        "options": [
+          {
+            "key": "Hardcover",
+            "label": "Hardcover"
+          },
+          {
+            "key": "Paperback",
+            "label": "Paperback"
+          },
+          {
+            "key": "Ebook",
+            "label": "Ebook"
+          },
+          {
+            "key": "Audio",
+            "label": "Audio book"
+          }
+        ]
+      }
+    },
+    {
+      "RADIO": {
+        "name": "RADIO",
+        "type": "choicefilter",
+        "label": "Radiofilter",
+        "layouthint": [
+          "radiobutton"
+        ],
+        "multiplechoice": false,
+        "options": [
+          {
+            "key": "Hardcover",
+            "label": "Hardcover"
+          },
+          {
+            "key": "Paperback",
+            "label": "Paperback"
+          },
+          {
+            "key": "Ebook",
+            "label": "Ebook"
+          },
+          {
+            "key": "Audio",
+            "label": "Audio book"
+          }
+        ]
+      }
+    },
+    {
+      "DATERANGE": {
+        "name": "DATERANGE",
+        "type": "daterangefilter",
+        "label": "Date range",
+        "startDate": {
+          "label": "startdate"
+        },
+        "endDate": {
+          "label": "enddate"
+        }
+      }
+    },
+    {
+      "NUMBERRANGE": {
+        "name": "NUMBERRANGE",
+        "type": "numberrangefilter",
+        "label": "Number range",
+        "startNumber": {
+          "label": "startnumber"
+        },
+        "endNumber": {
+          "label": "endnumber"
+        }
+      }
+    },
+    {
+      "ASSIGNMENT": {
+        "name": "ASSIGNMENT",
+        "type": "assignmentfilter",
+        "label": "Assignments",
+        "layouthint": [],
+        "choicefilter": {
+          "label": "Type",
+          "layouthint": [
+            "checkbox"
+          ],
+          "multiplechoice": true,
+          "options": [
+            {
+              "key": "Practitioner",
+              "label": "Practitioner"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

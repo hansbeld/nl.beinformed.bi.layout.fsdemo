@@ -1,0 +1,156 @@
+{
+  "Login.Header": "Log in",
+  "Login.Msg.IncorrectUsernamePassword": "Incorrect username or password.",
+  "Login.Username": "Username",
+  "Login.Username.Placeholder": "Enter username",
+  "Login.Password": "Password",
+  "Login.Password.Placeholder": "Enter password",
+  "Login.Button.Close": "Close",
+  "Login.Button.Login": "Log in",
+
+  "ComponentChooser.Menu.SelectComponent": "Select component",
+
+  "UserLinks.Menu.UserProfile": "User profile",
+  "UserLinks.Menu.LogOut": "Log out",
+  "UserLinks.Menu.LogIn": "Log in",
+
+  "UserProfile.Button.Close": "Close",
+  "UserProfile.Header": "User Profile",
+
+  "Choice.Boolean.True": "Yes",
+  "Choice.Boolean.False": "No",
+
+  "ChoiceField.Msg.NotSupported": "Field not supported",
+  "ChoiceField.Msg.NoOptionsAvailable": "No options available",
+
+  "LookupInput.Msg.NoOptions": "No options found",
+  "LookupInput.Placeholder": "Enter one or more characters",
+  "LookupInput.Button.Lookup": "Look up",
+  "LookupInput.AltText.RemoveActiveOption": "Remove option",
+
+  "SelectField.Placeholder": "Choose an option",
+
+  "Filters.Button.ClearAll": "Clear all filters",
+
+  "ActionChooser.Button.Actions": "Actions",
+
+  "List.AriaLabel.HeaderToolbar": "Available actions for {LIST_LABEL} list",
+
+  "ListViewTypeToggle.AriaLabel": "Toggle list view type",
+  "ListViewTypeToggle.AltText.ListViewToggle": "Show as {VIEWTYPE}",
+  "ListViewTypeToggle.AltText.TableViewToggle": "Show as {VIEWTYPE}",
+
+  "ListNoResults.Msg.EnterSearchTerm": "Enter a search term to search",
+  "ListNoResults.Msg.NoResults": "No results available",
+
+  "ListDetailGivenAnswers.Title": "Given answers",
+
+  "PagingInfo.Information": "{FIRSTITEM} - {LASTITEM} of {TOTALRESULTS}",
+  "PagingInfo.TotalResults": "{TOTALRESULTS, plural, =0{no results} one{1 result} other{# results}}",
+
+  "PagesizeChooser.PageSize": "Page size: {PAGESIZE}",
+
+  "PagingItem.AriaLabel.GotoFirstPage": "Go to the first page",
+  "PagingItem.AriaLabel.GotoPreviousPage": "Go to the previous page, page number {PREVIOUS_PAGE_NUMBER}",
+  "PagingItem.AriaLabel.GotoNextPage": "Go to the next page, page number {NEXT_PAGE_NUMBER}",
+  "PagingItem.AriaLabel.GotoLastPage": "Go to the last page, page number {LAST_PAGE_NUMBER}",
+  "PagingItem.AriaLabel.GotoPage": "Go to page {PAGE_NUMBER}",
+
+  "QuickSearchInput.Placeholder": "Search by {SEARCHOPTION_LABEL}",
+  "QuickSearchInput.SearchLabel": "Search",
+
+  "QuickSearchResuls.Msg.NoResults": "No search results",
+
+  "SortChooser.SortDefaultLabel": "Sort by relevance",
+  "SortChooser.SortBy": "Sort by {COLUMN_NAME}",
+
+  "Notification.Msg.Create": "A new item is successfully created.",
+  "Notification.Msg.Update": "The item is successfully updated.",
+  "Notification.Msg.Delete": "The item is successfully deleted.",
+
+  "ModelCatalog.Menu": "Model catalog",
+  "ContentBrowser.Menu": "Content browser",
+  "BusinessModelOverview.Header": "Business model overview",
+  "TargetOperatingModel.Header": "Target operating model",
+  "ModelCatalogSearch.Placeholder": "Search concept by label",
+
+  "BusinessScenario.Header": "Business scenario",
+
+  "ModelOverviewLane.Role": "Roles",
+  "ModelOverviewLane.Channel": "Channels",
+  "ModelOverviewLane.Product": "Products",
+  "ModelOverviewLane.Case": "Cases",
+  "ModelOverviewLane.Register": "Registrations",
+
+  "ModelOverviewLane.CustomerSegment": "Customer segment",
+  "ModelOverviewLane.InteractionChannel": "Interaction channel",
+  "ModelOverviewLane.ProductFamily": "Product family",
+  "ModelOverviewLane.SharedPolicy": "Shared policy",
+  "ModelOverviewLane.BusinessFunction": "Business function",
+  "ModelOverviewLane.RegistrationFunction": "Registration function",
+
+  "Form.Button.Previous": "Previous",
+  "Form.Button.Next": "Next",
+  "Form.Button.Finish": "Finish",
+  "Form.Button.Cancel": "Cancel",
+
+  "Homepage.Header": "Hello",
+  "Homepage.Msg": "This is an example homepage",
+
+  "ConceptFormula.Header": "Formula",
+  "ConceptLabels.Header": "Alternative labels",
+  "ConceptProperties.Header": "Properties",
+  "ConceptRelations.Outgoing.Header": "Outgoing",
+  "ConceptRelations.Incoming.Header": "Incoming",
+  "ConceptTextFragments.Header": "Text fragments",
+  "SourceReferences.Header": "Content references",
+  "ConceptIndex.Header": "Concept index",
+  "ContentIndex.Header": "Content index",
+  "RelatedConcepts.Header": "Related concepts",
+
+  "Concept.Icon.AltText": "Icon of {SUBJECT}",
+
+  "GENERAL_ERROR": "Unknown error occured on the backend of type: {type}",
+
+  "UploadField.errorExceedsMaxFileSize": "File size of {ACTUAL_FILESIZE} exceeds the maximum file size of {MAXIMUM_FILESIZE}",
+  "UploadField.errorExtensionNotAllowed": "File with extension {EXTENSION} is not allowed",
+
+  "Constraint.Date.InexactDate": "Date must be {date}",
+  "Constraint.Number.InexactNumber": "Number must be ${number}",
+
+  "Constraint.File.maxFilesize": "Maximum file upload size is ${max-filesize}",
+
+  "Constraint.XML.InvalidFormat": "Must be a valid XML structure",
+
+  "Result.whatWillItCost": "What will it cost?",
+  "Result.HowMuchCanIBorrow?": "How much can I borrow?",
+
+  "Form.Button.Check": "Check",
+  "Form.Button.CheckAgain": "Check again",
+  "Form.Button.Close": "Close",
+
+  "Form.Button.Previous": "Previous",
+  "Form.Button.Next": "Next",
+  "Form.Button.Confirm": "Confirm",
+  "Form.Button.Submit": "Submit",
+
+  "CheckEligibility.Link": "Eligible ?",
+
+  "ApplyForMortgage.title":"Mortgage application",
+
+  "BankChannels.WaysToBank.title":"Ways to bank",
+  "BankChannels.Online.title":"Online",
+  "BankChannels.Online.description": "Quick, secure and convenient access to your accounts with our online banking services.",
+  "BankChannels.App.title": "Mobile app",
+  "BankChannels.App.description": "Manage your money and products from your phone or tables, anytime, anywhere.",
+  "BankChannels.visit.title": "Visit a branch",
+  "BankChannels.visit.description": "Pop into one of our branches for advice, questions and registering for products.",
+  "BankChannels.contact": "Contact us on:",
+
+  "Homepage.banner.description": "Whether you're buying your first home, moving house, or looking for buy-to-let, we have the right mortgage for you.",
+  "Homepage.banner.calculators": "Mortgage calculators",
+  "Homepage.banner.info": "Mortgage info",
+
+  "YearAmountInput.Monthly": "Monthly",
+  "YearAmountInput.Yearly": "Yearly"
+}

@@ -1,0 +1,39 @@
+@import "../../../../variables";
+
+.grouped-list-group table {
+  margin-bottom: 0;
+}
+
+.tablewrapper {
+  overflow-x: auto;
+  overflow-y: visible;
+
+  width: 100%;
+}
+
+.table-header {
+  color: #fff;
+  background-color: theme-color("dark");
+}
+
+.table-row-link,
+.table-row {
+  border: $list-group-border-width solid $list-group-border-color;
+  border-top: 0;
+}
+
+.table-row-link:hover {
+  background-color: theme-color("light");
+
+  cursor: pointer;
+}
+
+.table-cell {
+  display: inline-block;
+
+  overflow: hidden;
+
+  padding: $table-cell-padding;
+
+  vertical-align: top;
+}

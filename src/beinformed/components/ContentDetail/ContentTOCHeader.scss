@@ -1,0 +1,27 @@
+@import "../../../variables";
+
+.content-detail .content-header {
+  display: flex;
+
+  flex-direction: row;
+
+  padding: $spacer;
+
+  background-color: $content-header-background;
+
+  margin-bottom: $spacer;
+
+  h1 {
+    margin: 0;
+
+    font-size: 1.2em;
+  }
+
+  img {
+    width: auto;
+    height: 36px;
+
+    margin-top: $spacer / 2;
+    margin-right: $spacer / 2;
+  }
+}

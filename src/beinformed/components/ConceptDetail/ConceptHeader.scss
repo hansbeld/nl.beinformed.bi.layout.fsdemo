@@ -1,0 +1,30 @@
+@import "../../../variables";
+
+.concept-detail .concept-header {
+  display: flex;
+
+  flex-direction: row;
+
+  padding: $spacer;
+
+  background-color: $concept-header-background;
+
+  border-bottom: 1px solid transparent;
+
+  margin-bottom: $spacer;
+
+  h1 {
+    margin: 0;
+
+    font-size: 1.2em;
+  }
+
+  .concept-icon-wrapper {
+    margin-top: $spacer / 2;
+    margin-right: $spacer / 2;
+  }
+
+  .concept-icon {
+    height: 32px;
+  }
+}

@@ -1,0 +1,534 @@
+{
+  "FULL_PAGE_FORMS": {
+    "hint": "full-page-forms",
+    "description": {
+      "NL":
+        "Geef alle formulieren over het hele scherm weer, niet in een modal",
+      "EN": "Render all forms full page, not in a modal"
+    },
+    "link": "",
+    "component": ["webapplication"]
+  },
+  "RENDER_MODAL": {
+    "hint": "modal",
+    "description": {
+      "NL":
+        "Render een formulier in een modal, kan met de hint full-page-forms op de applicatie gebruikt worden",
+      "EN":
+        "Render a form in a modal, can be used together with the application hint full-page-forms"
+    },
+    "link": "",
+    "component": ["form"]
+  },
+  "ICON": {
+    "hint": "icon",
+    "description": {
+      "NL": "Render als icoon.",
+      "EN": "Render as icon."
+    },
+    "link": "",
+    "component": ["attribute/string"]
+  },
+  "MANDATORY": {
+    "hint": "mandatory",
+    "description": {
+      "NL":
+        "Geeft aan of een attribuut verplicht is.\n Moet samen met de dependency hint gebruikt worden.",
+      "EN":
+        "Indicates a mandatory attribute.\nIs used together with the dependency hint."
+    },
+    "link": "",
+    "component": ["attribute"]
+  },
+  "OVERVIEW": {
+    "hint": "overview",
+    "description": {
+      "NL":
+        "Wanneer dit is geconfigureerd op het dossierscherm, zullen panelen worden uitgeklapt. Groeperende panels zullen als tabs worden getoond.",
+      "EN":
+        "When this is configured on the case view, all panels are expanded. Grouping panels are rendered as a tabbed control."
+    },
+    "link": "",
+    "component": ["caseview"]
+  },
+  "PANELS_AS_TABS": {
+    "hint": "panels-as-tabs",
+    "description": {
+      "NL":
+        "Wanneer dit is geconfigureerd op het dossierscherm, zullen alle panels als tab worden getoond.",
+      "EN":
+        "When this is configured on the case view, all panels are rendered as a tab control."
+    },
+    "link": "",
+    "component": ["caseview"]
+  },
+  "INLINE_EDIT_LIST": {
+    "hint": "inline-edit",
+    "description": {
+      "NL": "Toont een lijst als een bewerkbare lijst.",
+      "EN": "Renders a list as an editable list."
+    },
+    "link": "",
+    "component": ["list"]
+  },
+  "INLINE_EDIT_CAN_DUPLICATE": {
+    "hint": "can-duplicate",
+    "description": {
+      "NL":
+        "Geeft aan dat rijen gedupliceerd kunnen worden in een lijst met inline edit. Een cre&#235;er taak moet aanwezig zijn.",
+      "EN":
+        "Indicates that the inline edit list can duplicate rows. Needs a create task present."
+    },
+    "link": "",
+    "component": ["list"]
+  },
+  "INLINE_EDIT_UPDATE_ACTION": {
+    "hint": "update-inline-edit",
+    "description": {
+      "NL":
+        "Geeft aan dat een taak gebruikt kan worden als update taak voor het inline editen van een lijst item.",
+      "EN":
+        "Marks an update action as the update task to use to update an inline edit list item."
+    },
+    "link": "",
+    "component": ["task/update"]
+  },
+  "INLINE_EDIT_CREATE_ACTION": {
+    "hint": "create-inline-edit",
+    "description": {
+      "NL":
+        "Geeft aan date een taak gebruikt kan worden als cre&#235er taak voor het inline aanmaken van een nieuw lijst item.",
+      "EN":
+        "Marks a create action as the create action to use to create a new inline edit listitem."
+    },
+    "link": "",
+    "component": ["task/create"]
+  },
+  "INLINE_EDIT_CLONE_ACTION": {
+    "hint": "duplicate-inline-edit",
+    "description": {
+      "NL":
+        "Geeft aan dat een taak gebruikt kan worden om een rij in een inline edit lijst te dupliceren.",
+      "EN":
+        "Marks a create action as the duplicate action to use to duplicate an inline edit list item."
+    },
+    "link": "",
+    "component": ["task/create"]
+  },
+  "INLINE_EDIT_DELETE_ACTION": {
+    "hint": "delete-inline-edit",
+    "description": {
+      "NL":
+        "Geeft aan dat een taak gebruikt kan worden om een rij in een inline edit lijst te verwijderen.",
+      "EN":
+        "Marks a delete action as the delete action to use as the delete inline edit list item action."
+    },
+    "link": "",
+    "component": ["task/delete"]
+  },
+  "STAGESVIEW": {
+    "hint": "stages",
+    "description": {
+      "NL":
+        "Toont een dossierscherm als een stadium overzicht, waarbij standaard elk panel als tab wordt getoond en alle groeperende panels uitgeklapt zijn.",
+      "EN":
+        "Renders the caseview as a stage view, where (by default) each panel is shown as tab, where the grouping-panel panels are expanded."
+    },
+    "link": "",
+    "component": ["caseview"]
+  },
+  "DAP_ACTIVITIES_EXECUTABLE": {
+    "hint": "dap-activities-executable",
+    "description": {
+      "NL": "Rendered een taak als een actie, met een specifiek icoon.",
+      "EN": "Renders a task as an action, indicated by a specific icon."
+    },
+    "link": "",
+    "component": ["attribute/choice"]
+  },
+  "DAP_ACTIVITIES_PERFORMED": {
+    "hint": "dap-activities-performed",
+    "description": {
+      "NL":
+        "Rendered een aparte taakgroep 'Uitgevoerde activiteiten' met onuitvoerbare activiteiten, met alle labels voor elke optie van deze dossier eigenschap.",
+      "EN":
+        "Renders a separate task group 'Performed activities' of readonly activities, containing the labels of each option of this case property."
+    },
+    "link": "",
+    "component": ["attribute/choice"]
+  },
+  "DAP_STAGES_EXECUTABLE": {
+    "hint": "dap-stages-executable",
+    "description": {
+      "NL":
+        "Rendered een uitroepteken voor de stadium tab om aan te geven dat de gebruiker nog een aantal activiteiten voor dit stadium moet uitvoeren",
+      "EN":
+        "Renders an exclamation mark in front of the stage tab to acknowledge the end-user that there are still activities to do on the marked stage."
+    },
+    "link": "",
+    "component": ["attribute/choice"]
+  },
+  "DAP_STAGES_PERFORMED": {
+    "hint": "dap-stages-performed",
+    "description": {
+      "NL":
+        "Rendered een vinkje voor de stadium tab om aan te geven dat alle activiteiten zijn afgerond.",
+      "EN":
+        "Renders a check mark in front of the stage tab to acknowledge the end-user that all activities of that stage have been finished."
+    },
+    "link": "",
+    "component": ["attribute/choice"]
+  },
+  "DAP_COMPLETE_STAGE": {
+    "hint": "dap-complete-stage",
+    "description": {
+      "NL":
+        "Rendered een taak als een 'afronden stadium' knop in het groeperende panel van het gerelateerde stadium.",
+      "EN":
+        "Renders a task as a 'complete stage' button within the grouping panel of the related stage."
+    },
+    "link": "",
+    "component": ["attribute/choice"]
+  },
+  "DEPENDENT_INPUT_CONTROL": {
+    "hint": "dependent-control ${unique-control-id}",
+    "description": {
+      "NL":
+        "Geeft aan dat dit het attribuut is waar attributen van afhankelijk zijn. Het unique-control-id is een uniek id dat kan worden gebruikt in the hint voor de show|hide actie op het afhankelijke attribuut.",
+      "EN":
+        "Marks the choice attribute where attributes depend on. The unique control id is a unique id that can be used in the hint for the show|hide action on the dependent attribute."
+    },
+    "link": "",
+    "component": ["attribute/choice"]
+  },
+  "DEPENDENT_INPUT_ACTION": {
+    "hint":
+      "(show|hide) when dependent-control:${unique-control-id} (equals|includes|notEquals|notIncludes) [${codemaps}]",
+    "description": {
+      "NL":
+        "Voor het tonen of verbergen van een attribuut dat afhankelijk is van de options van een keuze attribuut codemap.<br/>Voorbeeld 1: show|hide when dependent-control:<unique ID> notEquals [<codemap code 1>|<codemap code 2>|<codemap code 3>] betekent dat alle genoemde opties niet geselecteerd mogen zijn<br/>Voorbeeld 2: show|hide when dependent-control:<unique ID> notIncludes [<codemap code 1>|<codemap code 2>|<codemap code 3>] betekent dat een van de genoemde opties niet geselecteerd mag zijn",
+      "EN":
+        "To show or hide an attribute that is dependent on options of the choice control codemap that are not selected, and all options must not be selected (AND NOT), we can add the following instruction to a layout hint: <br/>show|hide when dependent-control:<unique ID> notEquals [<codemap code 1>|<codemap code 2>|<codemap code 3>]<br/>To show or hide an attribute that is dependent on options of the choice control codemap that are not selected, and one of the options must not be selected (OR NOT), we can add the following instruction to a layout hint:<br/>show|hide when dependent-control:<unique ID> notIncludes [<codemap code 1>|<codemap code 2>|<codemap code 3>]"
+    },
+    "link": "",
+    "component": ["attribute"]
+  },
+  "NOTIFY": {
+    "hint": "notify",
+    "description": {
+      "NL": "Informeer de gebruiker met een generieke notificatie.",
+      "EN": "Notify end user with a generic notification message."
+    },
+    "link": "",
+    "component": ["form"]
+  },
+  "NOTIFY_CREATE": {
+    "hint": "notify-create",
+    "description": {
+      "NL": "Informeer de gebruiker dat er iets is gecreëerd.",
+      "EN": "Notify end user that something was created."
+    },
+    "link": "",
+    "component": ["task/create", "task/generalpanel"]
+  },
+  "NOTIFY_UPDATE": {
+    "hint": "notify-update",
+    "description": {
+      "NL": "Informeer de gebruiker dat er iets is geupdated.",
+      "EN": "Notify end user that something was updated."
+    },
+    "link": "",
+    "component": ["task/update", "task/generalrow"]
+  },
+  "NOTIFY_DELETE": {
+    "hint": "notify-delete",
+    "description": {
+      "NL": "Informeer de gebruiker dat er iets is verwijderd.",
+      "EN": "Notify end user that something was deleted."
+    },
+    "link": "",
+    "component": ["task/delete", "task/generalrow"]
+  },
+  "MULTI_ROW_TASK": {
+    "hint": "multirowtask",
+    "description": {
+      "NL":
+        "Voeg vinkjes toe aan het begin van elke rij van de tabel. De selectie van deze vinkjes zal worden meegegeven aan de taak als deze wordt gestart.",
+      "EN":
+        "Add checkboxes in front of list rows which are used as input for the multi row task."
+    },
+    "link": "",
+    "component": ["task"]
+  },
+  "FORM_FINISH_RETURN": {
+    "hint": "return",
+    "description": {
+      "NL":
+        "Nadat een formulier is afgerond volg dan niet de redirects en update ook de huidige lijst niet.",
+      "EN": "After form is finished don't follow redirects or update lists."
+    },
+    "link": "",
+    "component": ["form"]
+  },
+  "FORM_FINISH_RETURN_RELOAD_LIST": {
+    "hint": "return-and-reload-list",
+    "description": {
+      "NL":
+        "Nadat een formulier is afgerond volg dan niet de redirects maar herlaad de huidige lijst.",
+      "EN":
+        "After form is finished don't follow redirects, just reload the list currently active."
+    },
+    "link": "",
+    "component": ["form"]
+  },
+  "HIDE_MODELCATALOG": {
+    "hint": "hide-modelcatalog",
+    "description": {
+      "NL": "Verberg de link naar de model catalogus in het hoofd menu.",
+      "EN": "Hide the modelcatalog link on the main menu."
+    },
+    "link": "",
+    "component": ["webapplication"]
+  },
+  "HIDE_LABEL": {
+    "hint": "hide-label",
+    "description": {
+      "NL": "Verberg het label",
+      "EN": "Hide the label"
+    },
+    "link": "",
+    "component": ["question", "attribute"]
+  },
+  "EMPHASIS": {
+    "hint": "emphasis",
+    "description": {
+      "NL": "Benadruk de inhoud",
+      "EN": "Emphasize content"
+    },
+    "link": "",
+    "component": [
+      "element/content",
+      "element/navigation",
+      "element/textfragment"
+    ]
+  },
+  "ALIGN_LEFT": {
+    "hint": "align-left",
+    "description": {
+      "NL": "Attributen worden links uitgelijnd",
+      "EN": "Attribute values will be left aligned."
+    },
+    "link": "",
+    "component": ["attribute"]
+  },
+  "ALIGN_CENTER": {
+    "hint": "align-center",
+    "description": {
+      "NL": "Attributen worden gecentreerd",
+      "EN": "Attribute values will be centered."
+    },
+    "link": "",
+    "component": ["attribute"]
+  },
+  "ALIGN_RIGHT": {
+    "hint": "align-right",
+    "description": {
+      "NL": "Attributen worden rechts uitgelijnd",
+      "EN": "Attribute values will be right aligned."
+    },
+    "link": "",
+    "component": ["attribute"]
+  },
+  "GOTO_CASEVIEW": {
+    "hint": "goto-caseview",
+    "description": {
+      "NL": "Opens the first link on a caselist to go to the caseview",
+      "EN": "Opens the first link on a caselist to go to the caseview"
+    },
+    "link": "",
+    "component": ["list/case"]
+  },
+  "SHOW_ONE_RESULT_AS_DETAIL": {
+    "hint": "show-one-result-as-detail",
+    "description": {
+      "NL": "Een lijst met maar één item mag direct als detail getoond worden",
+      "EN": "A list with only one detail must be shown as a detail"
+    },
+    "link": "",
+    "component": ["list"]
+  },
+  "PLUS_MINUS_WIDGET": {
+    "hint": "plusminuswidget",
+    "description": {
+      "NL": "Nummer widget met + / - knoppen ",
+      "EN": "Number widget with plus minus buttons"
+    },
+    "link": "",
+    "component": ["attribute"]
+  },
+  "YEAR_AMOUNT": {
+    "hint": "yearamount",
+    "description": {
+      "NL": "Bedrag per periode widget",
+      "EN": "Enables amount per period widget"
+    },
+    "link": "",
+    "component": ["attribute"]
+  },
+  "REGISTER_CUSTOMER": {
+    "hint": "register-customer",
+    "description": {
+      "NL": "Registeer Klant hint fs-demo",
+      "EN": "Register Customer hint fs-demo"
+    },
+    "link": "",
+    "component": ["form"]
+  },
+  "HOW_MUCH_CAN_I_BORROW": {
+    "hint": "how-much-can-i-borrow",
+    "description": {
+      "NL":
+        "Indicates the form that informs the customer how much can be borrowed",
+      "EN":
+        "Indicates the form that informs the customer how much can be borrowed"
+    },
+    "link": "",
+    "component": ["form"]
+  },
+  "WHAT_WILL_MY_MORTGAGE_COST": {
+    "hint": "what-will-my-mortgage-cost",
+    "description": {
+      "NL": "Indicates the form that informs the customer what a mortgage cost",
+      "EN": "Indicates the form that informs the customer what a mortgage cost"
+    },
+    "link": "",
+    "component": ["form"]
+  },
+  "WHICH_MORTGAGE_SUITS_ME_BEST": {
+    "hint": "which-mortgage-suits-me-best",
+    "description": {
+      "NL":
+        "Indicates the form that informs the customer which mortgage suits best",
+      "EN":
+        "Indicates the form that informs the customer which mortgage suits best"
+    },
+    "link": "",
+    "component": ["form"]
+  },
+  "TOTAL_MORTGAGE_FEE": {
+    "hint": "total-mortgage-fee",
+    "description": {
+      "NL":
+        "Indicates the attribute that is used to show the total mortgage fee in the 'what will my mortgage cost instrument'",
+      "EN":
+        "Indicates the attribute that is used to show the total mortgage fee in the 'what will my mortgage cost instrument'"
+    },
+    "link": "",
+    "component": ["attribute"]
+  },
+  "TOTAL_MORTGAGE_AMOUNT": {
+    "hint": "total-mortgage-amount",
+    "description": {
+      "NL":
+        "Indicates the attribute that is used to show the total mortgage amount in the 'what will my mortgage cost instrument'",
+      "EN":
+        "Indicates the attribute that is used to show the total mortgage amount in the 'what will my mortgage cost instrument'"
+    },
+    "link": "",
+    "component": ["attribute"]
+  },
+  "EXPLAINS_SUITABLE_MORTGAGE": {
+    "hint": "explains:${attribute_id}",
+    "description": {
+      "NL":
+        "Indicates what instrument has the explanation configuration for the suitable mortgage'",
+      "EN":
+        "Indicates what instrument has the explanation configuration for the suitable mortgage'"
+    },
+    "link": "",
+    "component": ["question"]
+  },
+  "BUTTON_NEXT": {
+    "hint": "btn-next",
+    "description": {
+      "NL": "Geeft de next button aan",
+      "EN": "Indicates the next button"
+    },
+    "link": "",
+    "component": ["task", "form"]
+  },
+  "BUTTON_CANCEL": {
+    "hint": "btn-cancel",
+    "description": {
+      "NL": "Geeft de cancel button aan",
+      "EN": "Indicates the cancel button"
+    },
+    "link": "",
+    "component": ["task", "form"]
+  },
+  "BUTTON_CONFIRM": {
+    "hint": "btn-confirm",
+    "description": {
+      "NL": "Geeft de confirm button aan",
+      "EN": "Indicates the confirm button"
+    },
+    "link": "",
+    "component": ["task", "form"]
+  },
+  "BUTTON_PREVIOUS": {
+    "hint": "btn-previous",
+    "description": {
+      "NL": "Geeft de previous button aan",
+      "EN": "Indicates the previous button"
+    },
+    "link": "",
+    "component": ["task", "form"]
+  },
+  "BUTTON_SUBMIT": {
+    "hint": "btn-submit",
+    "description": {
+      "NL": "Geeft de submit button aan",
+      "EN": "Indicates the submit button"
+    },
+    "link": "",
+    "component": ["task", "form"]
+  },
+  "CHECK_ELIGIBILITY": {
+    "hint": "check-eligibility",
+    "description": {
+      "NL": "Indicates check eligibility form",
+      "EN": "Indicates check eligibility form"
+    },
+    "link": "",
+    "component": ["form"]
+  },
+  "CUSTOMER_ACCOUNT": {
+    "hint": "customer-account",
+    "description": {
+      "NL": "Indicates customer account caseview",
+      "EN": "Indicates customer account caseview"
+    },
+    "link": "",
+    "component": ["caseview"]
+  },
+  "MORTGAGE_APPLICATION": {
+    "hint": "mortgage-application",
+    "description": {
+      "NL": "Indicates the mortgage application caseview",
+      "EN": "Indicates the mortgage application caseview"
+    },
+    "link": "",
+    "component": ["caseview"]
+  },
+  "PROGRESS_CONFIRMED": {
+    "hint": "progress-confirmed",
+    "description": {
+      "NL":
+        "Indicates the attribute that holds the progress information of the Mortgage application",
+      "EN":
+        "Indicates the attribute that holds the progress information of the Mortgage application"
+    },
+    "link": "",
+    "component": ["attribute"]
+  }
+}

@@ -1,0 +1,50 @@
+@import "../../../variables";
+@import "../../../../node_modules/bootstrap/scss/mixins/clearfix";
+@import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+@import "../../../../node_modules/bootstrap/scss/mixins/grid";
+@import "../../../../node_modules/bootstrap/scss/mixins/nav-divider";
+
+.tab {
+  position: relative;
+
+  .taskmenu {
+    margin-left: auto;
+  }
+
+  &.has-taskgroups .navbar {
+    padding-right: $spacer * 3;
+  }
+}
+
+.component-chooser {
+  &.open .dropdown-toggle {
+    box-shadow: none;
+  }
+
+  .tab-title {
+    padding-left: 0;
+
+    color: $component-active-color;
+    background: transparent;
+  }
+
+  .group-divider {
+    position: relative;
+
+    margin-top: 1em;
+  }
+
+  .group-divider::before {
+    @include nav-divider($dropdown-divider-bg);
+
+    content: "";
+
+    position: absolute;
+    top: -1em;
+    left: 0;
+
+    display: block;
+
+    width: 100%;
+  }
+}

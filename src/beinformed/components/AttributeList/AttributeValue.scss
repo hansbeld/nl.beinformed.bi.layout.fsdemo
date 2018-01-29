@@ -1,0 +1,26 @@
+@import "../../../variables";
+
+.attribute-value {
+  .prefix {
+    margin-right: $spacer / 4;
+  }
+
+  .postfix {
+    margin-left: $spacer / 4;
+  }
+}
+
+.composite-attribute-child {
+  .composite-attribute-child-label {
+    font-style: italic;
+    font-size: $font-size-sm;
+  }
+
+  .attribute-value {
+    padding: 0;
+  }
+}
+
+.attribute-type-money .currency-symbol {
+  margin-right: $spacer / 2;
+}

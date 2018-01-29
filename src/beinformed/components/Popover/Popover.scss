@@ -1,0 +1,63 @@
+@import "../../../variables";
+
+.custom-popover {
+  &.popover.popover-top-right,
+  &.popover.popover-bottom-right {
+    margin-left: -40px;
+  }
+
+  &.popover.popover-top-right::before,
+  &.popover.popover-bottom-right::before,
+  &.popover.popover-top-right::after,
+  &.popover.popover-bottom-right::after {
+    left: 40 + ($popover-arrow-width / 2);
+  }
+
+  &.popover.popover-top-left,
+  &.popover.popover-bottom-left {
+    margin-left: 40px;
+  }
+
+  &.popover.popover-top-left::before,
+  &.popover.popover-bottom-left::before,
+  &.popover.popover-top-left::after,
+  &.popover.popover-bottom-left::after {
+    right: 40 - ($popover-arrow-width / 2);
+    left: auto;
+  }
+
+  &.popover.popover-right-bottom,
+  &.popover.popover-left-bottom {
+    margin-top: -20px;
+  }
+
+  &.popover.popover-right-bottom::before,
+  &.popover.popover-left-bottom::before,
+  &.popover.popover-right-bottom::after,
+  &.popover.popover-left-bottom::after {
+    top: 20 + $popover-arrow-width;
+  }
+
+  &.popover.popover-right-top,
+  &.popover.popover-left-top {
+    margin-top: 20px;
+  }
+
+  &.popover.popover-right-top::before,
+  &.popover.popover-left-top::before,
+  &.popover.popover-right-top::after,
+  &.popover.popover-left-top::after {
+    top: auto;
+    bottom: 20px;
+  }
+
+  &.bs-popover-right .arrow,
+  &.bs-popover-left .arrow {
+    top: 20 + $popover-arrow-height;
+  }
+
+  &.popover-bottom-center .arrow,
+  &.popover-top-center .arrow {
+    left: 50%;
+  }
+}

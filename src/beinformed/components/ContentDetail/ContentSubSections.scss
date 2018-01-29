@@ -1,0 +1,12 @@
+@import "../../../variables";
+
+.subsection > .subsections > .subsection.has-number {
+  margin-left: $spacer;
+}
+
+.subsection.active {
+  color: #000;
+  background-color: $subsection-highlight;
+
+  outline: 3px solid $subsection-highlight;
+}

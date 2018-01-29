@@ -1,0 +1,16 @@
+@import "../../../variables";
+
+.banking-channels {
+  .banking-channel {
+    background-color: $fs-gray-dark;
+
+    img {
+      height: auto;
+      max-width: 100%;
+    }
+
+    .content {
+      padding: $spacer;
+    }
+  }
+}

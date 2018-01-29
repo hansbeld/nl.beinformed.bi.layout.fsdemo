@@ -1,0 +1,10 @@
+{
+  "sorting": {
+    "attributes": [
+      "ISBN10",
+      "Title",
+      "ISBN13",
+      "NumberOfPages"
+    ]
+  }
+}

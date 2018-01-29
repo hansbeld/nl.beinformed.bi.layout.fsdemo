@@ -1,0 +1,47 @@
+@import "../../../variables";
+
+.datepicker-toolbar {
+  .datepicker-btn-prev,
+  .datepicker-btn-switch,
+  .datepicker-btn-next {
+    float: left;
+
+    width: 15%;
+
+    .btn {
+      @if $enable-transitions {
+        transition: all 0.2s ease-in-out;
+      }
+
+      width: 100%;
+
+      border-top: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+  }
+
+  .datepicker-btn-prev,
+  .datepicker-btn-next {
+    .btn {
+      border-right: 0;
+      border-left: 0;
+    }
+  }
+
+  .datepicker-btn-prev .btn {
+    border-top-left-radius: $btn-border-radius;
+  }
+
+  .datepicker-btn-next .btn {
+    border-top-right-radius: $btn-border-radius;
+  }
+
+  .datepicker-btn-switch {
+    width: 70%;
+
+    .btn {
+      font-weight: bold;
+    }
+  }
+}

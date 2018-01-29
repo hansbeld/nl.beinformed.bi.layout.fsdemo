@@ -1,0 +1,15 @@
+.quick-search {
+  position: relative;
+
+  float: right;
+
+  margin-left: auto;
+
+  .form-control {
+    &:not([size]) {
+      &:not([multiple]) {
+        height: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import "../../../variables";
+
+.uploadwidget .custom-file {
+  display: block;
+
+  &.active {
+    .custom-file-control,
+    .custom-file-control {
+      &::before {
+        border: 1px solid theme-color("primary");
+      }
+    }
+  }
+}

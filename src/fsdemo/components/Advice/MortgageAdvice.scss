@@ -1,0 +1,30 @@
+@import "../../../variables";
+@import "~bootstrap/scss/mixins/clearfix";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~bootstrap/scss/mixins/grid";
+@import "~bootstrap/scss/mixins/nav-divider";
+
+.mortgage-advice {
+  margin: $spacer auto;
+
+  h2 {
+    margin-bottom: $spacer * 1.5;
+  }
+
+  .mortgage-advice-row {
+    background-color: $gray-200;
+  }
+
+  .form-body,
+  .form-buttons {
+    padding: $spacer;
+
+    background-color: $gray-200;
+  }
+
+  .form-buttons {
+    padding-top: $spacer;
+
+    margin-top: 0;
+  }
+}

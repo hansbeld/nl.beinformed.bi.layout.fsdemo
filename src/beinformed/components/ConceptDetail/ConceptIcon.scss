@@ -1,0 +1,33 @@
+@import "../../../variables";
+
+.concept-icon-wrapper {
+  position: relative;
+
+  max-height: 100%;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .taxonomy-type {
+    position: absolute;
+    top: 0;
+    left: -4px;
+
+    display: block;
+
+    padding: 0 2px 1px;
+
+    background: $white;
+
+    border: 1px solid $black;
+    border-radius: 2px;
+
+    font-weight: $font-weight-bold;
+    font-size: $font-size-sm;
+    line-height: 1em;
+
+    text-transform: uppercase;
+  }
+}

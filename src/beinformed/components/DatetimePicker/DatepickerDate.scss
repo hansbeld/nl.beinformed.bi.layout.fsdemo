@@ -1,0 +1,61 @@
+@import "../../../variables";
+@import "~bootstrap/scss/mixins/hover";
+
+.datepicker-calendar {
+  font-size: 0.8rem;
+
+  &.table {
+    margin-bottom: 0;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+  }
+
+  .datepicker-dayname,
+  .datepicker-day,
+  .datepicker-month,
+  .datepicker-year {
+    text-align: center;
+  }
+
+  .datepicker-dayname {
+    border-top: 0;
+  }
+
+  .datepicker-othermonth,
+  .datepicker-otherdecade,
+  .datepicker-disabled {
+    color: $datepicker-item-disabled-background-color;
+  }
+
+  .datepicker-year,
+  .datepicker-month {
+    line-height: 3.6em;
+  }
+
+  .datepicker-today {
+    background-color: $datepicker-today-background-color;
+
+    font-weight: bold;
+  }
+
+  .datepicker-year,
+  .datepicker-month,
+  .datepicker-day {
+    @if $enable-transitions {
+      transition: all 0.2s ease-in-out;
+    }
+
+    @include hover {
+      border-color: transparent;
+    }
+
+    cursor: pointer;
+  }
+
+  .focus {
+    outline: $table-border-width solid darken($table-border-color, 12%);
+  }
+}

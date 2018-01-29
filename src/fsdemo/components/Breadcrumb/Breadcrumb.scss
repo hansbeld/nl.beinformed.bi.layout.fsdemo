@@ -1,0 +1,26 @@
+@import "../../../variables";
+
+nav.accountsummary.breadcrumb {
+  margin-bottom: 0.3rem;
+}
+
+.accountsummary {
+  background-color: white;
+
+  .breadcrumb-item + .breadcrumb-item::before {
+    content: "\00bb\00a0";
+
+    display: inline-block;
+
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+
+    color: black;
+  }
+
+  .breadcrumb-item {
+    color: $orange;
+
+    font-size: $font-size-sm;
+  }
+}

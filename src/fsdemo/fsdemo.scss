@@ -1,0 +1,157 @@
+@import "../variables";
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: white;
+
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+.input-group {
+  display: inline-flex;
+
+  width: auto;
+}
+
+.custom-popover {
+  .popover-content {
+    background-color: $orange-tooltip;
+  }
+}
+
+.login-modal .input-group {
+  display: flex;
+
+  width: 100%;
+}
+
+.custom-control-input:checked ~ .custom-control-indicator {
+  color: #fff;
+  background-color: $orange;
+}
+
+.form-control {
+  border-color: $dark;
+}
+
+.btn-light.dropdown-toggle {
+  border-color: $dark;
+}
+
+.input-group-btn > .btn {
+  border-color: $dark;
+}
+
+.dropdown-toggle {
+  padding-right: 2rem;
+
+  &::after {
+    content: "\f107";
+
+    position: absolute;
+
+    padding-top: 2px;
+
+    color: $orange;
+
+    border-top: 0;
+
+    border-color: transparent;
+
+    font-family: FontAwesome, serif;
+  }
+}
+
+.form-group .dropdown-toggle,
+.form-group .dropdown-toggle:active {
+  background: $white;
+
+  border-color: $dark;
+
+  &:hover {
+    color: $gray-800;
+  }
+}
+
+// show question mark behind radio buttons
+.form-choice-group {
+  display: inline-flex;
+}
+
+.input-group .form-control {
+  width: get-width("default");
+}
+
+.password-info {
+  max-width: get-width("default");
+}
+
+.datewidget .input-group .form-control {
+  flex: none;
+
+  width: get-width("datewidget");
+}
+
+.numberwidget .input-group .form-control {
+  flex: none;
+
+  width: get-width("numberwidget");
+}
+
+.moneywidget {
+  .input-group {
+    position: relative;
+
+    .form-control {
+      flex: none;
+
+      width: get-width("moneywidget");
+
+      padding-left: 0;
+
+      border-left: 0;
+
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .input-group-text {
+      background-color: #fff;
+
+      border: 1px solid #000;
+      border-right: 0;
+    }
+
+    .input-group-btn {
+      margin-left: 10px;
+
+      .btn {
+        background-color: #fff;
+
+        border-radius: $input-border-radius;
+      }
+
+      .btn-outline-secondary.dropdown-toggle {
+        color: #000;
+      }
+    }
+  }
+}
+
+.table-row,
+.table-row-link {
+  border: 0;
+
+  &:nth-child(even) {
+    background-color: $gray-200;
+  }
+
+  &:nth-child(odd) {
+    background-color: $gray-100;
+  }
+}
+
+.table-inline-edit .table-row {
+  background: transparent;
+}

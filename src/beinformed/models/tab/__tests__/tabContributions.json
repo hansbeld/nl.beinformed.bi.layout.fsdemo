@@ -1,0 +1,30 @@
+{
+  "tab": {
+    "label": "Books",
+    "resourcetype": "CaseTab",
+    "_links": {
+      "component": [
+        {
+          "name": "Books",
+          "label": "Books",
+          "resourcetype": "CaseList"
+        },
+        {
+          "name": "BooksByPersonRole",
+          "label": "Books by person role",
+          "resourcetype": "CaseList"
+        },
+        {
+          "name": "BookPrints",
+          "label": "Book prints",
+          "resourcetype": "DatastoreList"
+        },
+        {
+          "name": "LatestBooks",
+          "label": "Latest books",
+          "resourcetype": "DatastoreList"
+        }
+      ]
+    }
+  }
+}

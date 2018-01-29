@@ -1,0 +1,11 @@
+@import "../../../variables";
+
+.form-content-popover {
+  margin-left: $spacer / 2;
+
+  .icon {
+    color: $primary;
+
+    font-size: $font-size-lg;
+  }
+}

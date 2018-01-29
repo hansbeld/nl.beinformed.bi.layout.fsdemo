@@ -1,0 +1,27 @@
+@import "../../../variables";
+
+.panel {
+  margin-bottom: $spacer;
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: $spacer / 2;
+  }
+}
+
+.panel + .panel {
+  padding-top: $spacer;
+
+  border-top: 1px solid theme-color("light");
+}
+
+.tab-content {
+  padding-top: $spacer;
+
+  > .tab-pane {
+    padding-top: 0;
+
+    border-top: 0;
+  }
+}

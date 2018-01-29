@@ -1,0 +1,52 @@
+{
+  "webapplication": {
+    "_links": {
+      "self": {
+        "href": "/"
+      },
+      "api_doc": {
+        "href": "/api-docs/"
+      },
+      "contributions": {
+        "href": "/contributions/"
+      },
+      "tab": [
+        {
+          "href": "/books",
+          "name": "Books"
+        },
+        {
+          "href": "/persons",
+          "name": "Persons"
+        },
+        {
+          "href": "/publishinghouses",
+          "name": "PublishingHouses"
+        },
+        {
+          "href": "/UT_books",
+          "name": "UT_Books"
+        },
+        {
+          "href": "/UT_persons",
+          "name": "UT_Persons"
+        },
+        {
+          "href": "/UT_publishinghouses",
+          "name": "UT_PublishingHouses"
+        },
+        {
+          "href": "/UT_bookPrints",
+          "name": "UTBookPrints"
+        },
+        {
+          "href": "/RebuildDB",
+          "name": "RebuildDB"
+        }
+      ],
+      "login": {
+        "href": "/login"
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+@import "../../../variables";
+
+.mortgage-advice-result {
+  position: relative;
+
+  background-color: $advice-result;
+
+  border: 1px solid $gray-500;
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.75);
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    display: block;
+
+    width: 10px;
+    height: 5px;
+
+    &::before,
+    &::after {
+      content: "";
+
+      position: absolute;
+
+      display: block;
+    }
+
+    &::before {
+      left: -20px;
+
+      border-width: 35px 20px 35px 0;
+      border-style: solid;
+      border-color: transparent $gray-500 transparent transparent;
+
+      margin-top: -35px;
+    }
+
+    &::after {
+      left: -18px;
+
+      border-width: 33px 18px 33px 0;
+      border-style: solid;
+      border-color: transparent $advice-result transparent transparent;
+
+      margin-top: -33px;
+    }
+  }
+
+  .popout {
+    padding: $spacer;
+
+    h3 {
+      font-weight: $font-weight-normal;
+    }
+
+    .result {
+      margin-bottom: $spacer;
+
+      font-weight: $font-weight-bold;
+      font-size: $font-size-lg;
+    }
+
+    .whatsnext {
+      margin-top: $spacer;
+    }
+  }
+}

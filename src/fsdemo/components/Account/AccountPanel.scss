@@ -1,0 +1,45 @@
+@import "../../../variables";
+
+.account-navigation {
+  background-color: $orange-lighter;
+
+  a {
+    position: relative;
+
+    color: $gray-800;
+  }
+
+  .active {
+    color: $white;
+    background-color: $orange;
+
+    &::after {
+      content: "\f054";
+
+      position: absolute;
+      top: 9px;
+      right: $spacer;
+
+      font-family: FontAwesome, serif;
+    }
+  }
+}
+
+.account-panel {
+  .thead {
+    background-color: $orange-lighter;
+  }
+
+  .table-header {
+    color: black;
+    background-color: $orange-lighter;
+  }
+
+  > .col {
+    padding: 0;
+  }
+}
+
+.account-wrapper {
+  margin-bottom: $spacer * 2;
+}

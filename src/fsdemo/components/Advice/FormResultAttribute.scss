@@ -1,0 +1,28 @@
+@import "../../../variables";
+
+.icon-exclamation-triangle,
+.icon-check {
+  position: relative;
+
+  padding-left: 25px;
+
+  &::before {
+    content: "\f06a";
+
+    position: absolute;
+    top: 1px;
+    left: 0;
+
+    padding-right: 0.5em;
+
+    font-family: FontAwesome, serif;
+  }
+}
+
+.icon-check::before {
+  content: "\f058";
+}
+
+.form-result .suitable-mortgage-explain {
+  background-color: $orange;
+}

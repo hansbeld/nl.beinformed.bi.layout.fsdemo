@@ -1,0 +1,115 @@
+{
+  "env": {
+    "browser": true,
+    "nashorn": true,
+    "es6": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "allowImportExportEverywhere": true
+  },
+  "globals": {
+    "module": false,
+    "global": false,
+    "__webpack_public_path__": false
+  },
+  "plugins": [
+    "flowtype",
+    "react",
+    "jsx-a11y",
+    "dependencies",
+    "promise",
+    "unicorn",
+    "import"
+  ],
+  "extends": [
+    "eslint:all",
+    "plugin:react/recommended",
+    "plugin:flowtype/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:promise/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:import/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react"
+  ],
+  "settings": {
+    "import/resolver": {
+      "babel-module": {},
+      "webpack": {}
+    },
+    "react": {
+      "version": "16.0",
+      "flowVersion": "0.53"
+    }
+  },
+  "rules": {
+    "complexity": [1, 18],
+    "max-statements": "off",
+    "max-params": "off",
+    "no-warning-comments": "off",
+
+    "no-ternary": "off",
+    "valid-jsdoc": "off",
+    "require-jsdoc": "off",
+    "one-var": "off",
+    "sort-keys": "off",
+    "sort-imports": "off",
+    "capitalized-comments": "off",
+    "id-length": "off",
+    "operator-assignment": "off",
+    "class-methods-use-this": "off",
+
+    "max-lines": "off",
+
+    "no-console": "warn",
+    "no-debugger": "warn",
+
+    "no-invalid-this": "off",
+
+    "no-prototype-builtins": "off",
+    "no-magic-numbers": ["warn", {
+      "ignore": [0, 1, -1, 2]
+    }],
+    "no-underscore-dangle": "off",
+    "no-plusplus": ["warn", {
+      "allowForLoopAfterthoughts": true
+    }],
+    "no-void": "off",
+
+    "no-duplicate-imports": "off",
+    "no-use-before-define": "off",
+    "no-template-curly-in-string": "off",
+    "no-process-env": "off",
+
+    "prefer-destructuring": "off",
+
+    "lines-around-comment": "off",
+    "lines-between-class-members": ["warn", "always", {
+      "exceptAfterSingleLine": true
+    }],
+
+    "multiline-comment-style": "off",
+
+    "unicorn/filename-case": "off",
+    "unicorn/regex-shorthand": "off",
+
+    "promise/avoid-new": "off",
+    "promise/catch-or-return": "off",
+    "promise/always-return": "off",
+
+    "jsx-a11y/no-autofocus": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/no-noninteractive-tabindex": "off",
+    "jsx-a11y/label-has-for": ["warn", {
+      "required": {
+        "some": ["nesting", "id"]
+      }
+    }],
+
+    "react/prop-types": "off"
+  }
+}

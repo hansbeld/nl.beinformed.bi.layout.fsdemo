@@ -1,0 +1,53 @@
+@import "../../../variables";
+
+.mortgage-instruments {
+  min-height: 494px;
+
+  .col {
+    display: grid;
+  }
+
+  .instrument {
+    position: relative;
+
+    padding: $spacer;
+    padding-bottom: $spacer * 5;
+
+    background: $fs-gray-dark;
+
+    ul {
+      list-style: none;
+
+      padding-left: 0;
+
+      li {
+        position: relative;
+
+        padding-left: 23px;
+
+        &::before {
+          content: "\f00c";
+
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          color: $green;
+
+          font-family: FontAwesome, serif;
+        }
+      }
+    }
+
+    .instrument-button {
+      position: absolute;
+      bottom: $spacer * 1.5;
+
+      width: 100%;
+
+      margin: 0 ($spacer * -1);
+
+      text-align: center;
+    }
+  }
+}

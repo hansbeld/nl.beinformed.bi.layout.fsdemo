@@ -1,0 +1,19 @@
+@import "../../../variables";
+
+.suitable-mortgage-option {
+  .result-explain-icon {
+    margin-right: $spacer / 2;
+  }
+
+  .suitable-mortgage-explain {
+    padding: 0;
+
+    background-color: transparent;
+
+    margin: 0;
+  }
+
+  .form-result-decision {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "webapplication": {
+    "label": "Webapp",
+    "resourcetype": "Application",
+    "_links": {
+      "tab": [
+        {
+          "name": "Books",
+          "label": "Books",
+          "resourcetype": "CaseTab"
+        },
+        {
+          "name": "Persons",
+          "label": "Persons",
+          "resourcetype": "CaseTab"
+        },
+        {
+          "name": "UTBookPrints",
+          "label": "UT Book prints",
+          "resourcetype": "GenericTab"
+        },
+        {
+          "name": "UsersAndOrganizations",
+          "label": "Users and organizations",
+          "resourcetype": "GenericTab"
+        }
+      ],
+      "authentication": [
+        {
+          "name": "login",
+          "label": "Login",
+          "resourcetype": null
+        },
+        {
+          "name": "UserServices",
+          "label": "Gebruikerservices",
+          "resourcetype": "user_services"
+        }
+      ]
+    }
+  }
+}

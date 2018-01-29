@@ -1,0 +1,192 @@
+{
+  "ClassifyUrgentie": {
+    "label": "Classificeer urgentie",
+    "resourcetype": "Form",
+    "objects": {
+      "ClassifyUrgentie": {
+        "dynamicObject": true,
+        "repeatable": false,
+        "label": "Classificeer urgentie",
+        "content": {
+          "questions": {
+            "questionElements": [],
+            "optionElements": []
+          },
+          "intermediateResults": {
+            "label": "Intermediate results",
+            "attributes": [],
+            "resultElements": []
+          },
+          "results": [
+            {
+              "classificationResult": {
+                "label": "Classifications results",
+                "description": "<p>The following values were inferred:</p>",
+                "attributes": [
+                  "Urgentie"
+                ],
+                "positiveResultElements": [],
+                "negativeResultElements": [],
+                "resultElements": []
+              }
+            }
+          ]
+        },
+        "attributes": [
+          {
+            "LevensbedreigendeSituaties": {
+              "type": "array",
+              "label": "Levensbedreigende situaties",
+              "mandatory": false,
+              "optionMode": "dynamicWithThreshold",
+              "multiplechoice": true,
+              "_links": {
+                "concept": {
+                  "href": "/concepts/Incident/Business design/Urgenties/Levensbedreigende situaties.bixml/LevensbedreigendeSituaties"
+                }
+              },
+              "layouthint": [
+                "checkbox"
+              ],
+              "enumerated": true
+            }
+          },
+          {
+            "Slachoffers": {
+              "type": "array",
+              "label": "Slachoffers",
+              "mandatory": false,
+              "optionMode": "dynamicWithThreshold",
+              "multiplechoice": true,
+              "_links": {
+                "concept": {
+                  "href": "/concepts/Incident/Business design/Urgenties/Slachtoffers en betrokkenen.bixml/Slachoffers"
+                }
+              },
+              "layouthint": [
+                "checkbox"
+              ],
+              "enumerated": true
+            }
+          },
+          {
+            "Betrokkenen": {
+              "type": "array",
+              "label": "Betrokkenen",
+              "mandatory": false,
+              "optionMode": "static",
+              "multiplechoice": true,
+              "_links": {
+                "concept": {
+                  "href": "/concepts/Incident/Business design/Urgenties/Slachtoffers en betrokkenen.bixml/Betrokkenen"
+                }
+              },
+              "layouthint": [
+                "checkbox"
+              ],
+              "enumerated": true,
+              "options": [
+                {
+                  "code": "PersonenBetrokken",
+                  "label": "Personen betrokken",
+                  "_links": {
+                    "concept": {
+                      "href": "/concepts/Incident/Business design/Urgenties/Slachtoffers en betrokkenen.bixml/PersonenBetrokken"
+                    }
+                  }
+                },
+                {
+                  "code": "DierenBetrokken",
+                  "label": "Dieren betrokken",
+                  "_links": {
+                    "concept": {
+                      "href": "/concepts/Incident/Business design/Urgenties/Slachtoffers en betrokkenen.bixml/DierenBetrokken"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "LevensbedreigendDierSlachtoffer": {
+              "type": "boolean",
+              "label": "Levensbedreigend dier slachtoffer",
+              "mandatory": false,
+              "_links": {
+                "concept": {
+                  "href": "/concepts/Incident/Business design/Urgenties/Levensbedreigende situaties.bixml/LevensbedreigendDierSlachtoffer"
+                }
+              },
+              "layouthint": [
+                "radiobutton"
+              ]
+            }
+          },
+          {
+            "LevensbedreigendMensSlachtoffer": {
+              "type": "boolean",
+              "label": "Levensbedreigend mens slachtoffer",
+              "mandatory": false,
+              "_links": {
+                "concept": {
+                  "href": "/concepts/Incident/Business design/Urgenties/Levensbedreigende situaties.bixml/LevensbedreigendMensSlachtoffer"
+                }
+              },
+              "layouthint": [
+                "radiobutton"
+              ]
+            }
+          },
+          {
+            "Urgentie": {
+              "type": "string",
+              "label": "Urgentie",
+              "mandatory": false,
+              "optionMode": "static",
+              "readonly": true,
+              "multiplechoice": false,
+              "_links": {
+                "concept": {
+                  "href": "/concepts/Incident/Business design/Urgenties/Urgenties.bixml/Urgentie"
+                }
+              },
+              "layouthint": [
+                "combobox"
+              ],
+              "enumerated": true,
+              "options": [
+                {
+                  "code": "U1HulpdienstSpoed",
+                  "label": "U1 Hulpdienst spoed",
+                  "_links": {
+                    "concept": {
+                      "href": "/concepts/Incident/Business design/Urgenties/Urgenties.bixml/U1HulpdienstSpoed"
+                    }
+                  }
+                },
+                {
+                  "code": "U2SpecialistBezoek",
+                  "label": "U2 Specialist bezoek",
+                  "_links": {
+                    "concept": {
+                      "href": "/concepts/Incident/Business design/Urgenties/Urgenties.bixml/U2SpecialistBezoek"
+                    }
+                  }
+                },
+                {
+                  "code": "U0GeenUrgentie",
+                  "label": "U0 Geen urgentie",
+                  "_links": {
+                    "concept": {
+                      "href": "/concepts/Incident/Business design/Urgenties/Urgenties.bixml/U0GeenUrgentie"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

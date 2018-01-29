@@ -1,0 +1,41 @@
+@import "../../../variables";
+
+.apply-for-mortgage-form .form-progress {
+  padding: $spacer 0;
+
+  background-color: $orange-lighter;
+
+  a {
+    position: relative;
+
+    padding: ($spacer / 4) ($spacer * 2.5);
+
+    color: $gray-800;
+
+    &.completed::before {
+      content: "\f00c";
+
+      position: absolute;
+      top: 3px;
+      left: $spacer;
+
+      color: $orange;
+
+      font-family: FontAwesome, serif;
+    }
+
+    &.active {
+      color: $orange;
+
+      &::after {
+        content: "\f054";
+
+        position: absolute;
+        top: 3px;
+        right: $spacer;
+
+        font-family: FontAwesome, serif;
+      }
+    }
+  }
+}

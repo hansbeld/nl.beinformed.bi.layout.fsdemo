@@ -1,0 +1,39 @@
+@import "../../../variables";
+
+.quicktransfer {
+  display: flex;
+
+  .form-object {
+    display: flex;
+  }
+
+  .form-body,
+  .form-buttons {
+    padding: 0;
+
+    background: transparent;
+  }
+
+  .row {
+    display: inline-block;
+
+    margin: 0;
+  }
+
+  .form-object > .form-group {
+    margin-right: $spacer;
+  }
+
+  .col,
+  .col-12 {
+    padding: 0;
+  }
+
+  .form-buttons {
+    padding-top: $spacer * 2;
+  }
+
+  button[name="close"] {
+    display: none;
+  }
+}

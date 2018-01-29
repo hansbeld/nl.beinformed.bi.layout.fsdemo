@@ -1,0 +1,13 @@
+@import "../../../variables";
+
+.sortchooser .dropdown-menu {
+  font-size: $small-font-size;
+}
+
+.sortchooser-header {
+  background-color: $dropdown-link-hover-bg;
+
+  border-top: 1px solid $dropdown-divider-bg;
+
+  font-size: $small-font-size;
+}

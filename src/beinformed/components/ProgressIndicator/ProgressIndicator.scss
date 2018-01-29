@@ -1,0 +1,69 @@
+@import "../../../variables";
+
+.progress-indicator {
+  position: absolute;
+  top: 0;
+
+  z-index: 2000;
+
+  display: none;
+
+  background-color: transparent;
+
+  &.inprogress {
+    display: flex;
+
+    animation: setbackground 1s forwards;
+  }
+
+  &,
+  &::before {
+    overflow: visible;
+
+    width: 100%;
+    height: 2px;
+
+    margin: 0;
+  }
+
+  &::before {
+    content: "";
+
+    background-color: transparent;
+
+    animation: runningprogress 2s infinite cubic-bezier(0.4, 0, 0.2, 1) 1s;
+  }
+
+  @keyframes setbackground {
+    99.9% {
+      background: transparent;
+    }
+
+    100% {
+      background: $progressindicator-background-color;
+    }
+  }
+
+  @keyframes runningprogress {
+    0% {
+      background-color: $progressindicator-color;
+
+      margin-right: 100%;
+      margin-left: 0;
+    }
+
+    50% {
+      background-color: $progressindicator-color;
+
+      margin-right: 0;
+      margin-left: 25%;
+    }
+
+    100% {
+      background-color: $progressindicator-color;
+
+      margin-right: 0;
+      margin-left: 100%;
+    }
+  }
+}

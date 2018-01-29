@@ -1,0 +1,42 @@
+{
+  "webapplication": {
+    "_links": {
+      "self": {
+        "href": "/"
+      },
+      "api_doc": {
+        "href": "/api-docs/"
+      },
+      "contributions": {
+        "href": "/contributions/"
+      },
+      "tab": [
+        {
+          "href": "/books",
+          "name": "Books"
+        },
+        {
+          "href": "/persons",
+          "name": "Persons"
+        },
+        {
+          "href": "/UT_bookPrints",
+          "name": "UTBookPrints"
+        },
+        {
+          "href": "/UsersAndOrganisations",
+          "name": "UsersAndOrganizations"
+        }
+      ],
+      "login": {
+        "href": "/login"
+      },
+      "user_services": [
+        {
+          "href": "/Login",
+          "name": "UserServices"
+        }
+      ]
+    }
+  }
+}

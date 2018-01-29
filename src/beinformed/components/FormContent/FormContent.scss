@@ -1,0 +1,13 @@
+@import "../../../variables";
+
+.form-group .content {
+  margin-bottom: $spacer;
+
+  h2 {
+    font-size: $font-size-base;
+  }
+
+  .emphasis {
+    font-weight: $font-weight-bold;
+  }
+}

@@ -1,0 +1,71 @@
+@import "../../../variables";
+@import "../../../../node_modules/bootstrap/scss/mixins/border-radius";
+@import "../../../../node_modules/bootstrap/scss/mixins/clearfix";
+@import "../../../../node_modules/bootstrap/scss/mixins/float";
+
+.test {
+  position: absolute;
+
+  float: left;
+}
+
+.model-overviews {
+  .model-overview,
+  .overview-type-toggle {
+    display: none;
+  }
+
+  .model-overview {
+    margin-bottom: $spacer;
+
+    .model-overview-lane {
+      @include clearfix;
+
+      min-height: 4em;
+
+      padding: ($spacer / 2) ($spacer / 2) 0 200px;
+
+      border-bottom: 1px solid theme-color("light");
+    }
+
+    .model-overview-lane .lane-title {
+      display: block;
+      float: left;
+
+      max-width: 200px;
+
+      margin-left: -200px;
+
+      font-weight: normal;
+      font-size: 1em;
+    }
+
+    .model-overview-lane-concept {
+      display: block;
+      float: left;
+
+      padding: $nav-link-padding-y $nav-link-padding-x;
+
+      border: 1px solid theme-color("light");
+      border-radius: 5px;
+
+      margin-right: $spacer / 2;
+      margin-bottom: $spacer / 2;
+    }
+
+    .model-overview-lane-concept img {
+      margin-right: $spacer / 2;
+    }
+
+    .model-overview-lane-concept .center {
+      display: block;
+      clear: both;
+
+      margin: 0 auto;
+    }
+  }
+
+  .overview-type-toggle:checked + .model-overview {
+    display: block;
+  }
+}

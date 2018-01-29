@@ -1,0 +1,10 @@
+@import "../../../variables";
+
+.custom-controls-row,
+.custom-controls-stacked {
+  margin-right: $spacer / 2;
+}
+
+.option > .content {
+  padding-left: $custom-control-gutter;
+}

@@ -1,0 +1,70 @@
+@import "../../../variables";
+
+.quick-nav {
+  .quick-nav-wrapper,
+  .quick-nav-box {
+    display: flex;
+
+    width: 100%;
+  }
+
+  .quick-nav-iwanttobank,
+  .quick-nav-borrow,
+  .quick-nav-invest,
+  .quick-nav-insure {
+    background: url(./quick-nav-iwanttobank.jpg) no-repeat left top;
+    background-size: auto 100%;
+  }
+
+  .quick-nav-borrow {
+    background-image: url(./quick-nav-borrow.jpg);
+  }
+
+  .quick-nav-invest {
+    background-image: url(./quick-nav-invest.jpg);
+  }
+
+  .quick-nav-insure {
+    background-image: url(./quick-nav-insure.jpg);
+  }
+
+  .quick-nav-iwanttobank {
+    background-image: url(./quick-nav-iwanttobank.jpg);
+  }
+
+  .quick-nav-box {
+    padding-left: 27%;
+
+    border: 2px solid $orange;
+
+    .content {
+      width: 100%;
+
+      padding: $spacer;
+
+      background-color: #fff;
+
+      ul {
+        margin-bottom: 0;
+
+        li {
+          position: relative;
+
+          padding-left: 10px;
+
+          &::before {
+            content: "\203A";
+
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+      }
+
+      a {
+        color: $gray-900;
+      }
+    }
+  }
+}

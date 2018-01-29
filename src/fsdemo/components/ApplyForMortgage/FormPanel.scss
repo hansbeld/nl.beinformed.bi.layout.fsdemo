@@ -1,0 +1,17 @@
+@import "../../../variables";
+
+.apply-for-mortgage-form {
+  .form-panel {
+    padding: $spacer;
+
+    background-color: $gray-200;
+
+    .btn-group-vertical .btn {
+      text-align: left;
+    }
+  }
+
+  .form-panel > .form-panel {
+    padding: 0;
+  }
+}

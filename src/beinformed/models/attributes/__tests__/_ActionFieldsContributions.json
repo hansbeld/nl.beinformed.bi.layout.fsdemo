@@ -1,0 +1,12 @@
+[
+  {
+    "ID": {
+      "type": "number",
+      "label": "Case ID",
+      "mandatory": true,
+      "format": "0",
+      "groupingSeparator": ".",
+      "decimalSeparator": ","
+    }
+  }
+]

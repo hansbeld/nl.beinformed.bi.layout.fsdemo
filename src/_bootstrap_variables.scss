@@ -1,0 +1,21 @@
+// Bootstrap
+$enable-rounded: true !default;
+$enable-shadows: true !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-hover-media-query: false !default;
+$enable-grid-classes: true !default;
+$enable-print-styles: true !default;
+
+//$custom-file-text: (
+//  placeholder: (en: "Choose file...", nl: "Kies een bestand..."),
+//  button-label: (en: "Browse", nl: "Bladeren")
+//);
+
+// Font sizes
+$h1-font-size: 1.75rem !default;
+$h2-font-size: 1.5rem !default;
+$h3-font-size: 1.25rem !default;
+$h4-font-size: 1.25rem !default;
+$h5-font-size: 1.25rem !default;
+$h6-font-size: 1rem !default;

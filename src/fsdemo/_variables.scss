@@ -1,0 +1,48 @@
+// project variables here, this is already imported through variables
+$grid-gutter-width: 20px;
+
+$fs-gray-dark: #ebebeb;
+$fs-gray-light: #fafafa;
+
+$orange: #f5851f;
+$orange-lighter: #fbe7d0;
+$orange-lightest: #fef2e8;
+
+$orange-popout: #fcdabb;
+$orange-table: #fcdabb;
+
+$orange-option-detail: #feedde;
+$orange-tooltip: #feedde;
+$orange-header-comparision: #feedde;
+
+$gray-cards: #ebebeb;
+
+$theme-colors: (
+  primary: $orange,
+  secondary: $gray-600,
+  success: $green,
+  info: $cyan,
+  warning: $yellow,
+  danger: $red,
+  light: $fs-gray-dark,
+  dark: $gray-800
+);
+
+$control-width: 100%;
+
+$dropdown-min-width: 11rem;
+
+$form-controls-width: (
+  default: 22.5rem,
+  year-amount: 20rem,
+  updown-number: 6rem,
+  datewidget: 11rem,
+  numberwidget: 11rem,
+  moneywidget: 9rem,
+  small: 11rem
+);
+
+$advice-result: $orange-popout;
+
+// Colors
+$primary: $orange;

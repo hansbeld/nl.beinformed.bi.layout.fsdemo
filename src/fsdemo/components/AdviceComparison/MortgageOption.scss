@@ -1,0 +1,38 @@
+@import "../../../variables";
+
+.mortgage-option {
+  border-top: 1px solid $transparent;
+  border-bottom: 1px solid $transparent;
+
+  text-align: right;
+
+  &.active {
+    border: 1px solid $orange;
+  }
+
+  .small {
+    color: $fs-gray-light;
+  }
+
+  .mortgage-details > div:nth-child(odd) {
+    background-color: $fs-gray-dark;
+  }
+
+  .mortgage-header .icon {
+    color: $orange;
+  }
+
+  .mortgage-details:hover {
+    background-color: darken($fs-gray-light, 20%);
+
+    cursor: pointer;
+
+    > div:nth-child(odd) {
+      background-color: darken($fs-gray-dark, 20%);
+    }
+
+    > div:first-child {
+      background-color: darken($orange-table, 20%);
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import "../../../variables";
+@import "~bootstrap/scss/mixins/clearfix";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~bootstrap/scss/mixins/grid";
+@import "~bootstrap/scss/mixins/nav-divider";
+
+.fullpage-form {
+  margin: $spacer auto;
+
+  h2 {
+    margin-bottom: $spacer * 1.5;
+  }
+
+  .form-buttons {
+    margin-top: $spacer * 1.5;
+  }
+}

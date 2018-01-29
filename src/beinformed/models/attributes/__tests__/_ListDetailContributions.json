@@ -1,0 +1,79 @@
+[
+  {
+    "Format": {
+      "type": "string",
+      "label": "Format",
+      "optionMode": "static",
+      "multiplechoice": false,
+      "layouthint": [
+        "combobox"
+      ],
+      "enumerated": true,
+      "options": [
+        {
+          "code": "Hardcover",
+          "label": "Hardcover"
+        },
+        {
+          "code": "Paperback",
+          "label": "Paperback"
+        },
+        {
+          "code": "Ebook",
+          "label": "Ebook"
+        },
+        {
+          "code": "Audio",
+          "label": "Audio book"
+        }
+      ]
+    }
+  },
+  {
+    "ISBN10": {
+      "type": "string",
+      "label": "ISBN10",
+      "displaysize": 50
+    }
+  },
+  {
+    "ISBN13": {
+      "type": "string",
+      "label": "ISBN13",
+      "displaysize": 50
+    }
+  },
+  {
+    "Language": {
+      "type": "string",
+      "label": "Language",
+      "optionMode": "static",
+      "multiplechoice": false,
+      "layouthint": [
+        "radiobutton"
+      ],
+      "enumerated": true,
+      "options": [
+        {
+          "code": "EN",
+          "label": "English"
+        },
+        {
+          "code": "DU",
+          "label": "Dutch"
+        }
+      ]
+    }
+  },
+  {
+    "NumberOfPages": {
+      "type": "number",
+      "label": "Number of pages",
+      "format": "0",
+      "groupingSeparator": ".",
+      "decimalSeparator": ",",
+      "minimum": 1,
+      "maximum": 1000
+    }
+  }
+]

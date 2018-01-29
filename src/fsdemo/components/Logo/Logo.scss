@@ -1,0 +1,12 @@
+@import "../../../variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+.logo {
+  padding: 10px 0;
+}
+
+@include media-breakpoint-up(xl) {
+  .logo {
+    padding: 10px $spacer * 2 10px 0;
+  }
+}

@@ -1,0 +1,15 @@
+@import "../../../variables";
+
+.form-label {
+  font-weight: 600;
+
+  .form-label-popover {
+    position: relative;
+
+    margin-left: $spacer;
+
+    .popover {
+      max-width: 500px;
+    }
+  }
+}

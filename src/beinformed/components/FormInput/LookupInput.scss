@@ -1,0 +1,48 @@
+@import "../../../variables";
+
+.lookup {
+  .active-options span {
+    margin-right: 10px;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+
+    padding: $dropdown-padding-y;
+
+    .input-group {
+      padding-bottom: $dropdown-padding-y;
+    }
+
+    // Hover state
+    .focus {
+      color: $list-group-active-color;
+      background-color: $list-group-active-bg;
+
+      text-decoration: none;
+    }
+  }
+}
+
+.lookup-options .list-group-item {
+  padding: 0;
+
+  ul > li {
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  .list-group-item-action,
+  .no-results {
+    padding: $list-group-item-padding-y $list-group-item-padding-x;
+  }
+
+  .list-group-item-action {
+    &:hover {
+      border-bottom: $list-group-border-width solid $list-group-border-color;
+
+      margin-bottom: -$list-group-border-width;
+    }
+  }
+}

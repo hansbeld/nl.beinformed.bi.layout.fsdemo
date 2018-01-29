@@ -1,0 +1,443 @@
+[
+  {
+    "Address": {
+      "label": "Address",
+      "type": "string",
+      "mandatory": false,
+      "displaysize": 50
+    }
+  },
+  {
+    "Zipcode": {
+      "label": "Zipcode",
+      "type": "string",
+      "mandatory": false,
+      "regexp": "[1-9]{1}[0-9]{3}[\\s]?[a-zA-Z]{2}",
+      "layouthint": [
+        "zipcode"
+      ]
+    }
+  },
+  {
+    "City": {
+      "label": "City",
+      "type": "string",
+      "mandatory": false,
+      "displaysize": 50
+    }
+  },
+  {
+    "Type": {
+      "label": "Type",
+      "type": "string",
+      "mandatory": true,
+      "multiplechoice": false,
+      "layouthint": [
+        "combobox"
+      ],
+      "options": [
+        {
+          "code": "Home",
+          "label": "Home"
+        },
+        {
+          "code": "Work",
+          "label": "Work"
+        },
+        {
+          "code": "Other",
+          "label": "Other"
+        }
+      ]
+    }
+  },
+  {
+    "PhoneNumber": {
+      "label": "Phone number",
+      "type": "string",
+      "mandatory": false,
+      "displaysize": 50
+    }
+  },
+  {
+    "E_mailAddress": {
+      "label": "E-mail address",
+      "type": "string",
+      "mandatory": false,
+      "regexp": "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+      "layouthint": [
+        "email"
+      ],
+      "displaysize": 50
+    }
+  },
+  {
+    "BankAccountNumber": {
+      "label": "Bank account number",
+      "type": "string",
+      "mandatory": false,
+      "postfix": "Enter a valid IBAN.",
+      "layouthint": [
+        "bankaccountnumber",
+        "iban"
+      ],
+      "displaysize": 50
+    }
+  },
+  {
+    "ChoiceRadioButton": {
+      "label": "Choice radio button",
+      "type": "string",
+      "mandatory": false,
+      "multiplechoice": false,
+      "layouthint": [
+        "radiobutton"
+      ],
+      "options": [
+        {
+          "code": "A",
+          "label": "A"
+        },
+        {
+          "code": "B",
+          "label": "B"
+        }
+      ]
+    }
+  },
+  {
+    "ChoiceCheckBox": {
+      "label": "Choice check box",
+      "type": "array",
+      "mandatory": false,
+      "multiplechoice": true,
+      "layouthint": [
+        "checkbox"
+      ],
+      "options": [
+        {
+          "code": "A",
+          "label": "A"
+        },
+        {
+          "code": "B",
+          "label": "B"
+        }
+      ]
+    }
+  },
+  {
+    "ChoiceListView": {
+      "label": "Choice list view",
+      "type": "string",
+      "mandatory": false,
+      "multiplechoice": false,
+      "layouthint": [
+        "listview"
+      ],
+      "options": [
+        {
+          "code": "A",
+          "label": "A"
+        },
+        {
+          "code": "B",
+          "label": "B"
+        }
+      ]
+    }
+  },
+  {
+    "ChoiceComboBox": {
+      "label": "Choice combo box",
+      "type": "string",
+      "mandatory": false,
+      "multiplechoice": false,
+      "layouthint": [
+        "combobox"
+      ],
+      "options": [
+        {
+          "code": "A",
+          "label": "A"
+        },
+        {
+          "code": "B",
+          "label": "B"
+        }
+      ]
+    }
+  },
+  {
+    "ChoiceTable": {
+      "label": "Choice table",
+      "type": "string",
+      "mandatory": false,
+      "multiplechoice": false,
+      "layouthint": [
+        "table"
+      ],
+      "options": []
+    }
+  },
+  {
+    "Date": {
+      "label": "Date",
+      "type": "date",
+      "mandatory": false,
+      "format": "dd-MM-yyyy"
+    }
+  },
+  {
+    "DateRange": {
+      "label": "Date range",
+      "type": "range",
+      "mandatory": false,
+      "children": [
+        {
+          "BeginDate": {
+            "label": "Begin",
+            "type": "date",
+            "mandatory": true,
+            "format": "dd-MM-yyyy"
+          }
+        },
+        {
+          "EndDate": {
+            "label": "End",
+            "type": "date",
+            "mandatory": true,
+            "format": "dd-MM-yyyy"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "E_mail": {
+      "label": "E-mail",
+      "type": "string",
+      "mandatory": false,
+      "regexp": "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+      "postfix": "This e-mail address cannot be altered.",
+      "readonly": true,
+      "layouthint": [
+        "email"
+      ],
+      "displaysize": 50
+    }
+  },
+  {
+    "HelpText1": {
+      "label": "Help text 1",
+      "type": "string",
+      "mandatory": false,
+      "text": "<p>Dit is <strike>een</strike> helptekst!<br />Hallo <em>daar</em>.<br />Even <u>wat</u> meer <strong>regels.</strong></p>",
+      "readonly": true
+    }
+  },
+  {
+    "Label1": {
+      "label": "Label 1",
+      "type": "string",
+      "mandatory": false,
+      "readonly": true,
+      "layouthint": [
+        "label"
+      ]
+    }
+  },
+  {
+    "Memo": {
+      "label": "Memo",
+      "type": "string",
+      "mandatory": false,
+      "rows": 5,
+      "columns": 50,
+      "formatted": false
+    }
+  },
+  {
+    "Number": {
+      "label": "Number",
+      "type": "number",
+      "mandatory": false,
+      "format": "0",
+      "groupingSeparator": ".",
+      "decimalSeparator": ",",
+      "assistant": "This is an assistant message.",
+      "minimum": 0,
+      "maximum": 10
+    }
+  },
+  {
+    "Password": {
+      "label": "Password",
+      "type": "string",
+      "mandatory": false,
+      "layouthint": [
+        "password"
+      ],
+      "displaysize": 50
+    }
+  },
+  {
+    "BSN": {
+      "label": "BSN",
+      "type": "string",
+      "mandatory": false,
+      "layouthint": [
+        "bsn"
+      ]
+    }
+  },
+  {
+    "NativeCountry": {
+      "label": "Native country",
+      "type": "string",
+      "mandatory": false,
+      "multiplechoice": false,
+      "layouthint": [
+        "radiobutton"
+      ],
+      "options": [
+        {
+          "code": "NativeCountry",
+          "label": "Native country",
+          "children": [
+            {
+              "code": "Netherlands",
+              "label": "Netherlands"
+            },
+            {
+              "code": "UnitedKingdom",
+              "label": "United Kingdom"
+            },
+            {
+              "code": "Germany",
+              "label": "Germany"
+            },
+            {
+              "code": "Belgium",
+              "label": "Belgium"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Time": {
+      "label": "Time",
+      "type": "time",
+      "mandatory": false,
+      "format": "HH:mm"
+    }
+  },
+  {
+    "TimeRange": {
+      "label": "Time range",
+      "type": "range",
+      "mandatory": false,
+      "children": [
+        {
+          "BeginTime": {
+            "label": "Begin",
+            "type": "time",
+            "mandatory": true,
+            "format": "HH:mm"
+          }
+        },
+        {
+          "EndTime": {
+            "label": "End",
+            "type": "time",
+            "mandatory": true,
+            "format": "HH:mm"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Timestamp": {
+      "label": "Timestamp",
+      "type": "datetime",
+      "mandatory": false,
+      "format": "dd-MM-yyyy HH:mm:ss.SSS"
+    }
+  },
+  {
+    "TimestampRange": {
+      "label": "Timestamp range",
+      "type": "range",
+      "mandatory": false,
+      "children": [
+        {
+          "BeginTimestamp": {
+            "label": "Begin",
+            "type": "datetime",
+            "mandatory": true,
+            "format": "dd-MM-yyyy HH:mm:ss.SSS"
+          }
+        },
+        {
+          "EndTimestamp": {
+            "label": "End",
+            "type": "datetime",
+            "mandatory": true,
+            "format": "dd-MM-yyyy HH:mm:ss.SSS"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "Upload": {
+      "label": "Upload",
+      "type": "binary",
+      "mandatory": false,
+      "multiple": true,
+      "uploadMaxFileSize": 10000000
+    }
+  },
+  {
+    "XML": {
+      "label": "XML",
+      "type": "string",
+      "mandatory": false,
+      "layouthint": [
+        "xml"
+      ]
+    }
+  },
+  {
+    "FormattedMemo": {
+      "label": "Formatted memo",
+      "type": "string",
+      "mandatory": false,
+      "rows": 5,
+      "columns": 50,
+      "formatted": true
+    }
+  },
+  {
+    "Zipcode2": {
+      "label": "Zipcode2",
+      "type": "string",
+      "mandatory": false,
+      "regexp": "[1-9]{1}[0-9]{3}[\\s]?[a-zA-Z]{2}",
+      "layouthint": [
+        "zipcode"
+      ]
+    }
+  },
+  {
+    "Location": {
+      "label": "Location",
+      "type": "string",
+      "mandatory": false,
+      "displaysize": 50
+    }
+  }
+]

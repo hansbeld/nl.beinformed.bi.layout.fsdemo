@@ -1,0 +1,28 @@
+@import "~bootstrap/scss/mixins/clearfix";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~bootstrap/scss/mixins/grid";
+@import "../../../variables";
+
+.input-assistant {
+  margin-bottom: 0;
+}
+
+.horizontal .form-group {
+  @include make-row();
+
+  > .input-assistant li {
+    padding-left: $input-btn-padding-x;
+  }
+
+  > label {
+    @include make-col(2, 12);
+
+    padding: $input-btn-padding-y $input-btn-padding-x;
+
+    margin-bottom: 0;
+  }
+
+  > .input-group {
+    @include make-col(10, 12);
+  }
+}

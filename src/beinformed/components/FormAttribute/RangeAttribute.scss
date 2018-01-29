@@ -1,0 +1,16 @@
+@import "../../../variables";
+@import "~bootstrap/scss/mixins/clearfix";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~bootstrap/scss/mixins/grid";
+
+.form-object .rangewidget {
+  .range {
+    @include make-row();
+  }
+
+  .range-begin,
+  .range-end {
+    @include make-col-ready();
+    @include make-col(6, 12);
+  }
+}
