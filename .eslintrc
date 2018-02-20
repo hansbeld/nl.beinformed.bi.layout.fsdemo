@@ -22,7 +22,9 @@
     "dependencies",
     "promise",
     "unicorn",
-    "import"
+    "import",
+    "jest",
+    "json"
   ],
   "extends": [
     "eslint:all",
@@ -32,6 +34,7 @@
     "plugin:promise/recommended",
     "plugin:unicorn/recommended",
     "plugin:import/recommended",
+    "plugin:jest/recommended",
     "prettier",
     "prettier/flowtype",
     "prettier/react"

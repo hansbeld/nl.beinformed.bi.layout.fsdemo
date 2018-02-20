@@ -1,5 +1,6 @@
 declare class dataFetcher {
   static fetch(url: string, options?: Object): any;
+  status: number;
 }
 
 declare type HttpServletRequestJava = {

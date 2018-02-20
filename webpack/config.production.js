@@ -26,13 +26,13 @@ module.exports = PATHS =>
             sourceMap: true
           }
         },
+        parts.autoprefix(),
         {
           loader: "sass-loader",
           options: {
             sourceMap: true
           }
-        },
-        parts.autoprefix()
+        }
       ]
     }),
 

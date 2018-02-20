@@ -1,5 +1,6 @@
 {
   "extends": "stylelint-config-standard",
+  "defaultSeverity": "warning",
   "plugins": [
     "stylelint-scss",
     "stylelint-order"
