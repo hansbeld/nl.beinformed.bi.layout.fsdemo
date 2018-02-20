@@ -20,6 +20,7 @@ import CheckEligibilityButtons from "./CheckEligibilityButtons";
 import "./CheckEligibility.scss";
 
 import type FormModel from "beinformed/models/form/FormModel";
+import { HTTP_METHODS } from "beinformed/constants/Constants";
 
 type CheckEligibilityProps = {
   form: FormModel,
@@ -28,8 +29,7 @@ type CheckEligibilityProps = {
   onAttributeBlur?: Function,
   onAttributeFocus?: Function,
   onCancel: (form: FormModel) => void,
-  onPreviousClick: (form: FormModel) => void,
-  onSubmit: Function
+  onPreviousClick: (form: FormModel) => void
 };
 
 class CheckEligibility extends Component<CheckEligibilityProps, {}> {
@@ -40,6 +40,15 @@ class CheckEligibility extends Component<CheckEligibilityProps, {}> {
       showComparison: false
     };
   }
+
+  handleSubmit = (form: FormModel) => {
+    this.props.fetchModularUI(form.selfhref, {
+      propName: "form",
+      method: HTTP_METHODS.POST,
+      data: form.formdata,
+      updateModel: form
+    });
+  };
 
   renderResult(formResult: Object) {
     const { form } = this.props;
@@ -95,13 +104,7 @@ class CheckEligibility extends Component<CheckEligibilityProps, {}> {
   }
 
   render() {
-    const {
-      form,
-      formLayout,
-      onCancel,
-      onPreviousClick,
-      onSubmit
-    } = this.props;
+    const { form, formLayout, onCancel, onPreviousClick } = this.props;
     if (!form) {
       return null;
     }
@@ -121,8 +124,6 @@ class CheckEligibility extends Component<CheckEligibilityProps, {}> {
           )
         : form.allEndResultObjects.get("CheckEligibilityForARepaymentMortgage");
 
-    let _modal = null;
-
     return (
       <Modal
         ref={c => {
@@ -131,22 +132,14 @@ class CheckEligibility extends Component<CheckEligibilityProps, {}> {
         size="large"
       >
         <Helmet>
-          <title>{form.missingObjects.first.label}</title>
+          <title>{form.label}</title>
         </Helmet>
 
         <ModalHeader showClose onClose={() => onCancel(form)}>
-          <FormTitle title={form.missingObjects.first.label} isModal />
+          <FormTitle title={form.label} isModal />
         </ModalHeader>
 
-        <HTMLForm
-          name={form.key}
-          onSubmit={() => {
-            if (_modal) {
-              _modal.scrollTop();
-            }
-            return onSubmit(form);
-          }}
-        >
+        <HTMLForm name={form.key} onSubmit={() => this.handleSubmit(form)}>
           <ModalBody>
             <div className="CheckEligibility">
               <div className="row mortgage-advice-row">

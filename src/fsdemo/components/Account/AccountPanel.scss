@@ -1,4 +1,8 @@
 @import "../../../variables";
+// Icons
+$mdi-font-path: "~mdi/fonts/" !default;
+
+@import "~mdi/scss/materialdesignicons";
 
 .account-navigation {
   background-color: $orange-lighter;
@@ -14,13 +18,12 @@
     background-color: $orange;
 
     &::after {
-      content: "\f054";
+      content: mdi("chevron-right");
+      font: normal normal normal 24px/1 "Material Design Icons";
 
       position: absolute;
       top: 9px;
       right: $spacer;
-
-      font-family: FontAwesome, serif;
     }
   }
 }

@@ -1,5 +1,10 @@
 @import "../../../variables";
 
+// Icons
+$mdi-font-path: "~mdi/fonts/" !default;
+
+@import "~mdi/scss/materialdesignicons";
+
 .mortgage-instruments {
   min-height: 494px;
 
@@ -26,7 +31,8 @@
         padding-left: 23px;
 
         &::before {
-          content: "\2714\0020";
+          content: mdi("check");
+          font: normal normal normal 24px/1 "Material Design Icons";
 
           position: absolute;
           top: 0;

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import textile from "textilejs";
 import withModularUI from "beinformed/utils/modularui/withModularUI";
 
-import FormBody from "beinformed/containers/Form/FormBody";
+import ApplyForMortgageForm from "fsdemo/containers/ApplyForMortgage/ApplyForMortgageForm";
 
 import FormModel from "beinformed/models/form/FormModel";
 import Href from "beinformed/models/href/Href";
@@ -28,13 +28,13 @@ class ApplyForMortgageSubmitRequest extends Component<
     super(props);
 
     this.state = {
-      form: null,
+      formHref: null,
       whatsnext: null
     };
   }
 
   componentDidMount() {
-    if (this.state.form === null) {
+    if (this.state.formHref === null) {
       this.retrievePanelForm();
     }
 
@@ -53,16 +53,9 @@ class ApplyForMortgageSubmitRequest extends Component<
         ).first;
 
     if (formAction) {
-      this.props
-        .modularui(formAction.selfhref, {
-          method: "post"
-        })
-        .fetch()
-        .then(riskForm => {
-          this.setState({
-            form: riskForm
-          });
-        });
+      this.setState({
+        formHref: formAction.selfhref
+      });
     }
   }
 
@@ -88,6 +81,7 @@ class ApplyForMortgageSubmitRequest extends Component<
   }
 
   render() {
+    console.info('state', this.state.formHref)
     return (
       <div className="submit-request mb-4">
         {this.state.whatsnext !== null && (
@@ -98,12 +92,8 @@ class ApplyForMortgageSubmitRequest extends Component<
           />
         )}
 
-        {this.state.form !== null && (
-          <FormBody
-            form={this.state.form}
-            fullPageForms={true}
-            autosubmit={true}
-          />
+        {this.state.formHref !== null && (
+          <ApplyForMortgageForm href={this.state.formHref} autosubmit={true} />
         )}
       </div>
     );

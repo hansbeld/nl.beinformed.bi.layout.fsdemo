@@ -19,14 +19,13 @@ $mdi-font-path: "~mdi/fonts/" !default;
 
     &.completed::before {
       content: mdi("check");
+      font: normal normal normal 24px/1 "Material Design Icons";
 
       position: absolute;
       top: 3px;
       left: $spacer;
 
       color: $orange;
-
-      font: normal normal normal 24px/1 "Material Design Icons";
     }
 
     &.active {
@@ -34,12 +33,11 @@ $mdi-font-path: "~mdi/fonts/" !default;
 
       &::after {
         content: mdi("chevron-right");
+        font: normal normal normal 24px/1 "Material Design Icons";
 
         position: absolute;
         top: 3px;
         right: $spacer;
-
-        font: normal normal normal 24px/1 "Material Design Icons";
       }
     }
   }
