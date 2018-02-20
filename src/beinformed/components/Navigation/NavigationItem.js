@@ -9,8 +9,7 @@ import type LinkModel from "beinformed/models/links/LinkModel";
 type NavigationItemProps = {
   className?: string,
   isActive?: boolean,
-  link: LinkModel,
-  children?: any
+  link: LinkModel
 };
 
 /**
@@ -19,8 +18,7 @@ type NavigationItemProps = {
 const NavigationItem = ({
   className,
   isActive = false,
-  link,
-  children
+  link
 }: NavigationItemProps) => {
   const linkClass = classNames(className, {
     active: isActive
@@ -31,7 +29,6 @@ const NavigationItem = ({
       <Link className={linkClass} dataId={link.key} href={link.href} isNavLink>
         {link.icon}
         {link.label}
-        {children}
       </Link>
     </li>
   );
