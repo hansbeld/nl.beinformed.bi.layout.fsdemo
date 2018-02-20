@@ -13,6 +13,16 @@ const storeAttributeInput = (form: FormModel) => {
         });
     });
 
+    form.completeObjects.forEach(completeObject => {
+      completeObject.all.forEach(object => {
+        object.attributeCollection
+          .filter(attribute => attribute.value !== null)
+          .forEach(attribute => {
+            attributeInputCache[attribute.key] = attribute.inputvalue;
+          });
+      });
+    });
+
     form.allEndResultObjects.all.forEach(resultObject => {
       resultObject.attributeCollection.all.forEach(attribute => {
         attributeInputCache[attribute.key] = attribute.inputvalue;

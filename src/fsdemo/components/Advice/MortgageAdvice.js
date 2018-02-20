@@ -1,6 +1,8 @@
 // @flow
 import React, { Component } from "react";
 
+import { storeAttributeInput } from "fsdemo/utils/AttributeInputCache";
+
 import FormBody from "fsdemo/containers/Advice/FormBody";
 
 import HTMLForm from "beinformed/components/HTMLForm/HTMLForm";
@@ -51,6 +53,8 @@ class Form extends Component<FormProps> {
     const { form } = this.props;
 
     if (form.allEndResultObjects.hasItems) {
+      storeAttributeInput(form);
+
       if (form.layouthint.has(ADVICE_HOW_MUCH_CAN_I_BORROW_KEY)) {
         return <ResultHowMuchCanIBorrow form={form} />;
       }

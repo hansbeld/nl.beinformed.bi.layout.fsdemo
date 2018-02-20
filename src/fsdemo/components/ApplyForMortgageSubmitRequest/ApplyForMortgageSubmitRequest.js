@@ -81,7 +81,6 @@ class ApplyForMortgageSubmitRequest extends Component<
   }
 
   render() {
-    console.info('state', this.state.formHref)
     return (
       <div className="submit-request mb-4">
         {this.state.whatsnext !== null && (

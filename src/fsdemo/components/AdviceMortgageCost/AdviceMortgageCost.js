@@ -18,6 +18,7 @@ import MortgageComparison from "fsdemo/components/AdviceComparison/MortgageCompa
 
 import withModularUI from "beinformed/utils/modularui/withModularUI";
 import { HTTP_METHODS } from "beinformed/constants/Constants";
+import {storeAttributeInput} from "../../utils/AttributeInputCache";
 
 export type MortgageData = {
   isComplete: boolean,
@@ -148,6 +149,8 @@ class MortgageAdvice extends Component<
     const { form } = this.props;
 
     if (form.allEndResultObjects.hasItems) {
+      storeAttributeInput(form);
+
       return (
         <ResultWhatWillMyMortgageCost
           form={form}
