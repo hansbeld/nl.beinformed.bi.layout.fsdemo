@@ -13,14 +13,17 @@ const FormattedText = ({
   className?: string,
   dataName?: string,
   text: string
-}) => (
-  <div
-    className={className}
-    data-name={dataName}
-    dangerouslySetInnerHTML={{
-      __html: textile(text)
-    }}
-  />
-);
+}) =>
+  text ? (
+    <div
+      className={className}
+      data-name={dataName}
+      dangerouslySetInnerHTML={{
+        __html: textile(text)
+      }}
+    />
+  ) : (
+    ""
+  );
 
 export default FormattedText;

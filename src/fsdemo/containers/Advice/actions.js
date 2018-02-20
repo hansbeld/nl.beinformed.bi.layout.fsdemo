@@ -1,60 +1,13 @@
 // @flow
 import { MODULARUI } from "beinformed/redux/middleware/modularui";
-import { HTTP_METHODS } from "beinformed/constants/Constants";
 
-import {
-  handleFormFinish,
-  submitForm,
-  updateFormAttribute as defaultUpdateFormAttribute
-} from "beinformed/containers/Form/actions";
+import { updateFormAttribute as defaultUpdateFormAttribute } from "beinformed/containers/Form/actions";
 
-import { setModel, updateModel } from "beinformed/containers/ModularUI/actions";
+import { updateModel } from "beinformed/containers/ModularUI/actions";
 
 import FormModel from "beinformed/models/form/FormModel";
 
 import { storeAttributeInput } from "fsdemo/utils/AttributeInputCache";
-
-const MORTGAGE_OBJECT_KEY = "Mortgage";
-const MORTGAGE_PRODUCT_PACKAGE_KEY = "MortgageProductPackage";
-
-export const startInstrument = (href: Href) => ({
-  [MODULARUI]: {
-    href,
-    method: HTTP_METHODS.POST,
-    targetModel: FormModel,
-    successAction: model => {
-      const form = model.clone();
-
-      form.parameters = href.parameters;
-
-      // Submit first question when it is Mortgage and has an non empty attribute MortgageProductPackage
-      if (form.missingObjects.has(MORTGAGE_OBJECT_KEY)) {
-        const mortgageObject = form.missingObjects.get(MORTGAGE_OBJECT_KEY);
-
-        if (
-          mortgageObject.attributeCollection.hasAttributeByKey(
-            MORTGAGE_PRODUCT_PACKAGE_KEY
-          ) &&
-          mortgageObject.attributeCollection.getAttributeByKey(
-            MORTGAGE_PRODUCT_PACKAGE_KEY
-          ).value !== null
-        ) {
-          return submitForm(form);
-        }
-      }
-
-      if (form.isComplete && !form.hasResultConfiguration) {
-        return submitForm(form);
-      }
-
-      if (form.isFinished) {
-        return handleFormFinish(form);
-      }
-
-      return setModel(form);
-    }
-  }
-});
 
 const getEndResultAction = (form: FormModel) => {
   // make copy of old form

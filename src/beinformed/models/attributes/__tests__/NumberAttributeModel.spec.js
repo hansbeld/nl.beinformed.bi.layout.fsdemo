@@ -16,7 +16,7 @@ describe("NumberAttributeModel", () => {
     expect(attribute.maxDigits).toBe(0);
   });
 
-  it("can have a format", () => {
+  it("Can handle numbers", () => {
     const attribute = new NumberAttributeModel(
       {},
       {
@@ -26,8 +26,15 @@ describe("NumberAttributeModel", () => {
       }
     );
 
+    expect(attribute instanceof NumberAttributeModel).toBe(true);
+
+    expect(attribute.getInitialInputValue(21)).toBe("21");
+    expect(attribute.getInitialInputValue(0)).toBe("0");
+
     expect(attribute.groupingSeparator).toBe(".");
     expect(attribute.decimalSeparator).toBe(",");
+    expect(attribute.minValue).toBeUndefined();
+    expect(attribute.maxValue).toBeUndefined();
     expect(attribute.maxDigits).toBe(2);
   });
 
@@ -39,6 +46,7 @@ describe("NumberAttributeModel", () => {
     expect(attribute.parseToNumber("")).toBeNaN();
     expect(attribute.parseToNumber("A")).toBeNaN();
 
+    expect(attribute.parseToNumber(0)).toBe(0);
     expect(attribute.parseToNumber(1)).toBe(1);
     expect(attribute.parseToNumber("1")).toBe(1);
     expect(attribute.parseToNumber(1.1234)).toBe(1.1234);

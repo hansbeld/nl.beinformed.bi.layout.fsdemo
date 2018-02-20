@@ -24,8 +24,9 @@ export const startProgress = (): startProgressType => ({
 /**
  * Stop the progress indicator
  */
-export const finishProgress = (): finishProgressType => ({
-  type: "FINISH_PROGRESS"
+export const finishProgress = (payload?: any): finishProgressType => ({
+  type: "FINISH_PROGRESS",
+  payload
 });
 
 /**

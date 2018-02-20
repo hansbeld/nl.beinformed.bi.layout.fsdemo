@@ -13,7 +13,6 @@ describe("ActionModel", () => {
     expect(action.name).toBe("unknown");
     expect(action.key).toBeUndefined();
     expect(action.label).toBeUndefined();
-    expect(action.icon).toBe("");
   });
 
   test.skip("should be able to create a new ActionModel from standard mod ui", () => {
@@ -72,13 +71,5 @@ describe("ActionModel", () => {
 
     expect(action.key).toBe("sample");
     expect(action.label).toBe("Example of an action");
-
-    expect(action.icon).toBe("");
-
-    action.layouthint.add("icon-thumbs-down");
-    expect(action.icon).toBe("thumbs-down");
-
-    action.icon = "thumbs-up";
-    expect(action.icon).toBe("thumbs-up");
   });
 });

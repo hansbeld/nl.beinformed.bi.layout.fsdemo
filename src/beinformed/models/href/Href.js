@@ -5,7 +5,10 @@ import {
   CONTENT_PATH,
   HTTP_METHODS
 } from "beinformed/constants/Constants";
+
 import Parameter from "beinformed/models/href/Parameter";
+
+import type { Location } from "react-router-dom";
 
 /**
  * Defines a Href with the parameters
@@ -14,6 +17,7 @@ class Href {
   _path: string;
   _parameters: Parameter[];
   _hash: string;
+  _state: Object | null;
   _method: string;
   _resourcetype: string;
 
@@ -24,6 +28,7 @@ class Href {
     this.path = "";
     this.parameters = [];
     this.hash = "";
+    this.state = null;
     this.method = HTTP_METHODS.GET;
     this.resourcetype = resourcetype || "";
 
@@ -31,6 +36,8 @@ class Href {
       this.setFromHref(href);
     } else if (href !== null && typeof href === "object" && href._path) {
       this.setFromObject(href);
+    } else if (href !== null && typeof href === "object" && href.pathname) {
+      this.setFromLocation(href);
     } else if (typeof href === "string") {
       this.setFromString(href);
     }
@@ -62,6 +69,13 @@ class Href {
     this.hash = href._hash;
   }
 
+  setFromLocation(href: Location) {
+    this.path = href.pathname;
+    this.addParametersFromHref(href.search);
+    this.hash = Href.getHashFromString(href.hash);
+    this.state = href.state || null;
+  }
+
   /**
    * Set parameters from string input
    */
@@ -80,12 +94,15 @@ class Href {
    */
   static getPathFromString(href: string) {
     const decodedHref = decodeURI(href);
+
     const hrefNoHash = decodedHref.includes("#")
       ? decodedHref.substr(0, decodedHref.indexOf("#"))
       : decodedHref;
-    const temphref = hrefNoHash.includes(BASE)
-      ? hrefNoHash.substr(hrefNoHash.indexOf(BASE) + BASE.length)
-      : hrefNoHash;
+
+    const temphref =
+      hrefNoHash.indexOf(BASE) > -1
+        ? hrefNoHash.substr(hrefNoHash.indexOf(BASE) + BASE.length)
+        : hrefNoHash;
 
     return temphref.indexOf("?") > -1 ? temphref.split("?")[0] : temphref;
   }
@@ -95,7 +112,7 @@ class Href {
    * @param {string} href - A complete url
    * @return {string} the hash of an url or an empty string
    */
-  static getHashFromString(href: string) {
+  static getHashFromString(href: string = "") {
     return href.includes("#") ? href.substr(href.indexOf("#") + 1) : "";
   }
 
@@ -266,6 +283,14 @@ class Href {
     return this._hash;
   }
 
+  set state(state: Object | null) {
+    this._state = state;
+  }
+
+  get state(): Object | null {
+    return this._state;
+  }
+
   /**
    * Set resourctype
    */
@@ -319,12 +344,12 @@ class Href {
   /**
    * Checks if the given Href equals this Href
    */
-  equals(href: ?Href): boolean {
+  equals(href?: Href | string): boolean {
     if (href instanceof Href) {
       return this.path === href.path;
     }
 
-    return false;
+    return this.path === href;
   }
 
   equalsWithParameters(href: Href): boolean {
@@ -386,6 +411,18 @@ class Href {
    */
   toString(): string {
     return this.href;
+  }
+
+  toLocation(): Location {
+    const querystring = this.querystring;
+    const hash = this.hash;
+
+    return {
+      pathname: this.path,
+      search: querystring.length > 0 ? `?${this.querystring}` : "",
+      hash: hash.length > 0 ? `#${this.hash}` : "",
+      state: this.state
+    };
   }
 }
 

@@ -80,6 +80,9 @@ class ConceptBrowserSearch extends Component<
       const searchAttribute = conceptIndex.searchtermfilter.attribute;
       const searchHref = conceptIndex.selfhref;
 
+      searchHref.parameters = searchHref.parameters.filter(
+        parameter => parameter.name === "entryDate"
+      );
       searchHref.addParameter(searchAttribute.name, value);
 
       startProgress();

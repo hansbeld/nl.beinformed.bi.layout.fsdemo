@@ -1,7 +1,12 @@
 // @flow
-import React, { Component } from "react";
+import React from "react";
+import classNames from "classnames";
 
-import Icon from "beinformed/components/Icon/Icon";
+import PlusIcon from "mdi-react/PlusIcon";
+import PencilIcon from "mdi-react/PencilIcon";
+import DeleteIcon from "mdi-react/DeleteIcon";
+import SettingsIcon from "mdi-react/SettingsIcon";
+import CheckCircleOutlineIcon from "mdi-react/CheckCircleOutlineIcon";
 
 type IconTypes =
   | "form"
@@ -22,36 +27,34 @@ type ActionIconProps = {
 /**
  * Render correct icon for action
  */
-class ActionIcon extends Component<ActionIconProps> {
-  static defaultProps = {
-    isCompleteStage: false,
-    hasTextAfter: true
-  };
+const ActionIcon = ({
+  isCompleteStage = false,
+  hasTextAfter = true,
+  type,
+  icon
+}: ActionIconProps) => {
+  const iconClass = classNames({
+    textAfter: hasTextAfter
+  });
 
-  getIcon() {
-    if (this.props.isCompleteStage) {
-      return "check-circle-o";
-    }
-
-    if (this.props.icon) {
-      return this.props.icon;
-    }
-
-    switch (this.props.type) {
-      case "create":
-        return "plus";
-      case "update":
-        return "pencil";
-      case "delete":
-        return "trash-o";
-      default:
-        return "cog";
-    }
+  if (isCompleteStage) {
+    return <CheckCircleOutlineIcon className={iconClass} />;
   }
 
-  render() {
-    return <Icon name={this.getIcon()} textAfter={this.props.hasTextAfter} />;
+  if (icon) {
+    return icon;
   }
-}
+
+  switch (type) {
+    case "create":
+      return <PlusIcon className={iconClass} />;
+    case "update":
+      return <PencilIcon className={iconClass} />;
+    case "delete":
+      return <DeleteIcon className={iconClass} />;
+    default:
+      return <SettingsIcon className={iconClass} />;
+  }
+};
 
 export default ActionIcon;

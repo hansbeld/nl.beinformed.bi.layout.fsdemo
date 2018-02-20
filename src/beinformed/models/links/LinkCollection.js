@@ -66,7 +66,7 @@ export default class LinkCollection extends BaseCollection<LinkModel> {
    * Getting the links by group key. For instance getting all 'tab' links of the web application.
    */
   getLinksByGroup(...args: string[]): LinkCollection {
-    const findGroups = args.length > 0 ? Array.from(args) : [];
+    const findGroups = args.length > 0 ? [...args] : [];
     const groupLinks = this.links.filter(link =>
       findGroups.includes(link.group)
     );

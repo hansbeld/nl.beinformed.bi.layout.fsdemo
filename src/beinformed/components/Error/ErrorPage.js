@@ -1,7 +1,6 @@
 // @flow
 /* global process */
 import React from "react";
-import { Link } from "react-router-dom";
 
 /**
  * Render a generic error page
@@ -36,9 +35,9 @@ const ErrorPage = ({
             {errorResource}, {errorLine}
           </div>
         )}
-      <Link to="/" className="btn btn-primary btn-lg mt-4">
+      <a href="/" className="btn btn-primary btn-lg mt-4">
         Homepage
-      </Link>
+      </a>
     </div>
   </div>
 );

@@ -24,7 +24,7 @@ type QuickTransferState = {
 
 class QuickTransfer extends Component<QuickTransferProps, QuickTransferState> {
   render() {
-    if (this.props.form === null) {
+    if (!this.props.form) {
       return null;
     }
 

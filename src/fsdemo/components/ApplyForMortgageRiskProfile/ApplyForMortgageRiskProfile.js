@@ -1,18 +1,16 @@
 // @flow
 import React, { Component } from "react";
-import withModularUI from "beinformed/utils/modularui/withModularUI";
 
-import FormBody from "beinformed/containers/Form/FormBody";
+import ApplyForMortgageForm from "fsdemo/containers/ApplyForMortgage/ApplyForMortgageForm";
 
-import FormModel from "beinformed/models/form/FormModel";
+import Href from "beinformed/models/href/Href";
 
 type ApplyForMortgageRiskProfileProps = {
-  panel: PanelType,
-  modularui: any
+  panel: PanelType
 };
 
 type ApplyForMortgageRiskProfileState = {
-  form: FormModel | null
+  formHref: Href | null
 };
 
 class ApplyForMortgageRiskProfile extends Component<
@@ -23,19 +21,19 @@ class ApplyForMortgageRiskProfile extends Component<
     super(props);
 
     this.state = {
-      form: null
+      formHref: null
     };
   }
 
   componentDidMount() {
-    if (this.state.form === null) {
+    if (this.state.formHref === null) {
       this.retrievePanelForm(this.props.panel);
     }
   }
 
   componentWillReceiveProps(nextProps) {
     const { panel } = this.props;
-    console.info("panel", panel, this.state.form);
+
     if (
       panel.listItemCollection.isEmpty &&
       nextProps.panel.listItemCollection.hasItems
@@ -59,31 +57,19 @@ class ApplyForMortgageRiskProfile extends Component<
         ).first;
 
     if (formAction) {
-      this.props
-        .modularui(formAction.selfhref, {
-          method: "post"
-        })
-        .fetch()
-        .then(riskForm => {
-          this.setState({
-            form: riskForm
-          });
-        });
+      this.setState({
+        formHref: formAction.selfhref
+      });
     }
   }
 
   render() {
-    if (this.state.form !== null) {
-      return (
-        <FormBody
-          form={this.state.form}
-          formLayout="vertical"
-          autosubmit={true}
-        />
-      );
+    if (this.state.formHref !== null) {
+      return <ApplyForMortgageForm href={this.state.formHref} />;
     }
-    return <div>{this.props.panel.label}</div>;
+
+    return null;
   }
 }
 
-export default withModularUI(ApplyForMortgageRiskProfile);
+export default ApplyForMortgageRiskProfile;

@@ -105,7 +105,7 @@ export const saveEditableListItem = (
           method: HTTP_METHODS.POST,
           data: getFormData(form, listitem),
           successAction: receivedForm => {
-            dispatch(loadModel(list.selfhref));
+            dispatch(loadModel(list.connectKey, list.selfhref));
 
             return handleFormFinish(receivedForm);
           }
@@ -120,4 +120,5 @@ export const saveEditableListItem = (
  */
 export const cancelEditableListItem = (
   list: EditableListModel
-): ThunkAction => dispatch => dispatch(loadModel(list.selfhref));
+): ThunkAction => dispatch =>
+  dispatch(loadModel(list.connectKey, list.selfhref));

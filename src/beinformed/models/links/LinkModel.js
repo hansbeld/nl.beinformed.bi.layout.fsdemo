@@ -3,8 +3,6 @@ import type { ResolvableModels } from "beinformed/models/resolveModel";
 import BaseModel from "beinformed/models/base/BaseModel";
 import Href from "beinformed/models/href/Href";
 
-import { ICON } from "beinformed/constants/LayoutHints";
-
 /**
  * Defines a Link. For instance below example of a link to the tab 'books'
  * <br/>
@@ -102,9 +100,8 @@ class LinkModel extends BaseModel {
 
   /**
    * Setter for icon of LinkModel
-   * @param  {string} icon Name of icon, see {@link http://fontawesome.io/icons/|font-awesome} for supported icons
    */
-  set icon(icon: string) {
+  set icon(icon: any) {
     this._icon = icon;
   }
 
@@ -112,19 +109,7 @@ class LinkModel extends BaseModel {
    * Retrieve icon of LinkModel
    */
   get icon(): string {
-    if (this._icon) {
-      return this._icon;
-    }
-
-    const hasIcon = this.layouthint.has(ICON);
-
-    if (hasIcon) {
-      const icon = this.layouthint.getByLayoutHint(ICON);
-
-      return icon ? icon.substr(ICON.length + 1) : "";
-    }
-
-    return "";
+    return this._icon;
   }
 
   get targetModel(): ?Class<ResolvableModels> {

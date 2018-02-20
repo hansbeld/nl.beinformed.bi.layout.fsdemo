@@ -36,7 +36,7 @@ class Authenticate {
     }).catch(() => Promise.resolve());
   }
 
-  createLoginArguments(username: string, password: string) {
+  createLogin(username: string, password: string) {
     if (this.isBasicAuthentication) {
       // TODO SBO: fix basic
       // if (this.redirectHref) {
@@ -68,7 +68,7 @@ class Authenticate {
     }
 
     return this.initLogin(true).then(() =>
-      universalFetch(this.createLoginArguments(username, password))
+      universalFetch(this.createLogin(username, password))
     );
   }
 

@@ -99,10 +99,13 @@ class SelectInput extends Component<SelectInputProps> {
               this.props.optionContentConfiguration
             )}
           </span>
-          <FormContentRenderer
-            concept={option.concept}
-            contentConfiguration={this.props.optionContentConfiguration}
-          />
+          {option.concept &&
+            this.props.optionContentConfiguration && (
+              <FormContentRenderer
+                concept={option.concept}
+                contentConfiguration={this.props.optionContentConfiguration}
+              />
+            )}
         </DropdownItem>
       );
     });

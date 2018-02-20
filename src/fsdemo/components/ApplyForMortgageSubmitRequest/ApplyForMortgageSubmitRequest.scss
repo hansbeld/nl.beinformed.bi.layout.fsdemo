@@ -1,5 +1,9 @@
 @import "../../../variables";
 
+$mdi-font-path: "~mdi/fonts/" !default;
+
+@import "~mdi/scss/materialdesignicons";
+
 .submit-request {
   .form-body {
     margin-top: $spacer * 2;
@@ -22,13 +26,13 @@
       padding-left: 23px;
 
       &::before {
-        content: "\f061";
+        content: mdi("arrow-right");
 
         position: absolute;
-        top: 1px;
+        top: 4px;
         left: 0;
 
-        font-family: FontAwesome, serif;
+        font: normal normal normal 16px/1 "Material Design Icons";
       }
     }
   }

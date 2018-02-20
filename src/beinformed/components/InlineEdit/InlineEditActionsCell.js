@@ -1,8 +1,14 @@
 // @flow
 import React, { Component } from "react";
 
+import SaveIcon from "mdi-react/ContentSaveIcon";
+import LoadingIcon from "mdi-react/LoadingIcon";
+import AlertCircleOutlineIcon from "mdi-react/AlertCircleOutlineIcon";
+import CloseIcon from "mdi-react/CloseIcon";
+import TableRowRemoveIcon from "mdi-react/TableRowRemoveIcon";
+import TableRowPlusAfterIcon from "mdi-react/TableRowPlusAfterIcon";
+
 import Button from "beinformed/components/Button/Button";
-import Icon from "beinformed/components/Icon/Icon";
 import Link from "beinformed/components/Link/Link";
 
 import { Message } from "beinformed/containers/I18n/Message";
@@ -39,7 +45,7 @@ class InlineEditActionsCell extends Component<InlineEditActionsCellProps> {
           onBlur={this.props.onBlur}
           onFocus={this.props.onFocus}
         >
-          <Icon name="save" />
+          <SaveIcon />
           <Message
             id="InlineEdit.SaveRow"
             defaultMessage="Save row"
@@ -62,7 +68,7 @@ class InlineEditActionsCell extends Component<InlineEditActionsCellProps> {
           onBlur={this.props.onBlur}
           onFocus={this.props.onFocus}
         >
-          <Icon name="circle-o-notch" spin />
+          <LoadingIcon className="spin" />
           <Message
             id="InlineEdit.SaveInProgress"
             defaultMessage="Save in progress"
@@ -86,7 +92,7 @@ class InlineEditActionsCell extends Component<InlineEditActionsCellProps> {
           onBlur={this.props.onBlur}
           onFocus={this.props.onFocus}
         >
-          <Icon name="exclamation" />
+          <AlertCircleOutlineIcon />
           <Message
             id="InlineEdit.RowInError"
             defaultMessage="Row has errors"
@@ -108,7 +114,7 @@ class InlineEditActionsCell extends Component<InlineEditActionsCellProps> {
         onBlur={this.props.onBlur}
         onFocus={this.props.onFocus}
       >
-        <Icon name="times" />
+        <CloseIcon />
         <Message
           id="InlineEdit.CancelEdit"
           defaultMessage="Cancel edit"
@@ -128,7 +134,7 @@ class InlineEditActionsCell extends Component<InlineEditActionsCellProps> {
           className="btn btn-light btn-task btn-delete"
           isModal
         >
-          <Icon name="trash-o" />
+          <TableRowRemoveIcon />
           <Message
             id="InlineEdit.DeleteRow"
             defaultMessage="Delete row"
@@ -151,7 +157,7 @@ class InlineEditActionsCell extends Component<InlineEditActionsCellProps> {
           className="btn btn-light btn-task btn-clone"
           onClick={this.props.onCloneClick}
         >
-          <Icon name="files-o" />
+          <TableRowPlusAfterIcon />
           <Message
             id="InlineEdit.CloneRow"
             defaultMessage="Clone row"

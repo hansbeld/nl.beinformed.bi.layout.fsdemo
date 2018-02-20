@@ -2,6 +2,8 @@
 import StringAttributeModel from "beinformed/models/attributes/StringAttributeModel";
 import ConstraintCollection from "beinformed/models/constraints/ConstraintCollection";
 
+import { CONFIRM_PASSWORD } from "beinformed/constants/LayoutHints";
+
 /**
  * Password attribute
  */
@@ -181,7 +183,7 @@ export default class PasswordAttributeModel extends StringAttributeModel {
       });
     }
 
-    if (this.layouthint.has("confirm-password")) {
+    if (this.layouthint.has(CONFIRM_PASSWORD)) {
       constraints.addConstraint(
         "Constraint.Password.ConfirmMismatch",
         this.confirmPassword.bind(this),

@@ -1,4 +1,7 @@
 // @flow
+import clone from "clone";
+import { pick } from "lodash";
+
 import AttributeModel from "beinformed/models/attributes/AttributeModel";
 import BSNAttributeModel from "beinformed/models/attributes/BSNAttributeModel";
 import CaptchaAttributeModel from "beinformed/models/attributes/CaptchaAttributeModel";
@@ -37,11 +40,18 @@ class AttributeDataHelper {
     if (Array.isArray(data)) {
       this._attribute =
         data.find(attr => attr.elementid === key || attr.name === key) || {};
-
       this._value = this.getValue(this._attribute);
     } else {
-      this._attribute = data;
-      this._value = data[key] || this.getValue(data);
+      const attributeData = clone(data);
+      attributeData._links = pick(data._links, [
+        "concept",
+        "download",
+        "lookupservice"
+      ]);
+
+      this._attribute = attributeData;
+      this._value =
+        typeof data[key] === "undefined" ? this.getValue(data) : data[key];
     }
 
     this._children = this.createChildren(
@@ -56,7 +66,7 @@ class AttributeDataHelper {
         data.find(attr => attr.elementid === key || attr.name === key) || {}
       );
     } else if (key in data) {
-      if (typeof data[key] === "object") {
+      if (typeof data[key] === "object" && !Array.isArray(data[key])) {
         return data[key];
       }
       return { [key]: data[key] };
@@ -94,6 +104,12 @@ class AttributeDataHelper {
 
     if ("suggestion" in attribute) {
       return attribute.suggestion;
+    }
+
+    if ("options" in attribute) {
+      return attribute.options
+        .filter(option => option.selected)
+        .map(option => option.code || option.key);
     }
 
     return null;
@@ -136,7 +152,7 @@ class AttributeDataHelper {
       const dynamicschemaObject = {};
 
       dynamicschemasKeys.forEach(key => {
-        dynamicschemaObject[key] = dynamicschema[key];
+        dynamicschemaObject[key] = { [key]: dynamicschema[key] };
       });
 
       return dynamicschemaObject;

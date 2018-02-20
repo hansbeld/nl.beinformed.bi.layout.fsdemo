@@ -75,7 +75,7 @@ export default class NumberAttributeModel extends AttributeModel {
    * replaces the decimapseparator with a dot to make it a JavaScript parseable number
    */
   parseToNumber(input: string | number | null) {
-    if (!input || input === null) {
+    if (typeof input === "undefined" || input === null || input === "") {
       return NaN;
     }
 
@@ -84,11 +84,7 @@ export default class NumberAttributeModel extends AttributeModel {
         ? input.toString()
         : input.toString().replace(this.decimalSeparator, ".");
 
-    if (/^(-|\+)?([0-9]+(\.[0-9]+)?|Infinity)$/.test(parsedNumber)) {
-      return Number(parsedNumber);
-    }
-
-    return NaN;
+    return Number(parsedNumber);
   }
 
   isInteger(value: string) {

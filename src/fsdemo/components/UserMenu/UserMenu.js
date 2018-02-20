@@ -1,10 +1,12 @@
 // @flow
 import React, { Component } from "react";
 
+import LoginIcon from "mdi-react/LoginIcon";
+import LogoutIcon from "mdi-react/LogoutIcon";
+
 import { Message } from "beinformed/containers/I18n/Message";
 import Href from "beinformed/models/href/Href";
 
-import Icon from "beinformed/components/Icon/Icon";
 import Link from "beinformed/components/Link/Link";
 
 import { LOGIN_PATH, LOGOUT_PATH } from "beinformed/constants/Constants";
@@ -26,7 +28,7 @@ class UserMenu extends Component<UserMenuProps> {
           dataId="logout"
           href={new Href(LOGOUT_PATH)}
         >
-          <Icon name="sign-out" textAfter />
+          <LogoutIcon className="textAfter" />
           <Message id="UserLinks.Menu.LogOut" defaultMessage="Log out" />
         </Link>
       </div>
@@ -41,7 +43,7 @@ class UserMenu extends Component<UserMenuProps> {
           dataId="login"
           href={new Href(LOGIN_PATH)}
         >
-          <Icon name="sign-in" textAfter />
+          <LoginIcon className="textAfter" />
           <Message id="UserLinks.Menu.LogIn" defaultMessage="Login" />
         </Link>
         <Link

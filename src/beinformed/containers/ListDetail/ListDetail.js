@@ -1,14 +1,8 @@
 // @flow
-import connectModularUI from "beinformed/utils/modularui/connectModularUI";
-
-import { loadListItem } from "beinformed/containers/List/actions";
+import modularui from "beinformed/utils/modularui/modularui";
 import ListDetail from "beinformed/components/ListDetail/ListDetail";
 
-export const connector = connectModularUI({
-  load: ({ list, listitem }) => loadListItem(list, listitem.selfhref),
-  shouldLoad: () => true,
-  shouldReload: (newProps, oldProps) =>
-    newProps.match.params.id !== oldProps.match.params.id
+export const connector = modularui("ListDetail", ({ href }) => href, {
+  propName: "detail"
 });
-
 export default connector(ListDetail);

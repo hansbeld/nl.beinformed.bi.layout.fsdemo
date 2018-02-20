@@ -1,4 +1,5 @@
 import React from "react";
+import ShareVariantIcon from "mdi-react/ShareVariantIcon";
 
 import LinkModel from "beinformed/models/links/LinkModel";
 
@@ -19,7 +20,7 @@ const ApplicationHeader = ({ application, message }) => {
     "/modelcatalog",
     message("ModelCatalog.Menu", "Modelcatalog")
   );
-  modelCatalogLink.icon = "share-alt";
+  modelCatalogLink.icon = <ShareVariantIcon className="textAfter" />;
 
   return (
     <header className="application-header">

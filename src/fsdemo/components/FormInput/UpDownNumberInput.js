@@ -2,7 +2,8 @@
 import React, { PureComponent } from "react";
 import classNames from "classnames";
 
-import Icon from "beinformed/components/Icon/Icon";
+import MinusIcon from "mdi-react/MinusIcon";
+import PlusIcon from "mdi-react/PlusIcon";
 
 import "./UpDownNumberInput.scss";
 
@@ -111,7 +112,7 @@ class UpDownNumberInput extends PureComponent<UpDownNumberInputProps> {
           type="button"
           onClick={() => this.handleUpDown(false, minValue, maxValue)}
         >
-          <Icon name="minus" />
+          <MinusIcon />
         </button>
 
         <input
@@ -129,7 +130,7 @@ class UpDownNumberInput extends PureComponent<UpDownNumberInputProps> {
           type="button"
           onClick={() => this.handleUpDown(true, minValue, maxValue)}
         >
-          <Icon name="plus" />
+          <PlusIcon />
         </button>
       </div>
     );

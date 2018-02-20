@@ -1,8 +1,8 @@
 // @flow
 import React, { Component } from "react";
 import classNames from "classnames";
+import DownloadIcon from "mdi-react/DownloadIcon";
 
-import Icon from "beinformed/components/Icon/Icon";
 import Link from "beinformed/components/Link/Link";
 
 type AttributeValueProps = {
@@ -35,7 +35,7 @@ class AttributeValue extends Component<AttributeValueProps> {
   getDownloadLink(attribute: AttributeType) {
     return (
       <Link href={attribute.downloadLink.href} isDownload>
-        <Icon name="download" textAfter />
+        <DownloadIcon className="textAfter" />
         {attribute.readonlyvalue}
       </Link>
     );

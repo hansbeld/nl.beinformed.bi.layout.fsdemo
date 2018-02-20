@@ -20,20 +20,20 @@ import ListDetailFooter from "beinformed/components/ListDetail/ListDetailFooter"
 
 import "./ListDetail.scss";
 
-import type ListModel from "beinformed/models/list/ListModel";
+import type ListDetailModel from "beinformed/models/list/ListDetailModel";
+import type ListItemModel from "beinformed/models/list/ListItemModel";
 
 export type ListDetailProps = {
   className?: string,
-  list: ListModel,
-  onHideDetail: (list: ListModel) => void
+  listitem: ListItemModel,
+  detail: ListDetailModel
 };
 
 /**
  * Render detail of a list link item
  */
-const ListDetail = ({ className, list }: ListDetailProps) => {
-  const detail = list.detail;
-
+const ListDetail = ({ className, listitem, detail }: ListDetailProps) => {
+  // const detail = list.detail;
   if (detail) {
     return (
       <div className={classNames("list-detail", className)} data-id={detail.id}>
@@ -48,18 +48,20 @@ const ListDetail = ({ className, list }: ListDetailProps) => {
               <ListDetailInstrumentResult detail={detail} />
             )}
           </PanelBody>
-          {(detail.actionCollection.length > 0 || detail.isCase()) && (
-            <ListDetailFooter detail={detail} />
+          {(listitem.actionCollection.length > 0 || detail.isCase()) && (
+            <ListDetailFooter listitem={listitem} detail={detail} />
           )}
         </Panel>
 
-        <div className="panels">
-          {detail.panelLinks.all.map(panelLink => (
-            <PanelRenderer key={panelLink.key} href={panelLink.href} />
-          ))}
-        </div>
+        {listitem.panelLinks.hasItems && (
+          <div className="panels">
+            {listitem.panelLinks.all.map(listitemLink => (
+              <PanelRenderer key={listitemLink.key} href={listitemLink.href} />
+            ))}
+          </div>
+        )}
 
-        <Route path={detail.actionCollection.routePath} component={Form} />
+        <Route path={listitem.actionCollection.routePath} component={Form} />
       </div>
     );
   }

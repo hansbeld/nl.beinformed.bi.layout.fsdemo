@@ -2,7 +2,6 @@
 import type LinkModel from "beinformed/models/links/LinkModel";
 import ResourceModel from "beinformed/models/base/ResourceModel";
 import UserModel from "beinformed/models/user/UserModel";
-import { fetchForm } from "beinformed/containers/Form/actions";
 
 /**
  * UserServicesModel model
@@ -66,11 +65,11 @@ export default class UserServicesModel extends ResourceModel {
     return this.contributions.label || "";
   }
 
-  get changePasswordLink() {
+  get changePassword(): Href | null {
     const changePasswordLink = this.links.getLinkByKey("ChangePassword");
 
     if (changePasswordLink) {
-      return fetchForm(changePasswordLink.href);
+      return changePasswordLink.href;
     }
 
     return null;

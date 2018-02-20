@@ -2,11 +2,11 @@
 import React, { Component } from "react";
 import { withMessage } from "beinformed/containers/I18n/Message";
 
+import { AlertIcon } from "mdi-react/AlertIcon";
+
 import ChoiceAttributeOptionModel from "beinformed/models/attributes/ChoiceAttributeOptionModel";
 import { getResults } from "beinformed/components/InstrumentResult/EndResult";
 import FormResult from "fsdemo/components/Advice/FormResult";
-
-import Icon from "beinformed/components/Icon/Icon";
 
 import MortgageInstrumentLink from "fsdemo/components/MortgageInstruments/MortgageInstrumentLink";
 
@@ -62,7 +62,7 @@ class SuitableMortgageOption extends Component<
             aria-haspopup="true"
             aria-expanded={this.state.popoverVisible}
           >
-            <Icon name="exclamation-triangle" />
+            <AlertIcon />
           </span>
         )}
 

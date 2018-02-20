@@ -2,7 +2,6 @@
 import React from "react";
 
 import { withMessage } from "beinformed/containers/I18n/Message";
-import Icon from "beinformed/components/Icon/Icon";
 import Toggle from "beinformed/components/Toggle/Toggle";
 import ToggleItem from "beinformed/components/Toggle/ToggleItem";
 
@@ -47,7 +46,7 @@ const ListViewTypeToggle = ({
             )}
             onChange={onChange}
           >
-            <Icon name={view.icon} />
+            {view.icon}
           </ToggleItem>
         ))}
       </Toggle>

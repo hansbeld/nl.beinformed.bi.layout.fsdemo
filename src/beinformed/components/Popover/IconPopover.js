@@ -1,8 +1,8 @@
 // @flow
 import React, { Component } from "react";
 import classNames from "classnames";
+import HelpCircleOutlineIcon from "mdi-react/HelpCircleOutlineIcon";
 
-import Icon from "beinformed/components/Icon/Icon";
 import Popover from "beinformed/components/Popover/Popover";
 import { KEYCODES } from "beinformed/constants/Constants";
 
@@ -11,7 +11,7 @@ import "./IconPopover.scss";
 type IconPopoverProps = {
   children?: any,
   className?: string,
-  icon: string,
+  icon: any,
   horizontalAlignment: "left" | "center" | "right",
   verticalAlignment: "top" | "center" | "bottom"
 };
@@ -24,7 +24,7 @@ type IconPopoverState = {
 /** render an icon with a popover text */
 class IconPopover extends Component<IconPopoverProps, IconPopoverState> {
   static defaultProps = {
-    icon: "question-circle-o",
+    icon: <HelpCircleOutlineIcon />,
     horizontalAlignment: "right",
     verticalAlignment: "bottom"
   };
@@ -118,7 +118,7 @@ class IconPopover extends Component<IconPopoverProps, IconPopoverState> {
         aria-haspopup="true"
         aria-expanded={this.state.popoverVisible}
       >
-        <Icon name={this.props.icon} />
+        {this.props.icon}
         {this.state.popoverVisible && (
           <Popover
             horizontalAlignment={this.props.horizontalAlignment}

@@ -1,9 +1,10 @@
 // @flow
 import React from "react";
+import ArrowUpIcon from "mdi-react/ArrowUpIcon";
+import ArrowDownIcon from "mdi-react/ArrowDownIcon";
 
 import { TimeUtil } from "beinformed/utils/datetime/DateTimeUtil";
 import { withMessage } from "beinformed/containers/I18n/Message";
-import Icon from "beinformed/components/Icon/Icon";
 
 type DatepickerTimePartButtonType = {
   time: string,
@@ -53,7 +54,7 @@ const DatepickerTimePartButton = ({
             return null;
           }}
         >
-          <Icon name="arrow-up" />
+          <ArrowUpIcon />
         </button>
       </div>
       <div className="datepicker-content">
@@ -89,7 +90,7 @@ const DatepickerTimePartButton = ({
             return null;
           }}
         >
-          <Icon name="arrow-down" />
+          <ArrowDownIcon />
         </button>
       </div>
     </div>

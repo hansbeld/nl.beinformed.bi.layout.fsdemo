@@ -1,9 +1,11 @@
 // @flow
 import React, { Component } from "react";
 import classNames from "classnames";
+import AlertCircleIcon from "mdi-react/AlertCircleIcon";
+import CheckboxMarkedCircleIcon from "mdi-react/CheckboxMarkedCircleIcon";
 
 import { Message } from "beinformed/containers/I18n/Message";
-import Icon from "beinformed/components/Icon/Icon";
+
 import type ErrorCollection from "beinformed/models/error/ErrorCollection";
 import type ErrorModel from "beinformed/models/error/ErrorModel";
 import type ConstraintCollection from "beinformed/models/constraints/ConstraintCollection";
@@ -20,14 +22,14 @@ type FormAssistantProps = {
  * Render assistant messages
  */
 class FormAssistant extends Component<FormAssistantProps> {
-  getIcon(isError: boolean) {
+  renderIcon(isError: boolean) {
     if (isError) {
-      return "exclamation-circle";
+      return <AlertCircleIcon className="textAfter" />;
     } else if (this.props.value && this.props.value !== "" && !isError) {
-      return "check-circle";
+      return <CheckboxMarkedCircleIcon className="textAfter" />;
     }
 
-    return "";
+    return null;
   }
 
   /**
@@ -48,11 +50,9 @@ class FormAssistant extends Component<FormAssistantProps> {
       "text-success": this.props.value && this.props.value !== "" && !isError
     });
 
-    const icon = this.getIcon(isError);
-
     return (
       <li key={idx} className={cssClass}>
-        {icon !== "" && <Icon name={icon} textAfter />}
+        {this.renderIcon(isError)}
         <Message
           id={constraint.id}
           defaultMessage={constraint.id}
@@ -65,7 +65,7 @@ class FormAssistant extends Component<FormAssistantProps> {
   errorMessage(error: ErrorModel, idx: number) {
     return (
       <li key={`error-${idx}`} className="text-danger">
-        <Icon name="exclamation-circle" textAfter />
+        <AlertCircleIcon className="textAfter" />
         <Message
           id={error.id}
           defaultMessage={error.id}

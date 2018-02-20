@@ -36,16 +36,18 @@ const BankingChannels = () => (
               online banking services."
               />
             </p>
-            <NotImplementedLink
-              messageId="BankingChannels.RegisterNow"
-              defaultMessage="Register now"
-              className="btn btn-primary"
-            />
-            <NotImplementedLink
-              messageId="BankingChannels.LogIn"
-              defaultMessage="Log in"
-              className="btn link-login"
-            />
+            <NotImplementedLink className="btn btn-primary">
+              <Message
+                messageId="BankingChannels.RegisterNow"
+                defaultMessage="Register now"
+              />
+            </NotImplementedLink>
+            <NotImplementedLink className="btn link-login">
+              <Message
+                messageId="BankingChannels.LogIn"
+                defaultMessage="Log in"
+              />
+            </NotImplementedLink>
           </div>
         </div>
       </div>
@@ -67,11 +69,12 @@ const BankingChannels = () => (
               anywhere."
               />
             </p>
-            <NotImplementedLink
-              messageId="BankingChannels.DownloadApp"
-              defaultMessage="Download app"
-              className="btn btn-primary"
-            />
+            <NotImplementedLink className="btn btn-primary">
+              <Message
+                messageId="BankingChannels.DownloadApp"
+                defaultMessage="Download app"
+              />
+            </NotImplementedLink>
           </div>
         </div>
       </div>
@@ -95,11 +98,12 @@ const BankingChannels = () => (
                   registering for products."
                   />
                 </p>
-                <NotImplementedLink
-                  messageId="BankingChannels.FindBranch"
-                  defaultMessage="Find a branch"
-                  className="btn btn-primary"
-                />
+                <NotImplementedLink className="btn btn-primary">
+                  <Message
+                    messageId="BankingChannels.FindBranch"
+                    defaultMessage="Find a branch"
+                  />
+                </NotImplementedLink>
               </div>
               <div className="col-6">
                 <p>
@@ -111,11 +115,12 @@ const BankingChannels = () => (
                   banking@beinformed.com<br />
                   +31 (0) 55 368 1420
                 </p>
-                <NotImplementedLink
-                  messageId="BankingChannels.MoreContactInfo"
-                  defaultMessage="More contact info"
-                  className="btn link-more-contact-info"
-                />
+                <NotImplementedLink className="btn link-more-contact-info">
+                  <Message
+                    messageId="BankingChannels.MoreContactInfo"
+                    defaultMessage="More contact info"
+                  />
+                </NotImplementedLink>
               </div>
             </div>
           </div>

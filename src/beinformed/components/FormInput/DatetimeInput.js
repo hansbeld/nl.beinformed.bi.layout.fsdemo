@@ -1,10 +1,11 @@
 // @flow
 import React, { Component } from "react";
+import CalendarIcon from "mdi-react/CalendarIcon";
+import ClockIcon from "mdi-react/ClockIcon";
 
 import Button from "beinformed/components/Button/Button";
 import DatetimePicker from "beinformed/components/DatetimePicker/DatetimePicker";
 import TextInput from "beinformed/components/FormInput/TextInput";
-import Icon from "beinformed/components/Icon/Icon";
 import { ISO_DATE_FORMAT } from "beinformed/constants/Constants";
 import { Message } from "beinformed/containers/I18n/Message";
 
@@ -138,7 +139,7 @@ class DatetimeInput extends Component<DatetimeInputProps, DatetimeInputState> {
           onBlur={this.props.onBlur}
           onFocus={this.props.onFocus}
         >
-          <Icon name={this.hasDate ? "calendar" : "clock-o"} />
+          {this.hasDate ? <CalendarIcon /> : <ClockIcon />}
           <Message
             id="DateTimeInput.ButtonLabel"
             defaultLabel="Pick a date"

@@ -8,20 +8,14 @@ import ContentLink from "beinformed/components/ContentLink/ContentLink";
 import ChoiceAttributeModel from "beinformed/models/attributes/ChoiceAttributeModel";
 import Href from "beinformed/models/href/Href";
 
-import type { Match } from "react-router-dom";
 import type ContentIndexModel from "beinformed/models/content/ContentIndexModel";
 
 type ContentBrowserProps = {
-  match: Match,
   contentindex: ContentIndexModel,
   entryDate: string
 };
 
-const ContentBrowser = ({
-  match,
-  contentindex,
-  entryDate
-}: ContentBrowserProps) => {
+const ContentBrowser = ({ contentindex, entryDate }: ContentBrowserProps) => {
   if (contentindex) {
     const indexFilterAttribute =
       contentindex.indexfilter &&
@@ -41,7 +35,9 @@ const ContentBrowser = ({
               enabled={indexFilterAttribute.options.all.map(
                 option => option.code
               )}
-              href={new Href(match.url).addParameter("entryDate", entryDate)}
+              href={
+                new Href(`/modelcatalog${contentindex.selfhref.toString()}`)
+              }
             />
           </div>
         )}

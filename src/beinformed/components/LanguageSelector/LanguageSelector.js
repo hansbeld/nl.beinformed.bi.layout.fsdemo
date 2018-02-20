@@ -1,12 +1,13 @@
 // @flow
 import React from "react";
+import EarthIcon from "mdi-react/EarthIcon";
+import CheckboxBlankCircleOutline from "mdi-react/CheckboxBlankCircleOutlineIcon";
+import CheckboxCircleOutline from "mdi-react/CheckCircleOutlineIcon";
 
 import Dropdown from "beinformed/components/Dropdown/Dropdown";
 import DropdownToggle from "beinformed/components/Dropdown/DropdownToggle";
 import DropdownItem from "beinformed/components/Dropdown/DropdownItem";
 import DropdownChildren from "beinformed/components/Dropdown/DropdownChildren";
-
-import Icon from "beinformed/components/Icon/Icon";
 
 import Href from "beinformed/models/href/Href";
 
@@ -29,7 +30,7 @@ const LanguageSelector = ({
   <div className="languageselector" data-language={activeLocale}>
     <Dropdown align="right">
       <DropdownToggle>
-        <Icon name="globe" textAfter />
+        <EarthIcon className="textAfter" />
         <span className="link-text locale">{activeLocale}</span>
       </DropdownToggle>
       <DropdownChildren>
@@ -40,12 +41,12 @@ const LanguageSelector = ({
             href={new Href("/")}
             onClick={() => onChange(locale.code)}
           >
-            <Icon
-              name={
-                locale.code === activeLocale ? "check-circle-o" : "circle-o"
-              }
-              textAfter
-            />
+            {locale.code === activeLocale ? (
+              <CheckboxCircleOutline className="textAfter" />
+            ) : (
+              <CheckboxBlankCircleOutline className="textAfter" />
+            )}
+
             <span className="link-text">{locale.nativeName}</span>
           </DropdownItem>
         ))}

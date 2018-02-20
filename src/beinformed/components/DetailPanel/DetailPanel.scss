@@ -1,0 +1,23 @@
+@import "~bootstrap/scss/mixins/clearfix";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~bootstrap/scss/mixins/grid";
+@import "../../../variables";
+
+.detailpanel .attributelist {
+  margin-bottom: $spacer;
+
+  .attribute {
+    .attribute-label {
+      @include media-breakpoint-up(md) {
+        @include make-col(2);
+      }
+    }
+
+    > .attribute-composite-value,
+    > .attribute-value {
+      @include media-breakpoint-up(md) {
+        @include make-col(10);
+      }
+    }
+  }
+}

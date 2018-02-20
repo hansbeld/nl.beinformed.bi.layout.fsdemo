@@ -5,15 +5,15 @@
 
   margin-top: $spacer / 2;
 
-  .icon {
-    color: $red;
+  .mdi-icon {
+    fill: $red;
   }
 
   &.active {
     color: $black;
 
-    .icon {
-      color: $green;
+    .mdi-icon {
+      fill: $green;
     }
   }
 

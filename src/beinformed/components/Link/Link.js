@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 
-import { NavLink as ReactRouterLink, withRouter } from "react-router-dom";
+import { NavLink as ReactRouterLink } from "react-router-dom";
 
 import Href from "beinformed/models/href/Href";
 import { KEYCODES } from "beinformed/constants/Constants";
@@ -64,14 +64,12 @@ class Link extends Component<LinkProps> {
       disabled: isDisabled
     });
 
-    const toLocation = {
-      pathname: href.path,
-      search: href.querystring,
+    const toLocation = Object.assign(href.toLocation(), {
       state: {
         href,
         modal: isModal
       }
-    };
+    });
 
     return (
       <ReactRouterLink
@@ -116,4 +114,4 @@ class Link extends Component<LinkProps> {
   }
 }
 
-export default withRouter(Link);
+export default Link;

@@ -2,11 +2,14 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 
+import CheckIcon from "mdi-react/CheckIcon";
+import AlertCircleIcon from "mdi-react/AlertCircleIcon";
+import AlertIcon from "mdi-react/AlertIcon";
+import InformationIcon from "mdi-react/InformationIcon";
+
 import { NOTIFICATION_TYPES } from "beinformed/constants/Constants";
 
 import { Message } from "beinformed/containers/I18n/Message";
-
-import Icon from "beinformed/components/Icon/Icon";
 
 import type ErrorResponse from "beinformed/models/error/ErrorResponse";
 
@@ -34,27 +37,34 @@ class Notification extends Component<NotificationProps> {
     });
   }
 
-  /**
-   * Correct notification icon
-   */
-  getIconName() {
+  renderIcon() {
     switch (this.props.messageType) {
       case NOTIFICATION_TYPES.SUCCESS:
-        return "check";
+        return <CheckIcon className="textAfter" />;
       case NOTIFICATION_TYPES.ERROR:
-        return "exclamation-circle";
+        return <AlertCircleIcon className="textAfter" />;
       case NOTIFICATION_TYPES.WARNING:
-        return "exclamation-triangle";
+        return <AlertIcon className="textAfter" />;
       default:
-        return "info-circle";
+        return <InformationIcon className="textAfter" />;
     }
   }
 
   render() {
     const { message, error, render, onDismiss } = this.props;
     if (render) {
+      const notificationClass = this.getNotificationClass();
+
+      const errorMessage =
+        error &&
+        error.id === "Error.GeneralError" &&
+        error.exception &&
+        error.exception.message
+          ? error.exception.message
+          : null;
+
       return (
-        <div className={this.getNotificationClass()} role="alert">
+        <div className={notificationClass} role="alert">
           <button
             type="button"
             className="close"
@@ -64,20 +74,15 @@ class Notification extends Component<NotificationProps> {
           >
             <span aria-hidden="true">&times;</span>
           </button>
-          <Icon name={this.getIconName()} textAfter />
+          {this.renderIcon()}
           <Message
             id={message.id}
             defaultMessage={message.defaultMessage}
             data={message.parameters}
           />
-          {error &&
-            error.id === "Error.GeneralError" &&
-            error.exception &&
-            error.exception.message && (
-              <div className="ml-4 small error-detail">
-                {error.exception.message}
-              </div>
-            )}
+          {errorMessage && (
+            <div className="ml-4 small error-detail">{errorMessage}</div>
+          )}
         </div>
       );
     }

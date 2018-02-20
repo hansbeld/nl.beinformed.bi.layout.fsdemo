@@ -12,7 +12,6 @@ const getHint = (hint: string) => {
   return "";
 };
 
-export const ICON = getHint("ICON");
 export const MANDATORY = getHint("MANDATORY");
 
 /*
@@ -34,6 +33,9 @@ export const RENDER_MODAL = getHint("RENDER_MODAL");
  * @type {string}
  */
 export const OVERVIEW = getHint("OVERVIEW");
+
+export const CASE_TITLE = getHint("CASE_TITLE");
+export const CASE_STATE = getHint("CASE_STATE");
 
 /*
  * --------------------------------
@@ -115,6 +117,13 @@ export const DEPENDENT_INPUT_OPERATOR_NOT_EQUALS = "notEquals";
 export const DEPENDENT_INPUT_OPERATOR_NOT_INCLUDES = "notIncludes";
 export const DEPENDENT_INPUT_OPTIONS_SEPARATOR = "|";
 
+/**
+ * --------------------------------
+ * ATTRIBUTES
+ * --------------------------------
+ */
+export const CONFIRM_PASSWORD = getHint("CONFIRM_PASSWORD");
+
 /*
  * --------------------------------
  * NOTIFY ABOUT FORM FINISH
@@ -154,6 +163,7 @@ export const HIDE_MODELCATALOG = getHint("HIDE_MODELCATALOG");
  */
 export const SHOW_ONE_RESULT_AS_DETAIL = getHint("SHOW_ONE_RESULT_AS_DETAIL");
 export const GOTO_CASEVIEW = getHint("GOTO_CASEVIEW");
+export const CLICK_TO_OPEN_CASE_VIEW = getHint("CLICK_TO_OPEN_CASE_VIEW");
 
 /*
  * --------------------------------

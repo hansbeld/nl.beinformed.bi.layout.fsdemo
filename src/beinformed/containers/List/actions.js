@@ -51,18 +51,3 @@ export const loadListItem = (
   list: ListModel,
   href: Href
 ): ThunkAction => dispatch => dispatch(gotoListItemAction(list, href));
-
-/**
- * Change page number
- */
-export const updatePaging = (href: Href) => requestList(href);
-
-/**
- * Change page size
- */
-export const updatePageSize = (href: Href) => requestList(href);
-
-/**
- * Handle sort change
- */
-export const updateSorting = (href: Href) => requestList(href);

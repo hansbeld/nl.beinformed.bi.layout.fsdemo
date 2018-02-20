@@ -1,6 +1,9 @@
 // @flow
 import React, { Component } from "react";
 
+import AlertCircleOutlineIcon from "mdi-react/AlertCircleOutlineIcon";
+import CheckCircleOutlineIcon from "mdi-react/CheckCircleOutlineIcon";
+
 import NavigationItem from "beinformed/components/Navigation/NavigationItem";
 
 import type ChoiceAttributeModel from "beinformed/models/attributes/ChoiceAttributeModel";
@@ -26,14 +29,14 @@ class NavigationStages extends Component<NavigationStagesProps> {
           executableStage => executableStage.toLowerCase() === linkKey
         )
       ) {
-        newLink.icon = "exclamation-circle";
+        newLink.icon = <AlertCircleOutlineIcon className="textAfter" />;
       } else if (
         performedStages &&
         performedStages.selected.find(
           performedStage => performedStage.toLowerCase() === linkKey
         )
       ) {
-        newLink.icon = "check-circle";
+        newLink.icon = <CheckCircleOutlineIcon className="textAfter" />;
       }
 
       return newLink;

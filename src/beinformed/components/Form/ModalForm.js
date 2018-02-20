@@ -1,7 +1,6 @@
 // @flow
 import React from "react";
 import Helmet from "react-helmet";
-import { withRouter } from "react-router-dom";
 
 import HTMLForm from "beinformed/components/HTMLForm/HTMLForm";
 import FormTitle from "beinformed/components/Form/FormTitle";
@@ -13,12 +12,10 @@ import ModalFooter from "beinformed/components/Modal/ModalFooter";
 import ModalHeader from "beinformed/components/Modal/ModalHeader";
 
 import type FormModel from "beinformed/models/form/FormModel";
-import type { RouterHistory } from "react-router-dom";
 
 type ModalFormProps = {
   form: FormModel,
   formLayout?: "vertical" | "horizontal",
-  history: RouterHistory,
   children: any,
   onCancel: (form: FormModel) => void,
   onPrevious: (form: FormModel) => void,
@@ -31,7 +28,6 @@ type ModalFormProps = {
 const ModalForm = ({
   form,
   formLayout,
-  history,
   children,
   onCancel,
   onPrevious,
@@ -50,13 +46,7 @@ const ModalForm = ({
         <title>{form.label}</title>
       </Helmet>
 
-      <ModalHeader
-        showClose
-        onClose={() => {
-          onCancel(form);
-          history.goBack();
-        }}
-      >
+      <ModalHeader showClose onClose={() => onCancel(form)}>
         <FormTitle title={form.label} isModal />
       </ModalHeader>
       <HTMLForm
@@ -73,10 +63,7 @@ const ModalForm = ({
           <FormButtons
             form={form}
             formLayout={formLayout}
-            onCancel={() => {
-              onCancel(form);
-              history.goBack();
-            }}
+            onCancel={() => onCancel(form)}
             onPreviousClick={() => onPrevious(form)}
           />
         </ModalFooter>
@@ -85,4 +72,4 @@ const ModalForm = ({
   );
 };
 
-export default withRouter(ModalForm);
+export default ModalForm;

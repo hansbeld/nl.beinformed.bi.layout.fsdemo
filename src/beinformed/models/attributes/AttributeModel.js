@@ -72,11 +72,6 @@ export default class AttributeModel extends BaseModel {
     }
     this._isValid = true;
 
-    this._links = new LinkCollection(
-      this.data._links,
-      this.contributions._links
-    );
-
     this._isEditable = false;
 
     this._concept = null;
@@ -215,6 +210,13 @@ export default class AttributeModel extends BaseModel {
    * Retrieve links of attribute
    */
   get links(): LinkCollection {
+    if (!this._links) {
+      this._links = new LinkCollection(
+        this.data._links,
+        this.contributions._links
+      );
+    }
+
     return this._links;
   }
 
@@ -335,7 +337,9 @@ export default class AttributeModel extends BaseModel {
   getValue(): string | null {
     const value = this._value.value;
 
-    return !value || value === null ? null : value;
+    return typeof value === "undefined" || value === null || value === ""
+      ? null
+      : value;
   }
 
   /**

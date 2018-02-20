@@ -18,5 +18,9 @@
     overflow: auto;
 
     margin: 0 $spacer;
+
+    .mdi-icon {
+      fill: $white;
+    }
   }
 }

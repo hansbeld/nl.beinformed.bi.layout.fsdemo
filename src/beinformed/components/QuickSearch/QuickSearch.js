@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from "react";
 import classNames from "classnames";
+import { withRouter } from "react-router-dom";
 
 import CaseSearchModel from "beinformed/models/search/CaseSearchModel";
 
@@ -107,10 +108,12 @@ class QuickSearch extends Component<QuickSearchProps, QuickSearchState> {
     if (
       this.state.searching ||
       this._inputGroupClick ||
-      (e.target.className && e.target.className.includes("quicksearch-input"))
+      (e.target.nodeName === "input" &&
+        e.target.className.includes("quicksearch-input"))
     ) {
       return;
     }
+
     this.setState({
       showResults: false
     });
@@ -144,11 +147,7 @@ class QuickSearch extends Component<QuickSearchProps, QuickSearchState> {
 
     clearTimeout(this._timeout);
     this._timeout = setTimeout(() => {
-      this.props.onQuickSearch(
-        this.props.search,
-        this.state.searchOption,
-        this.state.searchValue
-      );
+      this.quicksearch();
     }, QUICKSEARCH_TIMEOUT);
   };
 
@@ -170,11 +169,7 @@ class QuickSearch extends Component<QuickSearchProps, QuickSearchState> {
     this.setState(newState);
 
     if (this.state.searchValue !== "") {
-      this.props.onQuickSearch(
-        this.props.search,
-        this.state.searchOption,
-        this.state.searchValue
-      );
+      this.quicksearch();
     }
   };
 
@@ -197,6 +192,31 @@ class QuickSearch extends Component<QuickSearchProps, QuickSearchState> {
     return null;
   }
 
+  createSearchHref = () => {
+    const newSearch = this.props.search.clone();
+
+    newSearch.filterCollection.reset();
+    newSearch.filterCollection.update(
+      this.state.searchOption.attribute,
+      this.state.searchValue
+    );
+    if (!newSearch.filterCollection.isValid) {
+      return false;
+    }
+
+    const searchHref = newSearch.selfhref;
+
+    searchHref.page = 1;
+    searchHref.filterCollection = newSearch.filterCollection;
+
+    return searchHref;
+  };
+
+  quicksearch = () =>
+    this.props.fetchModularUI(this.createSearchHref(), { propName: "search" });
+
+  search = () => this.props.history.push(this.createSearchHref().toString());
+
   /**
    * render
    * @return {ReactElement} markup
@@ -214,13 +234,7 @@ class QuickSearch extends Component<QuickSearchProps, QuickSearchState> {
           method="get"
           name="quicksearch"
           action={this.props.search.selfhref}
-          onSubmit={() => {
-            this.props.onSearch(
-              this.props.search,
-              this.state.searchOption,
-              this.state.searchValue
-            );
-          }}
+          onSubmit={this.search}
         >
           {this.renderSearchChooser()}
           <div className="form-group quick-search-field">
@@ -240,4 +254,4 @@ class QuickSearch extends Component<QuickSearchProps, QuickSearchState> {
   }
 }
 
-export default QuickSearch;
+export default withRouter(QuickSearch);

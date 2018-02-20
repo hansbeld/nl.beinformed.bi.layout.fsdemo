@@ -50,7 +50,7 @@ class Pagination extends Component<PaginationProps> {
   }
 
   render() {
-    const { className, list, maxPagesToShow, message, onChange } = this.props;
+    const { className, list, maxPagesToShow, message } = this.props;
 
     const paginationClass = classNames(
       "pagination",
@@ -83,7 +83,6 @@ class Pagination extends Component<PaginationProps> {
               "PagingItem.AriaLabel.GotoFirstPage",
               "Go to the first page"
             )}
-            onClick={onChange}
           />
         </li>
         <li
@@ -103,7 +102,6 @@ class Pagination extends Component<PaginationProps> {
                 PREVIOUS_PAGE_NUMBER: prevPage
               }
             )}
-            onClick={onChange}
           />
         </li>
 
@@ -117,6 +115,7 @@ class Pagination extends Component<PaginationProps> {
             <PagingItem
               baseHref={list.selfhref}
               page={number}
+              isActive={list.paging.page === number}
               ariaLabel={message(
                 "PagingItem.AriaLabel.GotoPage",
                 "Go to page {PAGE_NUMBER}",
@@ -124,7 +123,6 @@ class Pagination extends Component<PaginationProps> {
                   PAGE_NUMBER: number
                 }
               )}
-              onClick={onChange}
             />
           </li>
         ))}
@@ -146,7 +144,6 @@ class Pagination extends Component<PaginationProps> {
                 NEXT_PAGE_NUMBER: nextPage
               }
             )}
-            onClick={onChange}
           />
         </li>
         <li
@@ -166,7 +163,6 @@ class Pagination extends Component<PaginationProps> {
                 LAST_PAGE_NUMBER: list.paging.maxpages
               }
             )}
-            onClick={onChange}
           />
         </li>
       </ul>

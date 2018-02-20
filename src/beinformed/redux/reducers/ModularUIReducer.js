@@ -1,9 +1,15 @@
 // @flow
-import Href from "beinformed/models/href/Href";
+
+/**
+ * Server rendering depends on the availability of the status property on each model
+ * to determine if alle models on initial request are loaded, see /server/render.js
+ */
 
 type ModularUIState = {
-  status: {},
-  models: Object
+  [string]: {
+    status: string,
+    model: any
+  }
 };
 
 const updateStatus = (
@@ -11,50 +17,63 @@ const updateStatus = (
   { key, status }: { key: string, status: string }
 ) => ({
   ...state,
-  status: {
-    ...state.status,
-    [key]: status
+  [key]: {
+    ...state[key],
+    status
   }
 });
 
-const setModel = (state, model) => {
-  if (model && model.selfhref instanceof Href) {
+const setModel = (state, { key, model }: { key: string, model: any }) => {
+  if (model) {
     return {
       ...state,
-      models: {
-        ...state.models,
-        [model.selfhref.path]: model
+      [key]: {
+        ...state[key],
+        model
       }
     };
   }
 
-  throw new Error("No model for setModel or no selfhref available on model");
+  throw new Error("No model for setModel");
+};
+
+const updateModel = (state, model) => {
+  const modelKey = Object.keys(state).find(
+    key =>
+      state[key].model &&
+      state[key].model.connectKey &&
+      state[key].model.connectKey === model.connectKey
+  );
+
+  if (modelKey) {
+    return setModel(state, { key: modelKey, model });
+  }
+
+  throw new Error(`Cannot update model with key ${model.connectKey}`);
 };
 
 const removeModel = (state, model) => {
-  if (!state.models[model.selfhref.path]) {
-    return state;
+  const modelKey = Object.keys(state).find(
+    key =>
+      state[key].model &&
+      state[key].model.connectKey &&
+      state[key].model.connectKey === model.connectKey
+  );
+
+  return removeKey(state, modelKey);
+};
+
+const removeKey = (state, modelKey?: string) => {
+  if (modelKey) {
+    // eslint-disable-next-line no-unused-vars
+    const { [modelKey]: _, ...newState } = state;
+    return newState;
   }
 
-  return {
-    ...state,
-    models: Object.keys(state.models).reduce(
-      (accumulator, href) =>
-        href === model.selfhref.path
-          ? accumulator
-          : {
-              ...accumulator,
-              [href]: state.models[href]
-            },
-      {}
-    )
-  };
+  return state;
 };
 
-const initialState = {
-  status: {},
-  models: {}
-};
+const initialState = {};
 
 /**
  * Modular UI Reducer
@@ -68,14 +87,16 @@ export default function modularuiReducer(
       return updateStatus(state, action.payload);
 
     case "MODULARUI/SET":
-    case "MODULARUI/UPDATE":
       return setModel(state, action.payload);
+
+    case "MODULARUI/UPDATE":
+      return updateModel(state, action.payload);
 
     case "MODULARUI/REMOVE":
       return removeModel(state, action.payload);
 
-    case "MODULARUI/RESET":
-      return initialState;
+    case "MODULARUI/REMOVE_KEY":
+      return removeKey(state, action.payload);
 
     default:
       return state;

@@ -72,7 +72,6 @@ export const showFormNotification = (
   dispatch(startProgress());
 
   if (form.layouthint.has(NOTIFY)) {
-    // TODO SBO: Add correct notification type
     dispatch(
       showNotification(NOTIFICATION_TYPES.SUCCESS, {
         id: NOTIFICATION_MSG_MAP.generic

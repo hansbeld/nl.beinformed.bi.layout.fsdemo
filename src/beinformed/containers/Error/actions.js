@@ -18,6 +18,7 @@ import { resetProgress } from "beinformed/containers/ProgressIndicator/actions";
 import Cache from "beinformed/utils/browser/Cache";
 
 import type FetchError from "beinformed/utils/fetch/FetchError";
+import { changePassword } from "beinformed/containers/SignIn/actions";
 
 /**
  * Handle errors by sending an error notification message
@@ -31,6 +32,7 @@ export const handleError = (error: Error | FetchError): ThunkAction => (
   const errorResponse = new ErrorResponse(error);
 
   const isModal = get(getState().router.location, "state.modal");
+  const locationFrom = get(getState().router.location, "state.from");
 
   if (errorResponse.isUnauthorized) {
     dispatch(logoutSuccess());
@@ -41,7 +43,7 @@ export const handleError = (error: Error | FetchError): ThunkAction => (
       push({
         pathname: LOGIN_PATH,
         state: {
-          from: getState().router.location,
+          from: locationFrom ? locationFrom : getState().router.location,
           modal: isModal
         }
       })
@@ -53,11 +55,13 @@ export const handleError = (error: Error | FetchError): ThunkAction => (
   }
 
   if (errorResponse.isChangePassword) {
+    dispatch(changePassword());
+
     return dispatch(
       push({
         pathname: CHANGEPASSWORD_PATH,
         state: {
-          from: getState().router.location,
+          from: locationFrom ? locationFrom : getState().router.location,
           modal: isModal
         }
       })

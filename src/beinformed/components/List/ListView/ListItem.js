@@ -17,6 +17,7 @@ type ListItemProps = {
   item: DetailModel,
   href?: Href,
   isActive: boolean,
+  navToCaseView: boolean,
   isSelectable: boolean
 };
 
@@ -50,6 +51,12 @@ class ListItem extends Component<ListItemProps> {
     return <AttributeList direction="horizontal" attributes={attributes} />;
   }
 
+  getDetailLink(href: Href): Href {
+    const { item, navToCaseView } = this.props;
+
+    return navToCaseView ? item.selfhref : href;
+  }
+
   render() {
     const { item, href, isActive, isSelectable } = this.props;
 
@@ -61,10 +68,12 @@ class ListItem extends Component<ListItemProps> {
 
     if (href && !isSelectable) {
       return (
-        <Link dataId={item.id} href={href} className={itemClass}>
-          {this.renderTitle()}
-          {this.renderAttributes()}
-        </Link>
+        <div data-id={item.id} className={itemClass}>
+          <Link href={this.getDetailLink(href)}>
+            {this.renderTitle()}
+            {this.renderAttributes()}
+          </Link>
+        </div>
       );
     }
 
@@ -75,7 +84,7 @@ class ListItem extends Component<ListItemProps> {
           <Link
             className={classNames({ active: isActive })}
             dataId={item.id}
-            href={href}
+            href={this.getDetailLink(href)}
           >
             {this.renderAttributes()}
           </Link>

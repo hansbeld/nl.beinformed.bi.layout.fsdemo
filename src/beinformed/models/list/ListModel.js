@@ -7,7 +7,6 @@ import ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
 import ListItemCollection from "beinformed/models/list/ListItemCollection";
 import ListDetailModel from "beinformed/models/list/ListDetailModel";
 import ActionCollection from "beinformed/models/actions/ActionCollection";
-import ContextModel from "beinformed/models/context/ContextModel";
 import FilterCollection from "beinformed/models/filters/FilterCollection";
 import GroupingModel from "beinformed/models/grouping/GroupingModel";
 import ListHeaderModel from "beinformed/models/list/ListHeaderModel";
@@ -27,7 +26,6 @@ export default class ListModel extends ResourceModel {
   _filterCollection: FilterCollection;
   _sorting: SortingModel;
   _actionCollection: ActionCollection;
-  _context: ContextModel;
   _grouping: GroupingModel;
   _listItemCollection: ListItemCollection;
   _detail: ListDetailModel | null;
@@ -66,7 +64,6 @@ export default class ListModel extends ResourceModel {
 
     this.setSelfHref();
 
-    this._context = new ContextModel(this.key, this.selfhref, this.label);
     this._grouping = new GroupingModel(
       this.data.grouping,
       this.contributions.contexts
@@ -126,29 +123,6 @@ export default class ListModel extends ResourceModel {
         this.detail = childModel;
       }
     });
-  }
-
-  /**
-   * getting context
-   */
-  get context(): ContextModel {
-    return this._context;
-  }
-
-  /**
-   * set context
-   */
-  set context(context: ContextModel) {
-    this._context = context;
-  }
-
-  /**
-   * Move existing context to the current context based on selfhref of this list
-   */
-  moveContext(oldContext: ContextModel) {
-    this.context = oldContext.getContextOfHref(this.selfhref);
-
-    return this;
   }
 
   /**
@@ -248,24 +222,11 @@ export default class ListModel extends ResourceModel {
 
       if (listitem) {
         detail.listitem = listitem;
-
-        const title = detail.titleAttribute
-          ? detail.titleAttribute.readonlyvalue
-          : "-";
-
-        // Add entry to context of list
-        this.context.addItem(
-          this.key,
-          this.selfhref,
-          detail.selfhref,
-          `${this.label}: ${title}`
-        );
       }
 
       this._detail = detail;
     } else {
       this._detail = null;
-      this.moveContext(this.context);
     }
 
     this.setSelfHref();
@@ -359,11 +320,6 @@ export default class ListModel extends ResourceModel {
    */
   get selfhref(): ListHref {
     return this._selfhref;
-  }
-
-  get parenthref(): Href | null {
-    const parent = this.context.context[this.context.context.length - 1];
-    return parent ? parent.href : null;
   }
 
   /**

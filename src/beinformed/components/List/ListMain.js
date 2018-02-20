@@ -1,7 +1,10 @@
 // @flow
 import React, { Component } from "react";
 import classNames from "classnames";
-import { connect } from "react-redux";
+
+import ViewListIcon from "mdi-react/ViewListIcon";
+import TableIcon from "mdi-react/TableIcon";
+import TableEditIcon from "mdi-react/TableEditIcon";
 
 import { withMessage } from "beinformed/containers/I18n/Message";
 
@@ -24,23 +27,13 @@ import InlineEdit from "beinformed/containers/InlineEdit/InlineEdit";
 
 import EditableListModel from "beinformed/models/list/EditableListModel";
 
-import {
-  updateSorting,
-  updatePaging,
-  updatePageSize
-} from "beinformed/containers/List/actions";
-
 import type ListModel from "beinformed/models/list/ListModel";
-import type Href from "beinformed/models/href/Href";
 
 type ListMainProps = {
   className?: string,
   list: ListModel,
   viewType?: string,
-  message: messageFunctionType,
-  onPageChange: (href: Href) => void,
-  onPageSizeChange: (href: Href) => void,
-  onSortChange: (href: Href) => void
+  message: messageFunctionType
 };
 
 type ListMainState = {
@@ -63,13 +56,13 @@ class ListMain extends Component<ListMainProps, ListMainState> {
   getAvailableViews = () => {
     const views = [
       {
-        icon: "list",
+        icon: <ViewListIcon />,
         label: "list",
         type: "ListView",
         component: ListView
       },
       {
-        icon: "table",
+        icon: <TableIcon />,
         label: "table",
         type: "TableView",
         component: TableView
@@ -79,12 +72,12 @@ class ListMain extends Component<ListMainProps, ListMainState> {
         return view.type === this.props.viewType;
       }
 
-      return AVAILABLE_LIST_VIEWS.includes(view.type);
+      return AVAILABLE_LIST_VIEWS && AVAILABLE_LIST_VIEWS.includes(view.type);
     });
 
     if (this.props.list instanceof EditableListModel) {
       views.push({
-        icon: "pencil",
+        icon: <TableEditIcon />,
         label: "editable table",
         type: "EditableTableView",
         component: InlineEdit
@@ -103,11 +96,11 @@ class ListMain extends Component<ListMainProps, ListMainState> {
   }
 
   renderTop() {
-    const { list, message, onSortChange } = this.props;
+    const { list, message } = this.props;
 
     const availableViews = this.getAvailableViews();
 
-    if (list.hasResults() || list.isFiltered() || list.context.hasContext()) {
+    if (list.hasResults() || list.isFiltered()) {
       const isPaged = list.paging.totalResults > 1;
 
       const listHeaderClass = classNames("list-main-header", {
@@ -130,7 +123,7 @@ class ListMain extends Component<ListMainProps, ListMainState> {
 
             <div className="text-right col">
               <ButtonToolbar
-                className="pull-right mb-1"
+                className="float-right mb-1"
                 ariaLabel={message(
                   "List.AriaLabel.HeaderToolbar",
                   "Available actions for {LIST_LABEL} list",
@@ -149,12 +142,7 @@ class ListMain extends Component<ListMainProps, ListMainState> {
 
                 {list.sorting.options.length > 1 &&
                   list.listItemCollection.length > 1 && (
-                    <SortChooser
-                      align="right"
-                      size="small"
-                      list={list}
-                      onSort={onSortChange}
-                    />
+                    <SortChooser align="right" size="small" list={list} />
                   )}
 
                 {hasMultipleViewTypes && (
@@ -217,7 +205,7 @@ class ListMain extends Component<ListMainProps, ListMainState> {
   }
 
   renderBottom() {
-    const { list, onPageChange, onPageSizeChange } = this.props;
+    const { list } = this.props;
 
     const maxPageSize = list.paging.totalResults;
     const pagesizeOptions = list.paging.pagesize.options.filter(
@@ -227,11 +215,7 @@ class ListMain extends Component<ListMainProps, ListMainState> {
     return (
       <div className="list-footer mt-1">
         {list.paging.maxpages > 1 && (
-          <Pagination
-            className="float-left"
-            list={list}
-            onChange={onPageChange}
-          />
+          <Pagination className="float-left" list={list} />
         )}
 
         <MultiRowTaskContainer actions={list.actionCollection} />
@@ -243,7 +227,6 @@ class ListMain extends Component<ListMainProps, ListMainState> {
             size="small"
             direction="up"
             list={list}
-            onChange={onPageSizeChange}
           />
         )}
       </div>
@@ -268,8 +251,4 @@ class ListMain extends Component<ListMainProps, ListMainState> {
   }
 }
 
-export default connect(null, {
-  onPageChange: updatePaging,
-  onPageSizeChange: updatePageSize,
-  onSortChange: updateSorting
-})(withMessage(ListMain));
+export default withMessage(ListMain);

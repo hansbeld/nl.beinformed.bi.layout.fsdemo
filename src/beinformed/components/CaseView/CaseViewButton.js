@@ -2,7 +2,7 @@
 import React from "react";
 
 import LinkButton from "beinformed/components/Button/LinkButton";
-import Icon from "beinformed/components/Icon/Icon";
+import FolderOpenIcon from "mdi-react/FolderOpenIcon";
 
 import type DetailModel from "beinformed/models/detail/DetailModel";
 
@@ -16,7 +16,7 @@ const CaseViewButton = ({ caseview }: CaseViewButtonProps) => (
     className="btn-opencase card-link float-lg-right"
     buttonStyle="primary"
   >
-    <Icon name="folder-open" /> {caseview.titleAttribute.value}
+    <FolderOpenIcon /> {caseview.titleAttribute.value}
   </LinkButton>
 );
 

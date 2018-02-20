@@ -26,15 +26,13 @@
         padding-left: 23px;
 
         &::before {
-          content: "\f00c";
+          content: "\2714\0020";
 
           position: absolute;
           top: 0;
           left: 0;
 
           color: $green;
-
-          font-family: FontAwesome, serif;
         }
       }
     }

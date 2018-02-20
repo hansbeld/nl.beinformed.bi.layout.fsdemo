@@ -11,12 +11,15 @@ const retrieveActiveModels = (location, models) => {
   locationParts.reduce((accumulator, current) => {
     const path = `${accumulator}/${current}`;
 
-    const model = models[path];
-    if (model) {
+    const foundEntry = Object.values(models).find(
+      entry => entry.model && entry.model.selfhref.equals(path)
+    );
+
+    if (foundEntry && foundEntry.model) {
       contextModels.push({
-        key: model.key,
-        href: model.selfhref,
-        label: model.label
+        key: foundEntry.model.key,
+        href: foundEntry.model.selfhref,
+        label: foundEntry.model.label
       });
     }
 
@@ -30,7 +33,7 @@ const retrieveActiveModels = (location, models) => {
  * Map state to props
  */
 const mapStateToProps = (state: State, ownProps) => ({
-  items: retrieveActiveModels(ownProps.location, state.modularui.models)
+  items: retrieveActiveModels(ownProps.location, state.modularui)
 });
 
 export default withRouter(connect(mapStateToProps, {})(Breadcrumb));

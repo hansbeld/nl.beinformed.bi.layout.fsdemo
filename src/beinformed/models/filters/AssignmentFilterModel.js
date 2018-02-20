@@ -56,9 +56,9 @@ export default class AssignmentFilterModel extends FilterModel {
         this.data.dynamicschema &&
         this.data.dynamicschema[assignmentTypeKey]
       ) {
-        assignmentTypeData.dynamicschema = this.data.dynamicschema[
-          assignmentTypeKey
-        ];
+        assignmentTypeData.dynamicschema = {
+          [assignmentTypeKey]: this.data.dynamicschema[assignmentTypeKey]
+        };
       }
 
       const assignmentTypeContributions = {
@@ -91,7 +91,9 @@ export default class AssignmentFilterModel extends FilterModel {
       const userData = this.data[userkeyKey];
 
       if (this.data.dynamicschema && this.data.dynamicschema[userkeyKey]) {
-        userData.dynamicschema = this.data.dynamicschema[userkeyKey];
+        userData.dynamicschema = {
+          [userkeyKey]: this.data.dynamicschema[userkeyKey]
+        };
       }
 
       const userContributions = {

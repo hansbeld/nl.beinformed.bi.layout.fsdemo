@@ -11,7 +11,7 @@ type FormObjectsProps = {
   objects: FormObjectCollection,
   id: string,
   formLayout?: "vertical" | "horizontal",
-  AttributeRenderer: any,
+  AttributeRenderer?: any,
   onAttributeChange: Function,
   onAttributeBlur?: Function,
   onAttributeClick?: Function,

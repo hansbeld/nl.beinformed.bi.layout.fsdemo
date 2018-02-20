@@ -153,7 +153,7 @@ class YearAmountInput extends PureComponent<
         activeValue={this.state.dropDownValue}
         className={selectClass}
       >
-        <DropdownToggle>
+        <DropdownToggle className="year-amount-toggle form-control">
           {this.state.dropDownValue === yearly ? (
             <Message id="YearAmountInput.Yearly" defaultMessage="Yearly" />
           ) : (

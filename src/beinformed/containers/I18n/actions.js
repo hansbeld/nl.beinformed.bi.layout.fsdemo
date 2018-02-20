@@ -1,5 +1,4 @@
 // @flow
-import { reloadModels } from "beinformed/containers/ModularUI/actions";
 import {
   startProgress,
   finishProgress
@@ -26,8 +25,6 @@ export const receiveLocale = (locale: string): receiveLocaleType => ({
 export const updateLocale = (locale: string): ThunkAction => dispatch => {
   dispatch(startProgress());
   dispatch(receiveLocale(locale));
-
-  dispatch(reloadModels());
 
   dispatch(finishProgress());
 };

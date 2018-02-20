@@ -1,7 +1,6 @@
 // @flow
 import ActionCollection from "beinformed/models/actions/ActionCollection";
 import AttributeCollection from "beinformed/models/attributes/AttributeCollection";
-import Href from "beinformed/models/href/Href";
 import ResourceModel from "beinformed/models/base/ResourceModel";
 
 import type ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
@@ -15,7 +14,6 @@ import type LinkModel from "beinformed/models/links/LinkModel";
 export default class DetailModel extends ResourceModel {
   _attributeCollection: AttributeCollection;
   _metadataCollection: AttributeCollection;
-  _selfhref: Href;
   _actionCollection: ActionCollection;
 
   /**
@@ -23,7 +21,6 @@ export default class DetailModel extends ResourceModel {
    */
   constructor(modularuiResponse: ModularUIResponse) {
     super(modularuiResponse);
-
     this._attributeCollection = new AttributeCollection(
       this.data,
       this.contributions.attributes,
@@ -61,7 +58,8 @@ export default class DetailModel extends ResourceModel {
   static isApplicableModel(data: Object): boolean {
     return (
       data.contributions.resourcetype &&
-      data.contributions.resourcetype === "Detail"
+      (data.contributions.resourcetype === "Detail" ||
+        data.contributions.resourcetype === "CasePropertiesPanelDetail")
     );
   }
 
@@ -156,18 +154,9 @@ export default class DetailModel extends ResourceModel {
     const titleAttribute = this._attributeCollection.getAttributeByLayoutHint(
       "title"
     );
-    const casenameAttribute = this._metadataCollection.getAttributeByKey(
-      "CaseName"
-    );
 
     if (titleAttribute) {
       return titleAttribute;
-    } else if (
-      this.isCase() &&
-      this._metadataCollection.hasAttributeByKey("CaseName") &&
-      casenameAttribute !== null
-    ) {
-      return casenameAttribute;
     } else if (this.attributeCollection.size > 0) {
       const attr =
         this.attributeCollection.find(

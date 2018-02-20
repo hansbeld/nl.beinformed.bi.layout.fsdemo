@@ -1,50 +1,34 @@
 // @flow
-import Href from "beinformed/models/href/Href";
-import {
-  fetchForm,
-  cancelForm,
-  submitForm,
-  previousObject
-} from "beinformed/containers/Form/actions";
+import { get } from "lodash";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { goBack } from "react-router-redux";
 
-import connectModularUI from "beinformed/utils/modularui/connectModularUI";
-import { modelSelector } from "beinformed/containers/ModularUI/selectors";
+import modularui from "beinformed/utils/modularui/modularui";
+
+import { HTTP_METHODS } from "beinformed/constants/Constants";
+
+import { previousObject } from "beinformed/containers/Form/actions";
 
 import Form from "beinformed/components/Form/Form";
 
-/**
- * Map state to props
- */
-const mapStateToProps = (state: State, ownProps) => {
-  const model = modelSelector(state, ownProps.href || ownProps.match.url);
-
-  return {
-    ...ownProps,
-    form: model && model.type === "Form" ? model : null
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  ...ownProps,
+  isModal: get(ownProps.location, "state.modal")
+});
 
 const mapDispatchToProps = {
-  onCancel: cancelForm,
-  onSubmit: submitForm,
-  onPrevious: previousObject
+  onPrevious: previousObject,
+  onCancel: () => goBack()
 };
 
-const modularUIConfig = {
-  load: ({ href, match, location }) =>
-    fetchForm(
-      href instanceof Href ? href : new Href(`${match.url}${location.search}`)
-    ),
-  shouldLoad: ({ form, location }) =>
-    (!location.state || !location.state.modal) && !form,
-  shouldReload: () => false
-};
-
-// Export connector for reuse in projects
-export const connector = connectModularUI(
-  modularUIConfig,
-  mapStateToProps,
-  mapDispatchToProps
+export const connector = compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  modularui(
+    "Form",
+    ({ href, location }) => href || `${location.pathname}${location.search}`,
+    { propName: "form", method: HTTP_METHODS.POST }
+  )
 );
 
 // Export connected component for default use

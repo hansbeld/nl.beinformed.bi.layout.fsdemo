@@ -41,7 +41,8 @@ export default class ErrorResponse {
     if (this.isResourceNotFound) {
       return "Error.ResourceNotFound";
     }
-    return this.error.id || "Error.GeneralError";
+
+    return this._error.id || "Error.GeneralError";
   }
 
   get response(): Object {

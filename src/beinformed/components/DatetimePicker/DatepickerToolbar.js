@@ -1,8 +1,10 @@
 // @flow
 import React from "react";
 
+import CalendarIcon from "mdi-react/CalendarIcon";
+import ClockIcon from "mdi-react/ClockIcon";
+
 import { TimestampUtil } from "beinformed/utils/datetime/DateTimeUtil";
-import Icon from "beinformed/components/Icon/Icon";
 import { KEYCODES } from "beinformed/constants/Constants";
 
 import "./DatepickerToolbar.scss";
@@ -21,7 +23,6 @@ const DatepickerToolbar = ({
   type,
   onSwitch
 }: DatepickerToolbarType) => {
-  const icon = type === "date" ? "clock-o" : "calendar";
   const format = type === "date" ? "HH:mm:ss" : "DD-MM-YYYY";
   const switchType = type === "date" ? "time" : "date";
 
@@ -41,7 +42,8 @@ const DatepickerToolbar = ({
           }
         }}
       >
-        <Icon name={icon} /> {TimestampUtil.toFormat(datetime, format)}
+        {type === "date" ? <CalendarIcon /> : <ClockIcon />}{" "}
+        {TimestampUtil.toFormat(datetime, format)}
       </button>
     </div>
   );

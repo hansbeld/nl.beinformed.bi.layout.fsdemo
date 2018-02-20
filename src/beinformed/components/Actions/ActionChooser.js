@@ -1,12 +1,13 @@
 // @flow
 import React from "react";
 import classNames from "classnames";
+import DotsHorizontal from "mdi-react/DotsHorizontalIcon";
 
 import ButtonGroup from "beinformed/components/Button/ButtonGroup";
 import Dropdown from "beinformed/components/Dropdown/Dropdown";
 import DropdownButton from "beinformed/components/Dropdown/DropdownButton";
 import DropdownChildren from "beinformed/components/Dropdown/DropdownChildren";
-import Icon from "beinformed/components/Icon/Icon";
+
 import Action from "beinformed/components/Actions/Action";
 
 import { Message } from "beinformed/containers/I18n/Message";
@@ -41,7 +42,7 @@ const ActionChooser = ({
   const buttonGroupClass = classNames({
     "btn-group-sm": size === "small",
     "btn-group-lg": size === "large",
-    "pull-right": align === "right",
+    "float-right": align === "right",
     "mr-1": align === "right"
   });
 
@@ -52,7 +53,7 @@ const ActionChooser = ({
   return (
     <ButtonGroup className={buttonGroupClass}>
       {buttonActions.map(action => (
-        <Action key={action.name} isButton action={action} />
+        <Action key={action.name} action={action} isButton isModal />
       ))}
 
       {dropdownActions.length > 0 && (
@@ -62,7 +63,7 @@ const ActionChooser = ({
             size={size}
             renderToggleIcon={false}
           >
-            <Icon name="ellipsis-h" />
+            <DotsHorizontal />
             <Message
               id="ActionChooser.ShowActions"
               defaultMessage="Show actions"

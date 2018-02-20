@@ -3,6 +3,10 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import { connect } from "react-redux";
 
+import RefreshIcon from "mdi-react/RefreshIcon";
+import CheckIcon from "mdi-react/CheckIcon";
+import AlertCircleIcon from "mdi-react/AlertCircleIcon";
+
 import xhr from "beinformed/utils/fetch/xhr";
 import {
   startProgress,
@@ -11,7 +15,6 @@ import {
 
 import { CAPTCHA_PATH, HTTP_METHODS } from "beinformed/constants/Constants";
 
-import Icon from "beinformed/components/Icon/Icon";
 import { Message } from "beinformed/containers/I18n/Message";
 
 import "./CaptchaInput.scss";
@@ -158,13 +161,13 @@ class CaptchaInput extends Component<CaptchaInputProps, CaptchaInputState> {
                 this.requestCaptcha();
               }}
             >
-              <Icon name="refresh" />
+              <RefreshIcon />
             </button>
           </div>
         )}
         {this.state.valid ? (
           <div className="captcha-answered">
-            <Icon name="check" textAfter />
+            <CheckIcon className="textAfter" />
             <span className="captcha-answer">{this.state.answer}</span>
           </div>
         ) : (
@@ -209,7 +212,7 @@ class CaptchaInput extends Component<CaptchaInputProps, CaptchaInputState> {
           !this.state.valid && (
             <ul className="text-muted mb-0 small list-unstyled input-assistant">
               <li className="text-danger">
-                <Icon name="exclamation-circle" textAfter />
+                <AlertCircleIcon className="textAfter" />
                 <Message
                   id="Constraint.Captcha.InvalidToken"
                   defaultMessage="The given answer does not match the expected answer, please try again"

@@ -11,18 +11,6 @@ export default class SubSectionModel extends BaseModel {
   _links: LinkCollection;
 
   /**
-   * @override
-   */
-  constructor(data: any) {
-    super(data);
-
-    this._links = new LinkCollection(
-      this.data._links,
-      this.contributions._links
-    );
-  }
-
-  /**
    * Retrieve key of subsection
    */
   get key(): string {
@@ -63,6 +51,13 @@ export default class SubSectionModel extends BaseModel {
    * Retrieve links of section
    */
   get links(): LinkCollection {
+    if (!this._links) {
+      this._links = new LinkCollection(
+        this.data._links,
+        this.contributions._links
+      );
+    }
+
     return this._links;
   }
 

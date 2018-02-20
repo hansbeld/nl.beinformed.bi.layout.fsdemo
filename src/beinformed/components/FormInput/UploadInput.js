@@ -3,8 +3,11 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import filesize from "file-size";
 
+import CloseIcon from "mdi-react/CloseIcon";
+import DeleteIcon from "mdi-react/DeleteIcon";
+import AlertCircleOutlineIcon from "mdi-react/AlertCircleOutlineIcon";
+
 import { withMessage, Message } from "beinformed/containers/I18n/Message";
-import Icon from "beinformed/components/Icon/Icon";
 import { UPLOAD_PATH, HTTP_METHODS } from "beinformed/constants/Constants";
 
 import "./UploadInput.scss";
@@ -150,13 +153,13 @@ class UploadInput extends Component<UploadInputProps, UploadInputState> {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
 
-    xhr.upload.onprogress = e => {
+    xhr.upload.addEventListener("progress", (e: ProgressEvent) => {
       if (e.lengthComputable) {
         const progress = Math.ceil(e.loaded / e.total * MAX_PROGRESS);
 
         this.updateFileState(file, progress, xhr);
       }
-    };
+    });
 
     xhr.addEventListener("load", () => {
       const files = this.state.files;
@@ -256,7 +259,7 @@ class UploadInput extends Component<UploadInputProps, UploadInputState> {
    * @param  {FileList} files - List of files
    */
   uploadFiles(files) {
-    Array.from(files).forEach(file => {
+    [...files].forEach(file => {
       if (this.validateFile(file)) {
         this.uploadFile(file);
       }
@@ -304,16 +307,26 @@ class UploadInput extends Component<UploadInputProps, UploadInputState> {
     return null;
   }
 
+  renderIcon(file) {
+    if (file.progress === MAX_PROGRESS) {
+      return <DeleteIcon />;
+    }
+
+    if (file.progress > 0 && file.progress < MAX_PROGRESS) {
+      return <CloseIcon />;
+    }
+
+    if (file.errormessage && file.errormessage !== "") {
+      return <AlertCircleOutlineIcon />;
+    }
+
+    return null;
+  }
+
   /**
    * Render file information
    */
   renderFile(file) {
-    const btnIcon = classNames({
-      "trash-o": file.progress === MAX_PROGRESS,
-      times: file.progress > 0 && file.progress < MAX_PROGRESS,
-      exclamation: file.errormessage && file.errormessage !== ""
-    });
-
     return (
       <li className="file" key={file.name}>
         <span className="name mr-1">{file.name}</span>
@@ -322,7 +335,7 @@ class UploadInput extends Component<UploadInputProps, UploadInputState> {
           className="btn btn-link btn-remove"
           onClick={() => this.removeUpload(file)}
         >
-          <Icon name={btnIcon} />
+          {this.renderIcon(file)}
           <Message
             id="UploadInput.removeFile"
             defaultMessage="Remove file"

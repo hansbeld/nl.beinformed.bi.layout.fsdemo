@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from "react";
 import classNames from "classnames";
+import FilterIcon from "mdi-react/FilterIcon";
 
 import Button from "beinformed/components/Button/Button";
 
@@ -8,8 +9,6 @@ import FormAssistant from "beinformed/components/FormAssistant/FormAssistant";
 import FormLabel from "beinformed/components/FormLabel/FormLabel";
 import FormContent from "beinformed/components/FormContent/FormContent";
 import FormContentPopover from "beinformed/components/FormContent/FormContentPopover";
-
-import Icon from "beinformed/components/Icon/Icon";
 
 import { Message } from "beinformed/containers/I18n/Message";
 
@@ -65,7 +64,7 @@ const createAttribute = (WrappedInput: any) => {
     renderFilterButton() {
       return (
         <Button name="filter" className="filter-button ml-1" type="submit">
-          <Icon name="filter" />
+          <FilterIcon />
           <Message
             id="FilterButton.Label"
             defaultMessage="Filter"

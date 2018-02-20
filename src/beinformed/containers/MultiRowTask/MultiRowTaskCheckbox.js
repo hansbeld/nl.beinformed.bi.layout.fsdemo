@@ -8,16 +8,16 @@ import { connect } from "react-redux";
 import { selectListItem } from "beinformed/containers/MultiRowTask/MultiRowTaskActions";
 
 type MultiRowTaskCheckboxContainerProps = {
-  className: string,
+  className?: string,
   value: number | string,
-  children: any
+  children?: any
 };
 
 export type MultiRowTaskCheckboxProps = {
   className?: string,
   isChecked: boolean,
   value: number | string,
-  children: any,
+  children?: any,
   onChange: (value: number | string) => void
 };
 

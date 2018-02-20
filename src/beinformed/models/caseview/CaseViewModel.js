@@ -3,19 +3,19 @@ import ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
 
 import type LinkModel from "beinformed/models/links/LinkModel";
 
-import ContextModel from "beinformed/models/context/ContextModel";
 import DetailModel from "beinformed/models/detail/DetailModel";
 import Href from "beinformed/models/href/Href";
 import TaskGroupCollection from "beinformed/models/taskgroup/TaskGroupCollection";
 import TaskGroupModel from "beinformed/models/taskgroup/TaskGroupModel";
 import LinkCollection from "beinformed/models/links/LinkCollection";
 
+import { CASE_STATE, CASE_TITLE } from "beinformed/constants/LayoutHints";
+
 /**
  * Model containing the details of one case.
  */
 export default class CaseViewModel extends DetailModel {
   _taskGroupCollection: TaskGroupCollection;
-  _context: ContextModel | null;
 
   /**
    * Constructs case view model
@@ -24,15 +24,6 @@ export default class CaseViewModel extends DetailModel {
     super(caseviewData);
 
     this.createTaskGroupCollection();
-
-    const casename =
-      this.casename === null || this.casename.value === null
-        ? ""
-        : this.casename.value;
-
-    this._context = this.casename
-      ? new ContextModel(this.key, this.selfhref, casename)
-      : null;
   }
 
   /**
@@ -81,7 +72,7 @@ export default class CaseViewModel extends DetailModel {
    * Getting the case name
    */
   get casename(): AttributeType | null {
-    return this._metadataCollection.getAttributeByKey("CaseName");
+    return this.attributeCollection.getAttributeByLayoutHint(CASE_TITLE);
   }
 
   get label(): string {
@@ -92,21 +83,21 @@ export default class CaseViewModel extends DetailModel {
    * Getting the owner of the case
    */
   get owner(): AttributeType | null {
-    return this._metadataCollection.getAttributeByKey("Owner");
+    return this.attributeCollection.getAttributeByLayoutHint("owner");
   }
 
   /**
    * Getting the state of the case
    */
   get status(): AttributeType | null {
-    return this._metadataCollection.getAttributeByKey("State");
+    return this.attributeCollection.getAttributeByLayoutHint(CASE_STATE);
   }
 
   /**
    * Getting the type of the case detail
    */
   get casetype(): AttributeType | null {
-    return this._metadataCollection.getAttributeByKey("CaseType");
+    return this.attributeCollection.getAttributeByLayoutHint("type");
   }
 
   /**

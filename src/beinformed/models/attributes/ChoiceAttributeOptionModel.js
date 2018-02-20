@@ -27,11 +27,9 @@ class ChoiceAttributeOptionModel extends BaseModel {
     super(data);
 
     this._referenceDate = referenceDate;
-    this._links = new LinkCollection(this.data._links);
-    this._concept = null;
+
     this._content = new Map();
     this._level = 0;
-    this._isBooleanType = this.data.isBooleanType || false;
 
     if (
       this.data.children &&
@@ -174,6 +172,13 @@ class ChoiceAttributeOptionModel extends BaseModel {
    * Retrieve links of attribute
    */
   get links(): LinkCollection {
+    if (!this._links) {
+      this._links = new LinkCollection(
+        this.data._links,
+        this.contributions._links
+      );
+    }
+
     return this._links;
   }
 
@@ -255,7 +260,7 @@ class ChoiceAttributeOptionModel extends BaseModel {
   }
 
   get isBooleanType(): boolean {
-    return this._isBooleanType;
+    return this.data.isBooleanType || false;
   }
 }
 

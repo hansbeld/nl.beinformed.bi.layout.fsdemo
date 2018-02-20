@@ -4,9 +4,6 @@ import React from "react";
 import ConceptLink from "beinformed/components/ConceptLink/ConceptLink";
 
 import { Message } from "beinformed/containers/I18n/Message";
-import { loadModel } from "beinformed/containers/ModularUI/actions";
-import { modelSelector } from "beinformed/containers/ModularUI/selectors";
-import connectModularUI from "beinformed/utils/modularui/connectModularUI";
 
 import type RelatedConceptsModel from "beinformed/models/content/RelatedConceptsModel";
 
@@ -36,19 +33,4 @@ const RelatedConcepts = ({ relatedConcepts }: RelatedConceptsType) =>
     </div>
   ) : null;
 
-/**
- * Map state to props
- */
-const mapStateToProps = (state: State, { content }) => ({
-  relatedConcepts: modelSelector(state, content.relatedConceptsHref)
-});
-
-const modularUIConfig = {
-  load: ({ content }) => loadModel(content.relatedConceptsHref),
-  shouldLoad: ({ relatedConcepts }) => !relatedConcepts,
-  shouldReload: ({ relatedConcepts }) => !relatedConcepts
-};
-
-export default connectModularUI(modularUIConfig, mapStateToProps)(
-  RelatedConcepts
-);
+export default RelatedConcepts;

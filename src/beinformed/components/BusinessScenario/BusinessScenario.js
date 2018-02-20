@@ -1,5 +1,7 @@
 // @flow
 import React from "react";
+import PlayIcon from "mdi-react/PlayIcon";
+import UserIcon from "mdi-react/AccountIcon";
 
 import Link from "beinformed/components/Link/Link";
 
@@ -28,7 +30,7 @@ const Actor = ({
     className="business-scenario-actor"
     style={{ top: Y * VERTICAL_DISTANCE + 2 }}
   >
-    <i className="fa fa-user" aria-hidden="true" />{" "}
+    <UserIcon className="textAfter" />
     <Link href={href}>{label}</Link>
   </div>
 );
@@ -103,10 +105,10 @@ const Step = ({
   const stepX = X * HORIZONTAL_DISTANCE + MARGIN_LEFT;
   const stepY = Y * VERTICAL_DISTANCE + MARGIN_TOP;
 
-  const ICON_MARGIN = 4;
+  const ICON_MARGIN = 12;
 
   return (
-    <Link href={href}>
+    <Link href={href} className="scenario-step">
       <circle
         cx={stepX}
         cy={stepY}
@@ -115,15 +117,7 @@ const Step = ({
         stroke="#f7f7f9"
         strokeWidth="0"
       />
-      <text
-        x={stepX - ICON_MARGIN}
-        y={stepY + ICON_MARGIN}
-        fontFamily="FontAwesome"
-        fontSize="12px"
-        fill="#fff"
-      >
-        {"\uF04B"}
-      </text>
+      <PlayIcon x={stepX - ICON_MARGIN} y={stepY - ICON_MARGIN} fill="#fff" />
       <StepLabel X={stepX} Y={stepY} text={label} />
     </Link>
   );

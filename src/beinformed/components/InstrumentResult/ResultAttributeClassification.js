@@ -2,7 +2,9 @@
 import React from "react";
 import classNames from "classnames";
 
-import Icon from "beinformed/components/Icon/Icon";
+import CheckIcon from "mdi-react/CheckIcon";
+import CloseIcon from "mdi-react/CloseIcon";
+
 import FormContentRenderer from "beinformed/components/FormContent/FormContentRenderer";
 
 import "./ResultAttributeClassification.scss";
@@ -36,25 +38,31 @@ const ResultAttributeClassification = ({
           })}
         >
           <div key={i} className="form-result-option-label">
-            <Icon name={option.selected ? "check" : "times"} textAfter />
+            {option.selected ? (
+              <CheckIcon className="textAfter" />
+            ) : (
+              <CloseIcon className="textAfter" />
+            )}
             {option.label}
           </div>
-          {contentConfiguration && (
-            <FormContentRenderer
-              concept={option.concept}
-              contentConfiguration={
-                option.selected
-                  ? contentConfiguration.positiveResultElements
-                  : contentConfiguration.negativeResultElements
-              }
-            />
-          )}
-          {defaultContentConfiguration && (
-            <FormContentRenderer
-              concept={attribute.concept}
-              contentConfiguration={defaultContentConfiguration}
-            />
-          )}
+          {option.concept &&
+            contentConfiguration && (
+              <FormContentRenderer
+                concept={option.concept}
+                contentConfiguration={
+                  option.selected
+                    ? contentConfiguration.positiveResultElements
+                    : contentConfiguration.negativeResultElements
+                }
+              />
+            )}
+          {attribute.concept &&
+            defaultContentConfiguration && (
+              <FormContentRenderer
+                concept={attribute.concept}
+                contentConfiguration={defaultContentConfiguration}
+              />
+            )}
         </div>
       ))}
     </div>

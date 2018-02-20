@@ -46,7 +46,7 @@
         "label": "Case owner",
         "type": "string"
       },
-      "State": {
+      "CaseState": {
         "label": "State",
         "type": "string",
         "options": [

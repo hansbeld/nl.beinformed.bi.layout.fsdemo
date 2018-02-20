@@ -27,6 +27,7 @@ type FormAttributeProps = {
   id: string,
   isFilter?: boolean,
   name: string,
+  AttributeRenderer?: any,
   onBlur?: (e: SyntheticEvent<*>) => void,
   onChange?: (attribute: AttributeType, value: string) => void,
   onFocus?: (e: SyntheticEvent<*>) => void,

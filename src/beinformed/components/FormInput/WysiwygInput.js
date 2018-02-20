@@ -2,7 +2,12 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 
-import Icon from "beinformed/components/Icon/Icon";
+import FormatBoldIcon from "mdi-react/FormatBoldIcon";
+import FormatItalicIcon from "mdi-react/FormatItalicIcon";
+import FormatUnderlineIcon from "mdi-react/FormatUnderlineIcon";
+import FormatStrikethroughIcon from "mdi-react/FormatStrikethroughIcon";
+import FormatEraserIcon from "mdi-react/EraserVariantIcon";
+
 import { KEYCODES } from "beinformed/constants/Constants";
 
 import "./WysiwygInput.scss";
@@ -237,7 +242,7 @@ export default class WysiwygInput extends Component<
               aria-label="Bold"
               onClick={this.handleBoldClick}
             >
-              <Icon name="bold" />
+              <FormatBoldIcon />
             </button>
             <button
               ref={c => {
@@ -248,7 +253,7 @@ export default class WysiwygInput extends Component<
               aria-label="Italic"
               onClick={this.handleItalicClick}
             >
-              <Icon name="italic" />
+              <FormatItalicIcon />
             </button>
             <button
               ref={c => {
@@ -259,7 +264,7 @@ export default class WysiwygInput extends Component<
               aria-label="Underline"
               onClick={this.handleUnderlineClick}
             >
-              <Icon name="underline" />
+              <FormatUnderlineIcon />
             </button>
             <button
               ref={c => {
@@ -270,7 +275,7 @@ export default class WysiwygInput extends Component<
               aria-label="Strikethrough"
               onClick={this.handleStrikethroughClick}
             >
-              <Icon name="strikethrough" />
+              <FormatStrikethroughIcon />
             </button>
           </div>
           <div
@@ -284,7 +289,7 @@ export default class WysiwygInput extends Component<
               aria-label="Erase"
               onClick={this.handleEraseClick}
             >
-              <Icon name="eraser" />
+              <FormatEraserIcon />
             </button>
           </div>
         </div>

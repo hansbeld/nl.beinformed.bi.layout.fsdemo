@@ -1,9 +1,9 @@
 // @flow
 import React, { PureComponent } from "react";
 import textile from "textilejs";
-import withModularUI from "beinformed/utils/modularui/withModularUI";
+import CheckIcon from "mdi-react/CheckIcon";
 
-import Icon from "beinformed/components/Icon/Icon";
+import withModularUI from "beinformed/utils/modularui/withModularUI";
 
 import {
   startProgress,
@@ -101,7 +101,7 @@ class ApplyForMortgageSubmitted extends PureComponent<
           <h2>{this.state.rootConcept.label}</h2>
           <div className="row pt-3">
             <div className="col-1 checkmark">
-              <Icon name="check" size="4x" />
+              <CheckIcon width={48} height={48} />
             </div>
             <div
               className="col"

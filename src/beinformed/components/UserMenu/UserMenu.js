@@ -1,5 +1,9 @@
 // @flow
 import React, { Component } from "react";
+import AccountIcon from "mdi-react/AccountIcon";
+import KeyIcon from "mdi-react/KeyIcon";
+import LoginIcon from "mdi-react/LoginIcon";
+import LogoutIcon from "mdi-react/LogoutIcon";
 
 import { Message } from "beinformed/containers/I18n/Message";
 import Href from "beinformed/models/href/Href";
@@ -8,7 +12,6 @@ import Dropdown from "beinformed/components/Dropdown/Dropdown";
 import DropdownChildren from "beinformed/components/Dropdown/DropdownChildren";
 import DropdownToggle from "beinformed/components/Dropdown/DropdownToggle";
 import DropdownLink from "beinformed/components/Dropdown/DropdownLink";
-import Icon from "beinformed/components/Icon/Icon";
 import Link from "beinformed/components/Link/Link";
 
 import {
@@ -29,17 +32,13 @@ class UserMenu extends Component<UserMenuProps> {
       <div className="account-menu">
         <Dropdown className="userlinks" align="right">
           <DropdownToggle>
-            <Icon name="user" textAfter />
+            <AccountIcon className="textAfter" />
             <span className="username">{user ? user.fullname : ""}</span>
           </DropdownToggle>
 
           <DropdownChildren>
-            <DropdownLink
-              className="user-profile"
-              href={new Href("/user")}
-              isModal
-            >
-              <Icon name="user" textAfter />
+            <DropdownLink className="user-profile" href={new Href("/user")}>
+              <AccountIcon className="textAfter" />
               <Message
                 id="UserLinks.Menu.UserProfile"
                 defaultMessage="User profile"
@@ -51,7 +50,7 @@ class UserMenu extends Component<UserMenuProps> {
               href={new Href(CHANGEPASSWORD_PATH)}
               isModal
             >
-              <Icon name="key" textAfter />
+              <KeyIcon className="textAfter" />
               <Message
                 id="UserLinks.Menu.ChangePassword"
                 defaultMessage="Change password"
@@ -65,7 +64,7 @@ class UserMenu extends Component<UserMenuProps> {
             />
 
             <DropdownLink className="signout" href={new Href(LOGOUT_PATH)}>
-              <Icon name="sign-out" textAfter />
+              <LogoutIcon className="textAfter" />
               <Message id="UserLinks.Menu.LogOut" defaultMessage="Log out" />
             </DropdownLink>
           </DropdownChildren>
@@ -82,7 +81,7 @@ class UserMenu extends Component<UserMenuProps> {
         href={new Href(LOGIN_PATH)}
         isNavLink
       >
-        <Icon name="sign-in" textAfter />
+        <LoginIcon className="textAfter" />
         <Message id="UserLinks.Menu.LogIn" defaultMessage="Login" />
       </Link>
     );

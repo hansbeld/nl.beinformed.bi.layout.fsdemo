@@ -11,7 +11,7 @@ type PagingItemProps = {
   ariaLabel?: string,
   baseHref: Href,
   page: number,
-  onClick: (href: Href) => void
+  isActive: boolean
 };
 
 /**
@@ -21,7 +21,7 @@ const PagingItem = ({
   baseHref,
   page,
   ariaLabel,
-  onClick
+  isActive
 }: PagingItemProps) => {
   const pageHref = new ListHref(baseHref);
 
@@ -32,7 +32,7 @@ const PagingItem = ({
       className="page-link"
       href={pageHref}
       ariaLabel={ariaLabel}
-      onClick={onClick}
+      isActive={isActive}
     >
       {page}
     </Link>

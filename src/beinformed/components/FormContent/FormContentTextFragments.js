@@ -1,15 +1,18 @@
 // @flow
 import React from "react";
 import classNames from "classnames";
+import FormattedText from "beinformed/components/FormattedText/FormattedText";
 
 type textFragmentType = {
   type: string,
+  label: string,
   text: string
 };
 
 type FormContentTextFragmentsProps = {
-  textfragments: textFragmentType[],
-  className: string
+  textfragments: Array<textFragmentType>,
+  className: string,
+  renderLabel: boolean
 };
 
 /**
@@ -17,7 +20,8 @@ type FormContentTextFragmentsProps = {
  */
 const FormContentTextFragments = ({
   textfragments,
-  className
+  className,
+  renderLabel
 }: FormContentTextFragmentsProps) =>
   textfragments.length > 0 ? (
     <div
@@ -27,16 +31,17 @@ const FormContentTextFragments = ({
       )}
     >
       {textfragments.map((textfragment, idx) => (
-        <p key={`${textfragment.type}-${idx}`}>
+        <div key={`${textfragment.type}-${idx}`}>
+          {renderLabel && <h4>{textfragment.label}</h4>}
           {textfragment.text
             ? textfragment.text.split("\n").map((textLine, i) => (
                 <span key={`line-${i}`}>
-                  {textLine}
-                  <br />
+                  {i > 0 && <br />}
+                  <FormattedText className="introtext" text={textLine} />
                 </span>
               ))
             : "-"}
-        </p>
+        </div>
       ))}
     </div>
   ) : null;

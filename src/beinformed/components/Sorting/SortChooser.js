@@ -2,6 +2,9 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 
+import SortAscendingIcon from "mdi-react/SortAscendingIcon";
+import SortDescendingIcon from "mdi-react/SortDescendingIcon";
+
 import { Message, withMessage } from "beinformed/containers/I18n/Message";
 import ListHref from "beinformed/models/href/ListHref";
 
@@ -9,7 +12,6 @@ import Dropdown from "beinformed/components/Dropdown/Dropdown";
 import DropdownButton from "beinformed/components/Dropdown/DropdownButton";
 import DropdownChildren from "beinformed/components/Dropdown/DropdownChildren";
 import DropdownLink from "beinformed/components/Dropdown/DropdownLink";
-import Icon from "beinformed/components/Icon/Icon";
 
 import "./SortChooser.scss";
 
@@ -149,7 +151,11 @@ class SortChooser extends Component<SortChooserProps> {
               defaultMessage="Sort by {COLUMN_NAME}"
               data={{ COLUMN_NAME: sortedItem.label }}
             />
-            <Icon name={`sort-amount-${sortedItem.order}`} textBefore />
+            {sortedItem.order === "desc" ? (
+              <SortDescendingIcon className="textBefore" />
+            ) : (
+              <SortAscendingIcon className="textBefore" />
+            )}
           </span>
         ))}
       </DropdownButton>
@@ -177,9 +183,14 @@ class SortChooser extends Component<SortChooserProps> {
           isActive={option.isCurrentSort}
         >
           {option.label}
-          {option.isCurrentSort && (
-            <Icon name={`sort-amount-${option.direction}`} textBefore />
-          )}
+          {option.isCurrentSort &&
+            option.direction === "desc" && (
+              <SortDescendingIcon className="textBefore" />
+            )}
+          {option.isCurrentSort &&
+            option.direction === "asc" && (
+              <SortAscendingIcon className="textBefore" />
+            )}
         </DropdownLink>
       );
     });

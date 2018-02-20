@@ -2,6 +2,9 @@
 import * as React from "react";
 import classNames from "classnames";
 
+import PlusBoxOutlineIcon from "mdi-react/PlusBoxOutlineIcon";
+import MinusBoxOutlineIcon from "mdi-react/MinusBoxOutlineIcon";
+
 import { BASE } from "beinformed/constants/Constants";
 import Link from "beinformed/components/Link/Link";
 
@@ -42,19 +45,17 @@ class ContentLink extends React.Component<ContentLinkProps, ContentLinkState> {
       "content-nav-item nav-item",
       this.props.className
     );
-    const toggleClass = classNames("content-toc-toggle fa", {
-      "fa-plus-square-o": isHidden,
-      "fa-minus-square-o": isVisible
-    });
 
     const children =
       this.props.children && isVisible ? this.props.children : null;
 
+    const ToggleIcon = isVisible ? MinusBoxOutlineIcon : PlusBoxOutlineIcon;
+
     return (
       <li className={linkClass}>
         {this.props.children && (
-          <span
-            className={toggleClass}
+          <ToggleIcon
+            className="content-toc-toggle"
             tabIndex="0"
             role="button"
             onClick={() => {

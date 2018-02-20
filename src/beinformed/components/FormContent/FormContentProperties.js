@@ -1,8 +1,8 @@
 // @flow
 import React, { Component } from "react";
 import classNames from "classnames";
-
-import Icon from "beinformed/components/Icon/Icon";
+import CheckboxMarkedOutlineIcon from "mdi-react/CheckboxMarkedOutlineIcon";
+import CheckboxBlankOutlineIcon from "mdi-react/CheckboxBlankOutlineIcon";
 
 type propertyType = {
   type: string,
@@ -20,12 +20,11 @@ type FormContentPropertiesProps = {
 class FormContentProperties extends Component<FormContentPropertiesProps> {
   conceptPropertyValue(property: propertyType) {
     if (property.type === "boolean") {
-      const icon =
-        property.value && property.value === "true"
-          ? "check-square-o"
-          : "square-o";
-
-      return <Icon name={icon} />;
+      return property.value && property.value === "true" ? (
+        <CheckboxMarkedOutlineIcon />
+      ) : (
+        <CheckboxBlankOutlineIcon />
+      );
     } else if (property.type === "hyperlink" && property.value) {
       return (
         <a href={property.value} target="_blank" rel="noopener noreferrer">

@@ -1,7 +1,6 @@
 // @flow
 import Cache from "beinformed/utils/browser/Cache";
 import Authenticate from "beinformed/utils/modularui/Authenticate";
-import { resetModels } from "beinformed/containers/ModularUI/actions";
 
 import {
   startProgress,
@@ -24,8 +23,6 @@ export const logout = (): ThunkAction => dispatch => {
 
   return new Authenticate().logout().then(() => {
     Cache.removeItem("auth");
-
-    dispatch(resetModels());
 
     dispatch(logoutSuccess());
 

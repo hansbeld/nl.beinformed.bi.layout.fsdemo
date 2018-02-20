@@ -1,7 +1,8 @@
 // @flow
 import React, { Component } from "react";
+import ChevronDoubleLeftIcon from "mdi-react/ChevronDoubleLeftIcon";
+import CloseIcon from "mdi-react/CloseIcon";
 
-import Icon from "beinformed/components/Icon/Icon";
 import TaskGroupPanels from "beinformed/components/TaskGroup/TaskGroupPanels";
 import ActionPanels from "beinformed/components/TaskGroup/ActionPanels";
 
@@ -53,8 +54,8 @@ class FoldoutTaskMenu extends Component<FoldoutTaskMenuProps> {
           aria-controls="taskgroupView"
           aria-expanded="false"
         >
-          <Icon name="angle-double-left" className="taskmenu-open" />
-          <Icon name="times" className="taskmenu-close" />
+          <ChevronDoubleLeftIcon className="taskmenu-open" />
+          <CloseIcon className="taskmenu-close" />
         </label>
         {this.props.taskgroups.hasItems && (
           <div

@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 
+import PlayCircleOutlineIcon from "mdi-react/PlayCircleOutlineIcon";
+
 import ActionList from "beinformed/components/Actions/ActionList";
 import DAPPerformedActivities from "beinformed/components/TaskGroup/DAPPerformedActivities";
 
@@ -39,7 +41,7 @@ class TaskGroupPanels extends Component<TaskGroupPanelsProps> {
           .map(act => act.toLowerCase())
           .includes(key)
       ) {
-        newAction.icon = "play-circle-o";
+        newAction.icon = <PlayCircleOutlineIcon className="textAfter" />;
       }
 
       return newAction;

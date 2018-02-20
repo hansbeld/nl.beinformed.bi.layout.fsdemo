@@ -5,6 +5,8 @@ import PasswordInput from "beinformed/components/FormInput/PasswordInput";
 
 import withMessage from "beinformed/containers/I18n/withMessage";
 
+import { CONFIRM_PASSWORD } from "beinformed/constants/LayoutHints";
+
 import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
 import type PasswordAttributeModel from "beinformed/models/attributes/PasswordAttributeModel";
 
@@ -42,7 +44,7 @@ class PasswordAttribute extends Component<
   }
 
   componentWillMount() {
-    if (this.props.attribute.layouthint.has("confirm-password")) {
+    if (this.props.attribute.layouthint.has(CONFIRM_PASSWORD)) {
       const confirmAttribute = this.props.attribute.clone(true);
       confirmAttribute.isConfirmPassword = true;
 
@@ -97,7 +99,7 @@ class PasswordAttribute extends Component<
   };
 
   render() {
-    return this.props.attribute.layouthint.has("confirm-password") &&
+    return this.props.attribute.layouthint.has(CONFIRM_PASSWORD) &&
       this.state.confirmAttribute !== null
       ? [
           <Password

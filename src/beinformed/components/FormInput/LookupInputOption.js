@@ -68,10 +68,13 @@ const LookupInputOption = ({
       >
         {label}
       </div>
-      <FormContentRenderer
-        concept={option.concept}
-        contentConfiguration={optionContentConfiguration}
-      />
+      {option.concept &&
+        optionContentConfiguration && (
+          <FormContentRenderer
+            concept={option.concept}
+            contentConfiguration={optionContentConfiguration}
+          />
+        )}
 
       {option.children && (
         <ul>

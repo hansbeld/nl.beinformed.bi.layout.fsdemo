@@ -88,11 +88,9 @@ class ProductSuggestions extends PureComponent<
     return (
       <div className="instrument-button">
         {uri === "#" ? (
-          <NotImplementedLink
-            messageId={label}
-            defaultMessage={label}
-            className="btn btn-primary"
-          />
+          <NotImplementedLink className="btn btn-primary">
+            <Message messageId={label} defaultMessage={label} />
+          </NotImplementedLink>
         ) : (
           <MortgageInstrumentLink
             instrumentURI={uri}

@@ -32,6 +32,7 @@ type FormContentRendererProps = {
   availableLanguages: Array<string>,
   concept: ConceptDetailModel | null,
   contentConfiguration?: ContentConfigurationElements | null,
+  renderLabel: boolean,
   types: Array<string>,
   modularui: any,
   ContentWrapperComponent?: any,
@@ -59,7 +60,8 @@ class FormContentRenderer extends Component<
   FormContentRendererState
 > {
   static defaultProps = {
-    types: ["contentElement", "textFragmentElement", "propertyElement"]
+    types: ["contentElement", "textFragmentElement", "propertyElement"],
+    renderLabel: false
   };
 
   constructor(props: FormContentRendererProps) {
@@ -164,7 +166,8 @@ class FormContentRenderer extends Component<
   renderTextFragmentElement(
     config: Object,
     concept: ConceptDetailModel,
-    index: number
+    index: number,
+    renderLabel: boolean
   ) {
     const textFragments = concept.getTextFragmentByKeys(config.types);
     if (textFragments.length > 0) {
@@ -173,6 +176,7 @@ class FormContentRenderer extends Component<
           key={`${config.type}-${index}`}
           className={this.configClass(config)}
           textfragments={textFragments}
+          renderLabel={renderLabel}
         />
       );
     }
@@ -200,13 +204,23 @@ class FormContentRenderer extends Component<
     return null;
   }
 
-  contentRender(config: Object, concept: ConceptDetailModel, index: number) {
+  contentRender(
+    config: Object,
+    concept: ConceptDetailModel,
+    index: number,
+    renderLabel: boolean
+  ) {
     switch (config.type) {
       case "contentElement":
         return this.renderContentElement(config, index);
 
       case "textFragmentElement":
-        return this.renderTextFragmentElement(config, concept, index);
+        return this.renderTextFragmentElement(
+          config,
+          concept,
+          index,
+          renderLabel
+        );
 
       case "propertyElement":
         return this.renderPropertiesElement(config, concept, index);
@@ -219,6 +233,7 @@ class FormContentRenderer extends Component<
   render() {
     const contentConfig = this.props.contentConfiguration;
     const concept = this.props.concept;
+    const renderLabel = this.props.renderLabel;
 
     if (!contentConfig || !concept) {
       return null;
@@ -226,7 +241,7 @@ class FormContentRenderer extends Component<
 
     const content = contentConfig
       .byTypes(this.props.types)
-      .map((config, i) => this.contentRender(config, concept, i))
+      .map((config, i) => this.contentRender(config, concept, i, renderLabel))
       .filter(renderedContent => renderedContent !== null);
 
     if (content.length === 0) {

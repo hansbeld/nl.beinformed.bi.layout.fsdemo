@@ -1,15 +1,14 @@
 // @flow
 import React from "react";
+import InformationIcon from "mdi-react/InformationIcon";
 
 import { Message } from "beinformed/containers/I18n/Message";
-import Icon from "beinformed/components/Icon/Icon";
-
 /**
  * Render No results text
  */
 const ListNoResults = ({ isSearch }: { isSearch: boolean }) => (
   <div className="no-results mt-1">
-    <Icon name="info-circle" />
+    <InformationIcon />
     <span className="ml-1">
       {isSearch ? (
         <Message

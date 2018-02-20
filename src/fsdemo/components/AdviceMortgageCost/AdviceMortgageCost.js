@@ -17,6 +17,7 @@ import MortgageAdviceButtons from "../Advice/MortgageAdviceButtons";
 import MortgageComparison from "fsdemo/components/AdviceComparison/MortgageComparison";
 
 import withModularUI from "beinformed/utils/modularui/withModularUI";
+import { HTTP_METHODS } from "beinformed/constants/Constants";
 
 export type MortgageData = {
   isComplete: boolean,
@@ -164,14 +165,17 @@ class MortgageAdvice extends Component<
     return <div className="col-4 mortgage-advice-result-placeholder" />;
   }
 
+  handleSubmit = (form: FormModel) => {
+    this.props.fetchModularUI(form.selfhref, {
+      propName: "form",
+      method: HTTP_METHODS.POST,
+      data: form.formdata,
+      updateModel: form
+    });
+  };
+
   render() {
-    const {
-      form,
-      formLayout,
-      onCancel,
-      onPreviousClick,
-      onSubmit
-    } = this.props;
+    const { form, formLayout, onCancel } = this.props;
 
     return (
       <div className="fullpage-form mortgage-advice">
@@ -179,7 +183,7 @@ class MortgageAdvice extends Component<
 
         <div className="row no-gutters mortgage-advice-row">
           <div className="col">
-            <HTMLForm name={form.key} onSubmit={() => onSubmit(form)}>
+            <HTMLForm name={form.key} onSubmit={() => this.handleSubmit(form)}>
               <Helmet>
                 <title>{form.label}</title>
               </Helmet>
@@ -188,9 +192,8 @@ class MortgageAdvice extends Component<
 
               <MortgageAdviceButtons
                 form={form}
-                formLayout={formLayout}
+                formLayout="horizontal"
                 onCancel={() => onCancel(form)}
-                onPreviousClick={onPreviousClick}
               />
             </HTMLForm>
           </div>

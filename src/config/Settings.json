@@ -19,7 +19,7 @@
   "ALWAYS_COMMIT_FORM": {
     "description":
       "Always commit form, does not show result pages for instruments",
-    "value": false
+    "value": true
   },
 
   "HORIZONTAL_FORM_LABEL_CLASS": {
@@ -47,11 +47,16 @@
 
   "LOGOUT_PATH": {
     "description": "Deeplink to logout page / component",
-    "value": "/signoff"
+    "value": "/signout"
   },
 
   "CHANGEPASSWORD_PATH": {
     "description": "Deeplink to change password page / component",
     "value": "/change-password"
+  },
+
+  "USERPROFILE_PATH": {
+    "description": "Deeplink to user profile page / component",
+    "value": "/user"
   }
 }

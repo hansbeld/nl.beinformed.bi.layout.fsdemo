@@ -1,8 +1,9 @@
 // @flow
 import React from "react";
 import classNames from "classnames";
+import CheckIcon from "mdi-react/CheckIcon";
+import CloseIcon from "mdi-react/CloseIcon";
 
-import Icon from "beinformed/components/Icon/Icon";
 import FormContentRenderer from "beinformed/components/FormContent/FormContentRenderer";
 
 import "./ResultAttributeDecision.scss";
@@ -33,25 +34,27 @@ const ResultAttributeDecision = ({
       data-name={attribute.name}
     >
       <div className="form-label">
-        <Icon name={isSelected ? "check" : "times"} textAfter />
+        {isSelected ? <CheckIcon /> : <CloseIcon />}
         {attribute.label}
       </div>
-      {contentConfiguration && (
-        <FormContentRenderer
-          concept={attribute.concept}
-          contentConfiguration={
-            isSelected
-              ? contentConfiguration.positiveResultElements
-              : contentConfiguration.negativeResultElements
-          }
-        />
-      )}
-      {defaultContentConfiguration && (
-        <FormContentRenderer
-          concept={attribute.concept}
-          contentConfiguration={defaultContentConfiguration}
-        />
-      )}
+      {attribute.concept &&
+        contentConfiguration && (
+          <FormContentRenderer
+            concept={attribute.concept}
+            contentConfiguration={
+              isSelected
+                ? contentConfiguration.positiveResultElements
+                : contentConfiguration.negativeResultElements
+            }
+          />
+        )}
+      {attribute.concept &&
+        defaultContentConfiguration && (
+          <FormContentRenderer
+            concept={attribute.concept}
+            contentConfiguration={defaultContentConfiguration}
+          />
+        )}
     </div>
   );
 };

@@ -1,5 +1,10 @@
 @import "../../../variables";
 
+// Icons
+$mdi-font-path: "~mdi/fonts/" !default;
+
+@import "~mdi/scss/materialdesignicons";
+
 .apply-for-mortgage-form .form-progress {
   padding: $spacer 0;
 
@@ -13,7 +18,7 @@
     color: $gray-800;
 
     &.completed::before {
-      content: "\f00c";
+      content: mdi("check");
 
       position: absolute;
       top: 3px;
@@ -21,20 +26,20 @@
 
       color: $orange;
 
-      font-family: FontAwesome, serif;
+      font: normal normal normal 24px/1 "Material Design Icons";
     }
 
     &.active {
       color: $orange;
 
       &::after {
-        content: "\f054";
+        content: mdi("chevron-right");
 
         position: absolute;
         top: 3px;
         right: $spacer;
 
-        font-family: FontAwesome, serif;
+        font: normal normal normal 24px/1 "Material Design Icons";
       }
     }
   }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ChevronDownIcon from "mdi-react/ChevronDownIcon";
 
 import { Message } from "beinformed/containers/I18n/Message";
 import NotImplementedLink from "fsdemo/components/Link/NotImplementedLink";
@@ -24,18 +25,24 @@ const ApplicationHeader = ({ application }) => (
               defaultMessage="Personal"
             />
           </Link>
-          <NotImplementedLink
-            messageId="ApplicationHeader.Private"
-            defaultMessage="Private"
-          />
-          <NotImplementedLink
-            messageId="ApplicationHeader.Business"
-            defaultMessage="Business"
-          />
-          <NotImplementedLink
-            messageId="ApplicationHeader.International"
-            defaultMessage="International"
-          />
+          <NotImplementedLink>
+            <Message
+              messageId="ApplicationHeader.Private"
+              defaultMessage="Private"
+            />
+          </NotImplementedLink>
+          <NotImplementedLink>
+            <Message
+              messageId="ApplicationHeader.Business"
+              defaultMessage="Business"
+            />
+          </NotImplementedLink>
+          <NotImplementedLink>
+            <Message
+              messageId="ApplicationHeader.International"
+              defaultMessage="International"
+            />
+          </NotImplementedLink>
         </div>
         <div className="top-header-right col-auto">
           <LanguageSelectorContainer />
@@ -49,27 +56,40 @@ const ApplicationHeader = ({ application }) => (
       <div className="personal-menu">
         <Link to="/accounts/customer">
           <Message id="ApplicationHeader.Accounts" defaultMessage="Accounts" />
+          <ChevronDownIcon />
         </Link>
-        <NotImplementedLink
-          messageId="ApplicationHeader.CreditCards"
-          defaultMessage="Credit cards"
-        />
-        <NotImplementedLink
-          messageId="ApplicationHeader.Loans"
-          defaultMessage="Loans"
-        />
-        <NotImplementedLink
-          messageId="ApplicationHeader.Mortgages"
-          defaultMessage="Mortgages"
-        />
-        <NotImplementedLink
-          messageId="ApplicationHeader.Insurance"
-          defaultMessage="Insurance"
-        />
-        <NotImplementedLink
-          messageId="ApplicationHeader.Investments"
-          defaultMessage="Investments"
-        />
+        <NotImplementedLink>
+          <Message
+            messageId="ApplicationHeader.CreditCards"
+            defaultMessage="Credit cards"
+          />
+          <ChevronDownIcon />
+        </NotImplementedLink>
+        <NotImplementedLink>
+          <Message messageId="ApplicationHeader.Loans" defaultMessage="Loans" />
+          <ChevronDownIcon />
+        </NotImplementedLink>
+        <NotImplementedLink>
+          <Message
+            messageId="ApplicationHeader.Mortgages"
+            defaultMessage="Mortgages"
+          />
+          <ChevronDownIcon />
+        </NotImplementedLink>
+        <NotImplementedLink>
+          <Message
+            messageId="ApplicationHeader.Insurance"
+            defaultMessage="Insurance"
+          />
+          <ChevronDownIcon />
+        </NotImplementedLink>
+        <NotImplementedLink>
+          <Message
+            messageId="ApplicationHeader.Investments"
+            defaultMessage="Investments"
+          />
+          <ChevronDownIcon />
+        </NotImplementedLink>
       </div>
 
       <UserMenu userServices={application.userServices} />

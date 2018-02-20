@@ -2,13 +2,10 @@
 import React from "react";
 import classNames from "classnames";
 
-import { Message } from "beinformed/containers/I18n/Message";
-
 import "./NotImplementedLink.scss";
 
 const NotImplementedLink = ({
-  messageId,
-  defaultMessage,
+  children,
   className
 }: {
   messageId: string,
@@ -23,7 +20,7 @@ const NotImplementedLink = ({
       return false;
     }}
   >
-    <Message id={messageId} defaultMessage={defaultMessage} />
+    {children}
   </a>
 );
 

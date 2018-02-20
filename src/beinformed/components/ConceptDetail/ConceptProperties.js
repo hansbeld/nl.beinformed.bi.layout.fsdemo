@@ -1,7 +1,8 @@
 // @flow
 import React from "react";
+import CheckboxMarkedOutlineIcon from "mdi-react/CheckboxMarkedOutlineIcon";
+import CheckboxBlankOutlineIcon from "mdi-react/CheckboxBlankOutlineIcon";
 
-import Icon from "beinformed/components/Icon/Icon";
 import { Message } from "beinformed/containers/I18n/Message";
 
 declare var propertyType: {
@@ -16,12 +17,11 @@ type ConceptPropertiesType = typeof propertyType[];
  */
 const conceptPropertyValue = (property: typeof propertyType) => {
   if (property.type === "boolean") {
-    const icon =
-      property.value && property.value === "true"
-        ? "check-square-o"
-        : "square-o";
-
-    return <Icon name={icon} />;
+    return property.value && property.value === "true" ? (
+      <CheckboxMarkedOutlineIcon />
+    ) : (
+      <CheckboxBlankOutlineIcon />
+    );
   } else if (property.type === "hyperlink" && property.value) {
     return (
       <a href={property.value} target="_blank" rel="noopener noreferrer">

@@ -3,6 +3,8 @@ import React, { PureComponent } from "react";
 import classNames from "classnames";
 import { connect } from "react-redux";
 
+import { Message } from "beinformed/containers/I18n/Message";
+
 import {
   startProgress,
   finishProgress
@@ -34,10 +36,9 @@ const QuickNavBox = ({
         <ul className="list-unstyled">
           {links.map((link, i) => (
             <li key={i}>
-              <NotImplementedLink
-                messageId={link.label}
-                defaultMessage={link.label}
-              />
+              <NotImplementedLink>
+                <Message messageId={link.label} defaultMessage={link.label} />
+              </NotImplementedLink>
             </li>
           ))}
         </ul>

@@ -2,6 +2,8 @@
 import Cache from "beinformed/utils/browser/Cache";
 import Authenticate from "beinformed/utils/modularui/Authenticate";
 
+import { reloadApplication } from "beinformed/containers/Application/actions";
+
 import {
   startProgress,
   finishProgress
@@ -58,11 +60,16 @@ export const login = (
     })
     .catch(err => {
       if (err.id === "Error.ChangePasswordRequired") {
-        dispatch(changePassword());
-      } else {
-        dispatch(loginFailed(err.id));
+        // eslint-disable-next-line promise/no-nesting
+        return dispatch(reloadApplication())
+          .then(() => {
+            Cache.addItem("auth", true);
+            return dispatch(changePassword());
+          })
+          .then(() => dispatch(finishProgress()));
       }
 
+      dispatch(loginFailed(err.id));
       return dispatch(finishProgress());
     });
 };

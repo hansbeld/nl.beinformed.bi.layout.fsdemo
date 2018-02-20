@@ -11,15 +11,13 @@ import DropdownLink from "beinformed/components/Dropdown/DropdownLink";
 import ListHref from "beinformed/models/href/ListHref";
 
 import type ListModel from "beinformed/models/list/ListModel";
-import type Href from "beinformed/models/href/Href";
 
 type PagesizeChooserProps = {
   align: "left" | "right",
   className: string,
   direction: "down" | "up",
   list: ListModel,
-  size: "small" | "large" | "default",
-  onChange: (href: Href) => void
+  size: "small" | "large" | "default"
 };
 
 /**
@@ -27,7 +25,7 @@ type PagesizeChooserProps = {
  */
 class PagesizeChooser extends Component<PagesizeChooserProps> {
   render() {
-    const { list, className, align, direction, size, onChange } = this.props;
+    const { list, className, align, direction, size } = this.props;
 
     const maxPageSize = list.paging.totalResults;
     const sizeOptions = list.paging.pagesize.options.filter(
@@ -64,7 +62,6 @@ class PagesizeChooser extends Component<PagesizeChooserProps> {
                 key={i}
                 value={option.toString()}
                 href={pagesizeHref}
-                onClick={onChange}
                 isActive={list.paging.pagesize.value === option}
               >
                 {option.toString()}

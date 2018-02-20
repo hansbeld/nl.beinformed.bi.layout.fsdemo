@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 import Helmet from "react-helmet";
-import { Route } from "react-router-dom";
+import { Switch, Redirect, Route } from "react-router-dom";
 
 import ContentCategories from "beinformed/components/ContentDetail/ContentCategories";
 import ContentTOC from "beinformed/components/ContentDetail/ContentTOC";
@@ -43,10 +43,15 @@ const ContentDetail = ({ contentTOC, entryDate }: ContentDetailProps) =>
             </div>
           )}
 
-        <Route
-          path={`/modelcatalog/content/:content/:section`}
-          render={() => <ContentDetailSection entryDate={entryDate} />}
-        />
+        <Switch>
+          <Route
+            path={`/modelcatalog/content/:content/:section`}
+            render={() => <ContentDetailSection entryDate={entryDate} />}
+          />
+          <Redirect
+            to={`/modelcatalog${contentTOC.items[0].encodedHref.toString()}`}
+          />
+        </Switch>
       </div>
     </div>
   ) : null;

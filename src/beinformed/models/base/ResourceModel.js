@@ -23,15 +23,7 @@ class ResourceModel extends BaseModel {
     super(modularuiResponse.data, modularuiResponse.contributions);
 
     this._key = modularuiResponse.key;
-    this._links = new LinkCollection(
-      Array.isArray(this.data._links) ? this.data._links[0] : this.data._links,
-      {
-        self: {
-          resourcetype: this.resourcetype
-        },
-        ...this.contributions._links
-      }
-    );
+
     this._childModels = this.data.childModels || [];
     this._locale = modularuiResponse.locale;
   }
@@ -79,6 +71,19 @@ class ResourceModel extends BaseModel {
    * Getting the links of the resource
    */
   get links(): LinkCollection {
+    if (!this._links) {
+      this._links = new LinkCollection(
+        Array.isArray(this.data._links)
+          ? this.data._links[0]
+          : this.data._links,
+        {
+          self: {
+            resourcetype: this.resourcetype
+          },
+          ...this.contributions._links
+        }
+      );
+    }
     return this._links;
   }
 

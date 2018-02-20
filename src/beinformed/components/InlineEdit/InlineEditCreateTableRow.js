@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from "react";
+import PlusIcon from "mdi-react/PlusIcon";
 
 import ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
 
-import Icon from "beinformed/components/Icon/Icon";
 import Link from "beinformed/components/Link/Link";
 import InlineEditActionsCell from "beinformed/components/InlineEdit/InlineEditActionsCell";
 import withModularUI from "beinformed/utils/modularui/withModularUI";
@@ -52,7 +52,6 @@ class InlineEditCreateTableRow extends Component<
 
   constructor(props: InlineEditCreateTableRowProps) {
     super(props);
-
     this.state = {
       hasFocus: false,
       hasChanges: false,
@@ -110,7 +109,6 @@ class InlineEditCreateTableRow extends Component<
       }
     };
     const itemAttributes = {};
-
     attributes.forEach(attribute => {
       itemAttributes[attribute.name] = null;
       itemContribution.attributes.push({
@@ -184,7 +182,6 @@ class InlineEditCreateTableRow extends Component<
    */
   handleCancelClick = (e: SyntheticEvent<*>) => {
     e.preventDefault();
-
     this.props.startProgress();
     this.setState({
       hasChanges: false,
@@ -383,7 +380,7 @@ class InlineEditCreateTableRow extends Component<
         dataId={`${this.props.list.key}--create`}
         onClick={this.handleCreateClick}
       >
-        <Icon name="plus" />
+        <PlusIcon />
         {` ${this.props.action.label}`}
       </Link>
     );

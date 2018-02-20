@@ -21,6 +21,7 @@ import favicon180 from "beinformed/components/HTMLHead/favicon/favicon-180.png";
 import browserconfig from "beinformed/components/HTMLHead/favicon/browserconfig.xml";
 
 import "./bootstrap.scss";
+import "./icon.scss";
 
 /**
  * Render HTML Head information using React Helmet

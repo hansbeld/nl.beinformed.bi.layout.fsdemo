@@ -1,12 +1,15 @@
 // @flow
 import React, { Component } from "react";
-import { Message } from "beinformed/containers/I18n/Message";
-
 import classNames from "classnames";
 
-import { getChoiceOptionLabel } from "beinformed/components/FormInput/_util";
+import ChevronLeftIcon from "mdi-react/ChevronLeftIcon";
+import ChevronRightIcon from "mdi-react/ChevronRightIcon";
+import CheckboxBlankOutlineIcon from "mdi-react/CheckboxBlankOutlineIcon";
+import CheckboxMarkedOutlineIcon from "mdi-react/CheckboxMarkedOutlineIcon";
 
-import Icon from "beinformed/components/Icon/Icon";
+import { Message } from "beinformed/containers/I18n/Message";
+
+import { getChoiceOptionLabel } from "beinformed/components/FormInput/_util";
 
 import MortgageOptionDetail from "fsdemo/components/AdviceComparison/MortgageOptionDetail";
 
@@ -90,7 +93,7 @@ class MortgageOption extends Component<
         {`${this.getOptionLabel("PeriodOfInterestRate")} ${this.getOptionLabel(
           "InterestRateType"
         ).toLowerCase()} `}
-        <Icon name={this.state.isOpen ? "chevron-left" : "chevron-right"} />
+        {this.state.isOpen ? <ChevronLeftIcon /> : <ChevronRightIcon />}
       </div>
     );
   }
@@ -168,7 +171,7 @@ class MortgageOption extends Component<
               className="btn btn-dark btn-sm"
               onClick={this.props.onPinClick}
             >
-              <Icon name="check-square-o" textAfter={true} />
+              <CheckboxMarkedOutlineIcon className="textAfter" />
               <Message id="MortgageOption.unpin" defaultMessage="Unpin" />
             </button>
           ) : (
@@ -176,7 +179,7 @@ class MortgageOption extends Component<
               className="btn btn-light btn-sm"
               onClick={this.props.onPinClick}
             >
-              <Icon name="square-o" textAfter={true} />
+              <CheckboxBlankOutlineIcon className="textAfter" />
               <Message
                 id="MortgageOption.pin"
                 defaultMessage="Pin for compare"

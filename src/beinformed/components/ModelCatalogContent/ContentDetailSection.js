@@ -1,9 +1,9 @@
 // @flow
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Helmet from "react-helmet";
 
 import ContentSections from "beinformed/components/ContentDetail/ContentSections";
-import RelatedConcepts from "beinformed/components/ContentDetail/RelatedConcepts";
+import RelatedConcepts from "beinformed/containers/RelatedConcepts/RelatedConcepts";
 
 import type ContentModel from "beinformed/models/content/ContentModel";
 import type ContentLinkModel from "beinformed/models/content/ContentLinkModel";
@@ -54,27 +54,30 @@ class ContentDetailSection extends Component<
     const { content } = this.props;
 
     if (content) {
-      return (
-        <Fragment>
-          <div className="col">
-            <Helmet>
-              <title>{content.label}</title>
-            </Helmet>
-            <ContentSections
-              contentDetail={content}
-              highlightSections={this.state.highlightSections}
+      const elements = [
+        <div key="content-sections" className="col">
+          <Helmet>
+            <title>{content.label}</title>
+          </Helmet>
+          <ContentSections
+            contentDetail={content}
+            highlightSections={this.state.highlightSections}
+          />
+        </div>
+      ];
+
+      if (content.relatedConceptsHref) {
+        elements.push(
+          <div key="related-concepts" className="col-md-3">
+            <RelatedConcepts
+              content={content}
+              entryDate={this.props.entryDate}
             />
           </div>
-          {content.relatedConceptsHref && (
-            <div className="col-md-3">
-              <RelatedConcepts
-                content={content}
-                entryDate={this.props.entryDate}
-              />
-            </div>
-          )}
-        </Fragment>
-      );
+        );
+      }
+
+      return elements;
     }
 
     return null;

@@ -3,6 +3,10 @@
 @import "~bootstrap/scss/mixins/buttons";
 
 .foldouttaskmenu {
+  .mdi-icon {
+    fill: $white;
+  }
+
   .taskgroup-view {
     position: fixed;
     top: 0;
@@ -18,10 +22,15 @@
     background-color: $taskmenu-background-color;
   }
 
-  .taskgroup-view a {
+  .taskgroup-view a,
+  .taskgroup-view a:hover {
     display: none;
 
     color: $white;
+
+    .mdi-icon {
+      fill: $white;
+    }
   }
 
   .taskmenu-toggle {
@@ -51,10 +60,6 @@
     margin: 0;
 
     cursor: pointer;
-  }
-
-  .taskmenu-toggle .fa {
-    margin-bottom: -3px;
   }
 
   .taskmenu-toggle .taskmenu-close {

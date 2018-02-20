@@ -37,5 +37,3 @@ const Attribute = ({ attribute, contentConfig }: AttributeProps) => (
 );
 
 export default Attribute;
-
-// <FormContentRenderer concept={attribute.concept} config={...

@@ -23,23 +23,32 @@ export default class FilterCollection extends BaseCollection<
 
     if (data && contributions && Array.isArray(contributions.filter)) {
       this.collection = contributions.filter
-        .filter(filterContribution => {
-          const filterKey = Object.keys(filterContribution)[0];
-          return filterKey in data;
-        })
+        .filter(filterContribution => Object.keys(filterContribution)[0])
         .map(filterContribution => {
           const filterKey = Object.keys(filterContribution)[0];
-
           const filterData = data[filterKey];
+          const filterContributionByKey = filterContribution[filterKey];
 
           const filter = this.createFilter(
             filterKey,
-            filterData,
-            filterContribution[filterKey]
+            {
+              ...filterData,
+              dynamicschema: contributions.dynamicschema
+            },
+            filterContributionByKey
           );
 
           if (contributions.listkey) {
             filter.listkey = contributions.listkey;
+          }
+
+          if (contributions.contexts && filterContributionByKey.contextid) {
+            const filterContext = contributions.contexts.find(
+              context => context.id === filterContributionByKey.contextid
+            );
+            if (filterContext) {
+              filter.context = filterContext;
+            }
           }
 
           return filter;

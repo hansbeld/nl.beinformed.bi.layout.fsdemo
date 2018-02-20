@@ -41,7 +41,7 @@ class ButtonErrorPopover extends Component<
   ButtonErrorPopoverState
 > {
   _wrapper: ?HTMLSpanElement;
-  _timeoutId: number;
+  _timeoutId: TimeoutID;
 
   constructor(props: ButtonErrorPopoverProps) {
     super(props);

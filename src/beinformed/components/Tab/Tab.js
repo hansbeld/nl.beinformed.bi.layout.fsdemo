@@ -60,7 +60,7 @@ const Tab = ({ tab, location, children }: TabProps) => {
                 toggleLabel={activeComponent ? activeComponent.label : ""}
                 items={tabComponents}
               />
-              <QuickSearch tab={tab} />
+              {tab.searchLink && <QuickSearch href={tab.searchLink.href} />}
             </nav>
           )}
 

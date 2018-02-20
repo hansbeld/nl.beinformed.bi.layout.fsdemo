@@ -9,7 +9,7 @@ export const getSetting = (setting: string) => {
     return Settings[setting].value;
   }
 
-  return null;
+  throw new Error(`Setting with name ${setting} not found in setting file`);
 };
 /**
  * Indicates if contributions and routeprovider should be cached
@@ -24,7 +24,8 @@ export const USE_CACHE = getSetting("USE_CACHE");
  * When requesting a remote server with CORS enabled, add the origin, for example:
  * export const BEINFORMED_PATH = 'http://192.168.128.61:8080/BeInformed';
  */
-export const BASE = global.CONTEXT_PATH || getSetting("DEFAULT_CONTEXTPATH");
+const tempBASE = global.CONTEXT_PATH || getSetting("DEFAULT_CONTEXTPATH");
+export const BASE = tempBASE.trim();
 
 /**
  * Path to the contributions api end point
@@ -36,7 +37,7 @@ export const MODULARUI_CONTRIBUTIONS = "/contributions";
  * Application uri
  * @type {string}
  */
-const APPLICATION_URI = "/Webapp";
+const APPLICATION_URI = "/";
 
 /**
  * Base Path
@@ -131,9 +132,11 @@ export const HTTP_METHODS = {
   POST: "POST"
 };
 
-export const LOGIN_PATH = getSetting("LOGIN_PATH");
-export const LOGOUT_PATH = getSetting("LOGOUT_PATH");
-export const CHANGEPASSWORD_PATH = getSetting("CHANGEPASSWORD_PATH");
+export const LOGIN_PATH = getSetting("LOGIN_PATH") || "/signin";
+export const LOGOUT_PATH = getSetting("LOGOUT_PATH") || "/signout";
+export const CHANGEPASSWORD_PATH =
+  getSetting("CHANGEPASSWORD_PATH") || "/change-password";
+export const USERPROFILE_PATH = getSetting("USERPROFILE_PATH") || "/user";
 
 /**
  * Constants file

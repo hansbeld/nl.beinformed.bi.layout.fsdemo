@@ -12,7 +12,7 @@ const PanelFooter = ({
   children?: any,
   className?: string
 }) => {
-  const panelClass = classNames("panel-footer card-footer clearfix", className);
+  const panelClass = classNames("panel-footer clearfix", className);
 
   return <div className={panelClass}>{children}</div>;
 };

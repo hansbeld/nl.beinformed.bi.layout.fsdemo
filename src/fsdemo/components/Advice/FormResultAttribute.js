@@ -1,6 +1,8 @@
 // @flow
 import React, { PureComponent } from "react";
-import classNames from "classnames";
+
+import AlertOutlineIcon from "mdi-react/AlertOutlineIcon";
+import CheckIcon from "mdi-react/CheckIcon";
 
 import FormContentRenderer from "beinformed/components/FormContent/FormContentRenderer";
 
@@ -44,12 +46,13 @@ class FormResultAttribute extends PureComponent<FormResultAttributeProps> {
     const showIcon = !attribute.key.includes("EligibleFor");
 
     return (
-      <div
-        className={classNames({
-          "icon-exclamation-triangle": showIcon && attribute.value !== "true",
-          "icon-check": showIcon && attribute.value === "true"
-        })}
-      >
+      <div>
+        {showIcon &&
+          attribute.value !== "true" && (
+            <AlertOutlineIcon className="textAfter" />
+          )}
+        {showIcon &&
+          attribute.value === "true" && <CheckIcon className="textAfter" />}
         {contentConfiguration && (
           <FormContentRenderer
             concept={attribute.concept}

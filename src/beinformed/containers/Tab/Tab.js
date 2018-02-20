@@ -1,6 +1,8 @@
 // @flow
 import React, { Component } from "react";
 
+import modularui from "beinformed/utils/modularui/modularui";
+
 import Tab from "beinformed/components/Tab/Tab";
 
 import { Route, Switch } from "react-router-dom";
@@ -9,16 +11,11 @@ import Redirect from "beinformed/components/Redirect/Redirect";
 
 import Href from "beinformed/models/href/Href";
 
-import { modelSelector } from "beinformed/containers/ModularUI/selectors";
-import connectModularUI from "beinformed/utils/modularui/connectModularUI";
-
 import PanelRenderer from "beinformed/containers/Panel/PanelRenderer";
 import CaseView from "beinformed/containers/CaseView/CaseView";
 import Form from "beinformed/containers/Form/Form";
 
 import TabModel from "beinformed/models/tab/TabModel";
-
-import { loadModel } from "beinformed/containers/ModularUI/actions";
 
 import type { Location, Match } from "react-router-dom";
 
@@ -106,19 +103,7 @@ class TabContainer extends Component<TabProps> {
   }
 }
 
-/**
- * Map state to props
- */
-const mapStateToProps = (state: State, ownProps) => ({
-  tab: modelSelector(state, ownProps.match.url)
+export const connector = modularui("Tab", ({ match }) => match.url, {
+  propName: "tab"
 });
-
-const modularUIConfig = {
-  load: ({ match }) => loadModel(match.url, TabModel),
-  shouldLoad: ({ tab }) => !tab,
-  shouldReload: (newProps, oldProps, hasReloadState) =>
-    hasReloadState || newProps.match.url !== oldProps.match.url
-};
-
-export const connector = connectModularUI(modularUIConfig, mapStateToProps);
 export default connector(TabContainer);

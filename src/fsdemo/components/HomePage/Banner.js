@@ -1,14 +1,13 @@
 // @flow
 import React from "react";
-import { Link } from "react-router-dom";
+import CalculatorIcon from "mdi-react/CalculatorIcon";
 
+import { Link } from "react-router-dom";
 import { Message } from "beinformed/containers/I18n/Message";
 
 import "./Banner.scss";
 
 import banner from "./banner.jpg";
-
-import Icon from "beinformed/components/Icon/Icon";
 
 /**
  * Render a home page banner
@@ -29,7 +28,7 @@ const Banner = () => (
         data-id="mortgage-calculators"
         className="btn btn-primary"
       >
-        <Icon name="calculator" textAfter />
+        <CalculatorIcon className="textAfter" />
         <Message
           id="Homepage.banner.calculators"
           defaultMessage="Mortgage calculators"

@@ -29,7 +29,13 @@ const ResultAttribute = ({
       {attribute.label}
     </div>
     <AttributeValue attribute={attribute} />
-    <FormContentRenderer concept={attribute.concept} config={contentConfig} />
+    {attribute.concept &&
+      contentConfig && (
+        <FormContentRenderer
+          concept={attribute.concept}
+          config={contentConfig}
+        />
+      )}
   </div>
 );
 

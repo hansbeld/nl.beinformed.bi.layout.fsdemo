@@ -1,9 +1,10 @@
 // @flow
 import React from "react";
 import classNames from "classnames";
-import { Route, withRouter, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import { SHOW_ONE_RESULT_AS_DETAIL } from "beinformed/constants/LayoutHints";
+import DetailPanel from "beinformed/components/DetailPanel/DetailPanel";
 
 import ListHeader from "beinformed/components/List/ListHeader";
 
@@ -27,7 +28,7 @@ export type ListProps = {
 /**
  * Render a list
  */
-const List = ({ className, list, viewType }) => {
+const List = ({ className, list, viewType }: ListProps) => {
   // this is arbitrary, but when a list has many attributes on the list,
   // make more room for them by creating a smaller detail
   const SMALL_AMOUNT_OF_COLUMNS_NUMBER = 4;
@@ -52,12 +53,11 @@ const List = ({ className, list, viewType }) => {
   return (
     <div>
       <Switch>
-        {list.detail && (
-          <Route
-            path={list.detail.panelLinks.routePath}
-            render={({ match }) => <PanelRenderer href={new Href(match.url)} />}
-          />
-        )}
+        <Route
+          path={`${list.selfhref.path}/:id/:additionaldetail`}
+          render={({ match }) => <PanelRenderer href={new Href(match.url)} />}
+        />
+
         <Route>
           <div className={listClass} data-id={list.key}>
             <ListHeader list={list} />
@@ -70,6 +70,10 @@ const List = ({ className, list, viewType }) => {
               )}
 
               {showList && <ListMain list={list} viewType={viewType} />}
+              {!showList &&
+                list.detail && (
+                  <DetailPanel className="col" detail={list.detail} />
+                )}
 
               <Switch>
                 <Route
@@ -85,9 +89,9 @@ const List = ({ className, list, viewType }) => {
                       if (listitem) {
                         return (
                           <ListDetail
-                            className={listDetailClass}
-                            list={list}
+                            href={listitem.selfhref}
                             listitem={listitem}
+                            className={listDetailClass}
                           />
                         );
                       }
@@ -104,4 +108,4 @@ const List = ({ className, list, viewType }) => {
   );
 };
 
-export default withRouter(List);
+export default List;

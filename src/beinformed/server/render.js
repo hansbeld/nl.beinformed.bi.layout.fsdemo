@@ -1,15 +1,15 @@
 // @flow
 const noLoading = state =>
-  Object.keys(state.modularui.status).filter(
-    statusKey => state.modularui.status[statusKey] === "loading"
+  Object.keys(state.modularui).filter(
+    key => state.modularui[key].status === "loading"
   ).length === 0;
 
 const loadingCounter = state =>
-  Object.keys(state.modularui.status).filter(
-    statusKey => state.modularui.status[statusKey] === "loading"
+  Object.keys(state.modularui).filter(
+    key => state.modularui[key].status === "loading"
   ).length;
 
-const render = (store, renderApplication) => {
+const render = (store: Store, renderApplication: Function): Promise<string> => {
   let loadingCount = loadingCounter(store.getState());
   let html = "<div>Nothing to render</div>";
 

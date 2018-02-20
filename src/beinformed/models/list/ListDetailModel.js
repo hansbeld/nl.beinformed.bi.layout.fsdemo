@@ -9,6 +9,7 @@ import AttributeFactory from "beinformed/models/attributes/AttributeFactory";
 
 import type ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
 import type ListItemModel from "beinformed/models/list/ListItemModel";
+import type LinkModel from "beinformed/models/links/LinkModel";
 
 /**
  * Detail of a list item
@@ -38,6 +39,39 @@ export default class ListDetailModel extends DetailModel {
   }
 
   /**
+   * Add links to expand on initialization of this model
+   */
+  getInitialChildModelLinks(): Array<LinkModel> {
+    const listitemPanels = this.listitem
+      ? this.listitem.links.getLinksByGroup("panel").all
+      : [];
+
+    const links = [...super.getInitialChildModelLinks(), ...listitemPanels];
+
+    if (this.hasResults) {
+      links.push(...this.results.getInitialChildModelLinks());
+      links.push(...this.givenAnswers.getInitialChildModelLinks());
+    }
+
+    return links;
+  }
+
+  /**
+   * @override
+   */
+  setChildModels(models: Array<ResolvableModels>) {
+    this._attributeCollection.setChildModels(models);
+
+    if (this.results) {
+      this.results.setChildModels(models);
+    }
+
+    if (this.givenAnswers) {
+      this.givenAnswers.setChildModels(models);
+    }
+  }
+
+  /**
    * @overwrite
    */
   get type(): string {
@@ -51,46 +85,12 @@ export default class ListDetailModel extends DetailModel {
     return (
       data.contributions.resourcetype &&
       (data.contributions.resourcetype.endsWith("ListPanelDetail") ||
+        data.contributions.resourcetype.endsWith("ListDetail") ||
         [
           "DatastoreRelatedDatastorePanelDetail",
           "CaseRelatedDataStorePanelDetail"
         ].includes(data.contributions.resourcetype))
     );
-  }
-
-  // /**
-  //  * Add links to expand on initialization of this model
-  //  */
-  // getInitialChildModelLinks(): LinkModel[] {
-  //   const listitemPanels = this.listitem
-  //     ? this.listitem.links.getLinksByGroup("panel").all
-  //     : [];
-  //
-  //   const links = [...super.getInitialChildModelLinks(), ...listitemPanels];
-  //
-  //   if (this.hasResults) {
-  //     links.push(...this.results.getInitialChildModelLinks());
-  //     links.push(...this.givenAnswers.getInitialChildModelLinks());
-  //   }
-  //
-  //   return links;
-  // }
-
-  /**
-   * @override
-   */
-  setChildModels(models: ResolvableModels[]) {
-    super.setChildModels(models);
-
-    const listModels = models.filter(model => model.type === "List");
-    if (listModels.length > 0) {
-      this.panelCollection = new PanelCollection(listModels);
-    }
-
-    if (this.hasResults) {
-      this.results.setChildModels(models);
-      this.givenAnswers.setChildModels(models);
-    }
   }
 
   /**

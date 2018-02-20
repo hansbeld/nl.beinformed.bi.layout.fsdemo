@@ -3,9 +3,10 @@
 .form-content-popover {
   margin-left: $spacer / 2;
 
-  .icon {
-    color: $primary;
+  .mdi-icon {
+    width: $font-size-lg;
 
-    font-size: $font-size-lg;
+    height: $font-size-lg;
+    fill: $primary;
   }
 }

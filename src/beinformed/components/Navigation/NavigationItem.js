@@ -3,16 +3,14 @@ import React from "react";
 import classNames from "classnames";
 
 import Link from "beinformed/components/Link/Link";
-import Icon from "beinformed/components/Icon/Icon";
-
-import "./NavigationItem.scss";
 
 import type LinkModel from "beinformed/models/links/LinkModel";
 
 type NavigationItemProps = {
   className?: string,
   isActive?: boolean,
-  link: LinkModel
+  link: LinkModel,
+  children?: any
 };
 
 /**
@@ -21,7 +19,8 @@ type NavigationItemProps = {
 const NavigationItem = ({
   className,
   isActive = false,
-  link
+  link,
+  children
 }: NavigationItemProps) => {
   const linkClass = classNames(className, {
     active: isActive
@@ -30,8 +29,9 @@ const NavigationItem = ({
   return (
     <li className="nav-item">
       <Link className={linkClass} dataId={link.key} href={link.href} isNavLink>
-        {link.icon && <Icon name={link.icon} />}
+        {link.icon}
         {link.label}
+        {children}
       </Link>
     </li>
   );

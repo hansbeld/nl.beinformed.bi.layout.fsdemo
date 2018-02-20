@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
+import CloseIcon from "mdi-react/CloseIcon";
 
-import Icon from "beinformed/components/Icon/Icon";
 import { KEYCODES } from "beinformed/constants/Constants";
 import { withMessage } from "beinformed/containers/I18n/Message";
 import { getChoiceOptionLabel } from "beinformed/components/FormInput/_util";
@@ -56,7 +56,7 @@ const LookupInputActiveOption = ({
             }
           }}
         >
-          <Icon name="times" />
+          <CloseIcon />
         </button>
       )}
   </span>

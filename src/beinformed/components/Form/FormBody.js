@@ -10,34 +10,29 @@ import type FormObjectModel from "beinformed/models/form/FormObjectModel";
 
 export type FormBodyProps = {
   form: FormModel,
-  autosubmit: boolean,
   formLayout?: "vertical" | "horizontal",
   autosubmit?: boolean,
   onAttributeChange: (
     form: FormModel,
     object: FormObjectModel,
     attribute: AttributeType,
-    inputvalue: string,
-    autoSubmit: boolean
+    inputvalue: string
   ) => void,
   onAttributeClick?: (
     form: FormModel,
     object: FormObjectModel,
     attribute: AttributeType,
-    inputvalue: string,
-    autoSubmit: boolean
+    inputvalue: string
   ) => void,
   onAttributeBlur?: (
     form: FormModel,
     object: FormObjectModel,
-    attribute: AttributeType,
-    autoSubmit: boolean
+    attribute: AttributeType
   ) => void,
   onAttributeFocus?: (
     form: FormModel,
     object: FormObjectModel,
-    attribute: AttributeType,
-    autosubmit: boolean
+    attribute: AttributeType
   ) => void
 };
 
@@ -68,25 +63,18 @@ class FormBody extends Component<FormBodyProps, FormBodyState> {
     });
   };
 
-  canAutoSubmit() {
-    if (this.props.form.isValid) {
-      return this.props.autosubmit || false;
-    }
-
-    return false;
-  }
-
   render() {
     const {
       form,
       formLayout,
+      autosubmit,
       onAttributeChange,
       onAttributeBlur,
       onAttributeClick,
       onAttributeFocus
     } = this.props;
 
-    return (
+    return form ? (
       <div className="form-body">
         {this.state.showFormErrors &&
           form.hasServerErrors() && (
@@ -110,44 +98,27 @@ class FormBody extends Component<FormBodyProps, FormBodyState> {
             id={form.key}
             formLayout={formLayout}
             onAttributeChange={(object, attribute, inputvalue) =>
-              onAttributeChange(
-                form,
-                object,
-                attribute,
-                inputvalue,
-                this.canAutoSubmit()
-              )
+              onAttributeChange(form, object, attribute, inputvalue, autosubmit)
             }
             onAttributeClick={(object, attribute, inputvalue) =>
               onAttributeClick
-                ? onAttributeClick(
-                    form,
-                    object,
-                    attribute,
-                    inputvalue,
-                    this.canAutoSubmit()
-                  )
+                ? onAttributeClick(form, object, attribute, inputvalue)
                 : void 0
             }
             onAttributeBlur={(object, attribute) =>
               onAttributeBlur
-                ? onAttributeBlur(form, object, attribute, this.canAutoSubmit())
+                ? onAttributeBlur(form, object, attribute)
                 : void 0
             }
             onAttributeFocus={(object, attribute) =>
               onAttributeFocus
-                ? onAttributeFocus(
-                    form,
-                    object,
-                    attribute,
-                    this.canAutoSubmit()
-                  )
+                ? onAttributeFocus(form, object, attribute)
                 : void 0
             }
           />
         )}
       </div>
-    );
+    ) : null;
   }
 }
 

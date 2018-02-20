@@ -30,10 +30,12 @@ const MortgageOptionDetail = ({ show, mortgage }: MortgageOptionDetailProps) =>
             id="MortgageOptionDetail.description"
             defaultMessage="Below is a summary of the selected mortgage. For more information read the"
           />
-          <NotImplementedLink
-            messageId="MortgageIllustrationDoc"
-            defaultMessage="Mortgage Illustration Document"
-          />.
+          <NotImplementedLink>
+            <Message
+              messageId="MortgageIllustrationDoc"
+              defaultMessage="Mortgage Illustration Document"
+            />
+          </NotImplementedLink>.
         </p>
 
         <AdviceExplain form={mortgage.mortgageForm} />
@@ -54,10 +56,12 @@ const MortgageOptionDetail = ({ show, mortgage }: MortgageOptionDetailProps) =>
                 can apply through one of our advisors in a branch or by phone
                 and receive personalised advice."
             />
-            <NotImplementedLink
-              messageId="MakeAnAppointment"
-              defaultMessage="Make an appointment"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="MakeAnAppointment"
+                defaultMessage="Make an appointment"
+              />
+            </NotImplementedLink>
           </p>
           <ApplyForMortgageLink
             btnType="primary"

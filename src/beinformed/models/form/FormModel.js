@@ -39,7 +39,7 @@ class FormModel extends ResourceModel {
   _isFinished: boolean;
   _isComplete: boolean;
   _successAction: ActionModel | null;
-  _redirectLocation: Location | null;
+  _redirectLocation: Href | null;
 
   /**
    * Construct a form
@@ -295,11 +295,11 @@ class FormModel extends ResourceModel {
   }
 
   set redirectLocation(redirectLocation: Location) {
-    this._redirectLocation = redirectLocation;
+    this._redirectLocation = new Href(redirectLocation);
   }
 
-  get redirectLocation(): Location | null {
-    return this._redirectLocation;
+  get redirectLocation(): Href | null {
+    return this._redirectLocation || this.successRedirect;
   }
 
   /**
@@ -595,14 +595,14 @@ class FormModel extends ResourceModel {
     this._completeObjects = [...this._completeObjects, this._missingObjects];
     this._missingObjects = newForm._missingObjects;
     this._endResultObjects = newForm._endResultObjects;
+
+    this._data = newForm._data;
   }
 
   /**
    * Update current form with data from a new form
    */
   update(newForm: FormModel) {
-    this.initAction = newForm.initAction;
-
     this.resetErrors();
 
     this._tokens = newForm.tokens;

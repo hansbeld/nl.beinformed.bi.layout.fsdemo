@@ -1,9 +1,9 @@
 // @flow
 import React from "react";
+import CheckIcon from "mdi-react/CheckIcon";
 
 import { withMessage } from "beinformed/containers/I18n/Message";
 import DatepickerTimePartButton from "beinformed/components/DatetimePicker/DatepickerTimePartButton";
-import Icon from "beinformed/components/Icon/Icon";
 
 type DatepickerTimeSelectType = {
   time: string,
@@ -49,7 +49,7 @@ const DatepickerTimeSelect = ({
           onClick={onConfirm}
           aria-label={message("DatetimePicker.useTime", "Use time")}
         >
-          <Icon name="check" />
+          <CheckIcon />
         </button>
       </div>
     </div>

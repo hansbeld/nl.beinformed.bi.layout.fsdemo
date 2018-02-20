@@ -1,10 +1,10 @@
 // @flow
 import React from "react";
+import MagnifyIcon from "mdi-react/MagnifyIcon";
 
 import { withMessage, Message } from "beinformed/containers/I18n/Message";
 import ChoiceAttributeModel from "beinformed/models/attributes/ChoiceAttributeModel";
 import Button from "beinformed/components/Button/Button";
-import Icon from "beinformed/components/Icon/Icon";
 import DatetimeInput from "beinformed/components/FormInput/DatetimeInput";
 import SelectInput from "beinformed/components/FormInput/SelectInput";
 import TextInput from "beinformed/components/FormInput/TextInput";
@@ -63,7 +63,7 @@ const QuickSearchInput = ({
         className="btn-quick-search ml-1"
         type="submit"
       >
-        <Icon name="search" />
+        <MagnifyIcon />
         <Message
           id="QuickSearchInput.SearchLabel"
           defaultMessage="Search"
@@ -91,7 +91,7 @@ const QuickSearchInput = ({
       className="btn-quick-search ml-1"
       type="submit"
     >
-      <Icon name="search" />
+      <MagnifyIcon />
       <Message
         id="QuickSearchInput.SearchLabel"
         defaultMessage="Search"

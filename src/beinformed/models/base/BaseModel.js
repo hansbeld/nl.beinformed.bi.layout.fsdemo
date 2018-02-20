@@ -10,6 +10,7 @@ class BaseModel {
   _data: any;
   _contributions: any;
   _layouthint: LayoutHintCollection;
+  _connectKey: string;
 
   /**
    * constructor
@@ -53,6 +54,14 @@ class BaseModel {
    */
   get hasData(): boolean {
     return Object.keys(this.data).length > 0;
+  }
+
+  set connectKey(key: string) {
+    this._connectKey = key;
+  }
+
+  get connectKey(): string | null {
+    return this._connectKey;
   }
 
   /**

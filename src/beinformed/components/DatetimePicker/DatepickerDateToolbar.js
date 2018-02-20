@@ -1,9 +1,11 @@
 // @flow
 import React, { Component } from "react";
 
+import ArrowLeftIcon from "mdi-react/ArrowLeftIcon";
+import ArrowRightIcon from "mdi-react/ArrowRightIcon";
+
 import { DateUtil } from "beinformed/utils/datetime/DateTimeUtil";
 import { withMessage } from "beinformed/containers/I18n/Message";
-import Icon from "beinformed/components/Icon/Icon";
 import { KEYCODES } from "beinformed/constants/Constants";
 
 import "./DatepickerDateToolbar.scss";
@@ -158,7 +160,7 @@ class DatepickerDateToolbar extends Component<DatepickerDateToolbarProps> {
             onClick={this.handlePrevious}
             onKeyDown={this.handlePreviousKeydown}
           >
-            <Icon name="arrow-left" />
+            <ArrowLeftIcon />
           </button>
         </div>
         <div className="datepicker-btn-switch">
@@ -179,7 +181,7 @@ class DatepickerDateToolbar extends Component<DatepickerDateToolbarProps> {
             onClick={this.handleNext}
             onKeyDown={this.handleNextKeydown}
           >
-            <Icon name="arrow-right" />
+            <ArrowRightIcon />
           </button>
         </div>
       </div>

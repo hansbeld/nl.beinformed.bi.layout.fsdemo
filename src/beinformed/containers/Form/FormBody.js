@@ -16,34 +16,29 @@ type FormBodyContainerProps = {
 
 export type FormBodyProps = {
   form: FormModel,
-  autosubmit: boolean,
   formLayout?: "vertical" | "horizontal",
-  autosubmit?: boolean,
   onAttributeChange: (
     form: FormModel,
     object: FormObjectModel,
     attribute: AttributeType,
     inputvalue: string,
-    autoSubmit: boolean
+    autosubmit?: boolean
   ) => void,
   onAttributeClick?: (
     form: FormModel,
     object: FormObjectModel,
     attribute: AttributeType,
-    inputvalue: string,
-    autoSubmit: boolean
+    inputvalue: string
   ) => void,
   onAttributeBlur?: (
     form: FormModel,
     object: FormObjectModel,
-    attribute: AttributeType,
-    autoSubmit: boolean
+    attribute: AttributeType
   ) => void,
   onAttributeFocus?: (
     form: FormModel,
     object: FormObjectModel,
-    attribute: AttributeType,
-    autosubmit: boolean
+    attribute: AttributeType
   ) => void
 };
 

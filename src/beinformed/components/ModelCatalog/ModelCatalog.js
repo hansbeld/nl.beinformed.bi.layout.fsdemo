@@ -23,13 +23,13 @@ import DatetimeInput from "beinformed/components/FormInput/DatetimeInput";
 
 import "./ModelCatalog.scss";
 
-import type { Location, Match } from "react-router-dom";
+import type { Location, Match, RouterHistory } from "react-router-dom";
 
 type ModelCatalogProps = {
   modelcatalog: ModelCatalogModel,
+  history: RouterHistory,
   location: Location,
-  match: Match,
-  pushState: Function
+  match: Match
 };
 type ModelCatalogState = {
   entryDate: string,
@@ -67,7 +67,7 @@ class ModelCatalog extends Component<ModelCatalogProps, ModelCatalogState> {
         enteredEntryDate: date
       });
 
-      this.props.pushState(locationHref.toString());
+      this.props.history.push(locationHref.toString());
     }
 
     this.setState({

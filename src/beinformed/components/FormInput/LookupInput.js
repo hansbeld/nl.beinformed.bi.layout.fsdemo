@@ -2,6 +2,8 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 import { connect } from "react-redux";
+import LoadingIcon from "mdi-react/LoadingIcon";
+import MagnifyIcon from "mdi-react/MagnifyIcon";
 
 import { withMessage, Message } from "beinformed/containers/I18n/Message";
 import xhr from "beinformed/utils/fetch/xhr";
@@ -17,7 +19,6 @@ import Button from "beinformed/components/Button/Button";
 import LookupInputActiveOption from "beinformed/components/FormInput/LookupInputActiveOption";
 import LookupInputOption from "beinformed/components/FormInput/LookupInputOption";
 import TextInput from "beinformed/components/FormInput/TextInput";
-import Icon from "beinformed/components/Icon/Icon";
 import ChoiceAttributeOptionModel from "beinformed/models/attributes/ChoiceAttributeOptionModel";
 
 import DropdownChildren from "beinformed/components/Dropdown/DropdownChildren";
@@ -56,7 +57,7 @@ type LookupInputState = {
  * Render lookup input
  */
 class LookupInput extends Component<LookupInputProps, LookupInputState> {
-  _timeout: number;
+  _timeout: TimeoutID;
   _input: ?TextInput;
   _dropdown: ?HTMLDivElement;
   _lookupItems: ?HTMLDivElement;
@@ -324,7 +325,7 @@ class LookupInput extends Component<LookupInputProps, LookupInputState> {
         .filter(option => option.selected)
         .map(option =>
           this.state.options.find(
-            stateOption => stateOption.code === option.code
+            stateOption => stateOption && stateOption.code === option.code
           )
         );
 
@@ -443,10 +444,11 @@ class LookupInput extends Component<LookupInputProps, LookupInputState> {
                   onClick={this.handleLookupButton}
                   onKeyDown={this.handleLookupButtonKeyDown}
                 >
-                  <Icon
-                    name={this.state.inProgress ? "refresh" : "search"}
-                    spin={this.state.inProgress}
-                  />
+                  {this.state.inProgress ? (
+                    <LoadingIcon className="spin" />
+                  ) : (
+                    <MagnifyIcon />
+                  )}
                   <Message
                     id="LookupInput.Button.Lookup"
                     defaultMessage="Lookup"

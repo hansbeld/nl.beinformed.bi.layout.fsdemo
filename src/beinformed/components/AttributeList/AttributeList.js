@@ -44,7 +44,10 @@ const AttributeList = ({
   });
 
   const attributeNoDAP = attributes
-    .filter(attribute => !isDAPAttribute(attribute))
+    .filter(
+      attribute =>
+        !isDAPAttribute(attribute) && !attribute.layouthint.has("title")
+    )
     .map((attribute, i) => (
       <Attribute key={`${attribute.key}-${i}`} attribute={attribute} />
     ));

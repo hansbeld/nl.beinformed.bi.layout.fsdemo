@@ -97,6 +97,7 @@ class ApplyForMortgageSubmitRequest extends Component<
             )}
           />
         )}
+
         {this.state.form !== null && (
           <FormBody
             form={this.state.form}

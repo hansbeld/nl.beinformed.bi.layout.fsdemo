@@ -4,7 +4,6 @@ import type AttributeModel from "beinformed/models/attributes/AttributeModel";
 import AttributeCollection from "beinformed/models/attributes/AttributeCollection";
 import BaseModel from "beinformed/models/base/BaseModel";
 import Href from "beinformed/models/href/Href";
-import { ICON } from "beinformed/constants/LayoutHints";
 import {
   ALWAYS_COMMIT_FORM,
   HTTP_METHODS
@@ -151,30 +150,16 @@ export default class ActionModel extends BaseModel {
 
   /**
    * Setter for icon of ActionModel
-   * @param  {string} icon Name of icon, see {@link http://fontawesome.io/icons/|font-awesome} for supported icons
    */
-  set icon(icon: string) {
+  set icon(icon: any) {
     this._icon = icon;
   }
 
   /**
    * Retrieve icon of task
    */
-  get icon(): string {
-    if (this._icon) {
-      return this._icon;
-    }
-
-    const hasIcon = this.layouthint.has(ICON);
-
-    if (hasIcon) {
-      const iconHint = this.layouthint.getByLayoutHint(ICON);
-      if (iconHint) {
-        return iconHint.substr(ICON.length + 1);
-      }
-    }
-
-    return "";
+  get icon(): any {
+    return this._icon;
   }
 
   set redirectAction(modularuiAction: Object | Href) {

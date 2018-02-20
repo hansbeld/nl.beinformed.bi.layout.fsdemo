@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
+import CheckCircleOutlineIcon from "mdi-react/CheckCircleOutlineIcon";
 
-import Icon from "beinformed/components/Icon/Icon";
 import type ChoiceAttributeModel from "beinformed/models/attributes/ChoiceAttributeModel";
 
 /**
@@ -19,7 +19,7 @@ const DAPPerformedActivities = ({
         {activities.options.selected.map(activity => (
           <li key={`label_${activity.code}`}>
             <span data-id={activity.code}>
-              <Icon name="check-circle-o" textAfter />
+              <CheckCircleOutlineIcon className="textAfter" />
               {activity.label}
             </span>
           </li>

@@ -41,6 +41,41 @@ describe("AttributeFactory", () => {
     expect(stringAttribute.value).toBe("test string");
   });
 
+  it("should be able to create a number attribute with value from a simple JSON structure", () => {
+    const numberAttribute = AttributeFactory.createAttribute(
+      "number",
+      "number",
+      {
+        name: "number",
+        value: 0
+      },
+      {
+        type: "number"
+      }
+    );
+
+    expect(numberAttribute.value).toBe(0);
+  });
+
+  it("should be able to create a choice attribute with treshold from a standard JSON structure", () => {
+    const choiceAttribute = AttributeFactory.createAttribute(
+      "choice",
+      "choice",
+      {
+        name: "choice"
+      },
+      {
+        type: "string",
+        optionMode: "dynamicWithThreshold",
+        multiplechoice: false,
+        layouthint: ["combobox"],
+        enumerated: true
+      }
+    );
+
+    expect(choiceAttribute.value).toBe(null);
+  });
+
   it("should be able to create a password attribute from a simple JSON structure", () => {
     const passwordAttribute = AttributeFactory.createAttribute(
       "password",
@@ -76,5 +111,67 @@ describe("AttributeFactory", () => {
     expect(dateAttribute instanceof DateAttributeModel).toBe(true);
     expect(dateAttribute.inputvalue).toBe("29-11-2018");
     expect(dateAttribute.value).toBe("2018-11-29");
+  });
+
+  it("should be able to create a composite attribute from a simple JSON structure", () => {
+    const composite = AttributeFactory.createAttribute(
+      "composite",
+      "composite",
+      {
+        ControleDBC: ["OperatieMammatumorPassend"],
+        DiagnoseBehandelCombinatie: "n020107057",
+        GeenVereisten: true
+      },
+      {
+        type: "composite",
+        label: "results",
+        children: [
+          {
+            ControleDBC: {
+              type: "string",
+              label: "Controle DBC",
+              optionMode: "static",
+              falseAllowed: true,
+              multiplechoice: true,
+              _links: {
+                concept: {
+                  href:
+                    "/concepts/DBC controle/Business design/DBC controle.bixml/ControleDBC"
+                }
+              },
+              layouthint: ["checkbox"],
+              enumerated: true,
+              options: [
+                {
+                  code: "OperatieMammatumorPassend",
+                  label: "Hersteloperatie van borst met prothese passend",
+                  _links: {
+                    concept: {
+                      href:
+                        "/concepts/DBC controle/Business design/Hersteloperatie van borst/Controle hersteloperatie van borst met prothese.bixml/HersteloperatieVanBorstMetProthesePassend"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            GeenVereisten: {
+              type: "boolean",
+              label: "Geen vereisten",
+              _links: {
+                concept: {
+                  href:
+                    "/concepts/Zorgactiviteiten/Business design/Zorgactiviteiten.bixml/GeenVereisten"
+                }
+              },
+              layouthint: ["radiobutton"]
+            }
+          }
+        ]
+      }
+    );
+
+    expect(composite.children.all[0].value).toBe("OperatieMammatumorPassend");
   });
 });

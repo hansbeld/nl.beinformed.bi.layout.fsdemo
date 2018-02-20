@@ -20,15 +20,6 @@
     "link": "",
     "component": ["form"]
   },
-  "ICON": {
-    "hint": "icon",
-    "description": {
-      "NL": "Render als icoon.",
-      "EN": "Render as icon."
-    },
-    "link": "",
-    "component": ["attribute/string"]
-  },
   "MANDATORY": {
     "hint": "mandatory",
     "description": {
@@ -348,6 +339,15 @@
     "link": "",
     "component": ["list/case"]
   },
+  "CLICK_TO_OPEN_CASE_VIEW": {
+    "hint": "click-to-open-case-view",
+    "description": {
+      "NL": "Klikken op een rij opent de case detail",
+      "EN": "Click on a row opens the case detail"
+    },
+    "link": "",
+    "component": ["list/case"]
+  },
   "SHOW_ONE_RESULT_AS_DETAIL": {
     "hint": "show-one-result-as-detail",
     "description": {
@@ -356,6 +356,39 @@
     },
     "link": "",
     "component": ["list"]
+  },
+  "CONFIRM_PASSWORD": {
+    "hint": "confirm-password",
+    "description": {
+      "NL": "Wachtwoord attribuut moet bevestigd worden dmv een tweede wachtwoord attribuut",
+      "EN": "Password attribute must be confirmed using a second password attribute"
+    },
+    "link": "",
+    "component": [
+      "attribute/password"
+    ]
+  },
+  "CASE_STATE": {
+    "hint": "state",
+    "description": {
+      "NL":"Toont dossiereigenschap als status",
+      "EN":"Displays the case property as state"
+    },
+    "link":"",
+    "component": [
+      "caseview"
+    ]
+  },
+  "CASE_TITLE": {
+    "hint": "title",
+    "description": {
+      "NL":"Toont dossiereigenschap als titel",
+      "EN":"Displays the case property as title"
+    },
+    "link":"",
+    "component": [
+      "caseview"
+    ]
   },
   "PLUS_MINUS_WIDGET": {
     "hint": "plusminuswidget",
@@ -388,9 +421,9 @@
     "hint": "how-much-can-i-borrow",
     "description": {
       "NL":
-        "Indicates the form that informs the customer how much can be borrowed",
+      "Indicates the form that informs the customer how much can be borrowed",
       "EN":
-        "Indicates the form that informs the customer how much can be borrowed"
+      "Indicates the form that informs the customer how much can be borrowed"
     },
     "link": "",
     "component": ["form"]
@@ -408,9 +441,9 @@
     "hint": "which-mortgage-suits-me-best",
     "description": {
       "NL":
-        "Indicates the form that informs the customer which mortgage suits best",
+      "Indicates the form that informs the customer which mortgage suits best",
       "EN":
-        "Indicates the form that informs the customer which mortgage suits best"
+      "Indicates the form that informs the customer which mortgage suits best"
     },
     "link": "",
     "component": ["form"]
@@ -419,9 +452,9 @@
     "hint": "total-mortgage-fee",
     "description": {
       "NL":
-        "Indicates the attribute that is used to show the total mortgage fee in the 'what will my mortgage cost instrument'",
+      "Indicates the attribute that is used to show the total mortgage fee in the 'what will my mortgage cost instrument'",
       "EN":
-        "Indicates the attribute that is used to show the total mortgage fee in the 'what will my mortgage cost instrument'"
+      "Indicates the attribute that is used to show the total mortgage fee in the 'what will my mortgage cost instrument'"
     },
     "link": "",
     "component": ["attribute"]
@@ -430,9 +463,9 @@
     "hint": "total-mortgage-amount",
     "description": {
       "NL":
-        "Indicates the attribute that is used to show the total mortgage amount in the 'what will my mortgage cost instrument'",
+      "Indicates the attribute that is used to show the total mortgage amount in the 'what will my mortgage cost instrument'",
       "EN":
-        "Indicates the attribute that is used to show the total mortgage amount in the 'what will my mortgage cost instrument'"
+      "Indicates the attribute that is used to show the total mortgage amount in the 'what will my mortgage cost instrument'"
     },
     "link": "",
     "component": ["attribute"]
@@ -441,9 +474,9 @@
     "hint": "explains:${attribute_id}",
     "description": {
       "NL":
-        "Indicates what instrument has the explanation configuration for the suitable mortgage'",
+      "Indicates what instrument has the explanation configuration for the suitable mortgage'",
       "EN":
-        "Indicates what instrument has the explanation configuration for the suitable mortgage'"
+      "Indicates what instrument has the explanation configuration for the suitable mortgage'"
     },
     "link": "",
     "component": ["question"]
@@ -524,9 +557,9 @@
     "hint": "progress-confirmed",
     "description": {
       "NL":
-        "Indicates the attribute that holds the progress information of the Mortgage application",
+      "Indicates the attribute that holds the progress information of the Mortgage application",
       "EN":
-        "Indicates the attribute that holds the progress information of the Mortgage application"
+      "Indicates the attribute that holds the progress information of the Mortgage application"
     },
     "link": "",
     "component": ["attribute"]

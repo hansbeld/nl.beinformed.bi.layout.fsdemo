@@ -30,7 +30,7 @@ export default class LayoutHintCollection extends BaseCollection<string> {
    * Checks if a specific layouthint exists
    */
   has(...hints: string[]) {
-    const hintArray = hints.length > 0 ? Array.from(hints) : [];
+    const hintArray = hints.length > 0 ? [...hints] : [];
 
     return (
       typeof hintArray.find(

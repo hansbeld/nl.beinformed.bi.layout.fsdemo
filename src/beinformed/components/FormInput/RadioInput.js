@@ -9,7 +9,7 @@ type RadioInputProps = {
   disabled?: boolean,
   id: string,
   isChecked: boolean,
-  stacked: boolean,
+  stacked?: boolean,
   label: string,
   name: string,
   readOnly?: boolean,

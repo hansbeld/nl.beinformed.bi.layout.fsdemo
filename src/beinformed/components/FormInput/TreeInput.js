@@ -2,6 +2,9 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 
+import PlusBoxOutlineIcon from "mdi-react/PlusBoxOutlineIcon";
+import MinusBoxOutlineIcon from "mdi-react/MinusBoxOutlineIcon";
+
 import CheckboxInput from "beinformed/components/FormInput/CheckboxInput";
 import RadioInput from "beinformed/components/FormInput/RadioInput";
 import FormContentRenderer from "beinformed/components/FormContent/FormContentRenderer";
@@ -51,13 +54,15 @@ const TreeInputToggle = ({
   onClick,
   onKeyDown
 }: TreeInputToggleProps) => {
-  const toggleClass = classNames("choice-tree-toggle fa", {
-    "fa-chevron-right tree-node-closed": !expanded,
-    "fa-chevron-down tree-node-open": expanded
+  const toggleClass = classNames("choice-tree-toggle", {
+    "tree-node-closed": !expanded,
+    "tree-node-open": expanded
   });
 
+  const ToggleIcon = expanded ? MinusBoxOutlineIcon : PlusBoxOutlineIcon;
+
   return (
-    <i
+    <ToggleIcon
       className={toggleClass}
       role="button"
       aria-controls={`${id}-${option.code}`}
@@ -172,14 +177,18 @@ class TreeInput extends Component<TreeInputProps, TreeInputState> {
               isChecked={option.selected}
               disabled={this.props.disabled || this.props.readOnly}
               inError={this.props.inError}
-              onChange={this.props.onChange}
               count={option.count}
+              stacked={this.props.stacked}
+              onChange={this.props.onChange}
             />
 
-            <FormContentRenderer
-              concept={option.concept}
-              contentConfiguration={this.props.optionContentConfiguration}
-            />
+            {option.concept &&
+              this.props.optionContentConfiguration && (
+                <FormContentRenderer
+                  concept={option.concept}
+                  contentConfiguration={this.props.optionContentConfiguration}
+                />
+              )}
 
             {option.children &&
               this.state.visible.includes(option.code) && (

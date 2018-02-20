@@ -89,31 +89,43 @@ describe("CaseViewModel", () => {
           _id: {
             label: "Id",
             type: "integer"
-          },
-          CaseName: {
-            label: "Case name",
-            type: "string"
-          },
-          CaseType: {
-            label: "Case type",
-            type: "string"
-          },
-          Owner: {
-            label: "Case owner",
-            type: "string"
-          },
-          State: {
-            label: "State",
-            type: "string",
-            options: [
-              {
-                code: "Registered",
-                label: "Registered"
-              }
-            ]
           }
         },
         attributes: [
+          {
+            CaseName: {
+              label: "Case name",
+              type: "string",
+              layouthint: ["title"]
+            }
+          },
+          {
+            CaseType: {
+              label: "Case type",
+              type: "string",
+              layouthint: ["type"]
+            }
+          },
+          {
+            Owner: {
+              label: "Case owner",
+              type: "string",
+              layouthint: ["owner"]
+            }
+          },
+          {
+            State: {
+              label: "State",
+              type: "string",
+              layouthint: ["state"],
+              options: [
+                {
+                  code: "Registered",
+                  label: "Registered"
+                }
+              ]
+            }
+          },
           {
             Format: {
               label: "Format",

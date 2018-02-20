@@ -5,10 +5,18 @@
 
   a {
     color: $application-header-link-color;
+
+    > .mdi-icon {
+      fill: $application-header-link-color;
+    }
   }
 
   a:hover {
     color: $application-header-link-hover-color;
+
+    > .mdi-icon {
+      fill: $application-header-link-hover-color;
+    }
   }
 
   .generic-menu,

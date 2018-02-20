@@ -34,6 +34,10 @@ class ModularUIRequest {
   constructor(href: Href, options: Object = {}) {
     this._response = new ModularUIResponse();
 
+    // copy request parameters to response, to be able to use them in the models
+    // self links are missing the request parameters
+    this._response.parameters = href.parameters;
+
     this.href = href;
     this.options = options;
 

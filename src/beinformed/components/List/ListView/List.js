@@ -5,7 +5,10 @@ import { withRouter } from "react-router-dom";
 
 import ListItem from "beinformed/components/List/ListView/ListItem";
 
-import { MULTI_ROW_TASK } from "beinformed/constants/LayoutHints";
+import {
+  MULTI_ROW_TASK,
+  CLICK_TO_OPEN_CASE_VIEW
+} from "beinformed/constants/LayoutHints";
 
 import Href from "beinformed/models/href/Href";
 
@@ -35,7 +38,9 @@ class ListView extends Component<ViewProps> {
     return this.props.openListItemInCaseView
       ? new Href(item.selfhref, "CaseView")
       : new Href(
-          `${this.props.list.selfhref.path}/${item.id}${location.search}`,
+          `${this.props.list.selfhref.path}/${item.id}${
+            this.props.location.search
+          }`,
           "ListDetail"
         );
   }
@@ -59,6 +64,7 @@ class ListView extends Component<ViewProps> {
             item={item}
             href={this.getItemHref(item)}
             isActive={this.itemIsActive(item)}
+            navToCaseView={list.layouthint.has(CLICK_TO_OPEN_CASE_VIEW)}
             isSelectable={list.actionCollection.hasActionsByLayoutHint(
               MULTI_ROW_TASK
             )}

@@ -17,40 +17,52 @@ const ApplicationFooter = () => (
         </h3>
         <ul className="list-unstyled">
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.ContactUs"
-              defaultMessage="Contact us"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.ContactUs"
+                defaultMessage="Contact us"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.HelpAndFAQs"
-              defaultMessage="Help &amp; FAQs"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.HelpAndFAQs"
+                defaultMessage="Help &amp; FAQs"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.FraudDetection"
-              defaultMessage="Fraud detection"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.FraudDetection"
+                defaultMessage="Fraud detection"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.ServiceStatus"
-              defaultMessage="Service status"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.ServiceStatus"
+                defaultMessage="Service status"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.LostStolenCard"
-              defaultMessage="Lost or stolen card"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.LostStolenCard"
+                defaultMessage="Lost or stolen card"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.FindBranch"
-              defaultMessage="Find a branch"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.FindBranch"
+                defaultMessage="Find a branch"
+              />
+            </NotImplementedLink>
           </li>
         </ul>
       </div>
@@ -63,40 +75,52 @@ const ApplicationFooter = () => (
         </h3>
         <ul className="list-unstyled">
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.AboutUs"
-              defaultMessage="About us"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.AboutUs"
+                defaultMessage="About us"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.News"
-              defaultMessage="News"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.News"
+                defaultMessage="News"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.BankingWithUs"
-              defaultMessage="Banking with us"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.BankingWithUs"
+                defaultMessage="Banking with us"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.Testimonials"
-              defaultMessage="Testimonials"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.Testimonials"
+                defaultMessage="Testimonials"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.Partners"
-              defaultMessage="Partners"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.Partners"
+                defaultMessage="Partners"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.Careers"
-              defaultMessage="Careers"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.Careers"
+                defaultMessage="Careers"
+              />
+            </NotImplementedLink>
           </li>
         </ul>
       </div>
@@ -106,40 +130,52 @@ const ApplicationFooter = () => (
         </h3>
         <ul className="list-unstyled">
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.Accounts"
-              defaultMessage="Accounts"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.Accounts"
+                defaultMessage="Accounts"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.Mortgages"
-              defaultMessage="Mortgages"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.Mortgages"
+                defaultMessage="Mortgages"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.CreditCards"
-              defaultMessage="CreditCards"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.CreditCards"
+                defaultMessage="CreditCards"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.Insurance"
-              defaultMessage="Insurance"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.Insurance"
+                defaultMessage="Insurance"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.Loans"
-              defaultMessage="Loans"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.Loans"
+                defaultMessage="Loans"
+              />
+            </NotImplementedLink>
           </li>
           <li>
-            <NotImplementedLink
-              messageId="ApplicationFooter.Investment"
-              defaultMessage="Investment"
-            />
+            <NotImplementedLink>
+              <Message
+                messageId="ApplicationFooter.Investment"
+                defaultMessage="Investment"
+              />
+            </NotImplementedLink>
           </li>
         </ul>
       </div>

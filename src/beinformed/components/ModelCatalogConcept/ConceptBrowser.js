@@ -20,7 +20,7 @@ import "./ConceptBrowser.scss";
 import type ConceptIndexModel from "beinformed/models/concepts/ConceptIndexModel";
 
 type ConceptBrowserProps = {
-  conceptIndex: ConceptIndexModel
+  conceptindex: ConceptIndexModel
 };
 
 const ConceptBrowser = ({ conceptindex }: ConceptBrowserProps) => {

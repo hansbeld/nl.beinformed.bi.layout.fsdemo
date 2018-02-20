@@ -30,6 +30,7 @@ class DropdownLink extends Component<DropdownLinkProp> {
     );
   }
 
+  // Used on dropdownchildren to provide keyboard navigation
   focus() {
     this._link.focus();
   }
