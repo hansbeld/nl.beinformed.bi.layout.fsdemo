@@ -55,7 +55,6 @@ class ApplyForMortgageRiskProfile extends Component<
       : panel.listItemCollection.first.actionCollection.getActionsByType(
           "update"
         ).first;
-
     if (formAction) {
       this.setState({
         formHref: formAction.selfhref

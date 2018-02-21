@@ -40,6 +40,4 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 export const connector = connect(mapStateToProps, null);
-
-// Export connected component for default use
 export default connector(Redirect);
