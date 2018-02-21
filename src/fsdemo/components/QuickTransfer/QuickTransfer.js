@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 import FormBody from "beinformed/containers/Form/FormBody";
 
@@ -11,6 +12,7 @@ import ActionModel from "beinformed/models/actions/ActionModel";
 import FormModel from "beinformed/models/form/FormModel";
 
 import "./QuickTransfer.scss";
+import {HTTP_METHODS} from "beinformed/constants/Constants";
 
 type QuickTransferProps = {
   action: ActionModel,
@@ -23,9 +25,23 @@ type QuickTransferState = {
 };
 
 class QuickTransfer extends Component<QuickTransferProps, QuickTransferState> {
+  handleSubmit = (form: FormModel) => {
+    this.props.fetchModularUI(form.selfhref, {
+      propName: "form",
+      method: HTTP_METHODS.POST,
+      data: form.formdata,
+      updateModel: form
+    });
+  };
+
   render() {
     if (!this.props.form) {
       return null;
+    }
+console.info('form', this.props.form);
+
+    if (this.props.form.isFinished) {
+      return <Redirect to="/accounts/customer" />;
     }
 
     return (
@@ -40,7 +56,7 @@ class QuickTransfer extends Component<QuickTransferProps, QuickTransferState> {
                 type="submit"
                 name="submit"
                 buttonStyle="primary"
-                onClick={() => this.props.onSubmit(this.props.form)}
+                onClick={() => this.handleSubmit(this.props.form)}
               >
                 <Message
                   id="quicktransfer.btn-transfer"

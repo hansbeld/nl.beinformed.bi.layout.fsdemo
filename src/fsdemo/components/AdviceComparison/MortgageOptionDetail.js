@@ -2,7 +2,7 @@
 import React from "react";
 import { Message } from "beinformed/containers/I18n/Message";
 import NotImplementedLink from "fsdemo/components/Link/NotImplementedLink";
-import ApplyForMortgageLink from "fsdemo/components/ApplyForMortgage/ApplyForMortgageLink";
+import ApplyForMortgageLink from "fsdemo/containers/ApplyForMortgage/ApplyForMortgageLink";
 
 import AdviceExplain from "fsdemo/components/AdviceMortgageCost/AdviceExplain";
 
@@ -65,7 +65,7 @@ const MortgageOptionDetail = ({ show, mortgage }: MortgageOptionDetailProps) =>
           </p>
           <ApplyForMortgageLink
             btnType="primary"
-            mortgageForm={mortgage.mortgageForm}
+            form={mortgage.mortgageForm}
           />
         </div>
       </div>

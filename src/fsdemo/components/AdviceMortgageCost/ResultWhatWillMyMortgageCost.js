@@ -4,7 +4,7 @@ import { Message } from "beinformed/containers/I18n/Message";
 
 import MortgageAdviceResult from "fsdemo/components/Advice/MortgageAdviceResult";
 
-import ApplyForMortgageLink from "fsdemo/components/ApplyForMortgage/ApplyForMortgageLink";
+import ApplyForMortgageLink from "fsdemo/containers/ApplyForMortgage/ApplyForMortgageLink";
 import AdviceExplain from "fsdemo/components/AdviceMortgageCost/AdviceExplain";
 
 import "./ResultWhatWillMyMortgageCost.scss";
@@ -41,7 +41,7 @@ const ResultWhatWillMyMortgageCost = ({
               id="ResultMortgageCost.apply.description"
               defaultMessage="You can apply for your mortgage online."
             />
-            <ApplyForMortgageLink btnType="popout" mortgageForm={form} />
+            <ApplyForMortgageLink btnType="popout" form={form} />
           </p>
           {isComparing ? (
             <p>

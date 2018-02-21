@@ -50,7 +50,10 @@ class ListMain extends Component<ListMainProps, ListMainState> {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return nextState.viewType !== this.props.viewType;
+    return (
+      nextState.viewType !== this.props.viewType ||
+      nextProps.list.key !== this.props.list.key
+    );
   }
 
   getAvailableViews = () => {
@@ -240,7 +243,7 @@ class ListMain extends Component<ListMainProps, ListMainState> {
       "has-no-results": !list.hasResults(),
       "has-results": list.hasResults()
     });
-
+    console.info("listMain", list);
     return (
       <div className={mainClass}>
         {this.renderTop()}

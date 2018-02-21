@@ -126,9 +126,6 @@ class CheckEligibility extends Component<CheckEligibilityProps, {}> {
 
     return (
       <Modal
-        ref={c => {
-          _modal = c;
-        }}
         size="large"
       >
         <Helmet>

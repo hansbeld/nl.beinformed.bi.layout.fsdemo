@@ -26,7 +26,7 @@ import "./Application.scss";
 
 const Application = ({ application, locale }) =>
   application ? (
-    <Main>
+    <Main title={application.label} locale={locale}>
       <div className="container">
         <ApplicationHeader application={application} />
 

@@ -26,6 +26,7 @@ class ApplyForMortgageLink extends Component<ApplyForMortgageLinkProps> {
         href={new Href("/apply-for-a-mortgage")}
         dataId="ApplyForMortgage"
         className={linkClass}
+        onclick={}
       >
         <Message
           id="ApplyForMortgageLink.link"

@@ -1,5 +1,10 @@
 @import "../../../variables";
 
+// Icons
+$mdi-font-path: "~mdi/fonts/" !default;
+
+@import "~mdi/scss/materialdesignicons";
+
 .apply-for-mortgage-information {
   ul {
     list-style: none;
@@ -12,15 +17,14 @@
       padding-left: 23px;
 
       &::before {
-        content: "\f00c";
+        content: mdi("check");
+        font: normal normal normal 1em/1 "Material Design Icons";
 
         position: absolute;
-        top: 0;
+        top: 4px;
         left: 0;
 
         color: $orange;
-
-        font-family: FontAwesome, serif;
       }
     }
   }
