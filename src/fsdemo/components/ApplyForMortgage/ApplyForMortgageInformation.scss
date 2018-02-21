@@ -18,13 +18,14 @@ $mdi-font-path: "~mdi/fonts/" !default;
 
       &::before {
         content: mdi("check");
-        font: normal normal normal 1em/1 "Material Design Icons";
 
         position: absolute;
         top: 4px;
         left: 0;
 
         color: $orange;
+
+        font: normal normal normal 1em/1 "Material Design Icons";
       }
     }
   }

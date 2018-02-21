@@ -18,7 +18,7 @@ import MortgageComparison from "fsdemo/components/AdviceComparison/MortgageCompa
 
 import withModularUI from "beinformed/utils/modularui/withModularUI";
 import { HTTP_METHODS } from "beinformed/constants/Constants";
-import {storeAttributeInput} from "../../utils/AttributeInputCache";
+import { storeAttributeInput } from "../../utils/AttributeInputCache";
 
 export type MortgageData = {
   isComplete: boolean,
@@ -66,11 +66,11 @@ class MortgageAdvice extends Component<
   createComparisonForm(rateType, period) {
     const comparisonForm = this.props.form.clone(true);
 
-    const rateTypeAttribute = comparisonForm.missingObjects.first.attributeCollection.getAttributeByKey(
-      "InterestRateType"
+    const rateTypeAttribute = comparisonForm.findAttribute(
+      attribute => attribute.key === "InterestRateType"
     );
-    const periodAttribute = comparisonForm.missingObjects.first.attributeCollection.getAttributeByKey(
-      "PeriodOfInterestRate"
+    const periodAttribute = comparisonForm.findAttribute(
+      attribute => attribute.key === "PeriodOfInterestRate"
     );
 
     rateTypeAttribute.reset();

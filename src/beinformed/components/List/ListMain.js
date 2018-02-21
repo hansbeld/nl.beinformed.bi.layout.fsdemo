@@ -243,7 +243,7 @@ class ListMain extends Component<ListMainProps, ListMainState> {
       "has-no-results": !list.hasResults(),
       "has-results": list.hasResults()
     });
-    console.info("listMain", list);
+
     return (
       <div className={mainClass}>
         {this.renderTop()}

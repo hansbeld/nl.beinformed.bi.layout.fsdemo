@@ -1,6 +1,7 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, withRouter } from "react-router-dom";
 
+import Form from "beinformed/containers/Form/Form";
 import Main from "beinformed/components/Main/Main";
 
 import ApplicationHeader from "fsdemo/components/ApplicationHeader/ApplicationHeader";
@@ -9,15 +10,16 @@ import ApplicationFooter from "fsdemo/components/ApplicationFooter/ApplicationFo
 import Routes from "beinformed/components/Routes/Routes";
 import MainRoutes from "beinformed/components/Routes/MainRoutes";
 import ModalRoutes from "beinformed/components/Routes/ModalRoutes";
-import Form from "beinformed/containers/Form/Form";
 
 import HomePage from "fsdemo/components/HomePage/HomePage";
 import SignIn from "fsdemo/containers/SignIn/SignIn";
 import RegisterForOnlineBanking from "fsdemo/containers/RegisterForOnlineBanking/RegisterForOnlineBanking";
 import Account from "fsdemo/containers/Account/Account";
 import MortgageInstruments from "fsdemo/components/MortgageInstruments/MortgageInstruments";
-import ApplyForMortgage from "fsdemo/containers/ApplyForMortgage/ApplyForMortgage";
 import CheckEligibility from "fsdemo/containers/CheckEligibility/CheckEligibility";
+
+import ApplyForMortgage from "fsdemo/containers/ApplyForMortgage/ApplyForMortgage";
+import ApplyForMortgageCreate from "fsdemo/components/ApplyForMortgage/ApplyForMortgageCreate";
 import ApplyForMortgageInformation from "../ApplyForMortgage/ApplyForMortgageInformation";
 
 import { LOGIN_PATH } from "beinformed/constants/Constants";
@@ -49,16 +51,18 @@ const Application = ({ application, locale }) =>
               <Redirect from="/accounts" exact to="/accounts/customer" />
 
               <Route
-                path="/apply-for-a-mortgage/mortgage-application/:id"
-                component={ApplyForMortgage}
+                path="/apply-for-a-mortgage"
+                exact
+                component={ApplyForMortgageCreate}
               />
+
               <Route
                 path="/apply-for-a-mortgage/applications/create-application-form"
                 component={Form}
               />
-              <Redirect
-                from="/apply-for-a-mortgage"
-                to="/apply-for-a-mortgage/applications/create-application-form"
+              <Route
+                path="/apply-for-a-mortgage/mortgage-application/:id"
+                component={ApplyForMortgage}
               />
 
               <Route
@@ -80,4 +84,4 @@ const Application = ({ application, locale }) =>
     </Main>
   ) : null;
 
-export default Application;
+export default withRouter(Application);

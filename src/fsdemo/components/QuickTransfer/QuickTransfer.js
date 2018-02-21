@@ -12,7 +12,7 @@ import ActionModel from "beinformed/models/actions/ActionModel";
 import FormModel from "beinformed/models/form/FormModel";
 
 import "./QuickTransfer.scss";
-import {HTTP_METHODS} from "beinformed/constants/Constants";
+import { HTTP_METHODS } from "beinformed/constants/Constants";
 
 type QuickTransferProps = {
   action: ActionModel,
@@ -38,7 +38,6 @@ class QuickTransfer extends Component<QuickTransferProps, QuickTransferState> {
     if (!this.props.form) {
       return null;
     }
-console.info('form', this.props.form);
 
     if (this.props.form.isFinished) {
       return <Redirect to="/accounts/customer" />;

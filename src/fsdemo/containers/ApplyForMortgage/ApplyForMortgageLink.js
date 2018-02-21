@@ -1,15 +1,13 @@
 // @flow
 import React, { PureComponent } from "react";
 import classNames from "classnames";
-import { Message } from "beinformed/containers/I18n/Message";
-
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
+import { Message } from "beinformed/containers/I18n/Message";
 
 import { applyForMortgageAction } from "fsdemo/containers/ApplyForMortgage/actions";
 
-import Link from "beinformed/components/Link/Link";
-
-import Href from "beinformed/models/href/Href";
 import ActionModel from "beinformed/models/actions/ActionModel";
 
 import type { Connector } from "react-redux";
@@ -31,13 +29,15 @@ class ApplyForMortgageLink extends PureComponent<ApplyForMortgageLinkProps> {
       "btn-block btn-popout mt-2": this.props.btnType === "popout"
     });
 
+    const href = {
+      pathname: "/apply-for-a-mortgage",
+      state: {
+        data: this.props.form.formdata
+      }
+    };
+
     return (
-      <Link
-        onClick={() => this.props.onActionClick(this.props.form)}
-        href={new Href("/applications/applications")}
-        dataId="ApplyForMortgage"
-        className={linkClass}
-      >
+      <Link to={href} data-id="ApplyForMortgage" className={linkClass}>
         <Message
           id="ApplyForMortgageLink.link"
           defaultMessage="Apply online now"

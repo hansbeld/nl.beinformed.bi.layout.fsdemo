@@ -148,7 +148,7 @@ class MortgageComparison extends Component<MortgageComparisonProps> {
             }}
           >
             {this.props.comparison
-              .filter(mortgage => mortgage.isComplete)
+              // .filter(mortgage => mortgage.isComplete)
               .map((mortgage, i) => this.renderMortgageOption(mortgage, i))}
           </div>
         </div>

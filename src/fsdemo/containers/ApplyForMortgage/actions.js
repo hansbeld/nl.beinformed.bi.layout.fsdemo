@@ -26,7 +26,6 @@ const retrieveMortgageApplication = mortgageForm => ({
       });
 
       return push(createApplicationAction.selfhref.toString());
-      // console.info('createApplicationAction', createApplicationAction);
     }
   }
 });

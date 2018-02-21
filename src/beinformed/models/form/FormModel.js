@@ -328,6 +328,10 @@ class FormModel extends ResourceModel {
     return this._completeObjects;
   }
 
+  get allObjects(): Array<FormObjectCollection> {
+    return [...this.completeObjects, this.missingObjects];
+  }
+
   /**
    * The end result is the result for the object that was previous shown
    */
@@ -474,11 +478,9 @@ class FormModel extends ResourceModel {
       tokens: this.tokens
     };
 
-    const allObjectCollections = [...this.completeObjects, this.missingObjects];
-
     const formdata = [];
 
-    allObjectCollections.forEach(formObjectCollection => {
+    this.allObjects.forEach(formObjectCollection => {
       formObjectCollection.all.forEach(formObject => {
         const existingObjectIndex = formdata.findIndex(
           obj =>
@@ -535,7 +537,7 @@ class FormModel extends ResourceModel {
     const newAnchors = newForm.data.missing ? newForm.data.missing.anchors : [];
 
     if (this.hasNewObject(newAnchors)) {
-      this._completeObjects = [...this.completeObjects, this.missingObjects];
+      this._completeObjects = this.allObjects;
       this._missingObjects = newForm._missingObjects;
       this._endResultObjects = newForm._endResultObjects;
     } else {
@@ -677,11 +679,9 @@ class FormModel extends ResourceModel {
   }
 
   findAttribute(findMethod: Function) {
-    const allObjectCollections = [...this.completeObjects, this.missingObjects];
-
     let foundAttribute = null;
 
-    allObjectCollections.forEach(formObjectCollection => {
+    this.allObjects.forEach(formObjectCollection => {
       if (foundAttribute === null) {
         formObjectCollection.all.forEach(formObject => {
           foundAttribute =

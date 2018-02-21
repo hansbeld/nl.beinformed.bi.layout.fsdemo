@@ -125,9 +125,7 @@ class CheckEligibility extends Component<CheckEligibilityProps, {}> {
         : form.allEndResultObjects.get("CheckEligibilityForARepaymentMortgage");
 
     return (
-      <Modal
-        size="large"
-      >
+      <Modal size="large">
         <Helmet>
           <title>{form.label}</title>
         </Helmet>
