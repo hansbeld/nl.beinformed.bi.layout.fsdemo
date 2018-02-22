@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 import { withMessage, Message } from "beinformed/containers/I18n/Message";
-import withModularUI from "beinformed/utils/modularui/withModularUI";
+import withModularUI from "beinformed/modularui/withModularUI";
 
 import ConceptLink from "beinformed/components/ConceptLink/ConceptLink";
 import TextInput from "beinformed/components/FormInput/TextInput";

@@ -1,5 +1,5 @@
 // @flow
-import ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 import type ActionModel from "beinformed/models/actions/ActionModel";
 import {

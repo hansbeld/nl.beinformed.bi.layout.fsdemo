@@ -24,14 +24,24 @@ export const getResults = (
   const results = [];
   if (contentConfiguration.endResults) {
     contentConfiguration.endResults.config.forEach(config => {
-      const attributesWithContent = attributes.filter(attribute =>
-        config.attributes.includes(attribute.key)
-      );
+      const attributesWithContent = attributes.filter(attribute => {
+        if (config.attributes.includes(attribute.key)) {
+          if (attribute.isBoolean) {
+            return attribute.options.selected.length > 0;
+          }
 
-      results.push({
-        attributes: attributesWithContent,
-        config
+          return true;
+        }
+
+        return false;
       });
+
+      if (attributesWithContent.length > 0) {
+        results.push({
+          attributes: attributesWithContent,
+          config
+        });
+      }
     });
   }
 

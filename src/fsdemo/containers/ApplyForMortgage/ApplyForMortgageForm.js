@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 
-import modularui from "beinformed/utils/modularui/modularui";
+import modularui from "beinformed/modularui/modularui";
 import { removeModel } from "beinformed/containers/ModularUI/actions";
 
 import { HTTP_METHODS } from "beinformed/constants/Constants";

@@ -1,7 +1,7 @@
 // @flow
 import { connect } from "react-redux";
 
-import ModularUIRequest from "beinformed/utils/modularui/ModularUIRequest";
+import ModularUIRequest from "beinformed/modularui/ModularUIRequest";
 
 import {
   startProgress,

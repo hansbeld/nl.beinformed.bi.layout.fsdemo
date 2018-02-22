@@ -9,7 +9,7 @@ import Href from "beinformed/models/href/Href";
 import universalFetch from "beinformed/utils/fetch/universalFetch";
 import resolveModel from "beinformed/models/resolveModel";
 
-import ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 import type ListItemModel from "beinformed/models/list/ListItemModel";
 

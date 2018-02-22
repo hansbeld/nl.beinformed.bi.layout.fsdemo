@@ -1,6 +1,5 @@
 // @flow
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 
 import FormBody from "beinformed/containers/Form/FormBody";
 
@@ -34,13 +33,15 @@ class QuickTransfer extends Component<QuickTransferProps, QuickTransferState> {
     });
   };
 
-  render() {
-    if (!this.props.form) {
-      return null;
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.form && nextProps.form.isFinished) {
+      nextProps.onTransferFinished(nextProps.form);
     }
+  }
 
-    if (this.props.form.isFinished) {
-      return <Redirect to="/accounts/customer" />;
+  render() {
+    if (!this.props.form || this.props.form.isFinished) {
+      return null;
     }
 
     return (

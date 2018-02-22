@@ -10,7 +10,7 @@ import {
 } from "beinformed/containers/ProgressIndicator/actions";
 import { handleError } from "beinformed/containers/Error/actions";
 
-import ModularUI from "beinformed/utils/modularui/ModularUIRequest";
+import ModularUI from "beinformed/modularui/ModularUIRequest";
 import Href from "beinformed/models/href/Href";
 
 import MortgageInstrumentLink from "fsdemo/components/MortgageInstruments/MortgageInstrumentLink";

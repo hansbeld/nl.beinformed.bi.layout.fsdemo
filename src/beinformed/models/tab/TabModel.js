@@ -8,7 +8,7 @@ import ResourceModel from "beinformed/models/base/ResourceModel";
 import TaskGroupModel from "beinformed/models/taskgroup/TaskGroupModel";
 import ActionCollection from "beinformed/models/actions/ActionCollection";
 
-import type ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 /**
  * Describes a TabModel

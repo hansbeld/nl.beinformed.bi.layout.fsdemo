@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import { get } from "lodash";
 
 import { retrieveAttributeInput } from "fsdemo/utils/AttributeInputCache";
-import modularui from "beinformed/utils/modularui/modularui";
+import modularui from "beinformed/modularui/modularui";
 
 class ApplyForMortgageCreate extends Component {
   constructor(props) {

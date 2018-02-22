@@ -33,6 +33,18 @@ type serverProps = {
   availLocales?: Array<Object>
 };
 
+const dehydrateState = state => ({
+  ...state,
+  modularui: Object.keys(state.modularui).reduce((obj, key) => {
+    obj[key] = {
+      status: state.modularui[key].status,
+      model: state.modularui[key].model.dehydrate()
+    };
+
+    return obj;
+  }, {})
+});
+
 const server = ({
   request,
   ApplicationComponent = <Application />,
@@ -76,26 +88,17 @@ const server = ({
     .then(appHTML => {
       const state = store.getState();
 
-      state.contextPath = request.getContextPath();
-
-      if (
-        state.notification.render &&
-        state.notification.messageType === "ERROR"
-      ) {
-        const notificationError = state.notification.error._exception.error;
-
-        const err = new Error();
-        err.message = notificationError.properties.message;
-        err.stack = notificationError.properties.trace;
-
-        throw err;
+      if (state.error) {
+        throw state.error;
       }
+
+      state.contextPath = request.getContextPath();
 
       return htmlpage(
         request.getContextPath(),
         appHTML,
         Helmet.renderStatic(),
-        serialize(state)
+        serialize(dehydrateState(state))
       );
     })
     .catch(e =>

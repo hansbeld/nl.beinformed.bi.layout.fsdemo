@@ -7,7 +7,7 @@ import ConceptLinkModel from "beinformed/models/concepts/ConceptLinkModel";
 import Href from "beinformed/models/href/Href";
 import { TIMEVERSION_FILTER_NAME } from "beinformed/constants/Constants";
 
-import type ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 /**
  * Get Index of concepts, to filter model catalog

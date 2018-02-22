@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from "react";
 import textile from "textilejs";
-import withModularUI from "beinformed/utils/modularui/withModularUI";
+import withModularUI from "beinformed/modularui/withModularUI";
 
 import ApplyForMortgageForm from "fsdemo/containers/ApplyForMortgage/ApplyForMortgageForm";
 

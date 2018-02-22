@@ -3,7 +3,7 @@ import ActionCollection from "beinformed/models/actions/ActionCollection";
 import AttributeCollection from "beinformed/models/attributes/AttributeCollection";
 import ResourceModel from "beinformed/models/base/ResourceModel";
 
-import type ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 import type LinkModel from "beinformed/models/links/LinkModel";
 
 /**

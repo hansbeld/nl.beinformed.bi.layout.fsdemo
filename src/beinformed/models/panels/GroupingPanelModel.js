@@ -1,7 +1,7 @@
 // @flow
 import type Href from "beinformed/models/href/Href";
 import type LinkModel from "beinformed/models/links/LinkModel";
-import type ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 import PanelCollection from "beinformed/models/panels/PanelCollection";
 import ResourceModel from "beinformed/models/base/ResourceModel";

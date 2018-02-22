@@ -70,7 +70,6 @@ const List = ({ className, list, viewType }: ListProps) => {
               )}
 
               {showList && <ListMain list={list} viewType={viewType} />}
-
               {!showList &&
                 list.detail && (
                   <DetailPanel className="col" detail={list.detail} />

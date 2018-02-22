@@ -5,7 +5,7 @@ import FilterCollection from "beinformed/models/filters/FilterCollection";
 import ContentLinkModel from "beinformed/models/content/ContentLinkModel";
 import Href from "beinformed/models/href/Href";
 
-import type ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 import type FilterModel from "beinformed/models/filters/FilterModel";
 
 /**

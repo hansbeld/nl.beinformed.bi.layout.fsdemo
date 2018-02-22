@@ -42,7 +42,11 @@ export default class ErrorResponse {
       return "Error.ResourceNotFound";
     }
 
-    return this._error.id || "Error.GeneralError";
+    return this.error.id || this.error.name || "Error.GeneralError";
+  }
+
+  get message(): string {
+    return this.error.message || this.id;
   }
 
   get response(): Object {

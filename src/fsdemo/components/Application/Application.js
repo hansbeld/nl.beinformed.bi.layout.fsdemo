@@ -21,6 +21,7 @@ import CheckEligibility from "fsdemo/containers/CheckEligibility/CheckEligibilit
 import ApplyForMortgage from "fsdemo/containers/ApplyForMortgage/ApplyForMortgage";
 import ApplyForMortgageCreate from "fsdemo/components/ApplyForMortgage/ApplyForMortgageCreate";
 import ApplyForMortgageInformation from "../ApplyForMortgage/ApplyForMortgageInformation";
+import ApplyForMortgageSubmitted from "../ApplyForMortgageSubmitted/ApplyForMortgageSubmitted";
 
 import { LOGIN_PATH } from "beinformed/constants/Constants";
 
@@ -60,6 +61,12 @@ const Application = ({ application, locale }) =>
                 path="/apply-for-a-mortgage/applications/create-application-form"
                 component={Form}
               />
+
+              <Route
+                path="/apply-for-a-mortgage-submitted"
+                component={ApplyForMortgageSubmitted}
+              />
+
               <Route
                 path="/apply-for-a-mortgage/mortgage-application/:id"
                 component={ApplyForMortgage}

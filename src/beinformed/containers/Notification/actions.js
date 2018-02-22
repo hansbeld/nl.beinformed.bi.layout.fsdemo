@@ -97,7 +97,8 @@ export const showXHRErrorNotification = (
       NOTIFICATION_TYPES.ERROR,
       {
         id: error.id,
-        parameters: error.parameters
+        parameters: error.parameters,
+        defaultMessage: error.message
       },
       error
     )

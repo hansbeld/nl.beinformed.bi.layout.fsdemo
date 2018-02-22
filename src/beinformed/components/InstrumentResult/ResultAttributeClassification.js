@@ -26,46 +26,54 @@ const ResultAttributeClassification = ({
   id
 }: ResultAttributeProps) => (
   <div className="form-result-taxonomy form-group" data-name={attribute.name}>
-    <div className="form-label" id={`${id}-label`}>
-      {attribute.label}
-    </div>
-    <div role="group" aria-label={attribute.label}>
-      {attribute.options.all.map((option, i) => (
-        <div
-          key={i}
-          className={classNames("form-result-option", {
-            active: option.selected
-          })}
-        >
-          <div key={i} className="form-result-option-label">
-            {option.selected ? (
-              <CheckIcon className="textAfter" />
-            ) : (
-              <CloseIcon className="textAfter" />
-            )}
-            {option.label}
+    {attribute.options
+      .filter(
+        option =>
+          !contentConfiguration ||
+          (!contentConfiguration.positiveResultElements.hasConfig() &&
+            !contentConfiguration.negativeResultElements.hasConfig()) ||
+          (contentConfiguration.positiveResultElements.hasConfig() &&
+            option.selected) ||
+          (contentConfiguration.negativeResultElements.hasConfig() &&
+            !option.selected)
+      )
+      .map((option, i) => {
+        const resultElements = option.selected
+          ? contentConfiguration.positiveResultElements
+          : contentConfiguration.negativeResultElements;
+
+        return (
+          <div
+            key={`${id}-${i}`}
+            className={classNames("form-result-option", {
+              active: option.selected
+            })}
+          >
+            <div key={i} className="form-result-option-label">
+              {option.selected ? (
+                <CheckIcon className="textAfter" />
+              ) : (
+                <CloseIcon className="textAfter" />
+              )}
+              {option.getContentConfiguredLabel(resultElements)}
+            </div>
+            {option.concept &&
+              contentConfiguration && (
+                <FormContentRenderer
+                  concept={option.concept}
+                  contentConfiguration={resultElements}
+                />
+              )}
+            {attribute.concept &&
+              defaultContentConfiguration && (
+                <FormContentRenderer
+                  concept={attribute.concept}
+                  contentConfiguration={defaultContentConfiguration}
+                />
+              )}
           </div>
-          {option.concept &&
-            contentConfiguration && (
-              <FormContentRenderer
-                concept={option.concept}
-                contentConfiguration={
-                  option.selected
-                    ? contentConfiguration.positiveResultElements
-                    : contentConfiguration.negativeResultElements
-                }
-              />
-            )}
-          {attribute.concept &&
-            defaultContentConfiguration && (
-              <FormContentRenderer
-                concept={attribute.concept}
-                contentConfiguration={defaultContentConfiguration}
-              />
-            )}
-        </div>
-      ))}
-    </div>
+        );
+      })}
   </div>
 );
 

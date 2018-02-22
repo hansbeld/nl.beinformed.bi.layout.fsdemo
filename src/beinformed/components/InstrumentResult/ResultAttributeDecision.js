@@ -26,6 +26,10 @@ const ResultAttributeDecision = ({
     attribute.options.selected.length > 0 &&
     attribute.options.selected[0].code === "true";
 
+  const resultElements = isSelected
+    ? contentConfiguration.positiveResultElements
+    : contentConfiguration.negativeResultElements;
+
   return (
     <div
       className={classNames("form-result-decision form-group", {
@@ -35,7 +39,7 @@ const ResultAttributeDecision = ({
     >
       <div className="form-label">
         {isSelected ? <CheckIcon /> : <CloseIcon />}
-        {attribute.label}
+        {attribute.getContentConfiguredLabel(resultElements)}
       </div>
       {attribute.concept &&
         contentConfiguration && (

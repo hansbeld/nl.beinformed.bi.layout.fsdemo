@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 
 import Href from "beinformed/models/href/Href";
 
-import modularui from "beinformed/utils/modularui/modularui";
+import modularui from "beinformed/modularui/modularui";
 import ContentDetailSection from "beinformed/components/ModelCatalogContent/ContentDetailSection";
 
 const mapStateToProps = (state: State, ownProps) => ({

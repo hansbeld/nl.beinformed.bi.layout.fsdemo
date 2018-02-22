@@ -1,5 +1,8 @@
 // @flow
-import { push } from "react-router-redux";
+import {
+  removeModel,
+  removeModelByKey
+} from "beinformed/containers/ModularUI/actions";
 
 import {
   HIDE_NOTIFICATION_TIMEOUT,
@@ -10,7 +13,7 @@ import { showNotification } from "beinformed/containers/Notification/actions";
 /**
  * Go to component
  */
-export const reloadAccount = (): ThunkAction => dispatch => {
+export const reloadAccount = (form): ThunkAction => dispatch => {
   dispatch(
     showNotification(
       NOTIFICATION_TYPES.SUCCESS,
@@ -23,5 +26,6 @@ export const reloadAccount = (): ThunkAction => dispatch => {
     )
   );
 
-  return dispatch(push("/accounts/customer"));
+  dispatch(removeModelByKey("PanelRenderer(/accounts/account/1/summary)"));
+  return dispatch(removeModel(form));
 };

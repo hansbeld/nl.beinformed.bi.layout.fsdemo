@@ -2,7 +2,7 @@
 import type LinkModel from "beinformed/models/links/LinkModel";
 import type Href from "beinformed/models/href/Href";
 
-import ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 import BaseModel from "beinformed/models/base/BaseModel";
 import LinkCollection from "beinformed/models/links/LinkCollection";
@@ -23,9 +23,9 @@ class ResourceModel extends BaseModel {
     super(modularuiResponse.data, modularuiResponse.contributions);
 
     this._key = modularuiResponse.key;
-
-    this._childModels = this.data.childModels || [];
     this._locale = modularuiResponse.locale;
+
+    this._childModels = [];
   }
 
   /**
@@ -147,6 +147,15 @@ class ResourceModel extends BaseModel {
    * @example <caption>Put all models of instance List and GroupingPanel into the panels property</caption>
    */
   setChildModels(models: ResolvableModels[]) {} // eslint-disable-line no-unused-vars, no-empty-function
+
+  dehydrate() {
+    return {
+      ...super.dehydrate(),
+      key: this._key,
+      locale: this._locale,
+      childModels: this._childModels.map(childModel => childModel.dehydrate())
+    };
+  }
 }
 
 export default ResourceModel;

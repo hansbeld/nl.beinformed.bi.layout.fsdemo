@@ -20,6 +20,11 @@ import Cache from "beinformed/utils/browser/Cache";
 import type FetchError from "beinformed/utils/fetch/FetchError";
 import { changePassword } from "beinformed/containers/SignIn/actions";
 
+const saveError = (error: Error | FetchError) => ({
+  type: "SAVE_ERROR",
+  payload: error
+});
+
 /**
  * Handle errors by sending an error notification message
  */
@@ -70,13 +75,13 @@ export const handleError = (error: Error | FetchError): ThunkAction => (
 
   if (IS_SERVER) {
     // eslint-disable-next-line no-console
-    console.error(JSON.stringify(error));
-  } else {
-    // eslint-disable-next-line no-console
-    setTimeout(() => {
-      throw error;
-    });
+    console.error(error);
+    return dispatch(saveError(error));
   }
+
+  setTimeout(() => {
+    throw error;
+  });
 
   return dispatch(showXHRErrorNotification(errorResponse));
 };

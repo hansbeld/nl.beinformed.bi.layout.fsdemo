@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from "react";
 
-import withModularUI from "beinformed/utils/modularui/withModularUI";
+import withModularUI from "beinformed/modularui/withModularUI";
 
 import { Message, withMessage } from "beinformed/containers/I18n/Message";
 import Link from "beinformed/components/Link/Link";

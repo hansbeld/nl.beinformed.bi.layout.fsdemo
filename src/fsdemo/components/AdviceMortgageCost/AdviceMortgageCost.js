@@ -16,7 +16,7 @@ import MortgageAdviceButtons from "../Advice/MortgageAdviceButtons";
 
 import MortgageComparison from "fsdemo/components/AdviceComparison/MortgageComparison";
 
-import withModularUI from "beinformed/utils/modularui/withModularUI";
+import withModularUI from "beinformed/modularui/withModularUI";
 import { HTTP_METHODS } from "beinformed/constants/Constants";
 import { storeAttributeInput } from "../../utils/AttributeInputCache";
 

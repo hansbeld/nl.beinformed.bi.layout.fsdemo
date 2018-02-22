@@ -7,7 +7,7 @@ import ContentConfiguration from "beinformed/models/contentconfiguration/Content
 
 import AttributeFactory from "beinformed/models/attributes/AttributeFactory";
 
-import type ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 import type ListItemModel from "beinformed/models/list/ListItemModel";
 import type LinkModel from "beinformed/models/links/LinkModel";
 
@@ -49,8 +49,12 @@ export default class ListDetailModel extends DetailModel {
     const links = [...super.getInitialChildModelLinks(), ...listitemPanels];
 
     if (this.hasResults) {
-      links.push(...this.results.getInitialChildModelLinks());
-      links.push(...this.givenAnswers.getInitialChildModelLinks());
+      if (this.results) {
+        links.push(...this.results.getInitialChildModelLinks());
+      }
+      if (this.givenAnswers) {
+        links.push(...this.givenAnswers.getInitialChildModelLinks());
+      }
     }
 
     return links;
@@ -147,8 +151,9 @@ export default class ListDetailModel extends DetailModel {
   }
 
   setResultSection() {
-    if (this.contributions.resultSection) {
+    if (this.contributions.resultSection && this.data.resultSection) {
       if (
+        this.data.resultSection.results &&
         this.contributions.resultSection.results &&
         this.contributions.resultSection.results !== null
       ) {
@@ -165,6 +170,7 @@ export default class ListDetailModel extends DetailModel {
       }
 
       if (
+        this.data.resultSection.givenAnswers &&
         this.contributions.resultSection.givenAnswers &&
         this.contributions.resultSection.givenAnswers !== null
       ) {

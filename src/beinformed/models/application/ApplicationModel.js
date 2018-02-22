@@ -33,7 +33,6 @@ export default class ApplicationModel extends ResourceModel {
    */
   getInitialChildModelLinks(): LinkModel[] {
     const userService = this.links.getLinkByKey("UserServices");
-
     if (userService && userService.href.path === "/login") {
       throw new Error(
         "The user service (Login panel) should not have the uri '/login', use a different URI because this uri matches the login service."

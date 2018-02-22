@@ -1,7 +1,7 @@
 import ActionModel from "beinformed/models/actions/ActionModel";
 import Href from "beinformed/models/href/Href";
 
-import ModularuiResponse from "beinformed/utils/modularui/ModularUIResponse";
+import ModularuiResponse from "beinformed/modularui/ModularUIResponse";
 
 describe("ActionModel", () => {
   it("should be able to create an empty ActionModel object", () => {

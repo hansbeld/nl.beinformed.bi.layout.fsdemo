@@ -1,11 +1,14 @@
 @import "../../../variables";
 
 .form-result-option {
-  padding-left: $spacer * 1.5;
-
   margin-top: $spacer / 2;
 
   .mdi-icon {
+    width: 24px;
+
+    height: 24px;
+
+    margin-bottom: -3px;
     fill: $red;
   }
 
@@ -21,6 +24,8 @@
     position: relative;
 
     margin-bottom: $spacer / 2;
+
+    font-weight: $font-weight-bold;
 
     .icon {
       position: absolute;

@@ -3,7 +3,7 @@ import LinkCollection from "beinformed/models/links/LinkCollection";
 import ResourceModel from "beinformed/models/base/ResourceModel";
 import ConceptDetailModel from "beinformed/models/concepts/ConceptDetailModel";
 import type LinkModel from "beinformed/models/links/LinkModel";
-import type ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 import { TIMEVERSION_FILTER_NAME } from "beinformed/constants/Constants";
 import FilterCollection from "beinformed/models/filters/FilterCollection";
 /**

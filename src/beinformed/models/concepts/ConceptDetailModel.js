@@ -9,7 +9,7 @@ import SourceReferenceCollection from "beinformed/models/concepts/SourceReferenc
 import Href from "beinformed/models/href/Href";
 import { TIMEVERSION_FILTER_NAME } from "beinformed/constants/Constants";
 
-import type ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 /**
  * Model for concept details, available through modelcatalog

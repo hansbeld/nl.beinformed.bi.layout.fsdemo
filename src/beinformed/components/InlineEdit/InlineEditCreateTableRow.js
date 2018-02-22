@@ -2,11 +2,11 @@
 import React, { Component } from "react";
 import PlusIcon from "mdi-react/PlusIcon";
 
-import ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 import Link from "beinformed/components/Link/Link";
 import InlineEditActionsCell from "beinformed/components/InlineEdit/InlineEditActionsCell";
-import withModularUI from "beinformed/utils/modularui/withModularUI";
+import withModularUI from "beinformed/modularui/withModularUI";
 
 import EditableListItemModel from "beinformed/models/list/EditableListItemModel";
 import FormModel from "beinformed/models/form/FormModel";

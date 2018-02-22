@@ -64,6 +64,18 @@ class BaseModel {
     return this._connectKey;
   }
 
+  dehydrate() {
+    return {
+      data: this._data,
+      contributions: this._contributions,
+      connectKey: this._connectKey
+    };
+  }
+
+  rehydrate(data: Object) {
+    this._connectKey = data.connectKey;
+  }
+
   /**
    * Returns a clone of the model (this is not a deep copy)
    */

@@ -1,9 +1,11 @@
 @import "../../../variables";
 
 .form-result-decision {
-  padding-bottom: $spacer / 2;
-
   .mdi-icon {
+    width: 24px;
+    height: 24px;
+
+    margin-bottom: -3px;
     fill: $red;
   }
 

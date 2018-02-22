@@ -7,7 +7,7 @@ import textile from "textilejs";
 
 import { handleError } from "beinformed/containers/Error/actions";
 
-import ModularUI from "beinformed/utils/modularui/ModularUIRequest";
+import ModularUI from "beinformed/modularui/ModularUIRequest";
 import Href from "beinformed/models/href/Href";
 
 import NotImplementedLink from "fsdemo/components/Link/NotImplementedLink";

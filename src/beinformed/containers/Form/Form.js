@@ -4,7 +4,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { goBack } from "react-router-redux";
 
-import modularui from "beinformed/utils/modularui/modularui";
+import modularui from "beinformed/modularui/modularui";
 
 import { HTTP_METHODS } from "beinformed/constants/Constants";
 

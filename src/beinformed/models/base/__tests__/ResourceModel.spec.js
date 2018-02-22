@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-import ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 import ResourceModel from "beinformed/models/base/ResourceModel";
 import LinkCollection from "beinformed/models/links/LinkCollection";

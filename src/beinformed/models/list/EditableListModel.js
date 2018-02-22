@@ -1,5 +1,5 @@
 // @flow
-import ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 import EditableListItemModel from "beinformed/models/list/EditableListItemModel";
 import {

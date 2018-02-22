@@ -2,7 +2,7 @@
 import type Href from "beinformed/models/href/Href";
 import type LinkModel from "beinformed/models/links/LinkModel";
 
-import ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 import ListItemCollection from "beinformed/models/list/ListItemCollection";
 import ListDetailModel from "beinformed/models/list/ListDetailModel";

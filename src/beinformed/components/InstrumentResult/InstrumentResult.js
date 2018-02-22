@@ -25,7 +25,7 @@ const InstrumentResult = ({
   contentConfiguration,
   id
 }: InstrumentResultProps) => (
-  <div className={classNames("form-result", className)}>
+  <div className={classNames("instrument-result", className)}>
     {contentConfiguration && (
       <div className="form-result-header">
         <h3 className="form-result-title">{contentConfiguration.label}</h3>

@@ -1,5 +1,5 @@
 // @flow
-import ModularUIRequest from "beinformed/utils/modularui/ModularUIRequest";
+import ModularUIRequest from "beinformed/modularui/ModularUIRequest";
 import { HTTP_METHODS } from "beinformed/constants/Constants";
 
 import {

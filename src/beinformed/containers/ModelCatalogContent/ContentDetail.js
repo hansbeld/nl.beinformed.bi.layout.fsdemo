@@ -3,7 +3,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import modularui from "beinformed/utils/modularui/modularui";
+import modularui from "beinformed/modularui/modularui";
 import ContentDetail from "beinformed/components/ModelCatalogContent/ContentDetail";
 
 const mapStateToProps = (state: State, ownProps) => ({

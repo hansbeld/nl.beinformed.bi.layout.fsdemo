@@ -1,5 +1,5 @@
 // @flow
-import modularui from "beinformed/utils/modularui/modularui";
+import modularui from "beinformed/modularui/modularui";
 import ConceptBrowser from "beinformed/components/ModelCatalogConcept/ConceptBrowser";
 
 export const connector = modularui(

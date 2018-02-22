@@ -2,7 +2,7 @@
 import ActionCollection from "beinformed/models/actions/ActionCollection";
 import ResourceModel from "beinformed/models/base/ResourceModel";
 
-import ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 /**
  * TaskGroupModel

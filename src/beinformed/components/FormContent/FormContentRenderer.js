@@ -18,7 +18,7 @@ import FormContentProperties from "beinformed/components/FormContent/FormContent
 import FormContentTextFragments from "beinformed/components/FormContent/FormContentTextFragments";
 import FormContentSections from "beinformed/components/FormContent/FormContentSections";
 
-import withModularUI from "beinformed/utils/modularui/withModularUI";
+import withModularUI from "beinformed/modularui/withModularUI";
 
 import {
   RENDER_CHILD_SECTIONS,

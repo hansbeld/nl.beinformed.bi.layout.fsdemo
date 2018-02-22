@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from "react";
 
-import modularui from "beinformed/utils/modularui/modularui";
+import modularui from "beinformed/modularui/modularui";
 
 import Tab from "beinformed/components/Tab/Tab";
 

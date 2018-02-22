@@ -1,5 +1,5 @@
 // @flow
-import modularui from "beinformed/utils/modularui/modularui";
+import modularui from "beinformed/modularui/modularui";
 import CaseView from "beinformed/components/CaseView/CaseView";
 
 export const connector = modularui("CaseView", ({ match }) => match.url, {

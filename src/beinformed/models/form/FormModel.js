@@ -5,7 +5,7 @@ import type LinkModel from "beinformed/models/links/LinkModel";
 import type ActionModel from "beinformed/models/actions/ActionModel";
 import type ErrorResponse from "beinformed/models/error/ErrorResponse";
 import type FormObjectModel from "beinformed/models/form/FormObjectModel";
-import type ModularUIResponse from "beinformed/utils/modularui/ModularUIResponse";
+import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 import Parameter from "beinformed/models/href/Parameter";
 import FormObjectCollection from "beinformed/models/form/FormObjectCollection";

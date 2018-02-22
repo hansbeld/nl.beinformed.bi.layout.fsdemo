@@ -11,6 +11,10 @@ import Href from "beinformed/models/href/Href";
 
 const ApplyForMortgage = ({ caseview, match, location }) => {
   if (caseview) {
+    if (caseview.getAttributeByKey("CaseState").value === "Submitted") {
+      return <Redirect href={new Href("/apply-for-a-mortgage-submitted")} />;
+    }
+
     const hasActivePanelLink = caseview.panelLinks.all.find(panelLink =>
       new Href(location.pathname).startsWith(panelLink.href)
     );
