@@ -174,4 +174,54 @@ describe("AttributeFactory", () => {
 
     expect(composite.children.all[0].value).toBe("OperatieMammatumorPassend");
   });
+
+  it("should be able to create a choice attribute with dynamicschema inside a composite", () => {
+    const composite = AttributeFactory.createAttribute(
+      null,
+      "results",
+      {
+        dynamicschema: {
+          "results.PeriodOfInterestRate": [
+            {
+              code: "n2YearsRepaymentMortgage",
+              label: "2 years"
+            },
+            {
+              code: "n3YearsRepaymentMortgage",
+              label: "3 years"
+            }
+          ]
+        },
+        results: {
+          PeriodOfInterestRate: "n5YearsRepaymentMortgage"
+        }
+      },
+      {
+        type: "composite",
+        label: "results",
+        children: [
+          {
+            PeriodOfInterestRate: {
+              type: "string",
+              label: "Period of interest rate",
+              optionMode: "dynamic",
+              falseAllowed: true,
+              multiplechoice: false,
+              layouthint: ["combobox"],
+              dynamicschemaId: "results.PeriodOfInterestRate",
+              enumerated: true
+            }
+          }
+        ]
+      }
+    );
+
+    expect(composite.type).toBe("composite");
+    expect(composite.children.length).toBe(1);
+
+    const periodOfInterest = composite.children.first;
+    expect(periodOfInterest.type).toBe("choice");
+    expect(periodOfInterest.key).toBe("PeriodOfInterestRate");
+    expect(periodOfInterest.options.length).toBe(2);
+  });
 });

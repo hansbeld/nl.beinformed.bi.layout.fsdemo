@@ -131,6 +131,10 @@ class AttributeDataHelper {
     return this._attribute._links || void 0;
   }
 
+  get dynamicschemaId() {
+    return this._attribute.dynamicschemaId;
+  }
+
   get dynamicschema() {
     const dynamicschema = this._attribute.dynamicschema;
     if (!dynamicschema) {
@@ -139,26 +143,11 @@ class AttributeDataHelper {
 
     if (dynamicschema[this.key]) {
       return dynamicschema[this.key];
-    } else if (Array.isArray(dynamicschema)) {
-      return dynamicschema;
+    } else if (this.dynamicschemaId && dynamicschema[this.dynamicschemaId]) {
+      return dynamicschema[this.dynamicschemaId];
     }
 
-    // get all dynamic schema that start with the key, for composite attributes (like results.attrKey)
-    const dynamicschemasKeys = Object.keys(dynamicschema).filter(
-      key => key.indexOf(`${this.key}.`) === 0
-    );
-
-    if (dynamicschemasKeys.length > 0) {
-      const dynamicschemaObject = {};
-
-      dynamicschemasKeys.forEach(key => {
-        dynamicschemaObject[key] = { [key]: dynamicschema[key] };
-      });
-
-      return dynamicschemaObject;
-    }
-
-    return void 0;
+    return dynamicschema;
   }
 
   get options() {
@@ -320,6 +309,7 @@ class AttributeFactory {
         ) {
           return {
             key: childKey,
+            dynamicschemaId: child[childKey].dynamicschemaId,
             children: AttributeFactory.getChildrenKeys(
               childKey,
               child[childKey].children
@@ -329,6 +319,7 @@ class AttributeFactory {
 
         return {
           key: childKey,
+          dynamicschemaId: child[childKey].dynamicschemaId,
           children: []
         };
       });

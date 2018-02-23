@@ -92,7 +92,11 @@ class ApplyForMortgageSubmitRequest extends Component<
         )}
 
         {this.state.formHref !== null && (
-          <ApplyForMortgageForm href={this.state.formHref} autosubmit={true} />
+          <ApplyForMortgageForm
+            href={this.state.formHref}
+            autosubmit={true}
+            panel={this.props.panel}
+          />
         )}
       </div>
     );

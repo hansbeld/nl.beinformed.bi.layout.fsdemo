@@ -115,7 +115,7 @@ class FormPanel extends Component<FormPanelProps> {
   render() {
     if (this.props.panel) {
       return (
-        <div className="form-panel">
+        <div className="form-panel" data-id={this.props.panel.key}>
           {this.props.isRoot && <h3>{this.props.panel.label}</h3>}
           {this.renderPanel(this.props.panel)}
           {this.props.isRoot && (

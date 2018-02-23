@@ -64,7 +64,12 @@ class ApplyForMortgageRiskProfile extends Component<
 
   render() {
     if (this.state.formHref !== null) {
-      return <ApplyForMortgageForm href={this.state.formHref} />;
+      return (
+        <ApplyForMortgageForm
+          href={this.state.formHref}
+          panel={this.props.panel}
+        />
+      );
     }
 
     return null;
