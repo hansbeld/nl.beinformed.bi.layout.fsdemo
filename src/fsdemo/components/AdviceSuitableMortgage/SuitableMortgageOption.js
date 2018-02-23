@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { withMessage } from "beinformed/containers/I18n/Message";
 
-import { AlertIcon } from "mdi-react/AlertIcon";
+import AlertOutlineIcon from "mdi-react/AlertOutlineIcon";
 
 import ChoiceAttributeOptionModel from "beinformed/models/attributes/ChoiceAttributeOptionModel";
 import { getResults } from "beinformed/components/InstrumentResult/EndResult";
@@ -62,7 +62,7 @@ class SuitableMortgageOption extends Component<
             aria-haspopup="true"
             aria-expanded={this.state.popoverVisible}
           >
-            <AlertIcon />
+            <AlertOutlineIcon />
           </span>
         )}
 
@@ -137,7 +137,6 @@ class SuitableMortgageOption extends Component<
 
   render() {
     const { form, option } = this.props;
-
     const explainObject = form.allEndResultObjects.all.find(formObject =>
       formObject.layouthint.has(`explains:${option.code}`)
     );

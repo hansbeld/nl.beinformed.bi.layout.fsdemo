@@ -21,6 +21,7 @@ import "./CheckEligibility.scss";
 
 import type FormModel from "beinformed/models/form/FormModel";
 import { HTTP_METHODS } from "beinformed/constants/Constants";
+import { storeAttributeInput } from "../../utils/AttributeInputCache";
 
 type CheckEligibilityProps = {
   form: FormModel,
@@ -54,6 +55,8 @@ class CheckEligibility extends Component<CheckEligibilityProps, {}> {
     const { form } = this.props;
 
     if (form.allEndResultObjects.hasItems) {
+      storeAttributeInput(form);
+
       const attributes = formResult.attributeCollection.all;
       const contentConfig = formResult.contentConfiguration;
 

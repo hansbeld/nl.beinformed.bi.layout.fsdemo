@@ -11,10 +11,13 @@ const prefillForm = WrappedComponent => {
       form.missingObjects.all.forEach(missingObject => {
         missingObject.attributeCollection.all.forEach(attribute => {
           const value = retrieveAttributeInput(attribute.key);
+
           if (value !== null && !attribute.isChangedSince(0)) {
-            form.missingObjects
-              .get(missingObject.key)
-              .updateAttribute(attribute, value);
+            if (attribute.value !== value) {
+              form.missingObjects
+                .get(missingObject.key)
+                .updateAttribute(attribute, value);
+            }
           }
         });
       });

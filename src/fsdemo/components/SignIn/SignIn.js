@@ -99,7 +99,6 @@ class SignIn extends Component<SignInProps, SignInState> {
 
   renderRedirect() {
     const { location } = this.props;
-
     const redirectTo =
       location.state && location.state.from
         ? location.state.from
