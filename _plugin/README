@@ -3,9 +3,9 @@
 
 This plugin can be used to make a reference to the UI folder in this workspace:
 
-1. Update nl.beinformed.bi.layout.general.modularui.fsdemo/plugin.xml 
+1. Update nl.beinformed.bi.layout.fsdemo/plugin.xml 
    with the location of the UI folder of this workspace
-2. Copy nl.beinformed.bi.layout.general.modularui.fsdemo to 
+2. Copy nl.beinformed.bi.layout.fsdemo to 
    the plugins folder of your Be Informed installation
 3. Restart Be Informed
 
