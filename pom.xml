@@ -47,16 +47,16 @@
 						</configuration>
 					</execution>
 
-          <execution>
-            <id>yarn run</id>
-            <goals>
-              <goal>yarn</goal>
-            </goals>
-
-            <configuration>
-              <arguments>run build-jar</arguments>
-            </configuration>
-          </execution>
+					<execution>
+						<id>build-jar</id>
+						<goals>
+							<goal>yarn</goal>
+						</goals>
+				
+						<configuration>
+							<arguments>run build-jar</arguments>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 		</plugins>
