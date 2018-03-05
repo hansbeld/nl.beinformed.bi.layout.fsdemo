@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Be Informed FS Demo Layout
 Bundle-SymbolicName: nl.beinformed.bi.layout.fsdemo;singleton:=true
-Bundle-Version: 3.15.1.1_qualifier
+Bundle-Version: 1.0.0
 Bundle-Vendor: Be Informed B.V.
 Bundle-ClassPath: .
 Require-Bundle: nl.beinformed.bi.pluggablelayout
