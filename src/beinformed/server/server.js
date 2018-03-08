@@ -54,7 +54,7 @@ const server = ({
 }: serverProps) => {
   // Set global context path, received from request on server
   global.CONTEXT_PATH = request.getContextPath();
-  __webpack_public_path__ = global.CONTEXT_PATH; // eslint-disable-line camelcase, no-global-assign
+  __webpack_public_path__ = `${global.CONTEXT_PATH}/`; // eslint-disable-line camelcase, no-global-assign
 
   const { store } = createStore({}, true);
   const context = {};

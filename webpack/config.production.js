@@ -1,21 +1,20 @@
 const merge = require("webpack-merge");
-const glob = require("glob");
+// const glob = require("glob");
 
 const parts = require("./common/webpack.parts");
 
 module.exports = PATHS =>
   merge([
     parts.clean(`${PATHS.build}/**/*`, {
-      root: PATHS.root,
-      verbose: false
+      root: PATHS.root
     }),
 
     parts.entry("client", ["babel-polyfill", `${PATHS.src}/client.js`]),
     parts.entry("server", [`${PATHS.src}/server.js`]),
 
     parts.output({
-      chunkFilename: "[name].[chunkhash].js",
-      filename: "[name].[chunkhash].js"
+      filename: "[name].[chunkhash].js",
+      chunkFilename: "[name].[chunkhash].chunk.js"
     }),
 
     parts.extractCSS({
@@ -26,7 +25,7 @@ module.exports = PATHS =>
             sourceMap: true
           }
         },
-        parts.autoprefix(),
+        parts.autoprefix({ options: { sourceMap: true } }),
         {
           loader: "sass-loader",
           options: {

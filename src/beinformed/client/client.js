@@ -66,7 +66,7 @@ const client = ({ ApplicationComponent = <Application /> }: clientProps) => {
 
   // Set global context path, received from request on server
   global.CONTEXT_PATH = data.contextPath;
-  __webpack_public_path__ = global.CONTEXT_PATH; // eslint-disable-line camelcase, no-global-assign
+  __webpack_public_path__ = `${global.CONTEXT_PATH}/`; // eslint-disable-line camelcase, no-global-assign
   delete data.contextPath;
 
   // remove all resources from cache

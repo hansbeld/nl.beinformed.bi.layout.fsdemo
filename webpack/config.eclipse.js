@@ -13,7 +13,7 @@ module.exports = PATHS =>
     parts.entry("server", [`${PATHS.src}/server.js`]),
 
     parts.output({
-      chunkFilename: "[name].js",
+      chunkFilename: "[name].chunk.js",
       filename: "[name].js"
     }),
 

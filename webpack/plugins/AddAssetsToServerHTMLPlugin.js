@@ -15,6 +15,8 @@ function getFiles(assets) {
       files.js.server = filename;
     } else if (filename.endsWith(".js") && filename.includes("client")) {
       files.js.client = filename;
+    } else if (filename.endsWith(".chunk.js")) {
+      files.js.chunks = filename;
     } else if (filename.endsWith(".js")) {
       files.js.common.push(filename);
     } else if (filename.endsWith(".css")) {

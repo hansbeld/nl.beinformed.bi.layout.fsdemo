@@ -16,7 +16,7 @@ module.exports = PATHS =>
       path: PATHS.build,
       filename: "[name].js",
       publicPath: PATHS.contextPath,
-      chunkFilename: "[name].js",
+      chunkFilename: "[name].chunk.js",
       library: "BeInformed"
     }),
 
