@@ -8,11 +8,11 @@ import MinusBoxOutlineIcon from "mdi-react/MinusBoxOutlineIcon";
 import { BASE } from "beinformed/constants/Constants";
 import Link from "beinformed/components/Link/Link";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 import "./ContentLink.scss";
 
-import type ContentLinkModel from "beinformed/models/content/ContentLinkModel";
+import type { ContentLinkModel } from "beinformed/models";
 
 type ContentLinkProps = {
   children?: any,

@@ -72,7 +72,8 @@ declare type TabJSON = {
   taskgroups?: Array<{
     name: string,
     actions: Array<ActionJSON>
-  }>
+  }>,
+  actions?: Array<ActionJSON>
 };
 declare type TabContributionsJSONResponse = {
   tab: TabContributionsJSON
@@ -88,5 +89,6 @@ declare type TabContributionsJSON = {
   taskgroups?: Array<{
     name: string,
     actions: Array<ActionContributionsJSON>
-  }>
+  }>,
+  actions?: Array<ActionContributionsJSON>
 };

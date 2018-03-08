@@ -3,15 +3,15 @@ import React, { Component } from "react";
 import classNames from "classnames";
 
 import CheckIcon from "mdi-react/CheckIcon";
-import AlertCircleIcon from "mdi-react/AlertCircleIcon";
-import AlertIcon from "mdi-react/AlertIcon";
-import InformationIcon from "mdi-react/InformationIcon";
+import AlertCircleOutlineIcon from "mdi-react/AlertCircleOutlineIcon";
+import AlertOutlineIcon from "mdi-react/AlertOutlineIcon";
+import InformationOutlineIcon from "mdi-react/InformationOutlineIcon";
 
 import { NOTIFICATION_TYPES } from "beinformed/constants/Constants";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
-import type ErrorResponse from "beinformed/models/error/ErrorResponse";
+import type { ErrorResponse } from "beinformed/models";
 
 import "./Notification.scss";
 
@@ -42,11 +42,11 @@ class Notification extends Component<NotificationProps> {
       case NOTIFICATION_TYPES.SUCCESS:
         return <CheckIcon className="textAfter" />;
       case NOTIFICATION_TYPES.ERROR:
-        return <AlertCircleIcon className="textAfter" />;
+        return <AlertCircleOutlineIcon className="textAfter" />;
       case NOTIFICATION_TYPES.WARNING:
-        return <AlertIcon className="textAfter" />;
+        return <AlertOutlineIcon className="textAfter" />;
       default:
-        return <InformationIcon className="textAfter" />;
+        return <InformationOutlineIcon className="textAfter" />;
     }
   }
 

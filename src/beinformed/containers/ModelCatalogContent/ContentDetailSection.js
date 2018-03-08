@@ -3,19 +3,39 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
-import modularui from "beinformed/modularui/modularui";
+import { modularui } from "beinformed/modularui";
+
 import ContentDetailSection from "beinformed/components/ModelCatalogContent/ContentDetailSection";
 
-const mapStateToProps = (state: State, ownProps) => ({
+import type { Connector } from "react-redux";
+
+type ContentDetailSectionOwnProps = {
+  entryDate: string
+};
+
+type Props = {
+  entryDate: string,
+  availableLocales: Array<string>
+};
+
+const mapStateToProps = (
+  state: State,
+  ownProps: ContentDetailSectionOwnProps
+) => ({
   ...ownProps,
   availableLocales: state.i18n.locales.availableLocaleCodes
 });
 
+const reduxConnector: Connector<ContentDetailSectionOwnProps, Props> = connect(
+  mapStateToProps,
+  {}
+);
+
 export const connector = compose(
   withRouter,
-  connect(mapStateToProps),
+  reduxConnector,
   modularui(
     "ContentDetailSection",
     ({ match, entryDate }) =>

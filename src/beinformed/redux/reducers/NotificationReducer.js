@@ -29,7 +29,7 @@ const initialState = {
  */
 export default function formReducer(
   state: NotificationState = initialState,
-  action: Action
+  action: ReduxAction
 ) {
   switch (action.type) {
     case "DISMISS_NOTIFICATION":

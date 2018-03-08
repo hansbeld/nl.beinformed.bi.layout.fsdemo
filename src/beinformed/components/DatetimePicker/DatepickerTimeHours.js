@@ -32,7 +32,7 @@ const DatepickerTimeHours = ({
             {hourRow.map(hour => (
               <td
                 key={`hour-${hour}`}
-                className="datepicker-hour btn-light"
+                className="datepicker-hour"
                 data-value={hour}
                 role="gridcell"
                 tabIndex="-1"

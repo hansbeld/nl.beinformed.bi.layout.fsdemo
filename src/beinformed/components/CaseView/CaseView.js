@@ -4,8 +4,6 @@ import classNames from "classnames";
 import Helmet from "react-helmet";
 import { Route } from "react-router-dom";
 
-import CaseViewModel from "beinformed/models/caseview/CaseViewModel";
-
 import CaseHeader from "beinformed/components/CaseHeader/CaseHeader";
 import FormattedText from "beinformed/components/FormattedText/FormattedText";
 import TaskGroupPanels from "beinformed/components/TaskGroup/TaskGroupPanels";
@@ -15,8 +13,10 @@ import {
   DAP_ACTIVITIES_EXECUTABLE,
   DAP_ACTIVITIES_PERFORMED
 } from "beinformed/constants/LayoutHints";
+
 import Form from "beinformed/containers/Form/Form";
 
+import type { CaseViewModel } from "beinformed/models";
 type CaseViewProps = {
   caseview?: CaseViewModel
 };

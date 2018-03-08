@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from "react";
 
-import modularui from "beinformed/modularui/modularui";
+import { modularui } from "beinformed/modularui";
 
 import Tab from "beinformed/components/Tab/Tab";
 
@@ -9,14 +9,13 @@ import { Route, Switch } from "react-router-dom";
 
 import Redirect from "beinformed/components/Redirect/Redirect";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 import PanelRenderer from "beinformed/containers/Panel/PanelRenderer";
 import CaseView from "beinformed/containers/CaseView/CaseView";
 import Form from "beinformed/containers/Form/Form";
 
-import TabModel from "beinformed/models/tab/TabModel";
-
+import type { TabModel } from "beinformed/models";
 import type { Location, Match } from "react-router-dom";
 
 type TabProps = {

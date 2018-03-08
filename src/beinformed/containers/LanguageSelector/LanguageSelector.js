@@ -1,7 +1,7 @@
 // @flow
 import { connect } from "react-redux";
 
-import { updateLocale } from "beinformed/containers/I18n/actions";
+import { updateLocale } from "beinformed/containers/LanguageSelector/actions";
 
 import LanguageSelector from "beinformed/components/LanguageSelector/LanguageSelector";
 

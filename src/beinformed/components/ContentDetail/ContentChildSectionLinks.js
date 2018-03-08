@@ -2,7 +2,7 @@
 import React from "react";
 
 import ContentLink from "beinformed/components/ContentLink/ContentLink";
-import type ContentLinkModel from "beinformed/models/content/ContentLinkModel";
+import type { ContentLinkModel } from "beinformed/models";
 
 type ContentChildSectionLinksType = {
   childSectionLinks: Array<ContentLinkModel>

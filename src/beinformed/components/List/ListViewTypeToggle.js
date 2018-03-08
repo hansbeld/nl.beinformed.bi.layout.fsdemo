@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 
-import { withMessage } from "beinformed/containers/I18n/Message";
+import { withMessage } from "beinformed/i18n";
 import Toggle from "beinformed/components/Toggle/Toggle";
 import ToggleItem from "beinformed/components/Toggle/ToggleItem";
 

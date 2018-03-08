@@ -2,10 +2,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { getApplication } from "beinformed/containers/ModularUI/selectors";
 import { get } from "lodash";
 
+import { getApplication } from "beinformed/modularui";
+
 import type { RouterHistory } from "react-router-dom";
+
+import type { Connector } from "react-redux";
 
 type RoutesProps = {
   children: any,
@@ -44,8 +47,11 @@ class Routes extends Component<RoutesProps> {
   }
 }
 
-export default withRouter(
-  connect(state => ({
+const connector: Connector<{}, RoutesProps> = connect(
+  state => ({
     application: getApplication(state)
-  }))(Routes)
+  }),
+  {}
 );
+
+export default withRouter(connector(Routes));

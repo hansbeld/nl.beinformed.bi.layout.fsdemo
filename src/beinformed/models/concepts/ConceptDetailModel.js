@@ -11,20 +11,31 @@ import { TIMEVERSION_FILTER_NAME } from "beinformed/constants/Constants";
 
 import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
+type FilterCollectionData = {
+  entryDate: EntryDateFilterJSON
+};
 /**
  * Model for concept details, available through modelcatalog
  */
-export default class ConceptDetailModel extends ResourceModel {
+export default class ConceptDetailModel extends ResourceModel<
+  ConceptDetailJSON,
+  ConceptDetailContributionsJSON
+> {
   _relations: ConceptRelationCollection;
   _content: ContentModel[];
   _conceptType: ConceptTypeDetailModel;
   _sourceReferences: SourceReferenceCollection;
-  _filterCollection: FilterCollection;
+  _filterCollection: FilterCollection<FilterCollectionData>;
 
   /**
    * @override
    */
-  constructor(modularuiResponse: ModularUIResponse) {
+  constructor(
+    modularuiResponse: ModularUIResponse<
+      ConceptDetailJSON,
+      ConceptDetailContributionsJSON
+    >
+  ) {
     super(modularuiResponse);
 
     this._relations = new ConceptRelationCollection(
@@ -82,7 +93,7 @@ export default class ConceptDetailModel extends ResourceModel {
    * Retrieve concept detail identifier as key for this model
    */
   get key(): string {
-    return this.data._id;
+    return this.data._id || "concept";
   }
 
   /**
@@ -137,7 +148,7 @@ export default class ConceptDetailModel extends ResourceModel {
   /**
    * Get concept formula
    */
-  get formula(): string {
+  get formula(): ?string {
     return this.data.formula;
   }
 
@@ -300,12 +311,10 @@ export default class ConceptDetailModel extends ResourceModel {
   /**
    * Retrieve available filters on concept toc
    */
-  get filterCollection(): FilterCollection {
+  get filterCollection(): FilterCollection<FilterCollectionData> {
     if (!this._filterCollection) {
       this._filterCollection = new FilterCollection(this.data.filter, {
-        filter: this.contributions.filter,
-        contexts: this.contributions.contexts,
-        dynamicschema: this.data.dynamicschema
+        filter: this.contributions.filter
       });
     }
 

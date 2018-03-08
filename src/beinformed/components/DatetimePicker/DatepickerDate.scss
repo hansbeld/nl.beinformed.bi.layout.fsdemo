@@ -25,9 +25,12 @@
   }
 
   .datepicker-othermonth,
-  .datepicker-otherdecade,
+  .datepicker-otherdecade {
+    opacity: 0.65;
+  }
+
   .datepicker-disabled {
-    color: $datepicker-item-disabled-background-color;
+    background-color: $datepicker-item-disabled-bg;
   }
 
   .datepicker-year,
@@ -36,7 +39,8 @@
   }
 
   .datepicker-today {
-    background-color: $datepicker-today-background-color;
+    color: $datepicker-today-color;
+    background-color: $datepicker-today-bg;
 
     font-weight: bold;
   }
@@ -53,9 +57,5 @@
     }
 
     cursor: pointer;
-  }
-
-  .focus {
-    outline: $table-border-width solid darken($table-border-color, 12%);
   }
 }

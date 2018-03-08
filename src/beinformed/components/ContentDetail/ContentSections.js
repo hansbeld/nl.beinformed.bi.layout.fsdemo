@@ -6,8 +6,8 @@ import ContentBody from "beinformed/components/ContentDetail/ContentBody";
 import ContentSubSections from "beinformed/components/ContentDetail/ContentSubSections";
 import ContentChildSections from "beinformed/components/ContentDetail/ContentChildSections";
 import ContentChildSectionLinks from "beinformed/components/ContentDetail/ContentChildSectionLinks";
-import type ContentModel from "beinformed/models/content/ContentModel";
-import type ContentLinkModel from "beinformed/models/content/ContentLinkModel";
+
+import type { ContentModel, ContentLinkModel } from "beinformed/models";
 type ContentSectionsType = {
   className?: string,
   contentDetail: ContentModel,

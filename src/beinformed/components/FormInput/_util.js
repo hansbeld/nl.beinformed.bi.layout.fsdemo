@@ -1,16 +1,20 @@
 // @flow
-import type ChoiceAttributeOptionModel from "beinformed/models/attributes/ChoiceAttributeOptionModel";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import { get } from "lodash";
+
+import type {
+  ContentConfigurationElements,
+  ChoiceAttributeOptionModel
+} from "beinformed/models";
 
 const getChoiceOptionLabel = (
   option: ChoiceAttributeOptionModel,
   optionContentConfiguration?: ContentConfigurationElements
 ) => {
-  const configuredLabelProperties =
-    optionContentConfiguration &&
-    optionContentConfiguration.labelConfig.length > 0
-      ? optionContentConfiguration.labelConfig[0].types
-      : [];
+  const configuredLabelProperties = get(
+    optionContentConfiguration,
+    "labelConfig[0].types",
+    []
+  );
 
   if (option.concept && configuredLabelProperties.length > 0) {
     const configuredLabels = option.concept
@@ -33,13 +37,15 @@ const getChoiceOptionLabel = (
           )
         )[0].value;
 
-      return option.count
-        ? `${configLabelProperty} (${option.count})`
-        : configLabelProperty;
+      return option.count === null
+        ? configLabelProperty
+        : `${configLabelProperty} (${option.count})`;
     }
   }
 
-  return option.count ? `${option.label} (${option.count})` : option.label;
+  return option.count === null
+    ? option.label
+    : `${option.label} (${option.count})`;
 };
 
 export { getChoiceOptionLabel };

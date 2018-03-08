@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import FormBody from "beinformed/components/Form/FormBody";
 import { updateFormAttribute } from "beinformed/containers/Form/actions";
 
-import type FormModel from "beinformed/models/form/FormModel";
-import type FormObjectModel from "beinformed/models/form/FormObjectModel";
+import type { FormModel, FormObjectModel } from "beinformed/models";
 import type { Connector } from "react-redux";
 
 type FormBodyContainerProps = {
@@ -17,6 +16,7 @@ type FormBodyContainerProps = {
 export type FormBodyProps = {
   form: FormModel,
   formLayout?: "vertical" | "horizontal",
+  autosubmit?: boolean,
   onAttributeChange: (
     form: FormModel,
     object: FormObjectModel,

@@ -1,4 +1,6 @@
 // @flow
+import { get } from "lodash";
+
 import ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 import type LinkModel from "beinformed/models/links/LinkModel";
@@ -14,13 +16,18 @@ import { CASE_STATE, CASE_TITLE } from "beinformed/constants/LayoutHints";
 /**
  * Model containing the details of one case.
  */
-export default class CaseViewModel extends DetailModel {
+export default class CaseViewModel extends DetailModel<
+  CaseViewJSON,
+  CaseViewContributionsJSON
+> {
   _taskGroupCollection: TaskGroupCollection;
 
   /**
    * Constructs case view model
    */
-  constructor(caseviewData: ModularUIResponse) {
+  constructor(
+    caseviewData: ModularUIResponse<CaseViewJSON, CaseViewContributionsJSON>
+  ) {
     super(caseviewData);
 
     this.createTaskGroupCollection();
@@ -140,32 +147,35 @@ export default class CaseViewModel extends DetailModel {
   }
 
   createTaskGroupCollection() {
-    this.taskGroupCollection = this.data.taskgroups
-      ? this.data.taskgroups
-          .map(taskgroup => {
-            const taskgroupContributions = this.contributions.taskgroups.find(
-              taskgroupContribution =>
-                taskgroupContribution.name === taskgroup.name
-            );
+    this.taskGroupCollection = get(this.data, "taskgroups", [])
+      .filter(
+        taskgroup =>
+          typeof get(this.contributions, "taskgroups", []).find(
+            taskgroupContribution =>
+              taskgroupContribution.name === taskgroup.name
+          ) !== "undefined"
+      )
+      .map(taskgroup => {
+        const taskgroupContributions = get(
+          this.contributions,
+          "taskgroups",
+          []
+        ).find(
+          taskgroupContribution => taskgroupContribution.name === taskgroup.name
+        );
 
-            if (taskgroupContributions) {
-              return TaskGroupModel.create(
-                taskgroup.name,
-                taskgroup,
-                taskgroupContributions
-              );
-            }
-
-            return null;
-          })
-          .filter(taskgroup => taskgroup !== null)
-      : [];
+        return TaskGroupModel.create(
+          taskgroup.name,
+          taskgroup,
+          taskgroupContributions
+        );
+      });
   }
 
   /**
    * Setting the taskgroup panel collection
    */
-  set taskGroupCollection(taskgroups: TaskGroupModel[]) {
+  set taskGroupCollection(taskgroups: Array<TaskGroupModel>) {
     this._taskGroupCollection = new TaskGroupCollection(taskgroups);
   }
 

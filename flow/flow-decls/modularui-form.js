@@ -14,7 +14,7 @@ declare type FormJSON = {
   results?: FormResultsJSON,
   complete?: boolean,
   success?: FormSuccessJSON,
-  tokens?: null | Array<String>
+  tokens?: null | Array<string>
 };
 declare type FormContributionsJSONResponse = {
   [FormKey: string]: FormContributionsJSON
@@ -43,7 +43,9 @@ declare type FormObjectContributionsJSON = {
   repeatable: boolean,
   label: string,
   content?: FormObjectContributionsContentJSON,
-  attributes: Array<{ [AttributeName: string]: AttributeContributionsJSON }>
+  attributes: Array<{ [AttributeName: string]: AttributeContributionsJSON }>,
+  assistent?: string,
+  introText?: string
 };
 
 declare type ContentDecisionResultJSON = {
@@ -93,18 +95,16 @@ declare type ContentIntermediateResultElementJSON = {
   layouthint: Array<string>
 };
 
-declare type ContentEndResultElementJSON = [
-  {
-    buttons?: Array<{
-      type: string,
-      label: string
-    }>,
-    reasoningTrace?: boolean,
-    decisionResult?: ContentDecisionResultJSON,
-    classificationResult?: ContentClassificationResultJSON,
-    calculatorResult?: ContentCalculatorResultJSON
-  }
-];
+declare type ContentEndResultElementJSON = Array<{
+  // buttons?: Array<{
+  //   type: string,
+  //   label: string
+  // }>,
+  // reasoningTrace?: boolean,
+  decisionResult?: ContentDecisionResultJSON,
+  classificationResult?: ContentClassificationResultJSON,
+  calculatorResult?: ContentCalculatorResultJSON
+}>;
 
 declare type ContentGivenAnswersElementJSON = {
   label: string

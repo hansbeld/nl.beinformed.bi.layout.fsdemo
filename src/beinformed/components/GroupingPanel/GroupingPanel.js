@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import { Route, withRouter } from "react-router-dom";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 import Redirect from "beinformed/components/Redirect/Redirect";
 
 import PanelRenderer from "beinformed/containers/Panel/PanelRenderer";
@@ -13,15 +13,17 @@ import NavigationTabs from "beinformed/components/Navigation/NavigationTabs";
 import TaskGroupPanels from "beinformed/components/TaskGroup/TaskGroupPanels";
 import Panel from "beinformed/components/Panel/Panel";
 import PanelBody from "beinformed/components/Panel/PanelBody";
+import Form from "beinformed/containers/Form/Form";
 
 import "./GroupingPanel.scss";
 
-import type GroupingPanelModel from "beinformed/models/panels/GroupingPanelModel";
-import Form from "beinformed/containers/Form/Form";
+import type { GroupingPanelModel } from "beinformed/models";
+import type { Location } from "react-router-dom";
 
 type GroupingPanelProps = {
   isTab?: boolean,
-  panel: GroupingPanelModel
+  panel: GroupingPanelModel,
+  location: Location
 };
 
 /**
@@ -45,7 +47,7 @@ class GroupingPanel extends Component<GroupingPanelProps> {
   }
 
   render() {
-    const { panel, isTab } = this.props;
+    const { panel, isTab, location } = this.props;
 
     // When more than one panel, and the caseview where this grouping panel belongs to is not a Stages View, then render tabs
     const renderAsOverview = panel.links.size === 1 || isTab;
@@ -79,7 +81,11 @@ class GroupingPanel extends Component<GroupingPanelProps> {
               {renderAsOverview ? (
                 <div className="grouping-panels">
                   {panel.panelLinks.all.map(panelLink => (
-                    <PanelRenderer key={panelLink.key} href={panelLink.href} />
+                    <PanelRenderer
+                      key={panelLink.key}
+                      href={panelLink.href}
+                      location={this.props.location}
+                    />
                   ))}
                 </div>
               ) : (
@@ -91,9 +97,17 @@ class GroupingPanel extends Component<GroupingPanelProps> {
 
                   <Route
                     path={panel.panelLinks.routePath}
-                    render={({ match }) => (
+                    render={routeProps => (
                       <PanelRenderer
-                        href={new Href(`${match.url}${location.search}`)}
+                        href={
+                          new Href(
+                            `${routeProps.match.url}${
+                              routeProps.match.isExact
+                                ? routeProps.location.search
+                                : ""
+                            }`
+                          )
+                        }
                         isTab
                       />
                     )}

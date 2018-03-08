@@ -6,7 +6,7 @@ import Redirect from "beinformed/components/Redirect/Redirect";
 
 import AccountPanelRenderer from "fsdemo/containers/Account/AccountPanelRenderer";
 
-import ListModel from "beinformed/models/list/ListModel";
+import { ListModel, Href } from "beinformed/models";
 import NavigationItem from "beinformed/components/Navigation/NavigationItem";
 
 import QuickTransfer from "fsdemo/containers/QuickTransfer/QuickTransfer";
@@ -14,8 +14,8 @@ import Breadcrumb from "fsdemo/components/Breadcrumb/Breadcrumb";
 
 import "./AccountPanel.scss";
 
-import type CaseViewModel from "beinformed/models/caseview/CaseViewModel";
-import Href from "beinformed/models/href/Href";
+import type { CaseViewModel } from "beinformed/models";
+
 type AccountPanelProps = {
   caseview: CaseViewModel,
   onClick: Function

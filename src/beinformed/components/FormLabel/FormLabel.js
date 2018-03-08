@@ -2,7 +2,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import type { ContentConfigurationElements } from "beinformed/models";
 
 import { HORIZONTAL_FORM_LABEL_CLASS } from "beinformed/constants/Constants";
 import { HIDE_LABEL } from "beinformed/constants/LayoutHints";

@@ -10,16 +10,16 @@ import {
   CLICK_TO_OPEN_CASE_VIEW
 } from "beinformed/constants/LayoutHints";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
+import type { ListModel, ListItemModel } from "beinformed/models";
 import type { Location } from "react-router-dom";
-import type ListModel from "beinformed/models/list/ListModel";
 
 type ViewProps = {
   className?: string,
   list: ListModel,
-  location: Location,
-  openListItemInCaseView?: boolean
+  openListItemInCaseView: ?boolean,
+  location: Location
 };
 
 /**
@@ -30,22 +30,22 @@ class ListView extends Component<ViewProps> {
     openListItemInCaseView: false
   };
 
-  getItemHref(item) {
+  getItemHref(item: ListItemModel) {
     if (item.selfhref === null || item.selfhref.equals(new Href("#"))) {
       return void 0;
     }
 
+    const qs = this.props.location.search || "";
+
     return this.props.openListItemInCaseView
       ? new Href(item.selfhref, "CaseView")
       : new Href(
-          `${this.props.list.selfhref.path}/${item.id}${
-            this.props.location.search
-          }`,
+          `${this.props.list.selfhref.path}/${item.id}${qs}`,
           "ListDetail"
         );
   }
 
-  itemIsActive(item) {
+  itemIsActive(item: ListItemModel) {
     return (
       this.props.list.detail !== null && this.props.list.detail.id === item.id
     );

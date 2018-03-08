@@ -3,31 +3,16 @@ import { push, goBack } from "react-router-redux";
 
 import { MODULARUI } from "beinformed/redux/middleware/modularui";
 
-import FormModel from "beinformed/models/form/FormModel";
-
 import { showFormNotification } from "beinformed/containers/Notification/actions";
-import {
-  updateModel,
-  removeModel,
-  loadModularUI
-} from "beinformed/containers/ModularUI/actions";
+import { updateModel, removeModel, loadModularUI } from "beinformed/modularui";
 
 import {
   NOTIFY,
   FORM_FINISH_RETURN_RELOAD_LIST
 } from "beinformed/constants/LayoutHints";
 
-import type FormObjectModel from "beinformed/models/form/FormObjectModel";
+import type { FormModel, FormObjectModel } from "beinformed/models";
 import { HTTP_METHODS } from "beinformed/constants/Constants";
-
-export type previousFormType = {
-  type: "RECEIVE_PREVIOUS_FORM",
-  payload: FormModel
-};
-export type updateAttributeType = {
-  type: "UPDATE_FORM_ATTRIBUTE",
-  payload: FormModel
-};
 
 /**
  * Handles actions that need to be performed when a form successfully finishes,

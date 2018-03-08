@@ -1,10 +1,10 @@
 // @flow
 import React from "react";
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import "./StatusBar.scss";
 
-import type UserModel from "beinformed/models/user/UserModel";
+import type { UserModel } from "beinformed/models";
 
 type StatusBarProps = { user?: UserModel };
 

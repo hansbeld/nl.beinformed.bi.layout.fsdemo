@@ -7,7 +7,7 @@ import ChevronRightIcon from "mdi-react/ChevronRightIcon";
 import CheckboxBlankOutlineIcon from "mdi-react/CheckboxBlankOutlineIcon";
 import CheckboxMarkedOutlineIcon from "mdi-react/CheckboxMarkedOutlineIcon";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import { getChoiceOptionLabel } from "beinformed/components/FormInput/_util";
 

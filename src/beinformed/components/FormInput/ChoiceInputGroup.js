@@ -5,15 +5,17 @@ import classNames from "classnames";
 import FormContentPopover from "beinformed/components/FormContent/FormContentPopover";
 import FormContent from "beinformed/components/FormContent/FormContent";
 
-import { withMessage } from "beinformed/containers/I18n/Message";
+import { withMessage } from "beinformed/i18n";
 import { getChoiceOptionLabel } from "beinformed/components/FormInput/_util";
 import CheckboxInput from "beinformed/components/FormInput/CheckboxInput";
 import RadioInput from "beinformed/components/FormInput/RadioInput";
 
 import "./ChoiceInputGroup.scss";
 
-import type ChoiceAttributeOptionModel from "beinformed/models/attributes/ChoiceAttributeOptionModel";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import type {
+  ChoiceAttributeOptionModel,
+  ContentConfigurationElements
+} from "beinformed/models";
 
 type ChoiceInputGroupProps = {
   className?: string,

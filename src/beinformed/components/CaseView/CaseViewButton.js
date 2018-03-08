@@ -1,13 +1,13 @@
 // @flow
 import React from "react";
-
-import LinkButton from "beinformed/components/Button/LinkButton";
 import FolderOpenIcon from "mdi-react/FolderOpenIcon";
 
-import type DetailModel from "beinformed/models/detail/DetailModel";
+import LinkButton from "beinformed/components/Button/LinkButton";
+
+import type { CaseViewModel } from "beinformed/models";
 
 type CaseViewButtonProps = {
-  caseview: DetailModel
+  caseview: CaseViewModel
 };
 
 const CaseViewButton = ({ caseview }: CaseViewButtonProps) => (

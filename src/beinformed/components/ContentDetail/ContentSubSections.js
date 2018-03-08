@@ -5,9 +5,11 @@ import ContentSubSection from "beinformed/components/ContentDetail/ContentSubSec
 
 import "./ContentSubSections.scss";
 
-import type Href from "beinformed/models/href/Href";
-import type ContentLinkModel from "beinformed/models/content/ContentLinkModel";
-import type SubSectionModel from "beinformed/models/content/SubSectionModel";
+import type {
+  Href,
+  ContentLinkModel,
+  SubSectionModel
+} from "beinformed/models";
 
 type ContentSubSectionsType = {
   highlightIntoview?: boolean,

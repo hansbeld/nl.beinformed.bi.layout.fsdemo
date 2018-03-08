@@ -6,7 +6,7 @@ import NavigationItem from "beinformed/components/Navigation/NavigationItem";
 
 import "./NavigationTabs.scss";
 
-import type LinkCollection from "beinformed/models/links/LinkCollection";
+import type { LinkCollection } from "beinformed/models";
 
 type NavigationTabsProps = {
   className?: string,

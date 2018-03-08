@@ -10,6 +10,8 @@ function isVendor({ resource }) {
 
 module.exports = PATHS =>
   merge([
+    // parts.mode("development"),
+
     parts.output({
       path: PATHS.build,
       filename: "[name].js",
@@ -20,6 +22,7 @@ module.exports = PATHS =>
 
     parts.addAlias("beinformed", PATHS.src + "/beinformed/"),
 
+    // parts.optimization(),
     parts.extractBundles([
       {
         name: "vendor.universal",

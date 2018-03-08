@@ -1,7 +1,5 @@
 import ActionCollection from "beinformed/models/actions/ActionCollection";
 
-import { modularuiResponse } from "beinformed/modularui/ModularUIRequest";
-
 describe("ActionCollection", () => {
   const collectionData = [
     {

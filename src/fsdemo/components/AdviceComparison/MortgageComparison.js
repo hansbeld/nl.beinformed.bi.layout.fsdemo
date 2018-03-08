@@ -1,10 +1,10 @@
 // @flow
 import React, { Component } from "react";
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import MortgageOption from "fsdemo/components/AdviceComparison/MortgageOption";
 
-import FormModel from "beinformed/models/form/FormModel";
+import { FormModel } from "beinformed/models";
 
 import type { MortgageData } from "../AdviceMortgageCost/AdviceMortgageCost";
 

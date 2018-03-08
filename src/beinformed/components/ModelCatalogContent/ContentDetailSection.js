@@ -5,8 +5,7 @@ import Helmet from "react-helmet";
 import ContentSections from "beinformed/components/ContentDetail/ContentSections";
 import RelatedConcepts from "beinformed/containers/RelatedConcepts/RelatedConcepts";
 
-import type ContentModel from "beinformed/models/content/ContentModel";
-import type ContentLinkModel from "beinformed/models/content/ContentLinkModel";
+import type { ContentModel, ContentLinkModel } from "beinformed/models";
 
 type ContentDetailSectionProps = {
   entryDate: string,

@@ -6,8 +6,7 @@ import CheckCircleOutlineIcon from "mdi-react/CheckCircleOutlineIcon";
 
 import NavigationItem from "beinformed/components/Navigation/NavigationItem";
 
-import type ChoiceAttributeModel from "beinformed/models/attributes/ChoiceAttributeModel";
-import type LinkCollection from "beinformed/models/links/LinkCollection";
+import type { LinkCollection, ChoiceAttributeModel } from "beinformed/models";
 
 type NavigationStagesProps = {
   executableStages: ChoiceAttributeModel | null,

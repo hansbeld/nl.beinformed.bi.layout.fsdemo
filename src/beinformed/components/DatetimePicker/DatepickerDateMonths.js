@@ -89,7 +89,7 @@ class DatepickerDateMonths extends Component<DatepickerDateMonthsProps> {
             <tr key={idx}>
               {monthGroup.map(m => {
                 const month = DateUtil.setMonth(this.props.date, m);
-                const monthClass = classNames("datepicker-month btn-light", {
+                const monthClass = classNames("datepicker-month", {
                   "datepicker-disabled":
                     DateUtil.isBefore(month, this.props.mindate) ||
                     DateUtil.isAfter(month, this.props.maxdate)

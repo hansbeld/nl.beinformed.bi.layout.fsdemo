@@ -10,8 +10,8 @@ import {
   NOTIFICATION_TYPES
 } from "beinformed/constants/Constants";
 import { NOTIFY } from "beinformed/constants/LayoutHints";
-import type FormModel from "beinformed/models/form/FormModel";
-import type ErrorResponse from "beinformed/models/error/ErrorResponse";
+
+import type { FormModel, ErrorResponse } from "beinformed/models";
 
 export type dismissNotificationType = {
   type: "DISMISS_NOTIFICATION"

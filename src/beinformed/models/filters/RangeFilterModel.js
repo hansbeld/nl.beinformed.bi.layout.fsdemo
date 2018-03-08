@@ -1,10 +1,10 @@
 // @flow
-import FilterModel from "beinformed/models/filters/FilterModel";
+import BaseFilterModel from "beinformed/models/filters/BaseFilterModel";
 
 /**
  * Range filter, for instance a date range filter or a number range filter
  */
-export default class RangeFilterModel extends FilterModel {
+export default class RangeFilterModel extends BaseFilterModel<> {
   /**
    * @override
    */

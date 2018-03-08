@@ -5,14 +5,16 @@ declare class dataFetcher {
 
 declare type HttpServletRequestJava = {
   getRequestURL(): {
-    toString: () => void
+    toString: () => string
   },
   getContextPath(): string,
   getQueryString(): string | null,
   getPathInfo(): string,
   getHeader(name: string): string | null,
-  getCookies(): Array<{
-    getName: () => string,
-    getValue: () => string
-  }>
+  getCookies(): {
+    [idx: string]: {
+      getName: () => string,
+      getValue: () => string
+    }
+  }
 };

@@ -4,14 +4,14 @@ import React, { Component } from "react";
 import LoginIcon from "mdi-react/LoginIcon";
 import LogoutIcon from "mdi-react/LogoutIcon";
 
-import { Message } from "beinformed/containers/I18n/Message";
-import Href from "beinformed/models/href/Href";
+import { Message } from "beinformed/i18n";
+import { Href } from "beinformed/models";
 
 import Link from "beinformed/components/Link/Link";
 
 import { LOGIN_PATH, LOGOUT_PATH } from "beinformed/constants/Constants";
 
-import type UserServicesModel from "beinformed/models/user/UserServicesModel";
+import type { UserServicesModel } from "beinformed/models";
 
 import "./UserMenu.scss";
 

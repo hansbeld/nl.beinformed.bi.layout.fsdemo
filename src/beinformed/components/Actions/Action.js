@@ -7,7 +7,8 @@ import Link from "beinformed/components/Link/Link";
 import ActionIcon from "beinformed/components/Actions/ActionIcon";
 
 import { DAP_COMPLETE_STAGE } from "beinformed/constants/LayoutHints";
-import type ActionModel from "beinformed/models/actions/ActionModel";
+
+import type { ActionModel } from "beinformed/models";
 
 export type ActionProps = {
   action: ActionModel,

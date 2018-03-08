@@ -2,7 +2,7 @@
 import React from "react";
 
 import ConceptIcon from "beinformed/components/ConceptDetail/ConceptIcon";
-import type ConceptDetailModel from "beinformed/models/concepts/ConceptDetailModel";
+import type { ConceptDetailModel } from "beinformed/models";
 
 import "./ConceptHeader.scss";
 

@@ -376,7 +376,7 @@
     },
     "link":"",
     "component": [
-      "caseview"
+      "caseview_table"
     ]
   },
   "CASE_TITLE": {
@@ -387,7 +387,18 @@
     },
     "link":"",
     "component": [
-      "caseview"
+      "caseview_table"
+    ]
+  },
+  "SHOW_ATTRIBUTE_SET_LABELS_IN_DETAILS": {
+    "hint": "show-attribute-set-labels-in-details",
+	  "description": {
+		  "NL":"Toont labels van attribuutverzamelingen in de detailweergave van de gebeurtenislijst",
+		  "EN":"Displays attribute set labels in the detail view of the event list"
+	  },
+	  "link":"",
+    "component": [
+      "list/event"
     ]
   },
   "PLUS_MINUS_WIDGET": {

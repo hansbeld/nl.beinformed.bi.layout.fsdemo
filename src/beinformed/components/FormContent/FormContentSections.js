@@ -2,10 +2,9 @@
 import React from "react";
 import classNames from "classnames";
 
-import ContentModel from "beinformed/models/content/ContentModel";
-
 import ContentSections from "beinformed/components/ContentDetail/ContentSections";
 
+import type { ContentModel } from "beinformed/models";
 type FormContentSectionsProps = {
   content: ContentModel[],
   renderChildSections: boolean,

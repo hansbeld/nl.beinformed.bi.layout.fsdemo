@@ -2,7 +2,7 @@
 import React from "react";
 
 import Action from "beinformed/components/Actions/Action";
-import type ActionModel from "beinformed/models/actions/ActionModel";
+import type { ActionModel } from "beinformed/models";
 
 type ActionListType = {
   actions: ActionModel[]

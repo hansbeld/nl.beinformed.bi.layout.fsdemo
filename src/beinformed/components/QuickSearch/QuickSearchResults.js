@@ -2,12 +2,12 @@
 import React from "react";
 import classNames from "classnames";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 import ListView from "beinformed/components/List/ListView/List";
 
 import "./QuickSearchResults.scss";
 
-import type CaseSearchModel from "beinformed/models/search/CaseSearchModel";
+import type { CaseSearchModel } from "beinformed/models";
 
 type QuickSearchType = {
   className?: string,

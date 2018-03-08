@@ -5,8 +5,7 @@ import ContentLink from "beinformed/components/ContentLink/ContentLink";
 
 import "./ContentTOC.scss";
 
-import type ContentTOCModel from "beinformed/models/content/ContentTOCModel";
-import type ContentLinkModel from "beinformed/models/content/ContentLinkModel";
+import type { ContentTOCModel, ContentLinkModel } from "beinformed/models";
 
 type ContentTOCProps = {
   contentTOC: ContentTOCModel

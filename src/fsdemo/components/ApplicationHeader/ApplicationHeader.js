@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ChevronDownIcon from "mdi-react/ChevronDownIcon";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 import NotImplementedLink from "fsdemo/components/Link/NotImplementedLink";
 
 import LanguageSelectorContainer from "beinformed/containers/LanguageSelector/LanguageSelector";

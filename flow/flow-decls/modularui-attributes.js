@@ -2,15 +2,27 @@
  * ATTRIBUTES
  */
 
+declare type AttributeSetData = {
+  [string]: Array<AttributeSetAttributeData> | AttributeSetAttributeData
+};
+declare type AttributeSetAttributeData = {
+  [CustomAttributeName: string]: string | number | null
+};
+declare type AttributeSetContributions = {
+  label: string,
+  attributes: AttributeCollectionContributions
+};
+
 declare type AttributeCollectionData =
   | Array<FormElementJSON>
   | Array<ActionFieldsJSON>
   | GroupJSON
   | ListItemJSON
-  | CaseViewJSON;
+  | CaseViewJSON
+  | AttributeSetAttributeData;
 
 declare type AttributeCollectionContributions = Array<{
-  [string]: AttributeContributionsJSON
+  [CustomAttributeName: string]: AttributeContributionsJSON
 }>;
 
 declare type AttributeJSON = {
@@ -18,10 +30,11 @@ declare type AttributeJSON = {
   value: string | null,
   static?: boolean | null,
   _links?: {
-    [linkKey: string]: LinkJSON | Array<LinkJSON>,
+    [linkKey: string]: LinkJSON,
     lookupservice?: LinkJSON
   },
   dynamicschema?: Array<Object> | { [string]: Array<Object> },
+  dynamicschemaId?: string,
   options?: Array<Object>,
   message?: {
     id: string,
@@ -44,60 +57,78 @@ declare type AttributeContributionsJSON =
   | UploadAttributeContributionsJSON
   | CaptchaAttributeContributionsJSON;
 
-declare type StringAttributeContributionsJSON = {
-  type: "string",
+declare type CommonAttributeContributionsJSON = {
   label: string,
+  _links?: {
+    concept: LinkContributionsJSON
+  },
   mandatory?: boolean,
-  postfix?: string,
-  displaysize?: number,
+  readonly?: boolean,
+  assistant?: string,
+  placeholder?: string,
+  layouthint: Array<string>
+};
+
+declare type StringAttributeContributionsJSON = CommonAttributeContributionsJSON & {
+  type: "string",
+  displaysize: number,
+  maxLength: number,
   regexp?:
     | string
     | "[1-9]{1}[0-9]{3}[s]?[a-zA-Z]{2}"
     | "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+  regexpvalidationmessage?: string,
   layouthint?: Array<
     "zipcode" | "email" | "bankaccountnumber" | "iban" | "bsn" | "xml" | string
-  >,
-  assistant?: string,
-  maxLength?: number
+  >
 };
 
-declare type DateTimeAttributeContributionsJSON = {
+declare type PasswordAttributeContributionsJSON = StringAttributeContributionsJSON & {
+  type: "password",
+  displaysize: number,
+  constraints?: {
+    upperAndLowerCaseMandatory?: boolean,
+    minNumberOfNumericCharacters?: number,
+    minNumberOfSpecialCharacters?: number,
+    maxSequenceOfIdenticalCharacters?: number,
+    usernameConstraint?: boolean,
+    maxSequenceOfUsernameCharacters?: boolean,
+    usernameField?: string,
+    uniquePasswordsLookback?: boolean,
+    regexConstraint?: Array<{ regex: string, messageKey: string }>
+  }
+};
+
+declare type DateTimeAttributeContributionsJSON = StringAttributeContributionsJSON & {
   type: "date" | "time" | "datetime",
-  label: string,
-  mandatory?: boolean,
   format?: string,
-  formatLabel?: string,
-  layouthint?: Array<string>
+  formatLabel?: string
 };
 
-declare type NumberAttributeContributionsJSON = {
+declare type NumberAttributeContributionsJSON = CommonAttributeContributionsJSON & {
   type: "number",
-  label: string,
-  mandatory?: boolean,
   format?: string,
-  formatLabel?: string,
-  layouthint?: Array<string>,
-  groupingSeparator?: string,
   decimalSeparator?: string,
-  assistant?: string,
+  groupingSeparator?: string,
   minimum?: number,
-  maximum?: number
+  maximum?: number,
+  currencySymbol?: string
 };
 
-declare type ChoiceAttributeContributionsJSON = {
-  type: "choice" | "string",
-  label: string,
-  mandatory?: boolean,
-  optionMode: "static" | "dynamic",
-  multiplechoice: boolean,
-  _links?: {
-    concept: LinkContributionsJSON
-  },
+declare type ChoiceAttributeContributionsJSON = CommonAttributeContributionsJSON & {
+  type: "choice" | "string" | "array",
   layouthint: Array<
     "combobox" | "radiobutton" | "checkbox" | "listview" | string
   >,
   enumerated: boolean,
-  options?: Array<ChoiceAttributeOptionContributionsJSON>
+  multiplechoice: boolean,
+  optionMode: "static" | "dynamic" | "dynamicWithThreshold" | "lookup",
+  dynamicschemaId?: string,
+  falseAllowed?: boolean,
+  options?: Array<ChoiceAttributeOptionContributionsJSON>,
+  content?: {
+    optionElements?: ContentElement
+  }
 };
 
 declare type ChoiceAttributeOptionContributionsJSON = {
@@ -110,55 +141,42 @@ declare type ChoiceAttributeOptionContributionsJSON = {
   children?: Array<ChoiceAttributeOptionContributionsJSON>
 };
 
-declare type CompositeAttributeContributionsJSON = {
+declare type CompositeAttributeContributionsJSON = CommonAttributeContributionsJSON & {
   type: "range" | "composite" | "numberrange" | "daterange",
-  label: string,
-  mandatory?: boolean,
-  layouthint?: Array<string>,
   children: Array<{
     [childKey: string]: AttributeContributionsJSON
   }>
 };
 
-declare type HelpTextAttributeContributionsJSON = {
+declare type HelpTextAttributeContributionsJSON = CommonAttributeContributionsJSON & {
   type: "string",
-  label: string,
   mandatory: false,
   text: string,
-  readonly: true,
-  layouthint?: Array<string>
+  readonly: true
 };
 
-declare type LabelAttributeContributionsJSON = {
+declare type LabelAttributeContributionsJSON = CommonAttributeContributionsJSON & {
   type: "string",
-  label: string,
   mandatory: false,
   readonly: true,
   layouthint: Array<"label" | string>
 };
 
-declare type MemoAttributeContributionsJSON = {
+declare type MemoAttributeContributionsJSON = StringAttributeContributionsJSON & {
   type: "string",
-  label: string,
-  mandatory?: boolean,
   rows: number,
   columns: number,
-  formatted: boolean,
-  layouthint?: Array<string>
+  formatted: boolean
 };
 
-declare type UploadAttributeContributionsJSON = {
+declare type UploadAttributeContributionsJSON = StringAttributeContributionsJSON & {
   type: "binary",
-  label: string,
-  mandatory?: boolean,
   multiple: boolean,
-  uploadMaxFileSize: number,
-  layouthint?: Array<string>
+  allowedExtensions: Array<string>,
+  allowedMimeTypes: Array<string>,
+  uploadMaxFileSize: number
 };
 
-declare type CaptchaAttributeContributionsJSON = {
-  type: "captcha",
-  label: string,
-  mandatory?: boolean,
-  layouthint?: Array<string>
-}
+declare type CaptchaAttributeContributionsJSON = CommonAttributeContributionsJSON & {
+  type: "captcha"
+};

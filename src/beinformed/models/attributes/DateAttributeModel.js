@@ -2,11 +2,14 @@
 import { DateUtil } from "beinformed/utils/datetime/DateTimeUtil";
 import ConstraintCollection from "beinformed/models/constraints/ConstraintCollection";
 import StringAttributeModel from "beinformed/models/attributes/StringAttributeModel";
+import { get } from "lodash";
 
 /**
  * Date attribute
  */
-export default class DateAttributeModel extends StringAttributeModel {
+export default class DateAttributeModel extends StringAttributeModel<
+  DateTimeAttributeContributionsJSON
+> {
   /**
    * Get initial user input value
    */
@@ -59,7 +62,7 @@ export default class DateAttributeModel extends StringAttributeModel {
    * Get date format
    */
   get format(): string {
-    return DateUtil.convertFormat(this.contributions.format);
+    return DateUtil.convertFormat(get(this.contributions, "format", ""));
   }
 
   get formatLabel(): string {
@@ -71,7 +74,7 @@ export default class DateAttributeModel extends StringAttributeModel {
    */
   get readonlyvalue(): string {
     if (this.value && this.value !== null) {
-      return this.renderDate(this.value);
+      return this.renderDate(this.value.toString());
     }
 
     return "";
@@ -88,14 +91,14 @@ export default class DateAttributeModel extends StringAttributeModel {
    * Get minimum date
    */
   get mindate(): string | null {
-    return this.contributions.mindate || null;
+    return get(this.contributions, "mindate", null);
   }
 
   /**
    * Get maximum date
    */
   get maxdate(): string | null {
-    return this.contributions.maxdate || null;
+    return get(this.contributions, "maxdate", null);
   }
 
   isValidDateFormat(value: string) {

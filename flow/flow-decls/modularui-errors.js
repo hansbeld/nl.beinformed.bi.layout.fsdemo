@@ -70,7 +70,7 @@ declare type ChangePasswordJSON = {
       redirect: string
     }
   }
-}
+};
 
 declare type LoginRedirectServletErrorResponse = {
   error: {

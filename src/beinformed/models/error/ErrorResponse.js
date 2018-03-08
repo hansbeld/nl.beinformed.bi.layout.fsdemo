@@ -86,6 +86,7 @@ export default class ErrorResponse {
       this.id === "Error.NotAuthorized" ||
       this.id === "Error.Authentication.Required" ||
       this.id === "Error.Authentication.InvalidCredentials";
+
     const hasLoginAction = this.error.action
       ? this.error.action.name === "login"
       : false;
@@ -95,6 +96,10 @@ export default class ErrorResponse {
 
   get isChangePassword(): boolean {
     return this.id === "Error.ChangePasswordRequired";
+  }
+
+  get isConcurrentUser(): boolean {
+    return this.id === "Error.Authentication.ConcurrentUser";
   }
 
   get isBlocked(): boolean {
@@ -128,5 +133,9 @@ export default class ErrorResponse {
       this.id === "Error.Authentication.Required" ||
       this.id === "Error.Authentication.InvalidCredentials"
     );
+  }
+
+  get shouldThrowOnServer(): boolean {
+    return !this.isChangePassword && !this.isBlocked && !this.isConcurrentUser;
   }
 }

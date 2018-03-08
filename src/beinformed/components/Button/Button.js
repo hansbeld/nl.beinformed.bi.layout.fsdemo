@@ -34,7 +34,8 @@ const Button = ({
   type = "button",
   ...htmlProps
 }: ButtonType) => {
-  const buttonClass = classNames("btn", `btn-${buttonStyle}`, className, {
+  const buttonClass = classNames(className, {
+    [`btn btn-${buttonStyle}`]: buttonStyle !== "",
     "btn-sm": size === "small",
     "btn-lg": size === "large"
   });

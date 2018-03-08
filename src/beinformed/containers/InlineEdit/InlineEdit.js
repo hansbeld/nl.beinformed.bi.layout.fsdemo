@@ -11,8 +11,10 @@ import {
   saveEditableListItem,
   updateEditableListAttribute
 } from "beinformed/containers/InlineEdit/actions";
+
 import InlineEditTable from "beinformed/components/InlineEdit/InlineEdit";
-import type ListModel from "beinformed/models/list/ListModel";
+
+import type { ListModel } from "beinformed/models";
 
 type InlineEditTableOwnProps = {
   className?: string,

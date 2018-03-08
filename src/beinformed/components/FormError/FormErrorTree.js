@@ -2,8 +2,10 @@
 import React, { Component } from "react";
 
 import FormErrorList from "beinformed/components/FormError/FormErrorList";
-import type FormModel from "beinformed/models/form/FormModel";
-import type FormObjectModel from "beinformed/models/form/FormObjectModel";
+
+import "./FormErrorTree.scss";
+
+import type { FormModel, FormObjectModel } from "beinformed/models";
 
 type FormErrorTreeProps = {
   form: FormModel,
@@ -11,7 +13,31 @@ type FormErrorTreeProps = {
   onObjectClick?: (object: FormObjectModel) => void
 };
 
+const ERROR_HIGHLIGHT_TIMEOUT = 1000;
+
 class FormErrorTree extends Component<FormErrorTreeProps> {
+  handleClick = (
+    e: SyntheticEvent<HTMLAnchorElement>,
+    objectName: string,
+    attributeName?: string
+  ) => {
+    e.preventDefault();
+
+    const scrollToSelector = attributeName
+      ? `[data-name="${objectName}"] [data-name="${attributeName}"]`
+      : `[data-name="${objectName}"]`;
+
+    const scrollTo = document.querySelectorAll(scrollToSelector);
+    if (scrollTo.length > 0) {
+      scrollTo[0].scrollIntoView(false);
+      scrollTo[0].classList.add("error-highlight");
+
+      setTimeout(() => {
+        scrollTo[0].classList.remove("error-highlight");
+      }, ERROR_HIGHLIGHT_TIMEOUT);
+    }
+  };
+
   renderObjectErrors() {
     return this.props.form.missingObjects.all
       .filter(object => object.errorCollection.hasItems)
@@ -20,15 +46,7 @@ class FormErrorTree extends Component<FormErrorTreeProps> {
           <a
             href={`#${this.props.form.key}-${object.key}`}
             className="alert-link"
-            onClick={e => {
-              e.preventDefault();
-
-              if (this.props.onObjectClick) {
-                return this.props.onObjectClick(object);
-              }
-
-              return false;
-            }}
+            onClick={e => this.handleClick(e, object.key)}
           >
             {object.label}
           </a>
@@ -48,15 +66,7 @@ class FormErrorTree extends Component<FormErrorTreeProps> {
           <a
             href={`#${this.props.form.key}-${attribute.name}`}
             className="alert-link"
-            onClick={e => {
-              e.preventDefault();
-
-              if (this.props.onAttributeClick) {
-                return this.props.onAttributeClick(attribute);
-              }
-
-              return false;
-            }}
+            onClick={e => this.handleClick(e, object.key, attribute.name)}
           >
             {attribute.label}
           </a>

@@ -54,26 +54,6 @@ describe("Href spec", () => {
     expect(href.querystring).toBe("key3=value3&key2=value2-changed");
   });
 
-  it("should be able to return if one href has the same context as the other", () => {
-    const mainHref = new Href("/casetab/caseview/1");
-
-    const sameContextHref = new Href("/casetab/caseview/2");
-    const otherContextHref = new Href("/casetab/otherCaseview/2");
-
-    expect(mainHref.hasOtherContext(sameContextHref)).toBe(false);
-    expect(mainHref.hasOtherContext(otherContextHref)).toBe(true);
-
-    const sameContextCasetab = new Href("/casetab");
-    const otherContextCasetab = new Href("/casetab2");
-
-    expect(mainHref.hasOtherContext(sameContextCasetab)).toBe(false);
-    expect(mainHref.hasOtherContext(otherContextCasetab)).toBe(true);
-
-    const sameContextDeeperHref = new Href("/casetab/caseview/1/otherPanel");
-
-    expect(mainHref.hasOtherContext(sameContextDeeperHref)).toBe(false);
-  });
-
   it("should be able to server hrefs with spaces", () => {
     const href = new Href(
       "/concepts/Content/Knowledge models/All source types.bixml/AllKindOfSources"

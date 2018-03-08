@@ -10,7 +10,7 @@ import IconPopover from "beinformed/components/Popover/IconPopover";
 import { HIDE_LABEL } from "beinformed/constants/LayoutHints";
 import { RENDER_QUESTION_LABELS } from "beinformed/constants/Constants";
 
-import type FormObjectModel from "beinformed/models/form/FormObjectModel";
+import type { FormObjectModel } from "beinformed/models";
 
 import "./FormObject.scss";
 
@@ -63,7 +63,10 @@ const FormObject = ({
     : null;
 
   return (
-    <div className={classNames("form-object", className)}>
+    <div
+      className={classNames("form-object", className)}
+      data-name={object.key}
+    >
       {RENDER_QUESTION_LABELS &&
         !object.layouthint.has(HIDE_LABEL) &&
         object.label && <h3 className="question-label">{label}</h3>}

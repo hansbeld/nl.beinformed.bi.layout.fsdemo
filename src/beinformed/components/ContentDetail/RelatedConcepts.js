@@ -3,9 +3,9 @@ import React from "react";
 
 import ConceptLink from "beinformed/components/ConceptLink/ConceptLink";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
-import type RelatedConceptsModel from "beinformed/models/content/RelatedConceptsModel";
+import type { RelatedConceptsModel } from "beinformed/models";
 
 type RelatedConceptsType = {
   relatedConcepts: RelatedConceptsModel

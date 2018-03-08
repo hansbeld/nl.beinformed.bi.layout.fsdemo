@@ -89,6 +89,18 @@ class Href {
     return this._path.indexOf("/change-password") > -1;
   }
 
+  // Check if url is relative (not checking for absolute urls with same domain)
+  get isExternal(): boolean {
+    const isRelative =
+      (this.path.substr(0, 2) !== "//" && this.path.substr(0, 1) === "/") ||
+      this.path.substr(0, 1) === "#";
+    const isCamelRoute =
+      this.path.startsWith("/restServices") &&
+      !this.path.startsWith("/restServices/ui");
+
+    return !isRelative || isCamelRoute;
+  }
+
   /**
    * Retrieve the relative path part of a href string, e.g. https://www.beinformed.com/BeInformed/tab/view?q=url => /tab/view
    */

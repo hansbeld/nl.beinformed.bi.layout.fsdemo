@@ -3,7 +3,7 @@ import ResourceModel from "beinformed/models/base/ResourceModel";
 
 describe("ResourceCollection", () => {
   it("should be able get child model links and add childmodels", () => {
-    class TestModel extends ResourceModel {
+    class TestModel extends ResourceModel<any, any> {
       constructor() {
         super({});
 

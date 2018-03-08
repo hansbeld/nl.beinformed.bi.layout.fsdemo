@@ -1,9 +1,9 @@
 // @flow
 import { connect } from "react-redux";
 
-import type { Connector } from "react-redux";
 import ProgressIndicator from "beinformed/components/ProgressIndicator/ProgressIndicator";
 
+import type { Connector } from "react-redux";
 export type ProgressIndicatorProps = {
   count: number,
   timestamp: number

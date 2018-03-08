@@ -2,8 +2,8 @@
 import React from "react";
 
 import FormErrorTree from "beinformed/components/FormError/FormErrorTree";
-import type FormModel from "beinformed/models/form/FormModel";
-import type FormObjectModel from "beinformed/models/form/FormObjectModel";
+
+import type { FormModel, FormObjectModel } from "beinformed/models";
 
 type FormErrorMessagesProps = {
   form: FormModel,

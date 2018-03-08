@@ -1,20 +1,18 @@
 // @flow
-import type AttributeModel from "beinformed/models/attributes/AttributeModel";
-
 import AttributeCollection from "beinformed/models/attributes/AttributeCollection";
 import BaseModel from "beinformed/models/base/BaseModel";
 import Href from "beinformed/models/href/Href";
-import {
-  ALWAYS_COMMIT_FORM,
-  HTTP_METHODS
-} from "beinformed/constants/Constants";
+import { HTTP_METHODS } from "beinformed/constants/Constants";
 
 type HttpMethods = $Keys<typeof HTTP_METHODS>;
 
 /**
  * Defines an Action. For instance an action on the tab 'books', which leads to a form
  */
-export default class ActionModel extends BaseModel {
+export default class ActionModel extends BaseModel<
+  ActionJSON,
+  ActionContributionsJSON
+> {
   _fieldCollection: AttributeCollection;
   _icon: string;
   _href: Href;
@@ -23,7 +21,7 @@ export default class ActionModel extends BaseModel {
   /**
    * Create an ActionModel
    */
-  constructor(action: ActionJSON, contributions?: ActionContributionsJSON) {
+  constructor(action: ActionJSON, contributions: ActionContributionsJSON) {
     super(action, contributions);
 
     this._fieldCollection = new AttributeCollection(
@@ -83,7 +81,7 @@ export default class ActionModel extends BaseModel {
   /**
    * retrieve the collection of field attributes as an array
    */
-  get fields(): AttributeModel[] {
+  get fields(): Array<AttributeType> {
     return this._fieldCollection.all;
   }
 
@@ -113,11 +111,13 @@ export default class ActionModel extends BaseModel {
       })
       .join("&");
 
-    if (ALWAYS_COMMIT_FORM) {
-      return fieldParameters;
-    }
+    return fieldParameters;
 
-    return `commit=false&${fieldParameters}`;
+    // if (ALWAYS_COMMIT_FORM) {
+    //   return fieldParameters;
+    // }
+    //
+    // return `commit=false&${fieldParameters}`;
   }
 
   /**
@@ -138,7 +138,7 @@ export default class ActionModel extends BaseModel {
    * Getting the key/name of this action
    */
   get key(): string {
-    return this.data.name || this.data.key;
+    return this.data.name;
   }
 
   /**

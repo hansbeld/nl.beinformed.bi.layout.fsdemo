@@ -16,12 +16,13 @@ import PanelTitle from "beinformed/components/Panel/PanelTitle";
 import PanelRenderer from "beinformed/containers/Panel/PanelRenderer";
 
 import ListDetailInstrumentResult from "beinformed/components/ListDetail/ListDetailInstrumentResult";
+import ListDetailEventData from "beinformed/components/ListDetail/ListDetailEventData";
+
 import ListDetailFooter from "beinformed/components/ListDetail/ListDetailFooter";
 
 import "./ListDetail.scss";
 
-import type ListDetailModel from "beinformed/models/list/ListDetailModel";
-import type ListItemModel from "beinformed/models/list/ListItemModel";
+import type { ListItemModel, ListDetailModel } from "beinformed/models";
 
 export type ListDetailProps = {
   className?: string,
@@ -47,6 +48,8 @@ const ListDetail = ({ className, listitem, detail }: ListDetailProps) => {
             {detail.hasResults && (
               <ListDetailInstrumentResult detail={detail} />
             )}
+
+            {detail.hasEventData && <ListDetailEventData detail={detail} />}
           </PanelBody>
           {(listitem.actionCollection.length > 0 || detail.isCase()) && (
             <ListDetailFooter listitem={listitem} detail={detail} />

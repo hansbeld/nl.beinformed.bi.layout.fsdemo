@@ -5,7 +5,7 @@ import ArrowLeftIcon from "mdi-react/ArrowLeftIcon";
 import ArrowRightIcon from "mdi-react/ArrowRightIcon";
 
 import { DateUtil } from "beinformed/utils/datetime/DateTimeUtil";
-import { withMessage } from "beinformed/containers/I18n/Message";
+import { withMessage } from "beinformed/i18n";
 import { KEYCODES } from "beinformed/constants/Constants";
 
 import "./DatepickerDateToolbar.scss";
@@ -155,7 +155,7 @@ class DatepickerDateToolbar extends Component<DatepickerDateToolbarProps> {
         <div className="datepicker-btn-prev">
           <button
             type="button"
-            className="btn btn-light"
+            className="btn"
             aria-label={this.props.message("DatePicker.previous", "Previous")}
             onClick={this.handlePrevious}
             onKeyDown={this.handlePreviousKeydown}
@@ -166,7 +166,7 @@ class DatepickerDateToolbar extends Component<DatepickerDateToolbarProps> {
         <div className="datepicker-btn-switch">
           <button
             type="button"
-            className="btn btn-light"
+            className="btn"
             onClick={this.handleSwitch}
             onKeyDown={this.handleSwitchKeydown}
           >
@@ -176,7 +176,7 @@ class DatepickerDateToolbar extends Component<DatepickerDateToolbarProps> {
         <div className="datepicker-btn-next">
           <button
             type="button"
-            className="btn btn-light"
+            className="btn"
             aria-label={this.props.message("DatePicker.next", "Next")}
             onClick={this.handleNext}
             onKeyDown={this.handleNextKeydown}

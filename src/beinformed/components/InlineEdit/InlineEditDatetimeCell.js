@@ -2,9 +2,11 @@
 import React from "react";
 import classNames from "classnames";
 
-import DateAttributeModel from "beinformed/models/attributes/DateAttributeModel";
-import TimeAttributeModel from "beinformed/models/attributes/TimeAttributeModel";
-import TimestampAttributeModel from "beinformed/models/attributes/TimestampAttributeModel";
+import {
+  DateAttributeModel,
+  TimeAttributeModel,
+  TimestampAttributeModel
+} from "beinformed/models";
 
 import CellAssistant from "beinformed/components/InlineEdit/CellAssistant";
 

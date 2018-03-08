@@ -1,11 +1,11 @@
 // @flow
-import React from "react";
-import classNames from "classnames";
-
-import "./MultiRowTaskCheckbox.scss";
-import type { Connector } from "react-redux";
 import { connect } from "react-redux";
-import { selectListItem } from "beinformed/containers/MultiRowTask/MultiRowTaskActions";
+
+import { selectListItem } from "beinformed/containers/MultiRowTask/actions";
+
+import MultiRowTaskCheckbox from "beinformed/components/MultiRowTask/MultiRowTaskCheckbox";
+
+import type { Connector } from "react-redux";
 
 type MultiRowTaskCheckboxContainerProps = {
   className?: string,
@@ -14,46 +14,13 @@ type MultiRowTaskCheckboxContainerProps = {
 };
 
 export type MultiRowTaskCheckboxProps = {
+  id: string,
   className?: string,
   isChecked: boolean,
   value: number | string,
   children?: any,
   onChange: (value: number | string) => void
 };
-
-/**
- * Checkbox used for a multi row task list item
- */
-const MultiRowTaskCheckbox = ({
-  className,
-  value,
-  isChecked,
-  children,
-  onChange
-}: MultiRowTaskCheckboxProps) => (
-  <div
-    className={classNames(
-      "multi-row-task-checkbox custom-control custom-checkbox",
-      className
-    )}
-  >
-    <input
-      type="checkbox"
-      className="custom-control-input"
-      id={`multiselect-${value}`}
-      onChange={() => onChange(value)}
-      checked={isChecked}
-      value={value}
-    />
-    <label
-      className="custom-control-label"
-      htmlFor={`multiselect-${value}`}
-      id={`multiselect-${value}-label`}
-    >
-      {children}
-    </label>
-  </div>
-);
 
 /**
  * Map state to props
@@ -63,6 +30,7 @@ const mapStateToProps = (
   ownProps: MultiRowTaskCheckboxContainerProps
 ) => ({
   ...ownProps,
+  id: ownProps.value.toString(),
   isChecked: state.multirowtask.includes(ownProps.value)
 });
 

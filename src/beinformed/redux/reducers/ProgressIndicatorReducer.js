@@ -28,7 +28,7 @@ const finishProgress = state => {
  */
 export default function progressReducer(
   state: ProgressIndicatorState = initialState,
-  action: Action
+  action: ReduxAction
 ) {
   switch (action.type) {
     case "UPDATE_PROGRESS":

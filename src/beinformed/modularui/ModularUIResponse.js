@@ -1,10 +1,10 @@
 // @flow
 import type Parameter from "beinformed/models/href/Parameter";
 
-class ModularUIResponse {
+class ModularUIResponse<Data: any, Contributions: any> {
   _key: string;
-  _data: any;
-  _contributions: any;
+  _data: Data;
+  _contributions: Contributions;
   _locale: string;
   _parameters: Array<Parameter>;
 
@@ -32,27 +32,27 @@ class ModularUIResponse {
     return this._key;
   }
 
-  set data(data: any) {
+  set data(data: Data) {
     this._data = data;
   }
 
-  get data(): any {
+  get data(): Data {
     return this._data;
   }
 
-  set contributions(contributions: any) {
+  set contributions(contributions: Contributions) {
     this._contributions = contributions;
   }
 
-  get contributions(): any {
+  get contributions(): Contributions {
     return this._contributions;
   }
 
-  set parameters(parameters: any) {
+  set parameters(parameters: Array<Parameter>) {
     this._parameters = parameters;
   }
 
-  get parameters(): any {
+  get parameters(): Array<Parameter> {
     return this._parameters;
   }
 }

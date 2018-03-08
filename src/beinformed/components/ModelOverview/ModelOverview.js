@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from "react";
 
-import withModularUI from "beinformed/modularui/withModularUI";
+import { withModularUI } from "beinformed/modularui";
 
-import { Message, withMessage } from "beinformed/containers/I18n/Message";
+import { withMessage, Message } from "beinformed/i18n";
 import Link from "beinformed/components/Link/Link";
 
 import { BASE, TIMEVERSION_FILTER_NAME } from "beinformed/constants/Constants";
@@ -12,13 +12,11 @@ import {
   TARGET_OPERATING_MODEL_CONCEPT_TYPES
 } from "beinformed/components/ModelOverview/ModelOverviewConstants";
 
-import Href from "beinformed/models/href/Href";
-import BaseCollection from "beinformed/models/base/BaseCollection";
+import { Href, BaseCollection } from "beinformed/models";
 
 import "./ModelOverview.scss";
 
-import type ConceptIndexModel from "beinformed/models/concepts/ConceptIndexModel";
-import type ConceptLinkModel from "beinformed/models/concepts/ConceptLinkModel";
+import type { ConceptIndexModel, ConceptLinkModel } from "beinformed/models";
 
 type ModelOverviewProps = {
   conceptIndex: ConceptIndexModel,

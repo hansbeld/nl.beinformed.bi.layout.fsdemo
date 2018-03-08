@@ -16,14 +16,15 @@ import {
 
 import type { LocationShape } from "react-router-dom";
 
-import type FormModel from "beinformed/models/form/FormModel";
+import type { FormModel } from "beinformed/models";
 type FormProps = {
   form?: FormModel,
   formLayout?: "vertical" | "horizontal",
   isModal?: boolean,
   fetchModularUI: Function,
   redirectTo?: LocationShape,
-  onPrevious: (form: FormModel) => void
+  onPrevious: (form: FormModel) => void,
+  onCancel: (form: FormModel) => void
 };
 
 class Form extends Component<FormProps> {
@@ -58,6 +59,10 @@ class Form extends Component<FormProps> {
     } else if (form.isFinished && redirectTo) {
       return this.redirect(redirectTo);
     } else if (form.redirectLocation) {
+      if (form.redirectLocation.isExternal) {
+        window.location = form.redirectLocation.href;
+        return null;
+      }
       return this.redirect(form.redirectLocation.toLocation());
     }
 

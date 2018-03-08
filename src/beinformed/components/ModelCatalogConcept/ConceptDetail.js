@@ -12,7 +12,7 @@ import SourceReferences from "beinformed/components/ConceptDetail/SourceReferenc
 
 import BusinessScenario from "beinformed/components/BusinessScenario/BusinessScenario";
 
-import type ConceptDetailModel from "beinformed/models/concepts/ConceptDetailModel";
+import type { ConceptDetailModel } from "beinformed/models";
 
 type ConceptDetailProps = {
   conceptDetail: ConceptDetailModel,

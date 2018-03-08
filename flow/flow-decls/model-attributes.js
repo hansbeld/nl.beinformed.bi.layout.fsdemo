@@ -12,7 +12,6 @@ import type MemoAttributeModel from "../src/beinformed/models/attributes/MemoAtt
 import type MoneyAttributeModel from "../src/beinformed/models/attributes/MoneyAttributeModel";
 import type NumberAttributeModel from "../src/beinformed/models/attributes/NumberAttributeModel";
 import type PasswordAttributeModel from "../src/beinformed/models/attributes/PasswordAttributeModel";
-import type RangeAttributeModel from "../src/beinformed/models/attributes/RangeAttributeModel";
 import type StringAttributeModel from ".../src/beinformed/models/attributes/StringAttributeModel";
 import type TimeAttributeModel from "../src/beinformed/models/attributes/TimeAttributeModel";
 import type TimestampAttributeModel from "../src/beinformed/models/attributes/TimestampAttributeModel";

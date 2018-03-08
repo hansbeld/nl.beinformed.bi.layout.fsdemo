@@ -6,17 +6,25 @@ import type LinkModel from "beinformed/models/links/LinkModel";
 import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 import { TIMEVERSION_FILTER_NAME } from "beinformed/constants/Constants";
 import FilterCollection from "beinformed/models/filters/FilterCollection";
+
+type FilterCollectionData = {
+  entryDate: EntryDateFilterJSON
+};
+
 /**
  * Related concepts
  */
-class RelatedConceptsModel extends ResourceModel {
+class RelatedConceptsModel extends ResourceModel<
+  RelatedConceptsJSON,
+  RelatedConceptsContributionsJSON
+> {
   _concepts: ConceptDetailModel[];
-  _filterCollection: ?FilterCollection;
+  _filterCollection: FilterCollection<FilterCollectionData>;
 
   /**
    * @override
    */
-  constructor(modularuiResponse: ModularUIResponse) {
+  constructor(modularuiResponse: ModularUIResponse<any, any>) {
     super(modularuiResponse);
 
     this._concepts = [];
@@ -66,7 +74,7 @@ class RelatedConceptsModel extends ResourceModel {
   /**
    * Retrieve available filters on concept toc
    */
-  get filterCollection(): FilterCollection {
+  get filterCollection(): FilterCollection<FilterCollectionData> {
     if (!this._filterCollection) {
       this._filterCollection = new FilterCollection(
         {
@@ -78,7 +86,8 @@ class RelatedConceptsModel extends ResourceModel {
               entryDate: {
                 format: "dd-MM-yyyy",
                 label: "Entry date",
-                type: "datefilter"
+                type: "datefilter",
+                layouthint: []
               }
             }
           ]

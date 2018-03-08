@@ -14,10 +14,10 @@ import ContentDetail from "beinformed/containers/ModelCatalogContent/ContentDeta
 
 import Link from "beinformed/components/Link/Link";
 
-import Href from "beinformed/models/href/Href";
-import ModelCatalogModel from "beinformed/models/modelcatalog/ModelCatalogModel";
+import { Href } from "beinformed/models";
+import type { ModelCatalogModel } from "beinformed/models";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import DatetimeInput from "beinformed/components/FormInput/DatetimeInput";
 

@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import FormResultAttribute from "fsdemo/components/Advice/FormResultAttribute";
 
-import ContentConfigurationResults from "beinformed/models/contentconfiguration/ContentConfigurationResults";
+import { ContentConfigurationResults } from "beinformed/models";
 
 import "./FormResult.scss";
 

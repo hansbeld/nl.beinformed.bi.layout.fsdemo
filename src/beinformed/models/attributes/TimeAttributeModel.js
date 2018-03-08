@@ -1,4 +1,6 @@
 // @flow
+import { get } from "lodash";
+
 import { TimeUtil } from "beinformed/utils/datetime/DateTimeUtil";
 import ConstraintCollection from "beinformed/models/constraints/ConstraintCollection";
 import StringAttributeModel from "beinformed/models/attributes/StringAttributeModel";
@@ -6,7 +8,9 @@ import StringAttributeModel from "beinformed/models/attributes/StringAttributeMo
 /**
  * Time attribute
  */
-export default class TimeAttributeModel extends StringAttributeModel {
+export default class TimeAttributeModel extends StringAttributeModel<
+  DateTimeAttributeContributionsJSON
+> {
   _format: string;
 
   /**
@@ -29,7 +33,7 @@ export default class TimeAttributeModel extends StringAttributeModel {
    * Get date format
    */
   get format(): string {
-    return TimeUtil.convertFormat(this.contributions.format);
+    return TimeUtil.convertFormat(get(this.contributions, "format", ""));
   }
 
   /**

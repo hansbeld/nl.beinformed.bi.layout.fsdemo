@@ -136,7 +136,19 @@ declare type ListDetailJSON = {
     api_doc: LinkJSON,
     contributions: LinkJSON
   },
-  [CustomAttributeName: string]: string
+  [CustomAttributeName: string]: string,
+  result?: {
+    [CustomAttributeName: string]: AttributeContributionsJSON
+  },
+  resultSection?: {
+    results?: {
+      [CustomAttributeName: string]: AttributeContributionsJSON
+    },
+    givenAnswers?: {
+      [CustomAttributeName: string]: AttributeContributionsJSON
+    }
+  },
+  eventdata?: Object
 };
 
 declare type ListDetailContributionsJSONResponse = {
@@ -144,10 +156,21 @@ declare type ListDetailContributionsJSONResponse = {
 };
 declare type ListDetailContributionsJSON = {
   label: string,
-  resourcetype: "RecordListPanelDetail",
+  resourcetype: string,
   _links: {},
   attributes: Array<{
     [CustomAttributeName: string]: AttributeContributionsJSON
   }>,
-  layouthint?: Array<string>
+  layouthint?: Array<string>,
+  content?: {
+    givenAnswers?: Array<string>,
+    results?: ContentEndResultElementJSON
+  },
+  resultSection?: {
+    givenAnswers?: CompositeAttributeContributionsJSON,
+    results?: CompositeAttributeContributionsJSON
+  },
+  eventdata?: Array<{
+    [AttributeSetKey: string]: AttributeSetContributions
+  }>
 };

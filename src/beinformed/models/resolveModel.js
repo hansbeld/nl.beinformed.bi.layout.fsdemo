@@ -23,31 +23,6 @@ import ContentModel from "beinformed/models/content/ContentModel";
 import ContentTypeModel from "beinformed/models/content/ContentTypeModel";
 import RelatedConceptsModel from "beinformed/models/content/RelatedConceptsModel";
 
-export type ResolvableModels =
-  | ApplicationModel
-  | CaseSearchModel
-  | CaseViewModel
-  | ListDetailModel
-  | DetailModel
-  | EditableListModel
-  | FormModel
-  | GroupingPanelModel
-  | ListModel
-  | TabModel
-  | TaskGroupModel
-  | UserModel
-  | UserServicesModel
-  | ModelCatalogModel
-  | ConceptIndexModel
-  | ConceptDetailModel
-  | BusinessScenarioModel
-  | ConceptTypeDetailModel
-  | ContentIndexModel
-  | ContentTOCModel
-  | ContentModel
-  | ContentTypeModel
-  | RelatedConceptsModel;
-
 /**
  * Mapping of models and resourcetypes
  */

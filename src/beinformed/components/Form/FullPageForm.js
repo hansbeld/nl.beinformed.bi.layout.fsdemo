@@ -9,7 +9,7 @@ import FormButtons from "beinformed/components/Form/FormButtons";
 
 import "./FullPageForm.scss";
 
-import type FormModel from "beinformed/models/form/FormModel";
+import type { FormModel } from "beinformed/models";
 
 type FullPageFormProps = {
   form: FormModel,

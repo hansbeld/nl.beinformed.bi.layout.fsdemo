@@ -30,7 +30,7 @@ const DatepickerToolbar = ({
     <div className="datetimepicker-toolbar">
       <button
         type="button"
-        className="btn btn-light"
+        className="btn"
         onClick={e => {
           e.preventDefault();
           onSwitch(switchType);

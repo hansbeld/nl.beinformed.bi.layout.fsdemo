@@ -16,7 +16,7 @@ const initialState = {
  */
 export default function authReducer(
   state: AuthState = initialState,
-  action: Action
+  action: ReduxAction
 ) {
   switch (action.type) {
     case "AUTHENTICATION_SUCCESS":

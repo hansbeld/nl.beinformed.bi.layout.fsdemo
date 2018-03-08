@@ -2,7 +2,7 @@
 import React from "react";
 
 import InlineEditStringCell from "beinformed/components/InlineEdit/InlineEditStringCell";
-import type NumberAttributeModel from "beinformed/models/attributes/NumberAttributeModel";
+import type { NumberAttributeModel } from "beinformed/models";
 
 type InlineEditNumberCellProps = {
   attribute: NumberAttributeModel,

@@ -1,8 +1,5 @@
 // @flow
-import type ContentModel from "beinformed/models/content/ContentModel";
-import type LinkModel from "beinformed/models/links/LinkModel";
-import type ConceptDetailModel from "beinformed/models/concepts/ConceptDetailModel";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import { get } from "lodash";
 
 import { DateUtil } from "beinformed/utils/datetime/DateTimeUtil";
 
@@ -20,10 +17,17 @@ import { TIMEVERSION_FILTER_NAME } from "beinformed/constants/Constants";
 
 import { getDependentAttributeHint } from "beinformed/models/attributes/attributeVisibilityUtil";
 
+import type ContentModel from "beinformed/models/content/ContentModel";
+import type LinkModel from "beinformed/models/links/LinkModel";
+import type ConceptDetailModel from "beinformed/models/concepts/ConceptDetailModel";
+import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+
 /**
  * Attribute model, base model for all kind of attributes
  */
-export default class AttributeModel extends BaseModel {
+export default class AttributeModel<
+  Contributions: Object = CommonAttributeContributionsJSON
+> extends BaseModel<AttributeJSON, Contributions> {
   _isValid: boolean;
   _label: string;
   _readonly: boolean;
@@ -47,10 +51,7 @@ export default class AttributeModel extends BaseModel {
   /**
    * Create an attribute model
    */
-  constructor(
-    attribute: AttributeJSON,
-    attributeContributions: AttributeContributionsJSON
-  ) {
+  constructor(attribute: AttributeJSON, attributeContributions: Contributions) {
     super(attribute, attributeContributions);
 
     this._label = this.contributions.label;
@@ -122,7 +123,7 @@ export default class AttributeModel extends BaseModel {
    * Getting the attribute key
    */
   get key(): string {
-    return this.data.key || this.data.name || this.data.param;
+    return this.data.key;
   }
 
   /**
@@ -334,7 +335,7 @@ export default class AttributeModel extends BaseModel {
   /**
    * Getting the value of the attribute
    */
-  getValue(): string | null {
+  getValue(): number | string | null {
     const value = this._value.value;
 
     return typeof value === "undefined" || value === null || value === ""
@@ -345,7 +346,7 @@ export default class AttributeModel extends BaseModel {
   /**
    * Getting the value of the attribute
    */
-  get value(): string | null {
+  get value(): number | string | null {
     return this.getValue();
   }
 
@@ -408,7 +409,7 @@ export default class AttributeModel extends BaseModel {
    * Getting the display and input format of a attribute
    */
   get format(): string | null {
-    return this.contributions.format || null;
+    return get(this.contributions, "format", null);
   }
 
   get formatLabel(): string {
@@ -419,14 +420,14 @@ export default class AttributeModel extends BaseModel {
    * Get minimum string length
    */
   get minLength(): number | null {
-    return this.contributions.minLength || null;
+    return get(this.contributions, "minLength", null);
   }
 
   /**
    * Get maximum string length
    */
   get maxLength(): number | null {
-    return this.contributions.maxLength || null;
+    return get(this.contributions, "maxLength", null);
   }
 
   /**

@@ -7,9 +7,11 @@ import PlayCircleOutlineIcon from "mdi-react/PlayCircleOutlineIcon";
 import ActionList from "beinformed/components/Actions/ActionList";
 import DAPPerformedActivities from "beinformed/components/TaskGroup/DAPPerformedActivities";
 
-import type TaskGroupCollection from "beinformed/models/taskgroup/TaskGroupCollection";
-import type ChoiceAttributeModel from "beinformed/models/attributes/ChoiceAttributeModel";
-import type ActionCollection from "beinformed/models/actions/ActionCollection";
+import type {
+  TaskGroupCollection,
+  ChoiceAttributeModel,
+  ActionCollection
+} from "beinformed/models";
 
 import "./TaskGroupPanels.scss";
 

@@ -8,8 +8,10 @@ import FormLabel from "beinformed/components/FormLabel/FormLabel";
 import FormContent from "beinformed/components/FormContent/FormContent";
 import FormContentPopover from "beinformed/components/FormContent/FormContentPopover";
 
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
-import type ChoiceAttributeModel from "beinformed/models/attributes/ChoiceAttributeModel";
+import type {
+  ContentConfigurationElements,
+  ChoiceAttributeModel
+} from "beinformed/models";
 
 type ChoiceAttributeProps = {
   attribute: ChoiceAttributeModel,

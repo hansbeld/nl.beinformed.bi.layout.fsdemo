@@ -1,4 +1,6 @@
 // @flow
+import { get } from "lodash";
+
 import ResourceCollection from "beinformed/models/base/ResourceCollection";
 import AttributeFactory from "beinformed/models/attributes/AttributeFactory";
 import ErrorCollection from "beinformed/models/error/ErrorCollection";
@@ -29,11 +31,6 @@ class CompositeAttributeChildCollection extends ResourceCollection<
             ? data.children.find(attr => attr.key === key)
             : {};
 
-          const dynamicSchemaKey = `${data.key}.${key}`;
-          const dynamicschema = data.dynamicschema
-            ? data.dynamicschema[dynamicSchemaKey]
-            : void 0;
-
           const attributeType = contributions.type.includes("range")
             ? contributions.type.replace("range", "")
             : null;
@@ -43,7 +40,7 @@ class CompositeAttributeChildCollection extends ResourceCollection<
             key,
             {
               ...attributeData,
-              dynamicschema
+              dynamicschema: get(attributeData, "dynamicschema")
             },
             contribution[key]
           );

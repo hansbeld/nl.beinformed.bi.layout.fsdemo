@@ -2,7 +2,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import XMLAttributeModel from "beinformed/models/attributes/XMLAttributeModel";
+import { XMLAttributeModel } from "beinformed/models";
 
 import TextareaInput from "beinformed/components/FormInput/TextareaInput";
 import WysiwygInput from "beinformed/components/FormInput/WysiwygInput";

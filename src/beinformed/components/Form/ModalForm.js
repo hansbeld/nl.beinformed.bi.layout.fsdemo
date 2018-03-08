@@ -11,7 +11,7 @@ import ModalBody from "beinformed/components/Modal/ModalBody";
 import ModalFooter from "beinformed/components/Modal/ModalFooter";
 import ModalHeader from "beinformed/components/Modal/ModalHeader";
 
-import type FormModel from "beinformed/models/form/FormModel";
+import type { FormModel } from "beinformed/models";
 
 type ModalFormProps = {
   form: FormModel,

@@ -9,7 +9,7 @@ import TableRows from "beinformed/components/List/TableView/TableRows";
 
 import "./Table.scss";
 
-import type ListModel from "beinformed/models/list/ListModel";
+import type { ListModel } from "beinformed/models";
 
 type ViewProps = {
   className?: string,

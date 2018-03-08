@@ -1,8 +1,6 @@
 // @flow
 import React, { Component } from "react";
 
-import EditableListItemModel from "beinformed/models/list/EditableListItemModel";
-
 import InlineEditChoiceCell from "beinformed/components/InlineEdit/InlineEditChoiceCell";
 import InlineEditDatetimeCell from "beinformed/components/InlineEdit/InlineEditDatetimeCell";
 import InlineEditLookupCell from "beinformed/components/InlineEdit/InlineEditLookupCell";
@@ -13,6 +11,8 @@ import InlineEditStringCell from "beinformed/components/InlineEdit/InlineEditStr
 import InlineEditUploadCell from "beinformed/components/InlineEdit/InlineEditUploadCell";
 import InlineEditXMLCell from "beinformed/components/InlineEdit/InlineEditXMLCell";
 import InlineEditMoneyCell from "beinformed/components/InlineEdit/InlineEditMoneyCell";
+
+import type { EditableListItemModel } from "beinformed/models";
 
 type InlineEditCellRendererProps = {
   attribute: AttributeType,

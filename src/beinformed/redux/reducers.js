@@ -6,7 +6,7 @@ import AuthReducer from "beinformed/redux/reducers/AuthReducer";
 import ErrorReducer from "beinformed/redux/reducers/ErrorReducer";
 import NotificationReducer from "beinformed/redux/reducers/NotificationReducer";
 import ProgressIndicatorReducer from "beinformed/redux/reducers/ProgressIndicatorReducer";
-import MultiRowTaskReducer from "beinformed/containers/MultiRowTask/MultiRowTaskReducer";
+import MultiRowTaskReducer from "beinformed/redux/reducers/MultiRowTaskReducer";
 
 const createReducer = (asyncReducers?: Object) => ({
   modularui: ModularUIReducer,

@@ -6,7 +6,7 @@ import LookupInput from "beinformed/components/FormInput/LookupInput";
 
 import CellAssistant from "beinformed/components/InlineEdit/CellAssistant";
 
-import type LookupAttributeModel from "beinformed/models/attributes/LookupAttributeModel";
+import type { LookupAttributeModel } from "beinformed/models";
 
 type InlineEditLookupCellProps = {
   attribute: LookupAttributeModel,

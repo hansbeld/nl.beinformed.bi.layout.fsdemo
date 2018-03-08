@@ -3,7 +3,7 @@ import React, { PureComponent } from "react";
 import classNames from "classnames";
 import { connect } from "react-redux";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import {
   startProgress,
@@ -12,7 +12,7 @@ import {
 import { handleError } from "beinformed/containers/Error/actions";
 
 import ModularUI from "beinformed/modularui/ModularUIRequest";
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 import NotImplementedLink from "fsdemo/components/Link/NotImplementedLink";
 

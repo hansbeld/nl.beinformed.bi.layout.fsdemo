@@ -8,7 +8,7 @@ import ActionPanels from "beinformed/components/TaskGroup/ActionPanels";
 
 import "./FoldoutTaskMenu.scss";
 
-import type TaskGroupCollection from "beinformed/models/taskgroup/TaskGroupCollection";
+import type { TaskGroupCollection } from "beinformed/models";
 import ActionCollection from "../../models/actions/ActionCollection";
 
 type FoldoutTaskMenuProps = {

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 import Link from "beinformed/components/Link/Link";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 type CharIndexType = {
   active: Array<string>,

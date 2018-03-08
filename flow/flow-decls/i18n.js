@@ -14,4 +14,4 @@ declare type LocaleConfigurationType = {
   code: string,
   messages: Object,
   errors: Object
-}
+};

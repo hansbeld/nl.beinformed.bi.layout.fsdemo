@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
 
-import type Href from "beinformed/models/href/Href";
+import type { Href } from "beinformed/models";
 
 /**
  * Render an item on the breadcrumb

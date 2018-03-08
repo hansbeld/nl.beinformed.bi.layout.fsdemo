@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from "react";
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import AttributeValue from "beinformed/components/AttributeList/AttributeValue";
 
@@ -8,7 +8,7 @@ import { getChoiceOptionLabel } from "beinformed/components/FormInput/_util";
 
 import "./ResultWhatWillMyMortgageCost.scss";
 
-import type FormModel from "beinformed/models/form/FormModel";
+import type { FormModel } from "beinformed/models";
 
 import "./AdviceExplain.scss";
 

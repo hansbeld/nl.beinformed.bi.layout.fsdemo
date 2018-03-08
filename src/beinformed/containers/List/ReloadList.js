@@ -1,6 +1,5 @@
 // @flow
 import { connect } from "react-redux";
-
 import { Redirect } from "react-router-dom";
 
 const mapStateToProps = (state, ownProps) => {

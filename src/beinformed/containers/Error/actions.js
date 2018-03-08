@@ -9,7 +9,7 @@ import {
   IS_SERVER
 } from "beinformed/constants/Constants";
 
-import ErrorResponse from "beinformed/models/error/ErrorResponse";
+import { ErrorResponse } from "beinformed/models";
 
 import { logoutSuccess } from "beinformed/containers/SignOut/actions";
 import { showXHRErrorNotification } from "beinformed/containers/Notification/actions";
@@ -20,7 +20,12 @@ import Cache from "beinformed/utils/browser/Cache";
 import type FetchError from "beinformed/utils/fetch/FetchError";
 import { changePassword } from "beinformed/containers/SignIn/actions";
 
-const saveError = (error: Error | FetchError) => ({
+export type saveErrorType = {
+  type: "SAVE_ERROR",
+  payload: Error | FetchError
+};
+
+const saveError = (error: Error | FetchError): saveErrorType => ({
   type: "SAVE_ERROR",
   payload: error
 });
@@ -55,8 +60,8 @@ export const handleError = (error: Error | FetchError): ThunkAction => (
     );
   }
 
-  if (errorResponse.isBlocked) {
-    push(LOGOUT_PATH);
+  if (errorResponse.isBlocked || errorResponse.isConcurrentUser) {
+    dispatch(push(LOGOUT_PATH));
   }
 
   if (errorResponse.isChangePassword) {

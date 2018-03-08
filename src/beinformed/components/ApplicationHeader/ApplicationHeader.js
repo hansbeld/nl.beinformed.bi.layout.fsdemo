@@ -1,12 +1,12 @@
 import React from "react";
 import ShareVariantIcon from "mdi-react/ShareVariantIcon";
 
-import LinkModel from "beinformed/models/links/LinkModel";
+import { LinkModel } from "beinformed/models";
 
 import Navigation from "beinformed/components/Navigation/Navigation";
 import NavigationItem from "beinformed/components/Navigation/NavigationItem";
 
-import { withMessage } from "beinformed/containers/I18n/Message";
+import { withMessage } from "beinformed/i18n";
 
 import LanguageSelector from "beinformed/containers/LanguageSelector/LanguageSelector";
 import UserMenu from "beinformed/components/UserMenu/UserMenu";

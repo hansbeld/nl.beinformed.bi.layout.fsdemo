@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import classNames from "classnames";
 
 import Link from "beinformed/components/Link/Link";
-import ActionModel from "beinformed/models/actions/ActionModel";
+import { ActionModel } from "beinformed/models";
 
 import "./MortgageInstrumentLink.scss";
 

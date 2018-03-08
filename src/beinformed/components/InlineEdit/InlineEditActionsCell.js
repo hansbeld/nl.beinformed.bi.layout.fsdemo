@@ -11,8 +11,8 @@ import TableRowPlusAfterIcon from "mdi-react/TableRowPlusAfterIcon";
 import Button from "beinformed/components/Button/Button";
 import Link from "beinformed/components/Link/Link";
 
-import { Message } from "beinformed/containers/I18n/Message";
-import type ActionModel from "beinformed/models/actions/ActionModel";
+import { Message } from "beinformed/i18n";
+import type { ActionModel } from "beinformed/models";
 
 type InlineEditActionsCellProps = {
   cloneAction?: ActionModel | null,

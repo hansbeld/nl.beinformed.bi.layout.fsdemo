@@ -1,8 +1,5 @@
 // @flow
-import {
-  removeModel,
-  removeModelByKey
-} from "beinformed/containers/ModularUI/actions";
+import { removeModel, removeModelByKey } from "beinformed/modularui";
 
 import {
   HIDE_NOTIFICATION_TIMEOUT,

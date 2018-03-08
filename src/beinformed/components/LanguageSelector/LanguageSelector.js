@@ -9,7 +9,7 @@ import DropdownToggle from "beinformed/components/Dropdown/DropdownToggle";
 import DropdownItem from "beinformed/components/Dropdown/DropdownItem";
 import DropdownChildren from "beinformed/components/Dropdown/DropdownChildren";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 import "./LanguageSelector.scss";
 

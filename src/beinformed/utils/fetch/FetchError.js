@@ -1,11 +1,13 @@
 // @flow
+import { get } from "lodash";
+
 const CLIENT_ERROR_CODE = 400;
 
 /**
  * Request Exception information
  */
 class FetchError extends Error {
-  request: XMLHttpRequest | dataFetcher;
+  request: XMLHttpRequest | dataFetcher | null;
   status: number;
   response: ErrorResponseJSON;
   id: string;
@@ -15,7 +17,7 @@ class FetchError extends Error {
 
   constructor(
     errorResponse: ErrorResponseJSON,
-    failedRequest: XMLHttpRequest | dataFetcher
+    failedRequest?: XMLHttpRequest | dataFetcher | null = null
   ) {
     let errorMessage = "FetchError";
 
@@ -39,7 +41,9 @@ class FetchError extends Error {
         ? failedRequest.status
         : CLIENT_ERROR_CODE;
     this.response = errorResponse;
-    this.properties = errorResponse.error ? errorResponse.error.properties : {};
+    this.properties = errorResponse.error
+      ? get(errorResponse.error, "properties", {})
+      : {};
 
     this.id = errorResponse.error ? errorResponse.error.id : "FetchError";
 

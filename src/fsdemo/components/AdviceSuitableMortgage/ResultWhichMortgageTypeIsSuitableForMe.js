@@ -1,14 +1,14 @@
 // @flow
 import React, { PureComponent } from "react";
 
-import { Message, withMessage } from "beinformed/containers/I18n/Message";
+import { Message, withMessage } from "beinformed/i18n";
 
 import MortgageInstrumentLink from "fsdemo/components/MortgageInstruments/MortgageInstrumentLink";
 
 import MortgageAdviceResult from "fsdemo/components/Advice/MortgageAdviceResult";
 import SuitableMortgageOption from "fsdemo/components/AdviceSuitableMortgage/SuitableMortgageOption";
 
-import type FormModel from "beinformed/models/form/FormModel";
+import type { FormModel } from "beinformed/models";
 
 type ResultWhichMortgageTypeIsSuitableForMeProps = {
   form: FormModel,

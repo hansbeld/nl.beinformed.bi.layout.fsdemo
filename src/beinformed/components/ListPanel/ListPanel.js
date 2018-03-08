@@ -7,9 +7,7 @@ import PanelBody from "beinformed/components/Panel/PanelBody";
 
 import Panel from "beinformed/components/Panel/Panel";
 
-import "./ListPanel.scss";
-
-import type ListModel from "beinformed/models/list/ListModel";
+import type { ListModel } from "beinformed/models";
 
 type ListPanelProps = {
   isTab?: boolean,

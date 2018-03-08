@@ -33,7 +33,7 @@ const initialState = {
  */
 export default function i18nReducer(
   state: I18nState = initialState,
-  action: Action
+  action: ReduxAction
 ) {
   switch (action.type) {
     case "SET_LOCALES":

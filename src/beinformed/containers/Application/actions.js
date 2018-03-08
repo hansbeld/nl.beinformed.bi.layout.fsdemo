@@ -1,6 +1,5 @@
 // @flow
-import { loadModularUI } from "beinformed/containers/ModularUI/actions";
-import { keyByHref } from "beinformed/containers/ModularUI/selectors";
+import { loadModularUI, keyByHref } from "beinformed/modularui";
 
 export const reloadApplication = (): ThunkAction => (dispatch, getState) => {
   const modelKey = keyByHref(getState(), "/");

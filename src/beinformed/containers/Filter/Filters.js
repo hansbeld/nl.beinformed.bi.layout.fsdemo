@@ -1,7 +1,7 @@
 // @flow
 import { connect } from "react-redux";
 
-import type ListModel from "beinformed/models/list/ListModel";
+import type { ListModel } from "beinformed/models";
 
 import {
   changeFilterItem,

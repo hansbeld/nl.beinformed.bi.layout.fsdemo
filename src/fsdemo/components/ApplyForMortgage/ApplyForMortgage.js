@@ -3,11 +3,11 @@ import { Route, withRouter } from "react-router-dom";
 
 import Redirect from "beinformed/components/Redirect/Redirect";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import FormProgress from "fsdemo/components/ApplyForMortgage/FormProgress";
 import PanelRenderer from "fsdemo/containers/ApplyForMortgage/PanelRenderer";
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 const ApplyForMortgage = ({ caseview, match, location }) => {
   if (caseview) {

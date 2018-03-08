@@ -1,4 +1,6 @@
 // @flow
+import { get } from "lodash";
+
 import ResourceModel from "beinformed/models/base/ResourceModel";
 import FilterCollection from "beinformed/models/filters/FilterCollection";
 import ContentLinkModel from "beinformed/models/content/ContentLinkModel";
@@ -13,9 +15,12 @@ import type Href from "beinformed/models/href/Href";
 /**
  * Content detail model
  */
-export default class ContentModel extends ResourceModel {
+export default class ContentModel extends ResourceModel<
+  ContentDetailJSON,
+  ContentDetailContributionsJSON
+> {
   _contentType: ContentTypeModel;
-  _filterCollection: FilterCollection;
+  _filterCollection: FilterCollection<ContentDetailFilter>;
   _relatedConcepts: RelatedConceptsModel;
   _childSections: ContentModel[];
 
@@ -65,16 +70,14 @@ export default class ContentModel extends ResourceModel {
   /**
    * Retrieve available filters on concept toc
    */
-  get filterCollection(): FilterCollection {
+  get filterCollection(): FilterCollection<ContentDetailFilter> {
     if (!this._filterCollection) {
       this._filterCollection = new FilterCollection(
         {
           entryDate: this.data.filter.datefilter
         },
         {
-          filter: this.contributions.filter,
-          contexts: this.contributions.contexts,
-          dynamicschema: this.data.dynamicschema
+          filter: this.contributions.filter
         }
       );
     }
@@ -107,14 +110,7 @@ export default class ContentModel extends ResourceModel {
    * Get content label
    */
   get label(): string {
-    return this.data.label;
-  }
-
-  /**
-   * Get number of content, for instance 'lid 1', 'artikel 1', etc.
-   */
-  get number(): string {
-    return this.data.number;
+    return get(this.data, "label", "");
   }
 
   /**
@@ -127,10 +123,10 @@ export default class ContentModel extends ResourceModel {
   /**
    * Retrieve child section links
    */
-  get childSectionLinks(): ContentLinkModel[] {
+  get childSectionLinks(): Array<ContentLinkModel> {
     return this.data.childSections
       ? this.data.childSections.map(
-          childSection =>
+          (childSection: ChildSectionLinkJSON) =>
             new ContentLinkModel(
               {
                 ...childSection,

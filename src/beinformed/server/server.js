@@ -8,7 +8,7 @@ import { StaticRouter as Router } from "react-router-dom";
 import Helmet from "react-helmet";
 import serialize from "serialize-javascript";
 
-import RootRoute from "beinformed/containers/ModularUI/RootRoute";
+import RootRoute from "beinformed/components/Routes/RootRoute";
 
 import htmlpage from "beinformed/server/htmlpage";
 import Application from "beinformed/containers/Application/Application";
@@ -20,7 +20,7 @@ import createStore from "beinformed/redux/store";
 import render from "beinformed/server/render";
 
 import Locales, { availableLocales } from "beinformed/i18n/Locales";
-import { setLocales } from "beinformed/containers/I18n/actions";
+import { setLocales } from "beinformed/containers/LanguageSelector/actions";
 
 import {
   getFullRequestHref,
@@ -38,7 +38,9 @@ const dehydrateState = state => ({
   modularui: Object.keys(state.modularui).reduce((obj, key) => {
     obj[key] = {
       status: state.modularui[key].status,
-      model: state.modularui[key].model.dehydrate()
+      model: state.modularui[key].model
+        ? state.modularui[key].model.dehydrate()
+        : void 0
     };
 
     return obj;
@@ -70,13 +72,7 @@ const server = ({
         <ErrorBoundary>
           <Router
             basename={global.CONTEXT_PATH}
-            location={{
-              pathname: requestHref.path,
-              search: requestHref.querystring
-                ? `?${requestHref.querystring}`
-                : "",
-              hash: requestHref.hash ? `#${requestHref.hash}` : ""
-            }}
+            location={requestHref.toLocation()}
             context={context}
           >
             <RootRoute>{ApplicationComponent}</RootRoute>
@@ -88,7 +84,7 @@ const server = ({
     .then(appHTML => {
       const state = store.getState();
 
-      if (state.error) {
+      if (state.error && state.error.shouldThrowOnServer) {
         throw state.error;
       }
 

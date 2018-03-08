@@ -1,4 +1,6 @@
 // @flow
+import { get } from "lodash";
+
 import { DateUtil } from "beinformed/utils/datetime/DateTimeUtil";
 import { TIMEVERSION_FILTER_NAME } from "beinformed/constants/Constants";
 
@@ -14,7 +16,7 @@ import type ContentConfigurationElements from "beinformed/models/contentconfigur
 /**
  * Choice attribute option model
  */
-class ChoiceAttributeOptionModel extends BaseModel {
+class ChoiceAttributeOptionModel extends BaseModel<OptionType, void> {
   _referenceDate: string;
   _links: LinkCollection;
   _concept: ConceptDetailModel | null;
@@ -90,7 +92,7 @@ class ChoiceAttributeOptionModel extends BaseModel {
    * Get code of option
    */
   get code(): string {
-    return this.data.code || this.data.key || "";
+    return this.data.code || "";
   }
 
   /**
@@ -105,12 +107,13 @@ class ChoiceAttributeOptionModel extends BaseModel {
    * Be aware that permission could be in place for labels from a concept.
    */
   getContentConfiguredLabel(
-    contentConfiguration: ContentConfigurationElements
+    contentConfiguration: ContentConfigurationElements | null
   ): string {
-    const configuredLabelProperties =
-      contentConfiguration && contentConfiguration.labelConfig.length > 0
-        ? contentConfiguration.labelConfig[0].types
-        : [];
+    const configuredLabelProperties = get(
+      contentConfiguration,
+      "labelconfig[0].types",
+      []
+    );
 
     if (this.concept && configuredLabelProperties.length > 0) {
       const configuredLabels = this.concept
@@ -158,7 +161,7 @@ class ChoiceAttributeOptionModel extends BaseModel {
    * Retrieve count of filter for option
    */
   get count(): number | null {
-    return this.data.count || null;
+    return get(this.data, "count", null);
   }
 
   /**
@@ -173,10 +176,7 @@ class ChoiceAttributeOptionModel extends BaseModel {
    */
   get links(): LinkCollection {
     if (!this._links) {
-      this._links = new LinkCollection(
-        this.data._links,
-        this.contributions._links
-      );
+      this._links = new LinkCollection(this.data._links);
     }
 
     return this._links;
@@ -260,7 +260,7 @@ class ChoiceAttributeOptionModel extends BaseModel {
   }
 
   get isBooleanType(): boolean {
-    return this.data.isBooleanType || false;
+    return get(this.data, "isBooleanType", false);
   }
 }
 

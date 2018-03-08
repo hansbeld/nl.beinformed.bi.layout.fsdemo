@@ -17,7 +17,7 @@ import StringAttribute from "beinformed/components/FormAttribute/StringAttribute
 import UploadAttribute from "beinformed/components/FormAttribute/UploadAttribute";
 import XMLAttribute from "beinformed/components/FormAttribute/XMLAttribute";
 
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import type { ContentConfigurationElements } from "beinformed/models";
 
 type FormAttributeProps = {
   attribute: AttributeType,

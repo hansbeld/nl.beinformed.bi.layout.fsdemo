@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from "react";
 
-import ActionCollection from "beinformed/models/actions/ActionCollection";
+import type { ActionCollection } from "beinformed/models";
 
 import ActionList from "beinformed/components/Actions/ActionList";
 

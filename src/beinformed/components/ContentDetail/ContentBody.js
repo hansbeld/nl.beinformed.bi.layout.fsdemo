@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 
 import { BASE, KEYCODES } from "beinformed/constants/Constants";
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 import "./ContentBody.scss";
 

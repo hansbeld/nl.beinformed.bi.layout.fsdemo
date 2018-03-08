@@ -6,8 +6,10 @@ import CheckIcon from "mdi-react/CheckIcon";
 
 import FormContentRenderer from "beinformed/components/FormContent/FormContentRenderer";
 
-import type ContentConfigurationResults from "beinformed/models/contentconfiguration/ContentConfigurationResults";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import type {
+  ContentConfigurationResults,
+  ContentConfigurationElements
+} from "beinformed/models";
 
 import "./FormResultAttribute.scss";
 

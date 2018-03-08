@@ -5,8 +5,8 @@ import classNames from "classnames";
 import SortAscendingIcon from "mdi-react/SortAscendingIcon";
 import SortDescendingIcon from "mdi-react/SortDescendingIcon";
 
-import { Message, withMessage } from "beinformed/containers/I18n/Message";
-import ListHref from "beinformed/models/href/ListHref";
+import { withMessage, Message } from "beinformed/i18n";
+import { ListHref } from "beinformed/models";
 
 import Dropdown from "beinformed/components/Dropdown/Dropdown";
 import DropdownButton from "beinformed/components/Dropdown/DropdownButton";
@@ -15,8 +15,7 @@ import DropdownLink from "beinformed/components/Dropdown/DropdownLink";
 
 import "./SortChooser.scss";
 
-import type ListModel from "beinformed/models/list/ListModel";
-import type Href from "beinformed/models/href/Href";
+import type { Href, ListModel } from "beinformed/models";
 
 type SortChooserProps = {
   align: "left" | "right",

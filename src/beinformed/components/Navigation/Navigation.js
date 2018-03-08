@@ -4,8 +4,7 @@ import classNames from "classnames";
 
 import NavigationItem from "beinformed/components/Navigation/NavigationItem";
 
-import type LinkCollection from "beinformed/models/links/LinkCollection";
-import type LinkModel from "beinformed/models/links/LinkModel";
+import type { LinkCollection, LinkModel } from "beinformed/models";
 
 type NavigationProps = {
   activeLink?: LinkModel,

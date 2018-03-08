@@ -1,22 +1,31 @@
 // @flow
+import { get, has } from "lodash";
+
 import BaseModel from "beinformed/models/base/BaseModel";
 import Href from "beinformed/models/href/Href";
 import LinkModel from "beinformed/models/links/LinkModel";
 import { TIMEVERSION_FILTER_NAME } from "beinformed/constants/Constants";
 import type ContentTypeModel from "beinformed/models/content/ContentTypeModel";
 
+type ContentLinkData =
+  | ContentItemJSON
+  | CategoryLinkJSON
+  | (ChildSectionLinkJSON & { section: string })
+  | (SourceReferenceJSON & { section: string })
+  | (ContentItem & { section: string });
+
 /**
  * Link to a concept
  */
-export default class ContentLinkModel extends BaseModel {
+export default class ContentLinkModel extends BaseModel<ContentLinkData, void> {
   _entryDate: string | null;
   _contentType: ContentTypeModel;
-  _items: ContentLinkModel[];
+  _items: Array<ContentLinkModel>;
 
   /**
    * Construct ContentLinkModel
    */
-  constructor(data: any, entryDate: string | null = null) {
+  constructor(data: ContentLinkData, entryDate: string | null = null) {
     super(data);
 
     this._entryDate = entryDate;
@@ -44,21 +53,21 @@ export default class ContentLinkModel extends BaseModel {
    * Retrieve key
    */
   get key(): string {
-    return this.data._id;
+    return get(this.data, "_id", "");
   }
 
   /**
    * Retrieve label
    */
   get label(): string {
-    return this.data.label || this.data.conceptLabel;
+    return get(this.data, "label", "");
   }
 
   /**
    * Retrieve the label of the source a link to a section belongs to
    */
-  get sourceLabel(): string {
-    return this.data.sourceLabel;
+  get sourceLabel(): ?string {
+    return get(this.data, "sourceLabel");
   }
 
   /**
@@ -81,14 +90,14 @@ export default class ContentLinkModel extends BaseModel {
     const startURI = "/content/";
 
     const selfhref = this.data._links.self.href;
-    const href = this.data.section
+    const href = has(this.data, "section")
       ? new Href(
           `${startURI}${encodeURIComponent(
             selfhref.substring(
               startURI.length,
               selfhref.indexOf(this.data.section) - 1
             )
-          )}/${this.data.section}`
+          )}/${get(this.data, "section")}`
         )
       : new Href(
           `${startURI}${encodeURIComponent(
@@ -111,31 +120,24 @@ export default class ContentLinkModel extends BaseModel {
   }
 
   /**
-   * Get content Href (source)
-   */
-  get contentHref(): Href | null {
-    return this.data._links.content
-      ? new Href(this.data._links.content.href)
-      : null;
-  }
-
-  /**
    * Content type href of concept
    */
   get contenttypeHref(): Href | null {
-    return this.data._links.contenttype
-      ? new Href(this.data._links.contenttype.href)
-      : null;
+    if (has(this.data._links, "contenttype")) {
+      return new Href(this.data._links.contenttype.href);
+    }
+
+    return null;
   }
 
   /**
    * Children of link model in TOC
    */
-  set items(items: ContentLinkModel[]) {
+  set items(items: Array<ContentLinkModel>) {
     this._items = items;
   }
 
-  get items(): ContentLinkModel[] {
+  get items(): Array<ContentLinkModel> {
     return this._items;
   }
 }

@@ -17,15 +17,15 @@ const PATHS = {
 };
 
 module.exports = (env) => {
-  const babelenv = env.production ? 'production' : 'development';
+  const babelenv = env && env.production ? 'production' : 'development';
 
   process.env.BABEL_ENV = babelenv;
 
-  if (env.eclipse) {
+  if (env && env.eclipse) {
     return merge(minimalConfig(PATHS), eclipseConfig(PATHS));
   }
 
-  if (env.jenkins) {
+  if (env && env.jenkins) {
     return merge(minimalConfig(PATHS), productionConfig(PATHS));
   }
 

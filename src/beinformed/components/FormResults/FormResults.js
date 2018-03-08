@@ -3,7 +3,7 @@ import React from "react";
 
 import EndResult from "beinformed/components/InstrumentResult/EndResult";
 
-import type FormObjectCollection from "beinformed/models/form/FormObjectCollection";
+import type { FormObjectCollection } from "beinformed/models";
 
 type FormResultsProps = {
   results: FormObjectCollection,

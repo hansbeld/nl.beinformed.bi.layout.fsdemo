@@ -4,8 +4,6 @@ import UserServicesModel from "beinformed/models/user/UserServicesModel";
 import mockWebapp from "./webapp.json";
 import mockWebappContributions from "./webappContributions.json";
 
-import { modularuiResponse } from "beinformed/modularui/ModularUIRequest";
-
 describe("Application", () => {
   it("should be able to create an empty Application object", () => {
     const application = new ApplicationModel({});

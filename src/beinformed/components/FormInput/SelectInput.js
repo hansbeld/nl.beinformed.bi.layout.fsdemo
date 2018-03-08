@@ -9,12 +9,15 @@ import DropdownChildren from "beinformed/components/Dropdown/DropdownChildren";
 import DropdownItem from "beinformed/components/Dropdown/DropdownItem";
 import LookupInputActiveOption from "beinformed/components/FormInput/LookupInputActiveOption";
 import FormContentRenderer from "beinformed/components/FormContent/FormContentRenderer";
-import { withMessage } from "beinformed/containers/I18n/Message";
+import { withMessage } from "beinformed/i18n";
 import { getChoiceOptionLabel } from "beinformed/components/FormInput/_util";
-import type ChoiceAttributeOptionModel from "beinformed/models/attributes/ChoiceAttributeOptionModel";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
 
 import "./SelectInput.scss";
+
+import type {
+  ContentConfigurationElements,
+  ChoiceAttributeOptionModel
+} from "beinformed/models";
 
 type SelectInputProps = {
   children?: any,

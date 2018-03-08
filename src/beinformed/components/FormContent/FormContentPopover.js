@@ -5,7 +5,7 @@ import FormContentRenderer from "beinformed/components/FormContent/FormContentRe
 import IconPopover from "beinformed/components/Popover/IconPopover";
 import { POPUP } from "beinformed/constants/LayoutHints";
 
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import type { ContentConfigurationElements } from "beinformed/models";
 
 import "./FormContentPopover.scss";
 

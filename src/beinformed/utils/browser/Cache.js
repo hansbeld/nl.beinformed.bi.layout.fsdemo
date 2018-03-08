@@ -93,7 +93,7 @@ class Cache {
 
     if (pattern) {
       Object.keys(this._cache)
-        .filter(k => new RegExp(pattern).test(k))
+        .filter(k => (pattern ? new RegExp(pattern).test(k) : true))
         .forEach(k => this._cache.removeItem(k));
     } else {
       this._cache.clear();

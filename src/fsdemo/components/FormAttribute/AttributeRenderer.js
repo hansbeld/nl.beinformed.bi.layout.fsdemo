@@ -8,7 +8,7 @@ import DefaultAttributeRenderer from "beinformed/components/FormAttribute/Attrib
 import UpDownNumberAttribute from "./UpDownNumberAttribute";
 import YearAmountAttribute from "./YearAmountAttribute";
 
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import type { ContentConfigurationElements } from "beinformed/models";
 
 type FormAttributeProps = {
   attribute: AttributeType,

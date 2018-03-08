@@ -4,14 +4,14 @@ import classNames from "classnames";
 import { withRouter } from "react-router-dom";
 import RefreshIcon from "mdi-react/RefreshIcon";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 import HTMLForm from "beinformed/components/HTMLForm/HTMLForm";
 import Filter from "beinformed/components/Filter/Filter";
 import Link from "beinformed/components/Link/Link";
 
 import "./Filters.scss";
 
-import type ListModel from "beinformed/models/list/ListModel";
+import type { ListModel } from "beinformed/models";
 
 type FiltersProps = {
   className?: string,

@@ -1,5 +1,6 @@
 // @flow
-import modularui from "beinformed/modularui/modularui";
+import { modularui } from "beinformed/modularui";
+
 import QuickSearch from "beinformed/components/QuickSearch/QuickSearch";
 
 export const connector = modularui("QuickSearch", ({ href }) => href, {

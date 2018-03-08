@@ -5,7 +5,9 @@ import StringAttributeModel from "beinformed/models/attributes/StringAttributeMo
 /**
  * XML attribute
  */
-export default class XMLAttributeModel extends StringAttributeModel {
+export default class XMLAttributeModel extends StringAttributeModel<
+  StringAttributeContributionsJSON
+> {
   /**
    * @overwrite
    */

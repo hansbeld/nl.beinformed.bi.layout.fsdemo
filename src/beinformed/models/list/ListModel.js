@@ -20,7 +20,10 @@ import { SHOW_ONE_RESULT_AS_DETAIL } from "beinformed/constants/LayoutHints";
 /**
  * Defines a list object
  */
-export default class ListModel extends ResourceModel {
+export default class ListModel extends ResourceModel<
+  ListJSON,
+  ListContributionsJSON
+> {
   _headers: ListHeaderModel[];
   _paging: PagingModel;
   _filterCollection: FilterCollection;
@@ -34,7 +37,9 @@ export default class ListModel extends ResourceModel {
   /**
    * Constructs a list
    */
-  constructor(modularuiResponse: ModularUIResponse) {
+  constructor(
+    modularuiResponse: ModularUIResponse<ListJSON, ListContributionsJSON>
+  ) {
     super(modularuiResponse);
 
     this._detail = null;

@@ -105,6 +105,17 @@ class ChoiceAttributeOptionCollection extends ResourceCollection<
     return collection;
   }
 
+  static getCount(data: AttributeJSON, key?: string = "") {
+    if (Array.isArray(data.options)) {
+      const foundOption = data.options.find(option => option.key === key);
+      if (foundOption) {
+        return foundOption.count;
+      }
+    }
+
+    return null;
+  }
+
   static createFromOptions(
     data: AttributeJSON,
     contributions: ChoiceAttributeContributionsJSON,
@@ -128,21 +139,23 @@ class ChoiceAttributeOptionCollection extends ResourceCollection<
       }
 
       contributions.options.forEach(option => {
-        const isSelected = opt =>
-          opt.key
-            ? selectedOptions.includes(opt.key)
-            : selectedOptions.includes(opt.code);
+        const optionKey = option.key || option.code;
 
         collection.addOption(
           {
-            code: option.key || option.code,
+            code: optionKey,
             label: option.label,
-            selected: isSelected(option),
+            selected: selectedOptions.includes(optionKey),
+            count: ChoiceAttributeOptionCollection.getCount(data, optionKey),
             _links: option._links,
             children: option.children
               ? option.children.map(child => ({
                   ...child,
-                  selected: isSelected(child)
+                  selected: selectedOptions.includes(child.code),
+                  count: ChoiceAttributeOptionCollection.getCount(
+                    data,
+                    child.key || child.code
+                  )
                 }))
               : void 0
           },

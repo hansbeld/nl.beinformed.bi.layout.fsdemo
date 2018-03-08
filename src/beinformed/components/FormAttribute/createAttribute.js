@@ -10,9 +10,9 @@ import FormLabel from "beinformed/components/FormLabel/FormLabel";
 import FormContent from "beinformed/components/FormContent/FormContent";
 import FormContentPopover from "beinformed/components/FormContent/FormContentPopover";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import type { ContentConfigurationElements } from "beinformed/models";
 
 type AttributeProps = {
   attribute: StringAttributeModel | NumberAttributeModel | MoneyAttributeModel,

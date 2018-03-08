@@ -7,7 +7,10 @@ import ConceptIndexModel from "beinformed/models/concepts/ConceptIndexModel";
 /**
  * The Application model
  */
-export default class ModelCatalogModel extends ResourceModel {
+export default class ModelCatalogModel extends ResourceModel<
+  ModelCatalogJSON,
+  ModelCatalogContributionsJSON
+> {
   _conceptIndex: ConceptIndexModel;
 
   /**

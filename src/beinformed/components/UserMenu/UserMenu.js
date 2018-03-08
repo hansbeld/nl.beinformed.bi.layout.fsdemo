@@ -5,8 +5,8 @@ import KeyIcon from "mdi-react/KeyIcon";
 import LoginIcon from "mdi-react/LoginIcon";
 import LogoutIcon from "mdi-react/LogoutIcon";
 
-import { Message } from "beinformed/containers/I18n/Message";
-import Href from "beinformed/models/href/Href";
+import { Message } from "beinformed/i18n";
+import { Href } from "beinformed/models";
 
 import Dropdown from "beinformed/components/Dropdown/Dropdown";
 import DropdownChildren from "beinformed/components/Dropdown/DropdownChildren";
@@ -20,7 +20,7 @@ import {
   CHANGEPASSWORD_PATH
 } from "beinformed/constants/Constants";
 
-import type UserServicesModel from "beinformed/models/user/UserServicesModel";
+import type { UserServicesModel } from "beinformed/models";
 
 type UserMenuProps = {
   userServices: UserServicesModel

@@ -6,7 +6,7 @@ import Form from "beinformed/containers/Form/Form";
 
 import Action from "beinformed/components/Actions/Action";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import "./FormButtons.scss";
 

@@ -3,11 +3,10 @@ import React from "react";
 import classNames from "classnames";
 
 import { BASE } from "beinformed/constants/Constants";
-import ConceptDetailModel from "beinformed/models/concepts/ConceptDetailModel";
 
 import "./ConceptIcon.scss";
 
-import type ConceptLinkModel from "beinformed/models/concepts/ConceptLinkModel";
+import type { ConceptLinkModel, ConceptDetailModel } from "beinformed/models";
 type ConceptIconProps = {
   concept: ConceptLinkModel | ConceptDetailModel
 };

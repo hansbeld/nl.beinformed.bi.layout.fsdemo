@@ -3,12 +3,15 @@ import React from "react";
 import CloseIcon from "mdi-react/CloseIcon";
 
 import { KEYCODES } from "beinformed/constants/Constants";
-import { withMessage } from "beinformed/containers/I18n/Message";
+import { withMessage } from "beinformed/i18n";
 import { getChoiceOptionLabel } from "beinformed/components/FormInput/_util";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
-import type ChoiceAttributeOptionModel from "beinformed/models/attributes/ChoiceAttributeOptionModel";
 
 import "./LookupInputActiveOption.scss";
+
+import type {
+  ContentConfigurationElements,
+  ChoiceAttributeOptionModel
+} from "beinformed/models";
 
 type LookupInputActiveOptionProps = {
   disabled?: boolean,

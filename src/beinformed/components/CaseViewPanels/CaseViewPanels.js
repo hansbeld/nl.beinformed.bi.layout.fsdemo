@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { Route, withRouter } from "react-router-dom";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 import PanelRenderer from "beinformed/containers/Panel/PanelRenderer";
 
@@ -20,8 +20,8 @@ import {
 
 import "./CaseViewPanels.scss";
 
-import type CaseViewModel from "beinformed/models/caseview/CaseViewModel";
 import type { Location, Match } from "react-router-dom";
+import type { CaseViewModel } from "beinformed/models";
 
 type CaseViewPanelsProps = {
   caseview: CaseViewModel,
@@ -84,9 +84,15 @@ class CaseViewPanels extends Component<CaseViewPanelsProps> {
 
         <Route
           path={caseview.panelLinks.routePath}
-          render={props => (
+          render={routeProps => (
             <PanelRenderer
-              href={new Href(`${props.match.url}${location.search}`)}
+              href={
+                new Href(
+                  `${routeProps.match.url}${
+                    routeProps.match.isExact ? routeProps.location.search : ""
+                  }`
+                )
+              }
               isTab
             />
           )}

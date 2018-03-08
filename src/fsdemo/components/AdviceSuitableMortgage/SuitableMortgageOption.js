@@ -1,10 +1,10 @@
 // @flow
 import React, { Component } from "react";
-import { withMessage } from "beinformed/containers/I18n/Message";
+import { withMessage } from "beinformed/i18n";
 
 import AlertOutlineIcon from "mdi-react/AlertOutlineIcon";
 
-import ChoiceAttributeOptionModel from "beinformed/models/attributes/ChoiceAttributeOptionModel";
+import { ChoiceAttributeOptionModel } from "beinformed/models";
 import { getResults } from "beinformed/components/InstrumentResult/EndResult";
 import FormResult from "fsdemo/components/Advice/FormResult";
 
@@ -12,7 +12,7 @@ import MortgageInstrumentLink from "fsdemo/components/MortgageInstruments/Mortga
 
 import "./SuitableMortgageOption.scss";
 
-import type FormModel from "beinformed/models/form/FormModel";
+import type { FormModel } from "beinformed/models";
 
 type SuitableMortgageExplainProps = {
   form: FormModel,

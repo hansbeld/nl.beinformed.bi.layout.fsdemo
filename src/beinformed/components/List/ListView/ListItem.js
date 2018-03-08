@@ -8,10 +8,9 @@ import AttributeList from "beinformed/components/AttributeList/AttributeList";
 
 import MultiRowTaskCheckbox from "beinformed/containers/MultiRowTask/MultiRowTaskCheckbox";
 
-import type DetailModel from "beinformed/models/detail/DetailModel";
-import type Href from "beinformed/models/href/Href";
-
 import "./ListItem.scss";
+
+import type { DetailModel, Href } from "beinformed/models";
 
 type ListItemProps = {
   item: DetailModel,

@@ -9,16 +9,13 @@ import ConceptIndexFilter from "beinformed/models/filters/ConceptIndexFilter";
 /**
  * Contains a collection of filters
  */
-export default class FilterCollection extends BaseCollection<
+export default class FilterCollection<Data: Object> extends BaseCollection<
   RangeFilterModel | AssignmentFilterModel | FilterModel
 > {
   /**
    * Construct a collection of filters
    */
-  constructor(
-    data: FilterCollectionJSON,
-    contributions: FilterCollectionContributionsJSON
-  ) {
+  constructor(data: Data, contributions: FilterCollectionContributionsJSON) {
     super();
 
     if (data && contributions && Array.isArray(contributions.filter)) {
@@ -62,7 +59,6 @@ export default class FilterCollection extends BaseCollection<
     contributions: FilterContributionsJSON
   ) {
     const type = contributions.type || "stringfilter";
-
     if (type === "choicefilter" && filterKey === "index") {
       return new ConceptIndexFilter(data, contributions);
     }

@@ -8,8 +8,10 @@ import FormContentRenderer from "beinformed/components/FormContent/FormContentRe
 
 import "./ResultAttributeDecision.scss";
 
-import type ContentConfigurationResults from "beinformed/models/contentconfiguration/ContentConfigurationResults";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import type {
+  ContentConfigurationElements,
+  ContentConfigurationResults
+} from "beinformed/models";
 
 type ResultAttributeProps = {
   attribute: AttributeType,
@@ -26,10 +28,6 @@ const ResultAttributeDecision = ({
     attribute.options.selected.length > 0 &&
     attribute.options.selected[0].code === "true";
 
-  const resultElements = isSelected
-    ? contentConfiguration.positiveResultElements
-    : contentConfiguration.negativeResultElements;
-
   return (
     <div
       className={classNames("form-result-decision form-group", {
@@ -39,7 +37,11 @@ const ResultAttributeDecision = ({
     >
       <div className="form-label">
         {isSelected ? <CheckIcon /> : <CloseIcon />}
-        {attribute.getContentConfiguredLabel(resultElements)}
+        {attribute.getContentConfiguredLabel(
+          isSelected
+            ? contentConfiguration.positiveResultElements
+            : contentConfiguration.negativeResultElements
+        )}
       </div>
       {attribute.concept &&
         contentConfiguration && (

@@ -5,8 +5,7 @@ import withModularUI from "beinformed/modularui/withModularUI";
 
 import ApplyForMortgageForm from "fsdemo/containers/ApplyForMortgage/ApplyForMortgageForm";
 
-import FormModel from "beinformed/models/form/FormModel";
-import Href from "beinformed/models/href/Href";
+import { Href, FormModel } from "beinformed/models";
 
 import "./ApplyForMortgageSubmitRequest.scss";
 

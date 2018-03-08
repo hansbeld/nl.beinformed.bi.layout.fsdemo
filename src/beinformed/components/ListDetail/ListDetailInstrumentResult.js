@@ -1,11 +1,11 @@
 // @flow
 import React, { Component } from "react";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import AttributeList from "beinformed/components/AttributeList/AttributeList";
 
-import type ListDetailModel from "beinformed/models/list/ListDetailModel";
+import type { ListDetailModel } from "beinformed/models";
 
 import EndResult from "beinformed/components/InstrumentResult/EndResult";
 

@@ -2,10 +2,7 @@
 import { MODULARUI } from "beinformed/redux/middleware/modularui";
 import { HTTP_METHODS } from "beinformed/constants/Constants";
 
-import {
-  loadModel,
-  updateModel
-} from "beinformed/containers/ModularUI/actions";
+import { loadModel, updateModel } from "beinformed/modularui";
 
 import { handleFormFinish } from "beinformed/containers/Form/actions";
 
@@ -14,8 +11,10 @@ import {
   finishProgress
 } from "beinformed/containers/ProgressIndicator/actions";
 
-import type EditableListModel from "beinformed/models/list/EditableListModel";
-import type EditableListItemModel from "beinformed/models/list/EditableListItemModel";
+import type {
+  EditableListModel,
+  EditableListItemModel
+} from "beinformed/models";
 
 // ACTIONS
 

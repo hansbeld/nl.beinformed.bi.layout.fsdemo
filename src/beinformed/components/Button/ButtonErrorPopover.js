@@ -9,7 +9,7 @@ import { KEYCODES } from "beinformed/constants/Constants";
 
 import "./ButtonErrorPopover.scss";
 
-import type FormModel from "beinformed/models/form/FormModel";
+import type { FormModel } from "beinformed/models";
 
 type ButtonErrorPopoverProps = {
   buttonStyle:

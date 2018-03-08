@@ -5,10 +5,10 @@
  * to determine if alle models on initial request are loaded, see /server/render.js
  */
 
-type ModularUIState = {
+export type ModularUIState = {
   [string]: {
     status: string,
-    model: any
+    model: ResolvableModels
   }
 };
 
@@ -80,7 +80,7 @@ const initialState = {};
  */
 export default function modularuiReducer(
   state: ModularUIState = initialState,
-  action: Action
+  action: ReduxAction
 ) {
   switch (action.type) {
     case "MODULARUI/STATUS":

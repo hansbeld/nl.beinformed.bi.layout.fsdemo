@@ -9,8 +9,10 @@ import FormContentRenderer from "beinformed/components/FormContent/FormContentRe
 
 import "./ResultAttributeClassification.scss";
 
-import type ContentConfigurationResults from "beinformed/models/contentconfiguration/ContentConfigurationResults";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import type {
+  ContentConfigurationElements,
+  ContentConfigurationResults
+} from "beinformed/models";
 
 type ResultAttributeProps = {
   id: string,
@@ -37,43 +39,45 @@ const ResultAttributeClassification = ({
           (contentConfiguration.negativeResultElements.hasConfig() &&
             !option.selected)
       )
-      .map((option, i) => {
-        const resultElements = option.selected
-          ? contentConfiguration.positiveResultElements
-          : contentConfiguration.negativeResultElements;
-
-        return (
-          <div
-            key={`${id}-${i}`}
-            className={classNames("form-result-option", {
-              active: option.selected
-            })}
-          >
-            <div key={i} className="form-result-option-label">
-              {option.selected ? (
-                <CheckIcon className="textAfter" />
-              ) : (
-                <CloseIcon className="textAfter" />
-              )}
-              {option.getContentConfiguredLabel(resultElements)}
-            </div>
-            {option.concept &&
-              contentConfiguration && (
-                <FormContentRenderer
-                  concept={option.concept}
-                  contentConfiguration={resultElements}
-                />
-              )}
-            {attribute.concept &&
-              defaultContentConfiguration && (
-                <FormContentRenderer
-                  concept={attribute.concept}
-                  contentConfiguration={defaultContentConfiguration}
-                />
-              )}
+      .map((option, i) => (
+        <div
+          key={`${id}-${i}`}
+          className={classNames("form-result-option", {
+            active: option.selected
+          })}
+        >
+          <div key={i} className="form-result-option-label">
+            {option.selected ? (
+              <CheckIcon className="textAfter" />
+            ) : (
+              <CloseIcon className="textAfter" />
+            )}
+            {option.getContentConfiguredLabel(
+              option.selected
+                ? contentConfiguration.positiveResultElements
+                : contentConfiguration.negativeResultElements
+            )}
           </div>
-        );
-      })}
+          {option.concept &&
+            contentConfiguration && (
+              <FormContentRenderer
+                concept={option.concept}
+                contentConfiguration={
+                  option.selected
+                    ? contentConfiguration.positiveResultElements
+                    : contentConfiguration.negativeResultElements
+                }
+              />
+            )}
+          {attribute.concept &&
+            defaultContentConfiguration && (
+              <FormContentRenderer
+                concept={attribute.concept}
+                contentConfiguration={defaultContentConfiguration}
+              />
+            )}
+        </div>
+      ))}
   </div>
 );
 

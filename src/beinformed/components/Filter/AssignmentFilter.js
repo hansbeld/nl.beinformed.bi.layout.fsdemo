@@ -5,7 +5,7 @@ import classNames from "classnames";
 import FormAttribute from "beinformed/components/FormAttribute/AttributeRenderer";
 import { PARAMETER_SEPARATOR } from "beinformed/constants/Constants";
 
-import type AssignmentFilterModel from "beinformed/models/filters/AssignmentFilterModel";
+import type { AssignmentFilterModel } from "beinformed/models";
 
 type AssignmentFilterProps = {
   className?: string,

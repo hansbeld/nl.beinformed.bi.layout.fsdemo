@@ -2,7 +2,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import type Href from "beinformed/models/href/Href";
+import type { Href } from "beinformed/models";
 
 import "./HTMLForm.scss";
 

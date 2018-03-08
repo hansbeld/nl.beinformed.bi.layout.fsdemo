@@ -6,7 +6,7 @@ import TextInput from "beinformed/components/FormInput/TextInput";
 
 import CellAssistant from "beinformed/components/InlineEdit/CellAssistant";
 
-import StringAttributeModel from "beinformed/models/attributes/StringAttributeModel";
+import type { StringAttributeModel } from "beinformed/models";
 
 type InlineEditStringCellProps = {
   attribute: StringAttributeModel | NumberAttributeModel,

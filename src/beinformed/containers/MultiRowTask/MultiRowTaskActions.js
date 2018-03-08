@@ -1,55 +1,33 @@
 // @flow
-// import { fetchAction } from "beinformed/containers/Form/FormActions";
-import { push } from "react-router-redux";
-import type ActionModel from "beinformed/models/actions/ActionModel";
+import { connect } from "react-redux";
 
-export type selectAllListItemsType = {
-  type: "SELECT_ALL_LIST_ITEMS",
-  payload: number[]
-};
-export type selectListItemType = {
-  type: "SELECT_LIST_ITEM",
-  payload: number
+import { startMultiAction } from "beinformed/containers/MultiRowTask/actions";
+import MultiRowTaskActions from "beinformed/components/MultiRowTask/MultiRowTaskActions";
+
+import type { Connector } from "react-redux";
+import type { MultiRowTaskProps } from "beinformed/components/MultiRowTask/MultiRowTaskActions";
+import type { ActionCollection } from "beinformed/models";
+
+type MultiRowTaskContainerProps = {
+  actions: ActionCollection
 };
 
 /**
- * Select all items in a list
+ * Map state to props
  */
-const selectAllListItems = (ids: number[]): ThunkAction => dispatch =>
-  dispatch({
-    type: "SELECT_ALL_LIST_ITEMS",
-    payload: ids
-  });
+const mapStateToProps = (
+  state: State,
+  ownProps: MultiRowTaskContainerProps
+) => ({
+  selectedItemIds: state.multirowtask,
+  actions: ownProps.actions
+});
 
-/**
- * Select a list item, when it is a multi row task list
- */
-const selectListItem = (id: number): ThunkAction => dispatch =>
-  dispatch({
-    type: "SELECT_LIST_ITEM",
-    payload: id
-  });
+const connector: Connector<
+  MultiRowTaskContainerProps,
+  MultiRowTaskProps
+> = connect(mapStateToProps, {
+  onClick: startMultiAction
+});
 
-/**
- * Start an action that has the MULTI_ROW_TASK layout hint
- */
-const startMultiAction = (
-  action: ActionModel,
-  selectedItems: string[]
-): ThunkAction => dispatch => {
-  if (!action.fieldCollection.first) {
-    throw new Error("Field collection is empty, cannot start multiple action");
-  }
-
-  const parameterName = action.fieldCollection.first.name;
-  action.selfhref = action.selfhref.addParameter(
-    parameterName,
-    selectedItems.join(",")
-  );
-
-  return dispatch(
-    push(action.selfhref.toString(), { modal: true, href: action.selfhref })
-  );
-};
-
-export { selectListItem, selectAllListItems, startMultiAction };
+export default connector(MultiRowTaskActions);

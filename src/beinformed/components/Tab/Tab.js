@@ -3,7 +3,7 @@ import React from "react";
 import classNames from "classnames";
 import Helmet from "react-helmet";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 import BreadCrumb from "beinformed/containers/Breadcrumb/Breadcrumb";
 
@@ -12,7 +12,7 @@ import FoldoutTaskMenu from "beinformed/components/TaskGroup/FoldoutTaskMenu";
 
 import QuickSearch from "beinformed/containers/QuickSearch/QuickSearch";
 
-import TabModel from "beinformed/models/tab/TabModel";
+import type { TabModel } from "beinformed/models";
 
 import "./Tab.scss";
 

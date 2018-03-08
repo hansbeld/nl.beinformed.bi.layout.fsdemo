@@ -5,8 +5,7 @@ import classNames from "classnames";
 import BreadcrumbItem from "beinformed/components/Breadcrumb/BreadcrumbItem";
 import BreadcrumbItemLink from "beinformed/components/Breadcrumb/BreadcrumbItemLink";
 
-import type Href from "beinformed/models/href/Href";
-
+import type { Href } from "beinformed/models";
 export type BreadcrumbProps = {
   className?: string,
   items: Array<{

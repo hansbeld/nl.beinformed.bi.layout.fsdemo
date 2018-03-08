@@ -1,7 +1,7 @@
 /**
  * Create page html
  */
-const Html = (contextPath, application, head, state = "") => `
+const Html = (contextPath, application, head, state = "{}") => `
   <!doctype html>
   <html ${head ? head.htmlAttributes.toString() : ""}>
     <head>

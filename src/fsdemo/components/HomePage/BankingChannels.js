@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import NotImplementedLink from "fsdemo/components/Link/NotImplementedLink";
 

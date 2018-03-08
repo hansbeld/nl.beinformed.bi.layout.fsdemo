@@ -1,8 +1,6 @@
 // @flow
 import React from "react";
 
-import ApplicationModel from "beinformed/models/application/ApplicationModel";
-
 import Main from "beinformed/components/Main/Main";
 
 import Routes from "beinformed/components/Routes/Routes";
@@ -12,6 +10,7 @@ import ModalRoutes from "beinformed/components/Routes/ModalRoutes";
 import Notification from "beinformed/containers/Notification/Notification";
 import ApplicationHeader from "beinformed/components/ApplicationHeader/ApplicationHeader";
 
+import type { ApplicationModel } from "beinformed/models";
 export type ApplicationProps = {
   application: ApplicationModel,
   locale: string,

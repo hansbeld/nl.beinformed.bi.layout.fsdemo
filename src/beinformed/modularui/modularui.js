@@ -3,18 +3,16 @@ import React, { Component } from "react";
 import { isFunction, get } from "lodash";
 import { connect } from "react-redux";
 
-import {
-  loadModularUI,
-  removeModelByKey
-} from "beinformed/containers/ModularUI/actions";
+import { loadModularUI, removeModelByKey } from "./actions";
 
 import { HTTP_METHODS, IS_SERVER } from "beinformed/constants/Constants";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
-type ModularUIOptions = {
+export type ModularUIOptions = {
   propName?: string,
-  method?: HttpMethods
+  method?: HttpMethods,
+  updateModel?: any
 };
 
 const modularui = (

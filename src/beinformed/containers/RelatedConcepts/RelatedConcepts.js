@@ -1,4 +1,5 @@
-import modularui from "beinformed/modularui/modularui";
+import { modularui } from "beinformed/modularui";
+
 import RelatedConcepts from "beinformed/components/ContentDetail/RelatedConcepts";
 
 export const connector = modularui(

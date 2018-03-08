@@ -24,7 +24,7 @@ import MortgageAdviceButtons from "./MortgageAdviceButtons";
 
 import type { LocationShape } from "react-router-dom";
 
-import type FormModel from "beinformed/models/form/FormModel";
+import type { FormModel } from "beinformed/models";
 
 type FormProps = {
   form?: FormModel,

@@ -13,12 +13,17 @@ import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 /**
  * Describes a TabModel
  */
-export default class TabModel extends ResourceModel {
+export default class TabModel extends ResourceModel<
+  TabJSON,
+  TabContributionsJSON
+> {
   _search: CaseSearchModel | null;
   _taskGroupCollection: TaskGroupCollection;
   _actionCollection: ActionCollection;
 
-  constructor(modularuiResponse: ModularUIResponse) {
+  constructor(
+    modularuiResponse: ModularUIResponse<TabJSON, TabContributionsJSON>
+  ) {
     super(modularuiResponse);
 
     this.createTaskGroupCollection();

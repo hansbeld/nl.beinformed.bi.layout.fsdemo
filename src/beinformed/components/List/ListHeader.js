@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import FormattedText from "beinformed/components/FormattedText/FormattedText";
 
-import type ListModel from "beinformed/models/list/ListModel";
+import type { ListModel } from "beinformed/models";
 
 type ListHeaderProps = {
   className?: string,

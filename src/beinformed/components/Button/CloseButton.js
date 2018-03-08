@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from "react";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 import Button from "beinformed/components/Button/Button";
 import { KEYCODES } from "beinformed/constants/Constants";
 
@@ -43,6 +43,7 @@ class CloseButton extends Component<CloseButtonProps> {
   render() {
     return (
       <Button
+        buttonStyle=""
         className="close"
         aria-label="Close"
         onClick={this.props.onClose}

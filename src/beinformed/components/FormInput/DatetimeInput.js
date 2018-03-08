@@ -7,7 +7,7 @@ import Button from "beinformed/components/Button/Button";
 import DatetimePicker from "beinformed/components/DatetimePicker/DatetimePicker";
 import TextInput from "beinformed/components/FormInput/TextInput";
 import { ISO_DATE_FORMAT } from "beinformed/constants/Constants";
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import "./DatetimeInput.scss";
 

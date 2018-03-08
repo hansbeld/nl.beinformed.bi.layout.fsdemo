@@ -9,9 +9,12 @@ import FormAssistant from "beinformed/components/FormAssistant/FormAssistant";
 import FormLabel from "beinformed/components/FormLabel/FormLabel";
 import FormContent from "beinformed/components/FormContent/FormContent";
 import FormContentPopover from "beinformed/components/FormContent/FormContentPopover";
-import { Message } from "beinformed/containers/I18n/Message";
-import type LookupAttributeModel from "beinformed/models/attributes/LookupAttributeModel";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import { Message } from "beinformed/i18n";
+
+import type {
+  LookupAttributeModel,
+  ContentConfigurationElements
+} from "beinformed/models";
 
 type LookupAttributeProps = {
   attribute: LookupAttributeModel,

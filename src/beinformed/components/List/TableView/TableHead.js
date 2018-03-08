@@ -2,7 +2,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import ListModel from "beinformed/models/list/ListModel";
+import type { ListModel } from "beinformed/models";
 import TableHeadCellSelectAll from "beinformed/components/List/TableView/TableHeadCellSelectAll";
 import { MULTI_ROW_TASK } from "beinformed/constants/LayoutHints";
 

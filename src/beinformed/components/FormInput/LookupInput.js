@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import LoadingIcon from "mdi-react/LoadingIcon";
 import MagnifyIcon from "mdi-react/MagnifyIcon";
 
-import { withMessage, Message } from "beinformed/containers/I18n/Message";
+import { withMessage, Message } from "beinformed/i18n";
 import xhr from "beinformed/utils/fetch/xhr";
 
 import {
@@ -19,12 +19,14 @@ import Button from "beinformed/components/Button/Button";
 import LookupInputActiveOption from "beinformed/components/FormInput/LookupInputActiveOption";
 import LookupInputOption from "beinformed/components/FormInput/LookupInputOption";
 import TextInput from "beinformed/components/FormInput/TextInput";
-import ChoiceAttributeOptionModel from "beinformed/models/attributes/ChoiceAttributeOptionModel";
-
 import DropdownChildren from "beinformed/components/Dropdown/DropdownChildren";
 
-import type LinkModel from "beinformed/models/links/LinkModel";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import { ChoiceAttributeOptionModel } from "beinformed/models";
+
+import type {
+  LinkModel,
+  ContentConfigurationElements
+} from "beinformed/models";
 
 import "./LookupInput.scss";
 
@@ -402,6 +404,11 @@ class LookupInput extends Component<LookupInputProps, LookupInputState> {
       }
     );
 
+    const lookupOptionsClass = classNames("lookup-options list-group", {
+      "has-results": this.state.filterOptions.length > 0,
+      "no-results": this.state.filterOptions.length === 0
+    });
+
     return (
       <div
         className={lookupClass}
@@ -457,7 +464,7 @@ class LookupInput extends Component<LookupInputProps, LookupInputState> {
                 </Button>
               }
             />
-            <ul className="lookup-options list-group" role="listbox">
+            <ul className={lookupOptionsClass} role="listbox">
               {this.renderFoundOptions()}
             </ul>
           </DropdownChildren>

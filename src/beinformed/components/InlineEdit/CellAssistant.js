@@ -4,8 +4,7 @@ import React from "react";
 import Popover from "beinformed/components/Popover/Popover";
 import FormAssistant from "beinformed/components/FormAssistant/FormAssistant";
 
-import type ConstraintCollection from "beinformed/models/constraints/ConstraintCollection";
-import type ErrorCollection from "beinformed/models/error/ErrorCollection";
+import type { ErrorCollection, ConstraintCollection } from "beinformed/models";
 
 type CellAssistantProps = {
   assistantMessage: string | null,

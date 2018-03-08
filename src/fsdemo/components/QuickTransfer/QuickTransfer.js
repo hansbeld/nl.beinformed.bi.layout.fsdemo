@@ -5,10 +5,9 @@ import FormBody from "beinformed/containers/Form/FormBody";
 
 import Button from "beinformed/components/Button/Button";
 import ButtonErrorPopover from "beinformed/components/Button/ButtonErrorPopover";
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
-import ActionModel from "beinformed/models/actions/ActionModel";
-import FormModel from "beinformed/models/form/FormModel";
+import { FormModel, ActionModel } from "beinformed/models";
 
 import "./QuickTransfer.scss";
 import { HTTP_METHODS } from "beinformed/constants/Constants";

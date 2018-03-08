@@ -3,7 +3,7 @@ import React from "react";
 import CheckboxMarkedOutlineIcon from "mdi-react/CheckboxMarkedOutlineIcon";
 import CheckboxBlankOutlineIcon from "mdi-react/CheckboxBlankOutlineIcon";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 declare var propertyType: {
   label: string,

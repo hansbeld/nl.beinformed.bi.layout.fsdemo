@@ -9,8 +9,7 @@ import FormattedText from "beinformed/components/FormattedText/FormattedText";
 
 import "./ApplyForMortgageList.scss";
 
-import type ListModel from "beinformed/models/list/ListModel";
-import type EditableListItemModel from "beinformed/models/list/EditableListItemModel";
+import type { ListModel, EditableListItemModel } from "beinformed/models";
 
 type InlineEditTableProps = {
   className?: string,

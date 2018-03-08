@@ -1,6 +1,6 @@
 // @flow
 import clone from "clone";
-import { pick } from "lodash";
+import { get, pick, isPlainObject } from "lodash";
 
 import AttributeModel from "beinformed/models/attributes/AttributeModel";
 import BSNAttributeModel from "beinformed/models/attributes/BSNAttributeModel";
@@ -39,7 +39,10 @@ class AttributeDataHelper {
 
     if (Array.isArray(data)) {
       this._attribute =
-        data.find(attr => attr.elementid === key || attr.name === key) || {};
+        data.find(
+          attr =>
+            attr.elementid === key || attr.name === key || attr.param === key
+        ) || {};
       this._value = this.getValue(this._attribute);
     } else {
       const attributeData = clone(data);
@@ -50,43 +53,48 @@ class AttributeDataHelper {
       ]);
 
       this._attribute = attributeData;
+
       this._value =
         typeof data[key] === "undefined" ? this.getValue(data) : data[key];
     }
 
-    this._children = this.createChildren(
-      this.getChildData(key, data),
-      childrenKeys
-    );
+    this._children = this.createChildren(data, childrenKeys);
   }
 
-  getChildData(key, data) {
-    if (Array.isArray(data)) {
-      return (
-        data.find(attr => attr.elementid === key || attr.name === key) || {}
+  childData(data, parentKey, childKey) {
+    if (Array.isArray(data) && Array.isArray(this._attribute.elements)) {
+      return this._attribute.elements.find(
+        element => element.elementid === childKey
       );
-    } else if (key in data) {
-      if (typeof data[key] === "object" && !Array.isArray(data[key])) {
-        return data[key];
-      }
-      return { [key]: data[key] };
+    } else if (
+      data[parentKey] &&
+      isPlainObject(data[parentKey]) &&
+      data[parentKey]
+    ) {
+      return data[parentKey];
+    } else if (data[childKey] && isPlainObject(data[childKey])) {
+      return data[childKey];
     }
 
     return data;
   }
 
-  createChildren(data, keys: ChildrenKeysType = []) {
-    return keys.map(
-      keyObject =>
-        new AttributeDataHelper(
-          this.getChildData(
-            keyObject.key,
-            this.getChildData(keyObject.key, data.elements || data)
-          ),
-          keyObject.key,
-          keyObject.children
-        )
-    );
+  createChildren(data, childrenKeys: ChildrenKeysType = []) {
+    return childrenKeys.map(keyObject => {
+      const childData = this.childData(data, this.key, keyObject.key);
+
+      return new AttributeDataHelper(
+        {
+          ...childData,
+          dynamicschema: data.dynamicschema,
+          dynamicschemaId: keyObject.dynamicschemaId
+            ? keyObject.dynamicschemaId
+            : void 0
+        },
+        keyObject.key,
+        keyObject.children
+      );
+    });
   }
 
   getValue(attribute) {
@@ -132,7 +140,7 @@ class AttributeDataHelper {
   }
 
   get dynamicschemaId() {
-    return this._attribute.dynamicschemaId;
+    return this._attribute.dynamicschemaId || this.key;
   }
 
   get dynamicschema() {
@@ -141,13 +149,13 @@ class AttributeDataHelper {
       return void 0;
     }
 
-    if (dynamicschema[this.key]) {
-      return dynamicschema[this.key];
-    } else if (this.dynamicschemaId && dynamicschema[this.dynamicschemaId]) {
+    if (Array.isArray(dynamicschema)) {
+      return dynamicschema;
+    } else if (dynamicschema[this.dynamicschemaId]) {
       return dynamicschema[this.dynamicschemaId];
     }
 
-    return dynamicschema;
+    return void 0;
   }
 
   get options() {
@@ -177,6 +185,7 @@ class AttributeDataHelper {
       static: this.static,
       _links: this.links,
       dynamicschema: this.dynamicschema,
+      dynamicschemaId: this.dynamicschemaId,
       options: this.options,
       message: this.message,
       isResult: this.isResult,
@@ -192,7 +201,7 @@ class AttributeFactory {
    */
   // eslint-disable-next-line complexity
   static getTypeFromContributions(contributions: AttributeContributionsJSON) {
-    if (contributions.children) {
+    if (contributions.hasOwnProperty("children")) {
       return "composite";
     }
 
@@ -212,33 +221,33 @@ class AttributeFactory {
       return type;
     }
 
-    if (contributions.optionMode === "lookup") {
+    if (
+      contributions.hasOwnProperty("optionMode") &&
+      get(contributions, "optionMode") === "lookup"
+    ) {
       return "lookup";
     }
 
-    if (contributions.enumerated || contributions.options) {
+    if (
+      contributions.hasOwnProperty("enumerated") ||
+      contributions.hasOwnProperty("options")
+    ) {
       return "choice";
     }
 
-    const rows = contributions.rows ? parseInt(contributions.rows, 10) : null;
+    const rows = contributions.hasOwnProperty("rows")
+      ? parseInt(get(contributions, "rows"), 10)
+      : null;
     if (rows && rows > 1) {
       return "memo";
     }
 
-    if (contributions.readonly && contributions.text) {
+    if (contributions.readonly && contributions.hasOwnProperty("text")) {
       return "helptext";
     }
 
     if (contributions.type && contributions.type.includes("range")) {
       return "range";
-    }
-
-    if (contributions.type && contributions.type === "number") {
-      return "number";
-    }
-
-    if (contributions.type && contributions.type === "captcha") {
-      return "captcha";
     }
 
     return contributions.type;
@@ -269,6 +278,8 @@ class AttributeFactory {
       number: NumberAttributeModel,
       password: PasswordAttributeModel,
       range: CompositeAttributeModel,
+      daterange: CompositeAttributeModel,
+      numberrange: CompositeAttributeModel,
       composite: CompositeAttributeModel,
       string: StringAttributeModel,
       time: TimeAttributeModel,
@@ -303,24 +314,17 @@ class AttributeFactory {
     if (children) {
       return children.map(child => {
         const childKey = Object.keys(child)[0];
-        if (
-          child[childKey].type === "range" ||
-          child[childKey].type === "composite"
-        ) {
-          return {
-            key: childKey,
-            dynamicschemaId: child[childKey].dynamicschemaId,
-            children: AttributeFactory.getChildrenKeys(
-              childKey,
-              child[childKey].children
-            )
-          };
-        }
-
         return {
           key: childKey,
-          dynamicschemaId: child[childKey].dynamicschemaId,
-          children: []
+          dynamicschemaId: get(child[childKey], "dynamicschemaId") || void 0,
+          children:
+            child[childKey].type === "range" ||
+            child[childKey].type === "composite"
+              ? AttributeFactory.getChildrenKeys(
+                  childKey,
+                  get(child[childKey], "children")
+                )
+              : []
         };
       });
     }
@@ -344,7 +348,7 @@ class AttributeFactory {
       contributions.type === "numberrange" ||
       contributions.type === "daterange" ||
       contributions.type === "composite"
-        ? AttributeFactory.getChildrenKeys(key, contributions.children)
+        ? AttributeFactory.getChildrenKeys(key, get(contributions, "children"))
         : [];
 
     const attributeData = AttributeFactory.createAttributeData(

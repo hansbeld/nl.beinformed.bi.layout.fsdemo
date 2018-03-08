@@ -7,7 +7,7 @@ import type Href from "beinformed/models/href/Href";
 /**
  * Link to a concept
  */
-export default class SubSectionModel extends BaseModel {
+export default class SubSectionModel extends BaseModel<any, any> {
   _links: LinkCollection;
 
   /**

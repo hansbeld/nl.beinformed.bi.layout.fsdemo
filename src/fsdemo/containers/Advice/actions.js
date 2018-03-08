@@ -3,9 +3,9 @@ import { MODULARUI } from "beinformed/redux/middleware/modularui";
 
 import { updateFormAttribute as defaultUpdateFormAttribute } from "beinformed/containers/Form/actions";
 
-import { updateModel } from "beinformed/containers/ModularUI/actions";
+import { updateModel } from "beinformed/modularui";
 
-import FormModel from "beinformed/models/form/FormModel";
+import { FormModel } from "beinformed/models";
 
 import { storeAttributeInput } from "fsdemo/utils/AttributeInputCache";
 

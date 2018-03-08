@@ -7,9 +7,12 @@ import { CONFIRM_PASSWORD } from "beinformed/constants/LayoutHints";
 /**
  * Password attribute
  */
-export default class PasswordAttributeModel extends StringAttributeModel {
+export default class PasswordAttributeModel extends StringAttributeModel<
+  PasswordAttributeContributionsJSON
+> {
   _confirmValue: string;
   _isConfirmPassword: boolean;
+  _otherLabel: string;
 
   /**
    * @overwrite

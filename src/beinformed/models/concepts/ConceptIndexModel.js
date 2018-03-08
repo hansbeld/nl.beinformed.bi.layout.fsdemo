@@ -12,19 +12,23 @@ import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 /**
  * Get Index of concepts, to filter model catalog
  */
-export default class ConceptIndexModel extends ResourceModel {
-  _filterCollection: FilterCollection;
+export default class ConceptIndexModel extends ResourceModel<
+  ConceptSearchJSON,
+  ConceptSearchContributionsJSON
+> {
+  _filterCollection: FilterCollection<ConceptSearchFilterJSON>;
   _concepts: BaseCollection<ConceptLinkModel>;
 
-  /**
-   * @override
-   */
-  constructor(modularuiResponse: ModularUIResponse) {
+  constructor(
+    modularuiResponse: ModularUIResponse<
+      ConceptSearchJSON,
+      ConceptSearchContributionsJSON
+    >
+  ) {
     super(modularuiResponse);
 
     this._filterCollection = new FilterCollection(this.data.filter, {
       filter: this.contributions.filter,
-      contexts: this.contributions.contexts,
       dynamicschema: this.data.dynamicschema
     });
 
@@ -77,7 +81,7 @@ export default class ConceptIndexModel extends ResourceModel {
   /**
    * Retrieve filters of conceptindex model
    */
-  get filterCollection(): FilterCollection {
+  get filterCollection(): FilterCollection<ConceptSearchFilterJSON> {
     return this._filterCollection;
   }
 
@@ -105,7 +109,7 @@ export default class ConceptIndexModel extends ResourceModel {
   /**
    * get searchterm filter
    */
-  get searchtermfilter(): FilterModel | null {
+  get searchtermfilter(): FilterModel<> | null {
     return this.filterCollection.getFilterByAttributeKey("label");
   }
 

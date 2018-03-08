@@ -1,13 +1,6 @@
 // @flow
 import BaseCollection from "beinformed/models/base/BaseCollection";
-import ContentLinkModel from "beinformed/models/content/ContentLinkModel";
 import SourceReferenceModel from "beinformed/models/concepts/SourceReferenceModel";
-
-export type sourceReferenceType = {
-  key: string,
-  link: ContentLinkModel,
-  type: string
-};
 
 /**
  * Source reference collection
@@ -17,8 +10,8 @@ export default class SourceReferenceCollection extends BaseCollection<Object> {
    * @override
    */
   constructor(
-    sourceReferences: sourceReferenceType[] = [],
-    sourceReferenceTypes: Object[] = [],
+    sourceReferences: Array<SourceReferenceJSON> = [],
+    sourceReferenceTypes: Array<sectionReferenceType> = [],
     entryDate: string | null = null
   ) {
     super();

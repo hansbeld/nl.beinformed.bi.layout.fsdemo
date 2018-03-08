@@ -3,7 +3,7 @@ import React, { Component } from "react";
 
 import ApplyForMortgageForm from "fsdemo/containers/ApplyForMortgage/ApplyForMortgageForm";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 type ApplyForMortgageRiskProfileProps = {
   panel: PanelType

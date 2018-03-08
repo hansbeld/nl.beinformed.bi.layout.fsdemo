@@ -7,7 +7,10 @@ import ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 /**
  * TaskGroupModel
  */
-export default class TaskGroupModel extends ResourceModel {
+export default class TaskGroupModel extends ResourceModel<
+  TaskgroupJSON,
+  TaskgroupContributionsJSON
+> {
   _actionCollection: ActionCollection;
   _label: string;
   _key: string;
@@ -15,7 +18,12 @@ export default class TaskGroupModel extends ResourceModel {
   /**
    * Constructs the TaskGroup
    */
-  constructor(modularuiResponse: ModularUIResponse) {
+  constructor(
+    modularuiResponse: ModularUIResponse<
+      TaskgroupJSON,
+      TaskgroupContributionsJSON
+    >
+  ) {
     super(modularuiResponse);
 
     this._actionCollection = new ActionCollection(

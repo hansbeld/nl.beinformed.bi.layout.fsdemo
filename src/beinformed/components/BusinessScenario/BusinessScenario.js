@@ -5,11 +5,11 @@ import UserIcon from "mdi-react/AccountIcon";
 
 import Link from "beinformed/components/Link/Link";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import "./BusinessScenario.scss";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 const MARGIN_LEFT = 80;
 const MARGIN_TOP = 13;

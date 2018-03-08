@@ -11,14 +11,22 @@ import LinkCollection from "beinformed/models/links/LinkCollection";
 /**
  * Panel that groups other panels
  */
-export default class GroupingPanelModel extends ResourceModel {
+export default class GroupingPanelModel extends ResourceModel<
+  GroupingPanelJSON,
+  GroupingPanelContributionsJSON
+> {
   _panelCollection: PanelCollection;
   _taskGroupCollection: TaskGroupCollection;
 
   /**
    * Constructs GroupingPanel
    */
-  constructor(modularuiResponse: ModularUIResponse) {
+  constructor(
+    modularuiResponse: ModularUIResponse<
+      GroupingPanelJSON,
+      GroupingPanelContributionsJSON
+    >
+  ) {
     super(modularuiResponse);
 
     this._panelCollection = new PanelCollection();

@@ -2,7 +2,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import DetailModel from "beinformed/models/detail/DetailModel";
+import type { DetailModel } from "beinformed/models";
 import MultiRowTaskCheckbox from "beinformed/containers/MultiRowTask/MultiRowTaskCheckbox";
 
 type TableCellSelectableProps = {

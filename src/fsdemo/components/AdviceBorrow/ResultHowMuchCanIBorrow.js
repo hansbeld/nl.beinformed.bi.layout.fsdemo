@@ -1,14 +1,14 @@
 // @flow
 import React from "react";
 
-import { Message, withMessage } from "beinformed/containers/I18n/Message";
+import { Message, withMessage } from "beinformed/i18n";
 
 import AttributeValue from "beinformed/components/AttributeList/AttributeValue";
 import MortgageInstrumentLink from "fsdemo/components/MortgageInstruments/MortgageInstrumentLink";
 
 import MortgageAdviceResult from "fsdemo/components/Advice/MortgageAdviceResult";
 
-import type FormModel from "beinformed/models/form/FormModel";
+import type { FormModel } from "beinformed/models";
 
 const ResultHowMuchCanIBorrow = ({
   form,

@@ -2,11 +2,10 @@
 import React from "react";
 import classNames from "classnames";
 
-import AttributeModel from "beinformed/models/attributes/AttributeModel";
 import AttributeValue from "beinformed/components/AttributeList/AttributeValue";
 
 type TableCellProps = {
-  attribute?: AttributeModel,
+  attribute?: AttributeType,
   className?: string,
   minWidth?: number,
   width?: string

@@ -11,7 +11,10 @@ import type LinkModel from "beinformed/models/links/LinkModel";
  * For instance the details of case 1<br/>
  * For instance the details of record 12<br/>
  */
-export default class DetailModel extends ResourceModel {
+export default class DetailModel<
+  Data: Object = DetailJSON,
+  Contributions: Object = DetailContributionsJSON
+> extends ResourceModel<Data, Contributions> {
   _attributeCollection: AttributeCollection;
   _metadataCollection: AttributeCollection;
   _actionCollection: ActionCollection;
@@ -19,8 +22,9 @@ export default class DetailModel extends ResourceModel {
   /**
    * constructor
    */
-  constructor(modularuiResponse: ModularUIResponse) {
+  constructor(modularuiResponse: ModularUIResponse<Data, Contributions>) {
     super(modularuiResponse);
+
     this._attributeCollection = new AttributeCollection(
       this.data,
       this.contributions.attributes,
@@ -180,7 +184,7 @@ export default class DetailModel extends ResourceModel {
   /**
    * Update current detail with a new detail model and return a cloned version of the model
    */
-  update(model: DetailModel) {
+  update(model: DetailModel<>) {
     const clonedModel = this.clone();
 
     clonedModel.attributeCollection = model._attributeCollection;

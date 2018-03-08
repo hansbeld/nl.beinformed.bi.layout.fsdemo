@@ -91,7 +91,7 @@ class DatepickerDateDays extends Component<DatepickerDateDaysProps> {
   }
 
   getDayClass(date: string) {
-    return classNames("datepicker-day btn-light", {
+    return classNames("datepicker-day", {
       "datepicker-today": date === DateUtil.now(),
       "datepicker-weekend": DateUtil.isWeekend(date),
       "datepicker-othermonth": DateUtil.isOther(

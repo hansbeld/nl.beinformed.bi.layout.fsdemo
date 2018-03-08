@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import FormObject from "beinformed/components/FormObjects/FormObject";
 
-import type FormObjectCollection from "beinformed/models/form/FormObjectCollection";
+import type { FormObjectCollection } from "beinformed/models";
 
 type FormObjectsProps = {
   className: string,

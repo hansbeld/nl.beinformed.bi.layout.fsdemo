@@ -1,23 +1,24 @@
 // @flow
 import React from "react";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import ConceptBrowserSearch from "beinformed/components/ModelCatalogConcept/ConceptBrowserSearch";
 
 import CharIndex from "beinformed/components/CharIndex/CharIndex";
 import ConceptLink from "beinformed/components/ConceptLink/ConceptLink";
 
-import ChoiceAttributeModel from "beinformed/models/attributes/ChoiceAttributeModel";
-import StringAttributeModel from "beinformed/models/attributes/StringAttributeModel";
-
-import Href from "beinformed/models/href/Href";
+import {
+  Href,
+  StringAttributeModel,
+  ChoiceAttributeModel
+} from "beinformed/models";
 
 import ModelOverview from "beinformed/components/ModelOverview/ModelOverview";
 
 import "./ConceptBrowser.scss";
 
-import type ConceptIndexModel from "beinformed/models/concepts/ConceptIndexModel";
+import type { ConceptIndexModel } from "beinformed/models";
 
 type ConceptBrowserProps = {
   conceptindex: ConceptIndexModel

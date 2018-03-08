@@ -1,16 +1,22 @@
 // @flow
-import type LinkModel from "beinformed/models/links/LinkModel";
+import { has, get } from "lodash";
+
 import AttributeModel from "beinformed/models/attributes/AttributeModel";
 import ChoiceAttributeOptionCollection from "beinformed/models/attributes/ChoiceAttributeOptionCollection";
 import ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+
 import { RENDER_SECTION_LABEL } from "beinformed/constants/LayoutHints";
 import { isDependentAttributeControl } from "beinformed/models/attributes/attributeVisibilityUtil";
 import { DateUtil } from "beinformed/utils/datetime/DateTimeUtil";
 
+import type LinkModel from "beinformed/models/links/LinkModel";
+
 /**
  * Model for a choice attribute
  */
-export default class ChoiceAttributeModel extends AttributeModel {
+export default class ChoiceAttributeModel extends AttributeModel<
+  ChoiceAttributeContributionsJSON
+> {
   _options: ChoiceAttributeOptionCollection;
   _referenceDate: string;
 
@@ -166,6 +172,7 @@ export default class ChoiceAttributeModel extends AttributeModel {
     | "checkbox"
     | "radiobutton"
     | "combobox"
+    | "list"
     | "listview"
     | "table"
     | "longlist" {
@@ -174,6 +181,7 @@ export default class ChoiceAttributeModel extends AttributeModel {
         "checkbox",
         "radiobutton",
         "combobox",
+        "list",
         "listview",
         "table",
         "longlist"
@@ -193,7 +201,7 @@ export default class ChoiceAttributeModel extends AttributeModel {
    */
   get isTree(): boolean {
     return (
-      this.contributions.options &&
+      has(this.contributions, "options") &&
       typeof this.contributions.options.find(option =>
         option.hasOwnProperty("children")
       ) !== "undefined"
@@ -260,5 +268,26 @@ export default class ChoiceAttributeModel extends AttributeModel {
    */
   get placeholder(): string {
     return this.contributions.placeholder || "";
+  }
+
+  /**
+   * Registers an error that was received from a server response
+   */
+  addServerError(id: string, parameters?: MessageParametersType) {
+    const params = parameters;
+    if (has(params, "answer-option-key")) {
+      const optionKey = get(params, "answer-option-key");
+
+      const foundOption = this.options.find(
+        option => option.code === optionKey
+      );
+      if (foundOption) {
+        params["answer-option-key"] = foundOption.getContentConfiguredLabel(
+          this.contentConfiguration
+        );
+      }
+    }
+
+    this._errorCollection.addServerError(id, params);
   }
 }

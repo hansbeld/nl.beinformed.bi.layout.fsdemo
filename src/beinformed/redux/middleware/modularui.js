@@ -16,7 +16,7 @@ export const MODULARUI = "@@MODULARUI";
 
 const isModularUIAction = action => action && action.hasOwnProperty(MODULARUI);
 
-const modularuiMiddleware = store => next => action => {
+const modularuiMiddleware = (store: Store) => next => action => {
   if (!isModularUIAction(action)) {
     return next(action);
   }

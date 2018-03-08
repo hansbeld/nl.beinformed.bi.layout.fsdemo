@@ -1,11 +1,11 @@
 // @flow
 import React from "react";
 
-import ListHref from "beinformed/models/href/ListHref";
+import { ListHref } from "beinformed/models";
 
 import Link from "beinformed/components/Link/Link";
 
-import type Href from "beinformed/models/href/Href";
+import type { Href } from "beinformed/models";
 
 type PagingItemProps = {
   ariaLabel?: string,

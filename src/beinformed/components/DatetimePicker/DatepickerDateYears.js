@@ -101,7 +101,7 @@ class DatepickerDateYears extends Component<DatepickerDateYearsProps> {
   }
 
   getYearClass(date: string, PREV_DECADE: number, NEXT_DECADE: number) {
-    return classNames("datepicker-year btn-light", {
+    return classNames("datepicker-year", {
       "datepicker-otherdecade": [PREV_DECADE, NEXT_DECADE].includes(date),
       "datepicker-disabled":
         DateUtil.isBefore(date, this.props.mindate) ||

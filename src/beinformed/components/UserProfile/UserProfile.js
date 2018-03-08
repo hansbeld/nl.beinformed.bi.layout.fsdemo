@@ -8,7 +8,7 @@ import PanelBody from "beinformed/components/Panel/PanelBody";
 import PanelTitle from "beinformed/components/Panel/PanelTitle";
 import PanelFooter from "beinformed/components/Panel/PanelFooter";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 import {
   CHANGEPASSWORD_PATH,
   LOGOUT_PATH

@@ -1,4 +1,6 @@
 // @flow
+import { get, has } from "lodash";
+
 import type LinkModel from "beinformed/models/links/LinkModel";
 
 import BaseModel from "beinformed/models/base/BaseModel";
@@ -9,7 +11,10 @@ import ErrorCollection from "beinformed/models/error/ErrorCollection";
 /**
  * Form Object
  */
-export default class FormObjectModel extends BaseModel {
+export default class FormObjectModel extends BaseModel<
+  FormAnchorJSON,
+  FormObjectContributionsJSON
+> {
   _attributeCollection: AttributeCollection;
   _contentConfiguration: ContentConfiguration;
   _errorCollection: ErrorCollection;
@@ -18,8 +23,8 @@ export default class FormObjectModel extends BaseModel {
    * Construct FormObjectModel
    */
   constructor(
-    object?: FormAnchorJSON,
-    objectContributions?: FormObjectContributionsJSON
+    object: FormAnchorJSON,
+    objectContributions: FormObjectContributionsJSON
   ) {
     super(object, objectContributions);
 
@@ -38,8 +43,10 @@ export default class FormObjectModel extends BaseModel {
 
     this._errorCollection = new ErrorCollection("formobject");
 
-    if (this.data.referenceDate) {
-      this.attributeCollection.setReferenceDate(this.data.referenceDate);
+    if (has(this.data, "referenceDate")) {
+      this.attributeCollection.setReferenceDate(
+        get(this.data, "referenceDate")
+      );
     }
   }
 
@@ -147,14 +154,14 @@ export default class FormObjectModel extends BaseModel {
   }
 
   get hasEndResultConfiguration(): boolean {
-    return this.contributions.content && this.contributions.content.results;
+    return has(this.contributions, "content.results");
   }
 
   /**
    * Indicates if object is dynamic. A dynamic object should be submitted on each attribute change
    */
   get isDynamic(): boolean {
-    return this.contributions.dynamicObject || false;
+    return get(this.contributions, "dynamicObject", false);
   }
 
   /**
@@ -182,14 +189,14 @@ export default class FormObjectModel extends BaseModel {
   /**
    * Get introText of form object
    */
-  get introText(): string {
+  get introText(): ?string {
     return this.contributions.introText;
   }
 
   /**
    * Get assistent of form object
    */
-  get assistent(): string {
+  get assistent(): ?string {
     return this.contributions.assistent;
   }
 

@@ -2,7 +2,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import MemoAttributeModel from "beinformed/models/attributes/MemoAttributeModel";
+import { MemoAttributeModel } from "beinformed/models";
 
 import TextareaInput from "beinformed/components/FormInput/TextareaInput";
 import WysiwygInput from "beinformed/components/FormInput/WysiwygInput";

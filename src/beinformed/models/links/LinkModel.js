@@ -1,5 +1,4 @@
 // @flow
-import type { ResolvableModels } from "beinformed/models/resolveModel";
 import BaseModel from "beinformed/models/base/BaseModel";
 import Href from "beinformed/models/href/Href";
 
@@ -12,7 +11,7 @@ import Href from "beinformed/models/href/Href";
  * }
  *
  */
-class LinkModel extends BaseModel {
+class LinkModel extends BaseModel<LinkJSON, LinkContributionsJSON> {
   _href: Href;
   _icon: string;
   _targetModel: ?Class<ResolvableModels>;

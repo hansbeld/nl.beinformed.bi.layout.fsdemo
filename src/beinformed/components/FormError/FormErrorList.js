@@ -1,8 +1,8 @@
 // @flow
 import React from "react";
 
-import { Message } from "beinformed/containers/I18n/Message";
-import type ErrorCollection from "beinformed/models/error/ErrorCollection";
+import { Message } from "beinformed/i18n";
+import type { ErrorCollection } from "beinformed/models";
 
 /**
  * Render a list of (error) messages

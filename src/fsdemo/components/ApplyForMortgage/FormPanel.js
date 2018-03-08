@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from "react";
 
-import EditableListModel from "beinformed/models/list/EditableListModel";
+import { EditableListModel } from "beinformed/models";
 
 import ApplyForMortgageList from "fsdemo/containers/ApplyForMortgage/ApplyForMortgageList";
 

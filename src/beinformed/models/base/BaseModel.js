@@ -1,37 +1,40 @@
 // @flow
 import clone from "clone";
+import { get } from "lodash";
 
 import LayoutHintCollection from "beinformed/models/layouthint/LayoutHintCollection";
 
 /**
  * Base model
  */
-class BaseModel {
-  _data: any;
-  _contributions: any;
+class BaseModel<Data: any, Contributions: any> {
+  _data: Data;
+  _contributions: Contributions;
   _layouthint: LayoutHintCollection;
   _connectKey: string;
 
   /**
    * constructor
    */
-  constructor(data: any, contributions: any) {
+  constructor(data: Data, contributions: Contributions) {
     this._data = data;
     this._contributions = contributions;
-    this._layouthint = new LayoutHintCollection(this.contributions.layouthint);
+    this._layouthint = new LayoutHintCollection(
+      get(this.contributions, "layouthint", [])
+    );
   }
 
   /**
    * Retrieve data
    */
-  get data(): any {
+  get data(): Data {
     return this._data || {};
   }
 
   /**
    * Retrieve contributions
    */
-  get contributions(): any {
+  get contributions(): Contributions {
     return this._contributions || {};
   }
 

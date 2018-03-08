@@ -5,18 +5,14 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 
 import modularui from "beinformed/modularui/modularui";
-import {
-  removeModel,
-  updateModel,
-  loadModularUI
-} from "beinformed/containers/ModularUI/actions";
+import { removeModel, updateModel, loadModularUI } from "beinformed/modularui";
 
 import { HTTP_METHODS } from "beinformed/constants/Constants";
 
 import FormBody from "beinformed/components/Form/FormBody";
-import FormModel from "beinformed/models/form/FormModel";
+import { FormModel } from "beinformed/models";
 
-import type FormObjectModel from "beinformed/models/form/FormObjectModel";
+import type { FormObjectModel } from "beinformed/models";
 
 class ApplyForMortgageForm extends Component {
   componentWillReceiveProps(nextProps) {

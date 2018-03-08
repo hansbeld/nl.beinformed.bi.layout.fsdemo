@@ -1,18 +1,24 @@
 // @flow
-import FilterModel from "beinformed/models/filters/FilterModel";
+import BaseFilterModel from "beinformed/models/filters/BaseFilterModel";
 import AttributeFactory from "beinformed/models/attributes/AttributeFactory";
 
 /**
  * Assignment filter consists of two filters: assignment type and user filter
  */
-export default class AssignmentFilterModel extends FilterModel {
-  _assignmenttype: FilterModel;
-  _user: FilterModel;
+export default class AssignmentFilterModel extends BaseFilterModel<
+  AssignmentsFilterParamJSON,
+  AssignmentsFilterContributionsJSON
+> {
+  _assignmenttype: AttributeType;
+  _user: AttributeType;
 
   /**
    * Construct an assignment filter
    */
-  constructor(data: FilterJSON, contributions: FilterContributionsJSON) {
+  constructor(
+    data: AssignmentsFilterParamJSON,
+    contributions: AssignmentsFilterContributionsJSON
+  ) {
     super(data, contributions);
 
     this._assignmenttype = this.createAssignmentTypeModel();
@@ -45,37 +51,26 @@ export default class AssignmentFilterModel extends FilterModel {
    * Creates an assignmenttype model when assignmenttype json is present
    */
   createAssignmentTypeModel() {
-    const assignmentTypeKey = Object.keys(this.data).find(key =>
-      key.includes("ASSIGNMENTTYPE")
-    );
+    const assignmentTypeData = this.data.ASSIGNMENTTYPE;
 
-    if (assignmentTypeKey) {
-      const assignmentTypeData = this.data[assignmentTypeKey];
-
-      if (
-        this.data.dynamicschema &&
-        this.data.dynamicschema[assignmentTypeKey]
-      ) {
-        assignmentTypeData.dynamicschema = {
-          [assignmentTypeKey]: this.data.dynamicschema[assignmentTypeKey]
-        };
-      }
-
-      const assignmentTypeContributions = {
-        ...this.contributions[assignmentTypeKey],
-        optionMode: assignmentTypeData._links ? "lookup" : "static"
+    if (this.data.dynamicschema && this.data.dynamicschema.ASSIGNMENTTYPE) {
+      assignmentTypeData.dynamicschema = {
+        ASSIGNMENTTYPE: this.data.dynamicschema.ASSIGNMENTTYPE
       };
-
-      return AttributeFactory.createAttribute(
-        null,
-        assignmentTypeData.name || assignmentTypeData.param,
-        assignmentTypeData,
-        assignmentTypeContributions
-      );
     }
 
-    throw new Error(
-      "No data or contributions found for the assignment type model"
+    const assignmentTypeContributions: ChoiceAttributeContributionsJSON = {
+      ...this.contributions.ASSIGNMENTTYPE,
+      type: "choice",
+      enumerated: true,
+      optionMode: assignmentTypeData._links ? "lookup" : "static"
+    };
+
+    return AttributeFactory.createAttribute(
+      null,
+      assignmentTypeData.name || assignmentTypeData.param,
+      assignmentTypeData,
+      assignmentTypeContributions
     );
   }
 
@@ -83,33 +78,26 @@ export default class AssignmentFilterModel extends FilterModel {
    * Creates an assignmenttype model when userkey json is present
    */
   createUserModel() {
-    const userkeyKey = Object.keys(this.data).find(key =>
-      key.includes("USERKEY")
-    );
+    const userData = this.data.USERKEY;
 
-    if (userkeyKey) {
-      const userData = this.data[userkeyKey];
-
-      if (this.data.dynamicschema && this.data.dynamicschema[userkeyKey]) {
-        userData.dynamicschema = {
-          [userkeyKey]: this.data.dynamicschema[userkeyKey]
-        };
-      }
-
-      const userContributions = {
-        ...this.contributions[userkeyKey],
-        optionMode: userData._links ? "lookup" : "static"
+    if (this.data.dynamicschema && this.data.dynamicschema.USERKEY) {
+      userData.dynamicschema = {
+        USERKEY: this.data.dynamicschema.USERKEY
       };
-
-      return AttributeFactory.createAttribute(
-        null,
-        userData.name || userData.param,
-        userData,
-        userContributions
-      );
     }
 
-    throw new Error("No data or contributions found for the user model");
+    const userContributions = {
+      ...this.contributions.USERKEY,
+      type: "choice",
+      optionMode: userData._links ? "lookup" : "static"
+    };
+
+    return AttributeFactory.createAttribute(
+      null,
+      userData.name || userData.param,
+      userData,
+      userContributions
+    );
   }
 
   /**

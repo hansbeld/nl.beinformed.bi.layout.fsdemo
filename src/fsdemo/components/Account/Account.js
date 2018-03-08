@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import AccountPanel from "fsdemo/components/Account/AccountPanel";
 import ProductSuggestions from "fsdemo/components/ProductSuggestions/ProductSuggestions";
 
-import type CaseViewModel from "beinformed/models/caseview/CaseViewModel";
+import type { CaseViewModel } from "beinformed/models";
 
 type AccountProps = {
   caseview: CaseViewModel,

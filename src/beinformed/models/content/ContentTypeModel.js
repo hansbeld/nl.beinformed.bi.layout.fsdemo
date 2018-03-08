@@ -4,7 +4,10 @@ import ResourceModel from "beinformed/models/base/ResourceModel";
 /**
  * Model for concept details, available through modelcatalog
  */
-export default class ContentTypeModel extends ResourceModel {
+export default class ContentTypeModel extends ResourceModel<
+  ContentTypeJSON,
+  ContentTypeContributionsJSON
+> {
   /**
    * @overwrite
    */

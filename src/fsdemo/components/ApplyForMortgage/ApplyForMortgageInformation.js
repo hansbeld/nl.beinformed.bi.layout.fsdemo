@@ -11,7 +11,7 @@ import {
 import { handleError } from "beinformed/containers/Error/actions";
 
 import ModularUI from "beinformed/modularui/ModularUIRequest";
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 import MortgageInstrumentLink from "fsdemo/components/MortgageInstruments/MortgageInstrumentLink";
 

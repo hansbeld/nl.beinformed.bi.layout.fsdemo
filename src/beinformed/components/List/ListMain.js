@@ -6,7 +6,7 @@ import ViewListIcon from "mdi-react/ViewListIcon";
 import TableIcon from "mdi-react/TableIcon";
 import TableEditIcon from "mdi-react/TableEditIcon";
 
-import { withMessage } from "beinformed/containers/I18n/Message";
+import { withMessage } from "beinformed/i18n";
 
 import ActionChooser from "beinformed/components/Actions/ActionChooser";
 import ButtonToolbar from "beinformed/components/Button/ButtonToolbar";
@@ -17,7 +17,7 @@ import Pagination from "beinformed/components/Paging/Pagination";
 import PagingInfo from "beinformed/components/Paging/PagingInfo";
 import SortChooser from "beinformed/components/Sorting/SortChooser";
 
-import MultiRowTaskContainer from "beinformed/containers/MultiRowTask/MultiRowTaskContainer";
+import MultiRowTaskActions from "beinformed/containers/MultiRowTask/MultiRowTaskActions";
 
 import { AVAILABLE_LIST_VIEWS } from "beinformed/constants/Constants";
 
@@ -25,9 +25,9 @@ import ListView from "beinformed/components/List/ListView/List";
 import TableView from "beinformed/components/List/TableView/Table";
 import InlineEdit from "beinformed/containers/InlineEdit/InlineEdit";
 
-import EditableListModel from "beinformed/models/list/EditableListModel";
+import { EditableListModel } from "beinformed/models";
 
-import type ListModel from "beinformed/models/list/ListModel";
+import type { ListModel } from "beinformed/models";
 
 type ListMainProps = {
   className?: string,
@@ -221,7 +221,7 @@ class ListMain extends Component<ListMainProps, ListMainState> {
           <Pagination className="float-left" list={list} />
         )}
 
-        <MultiRowTaskContainer actions={list.actionCollection} />
+        <MultiRowTaskActions actions={list.actionCollection} />
 
         {pagesizeOptions.length >= 2 && (
           <PagesizeChooser

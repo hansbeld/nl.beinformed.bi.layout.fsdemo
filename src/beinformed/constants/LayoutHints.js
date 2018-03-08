@@ -164,6 +164,9 @@ export const HIDE_MODELCATALOG = getHint("HIDE_MODELCATALOG");
 export const SHOW_ONE_RESULT_AS_DETAIL = getHint("SHOW_ONE_RESULT_AS_DETAIL");
 export const GOTO_CASEVIEW = getHint("GOTO_CASEVIEW");
 export const CLICK_TO_OPEN_CASE_VIEW = getHint("CLICK_TO_OPEN_CASE_VIEW");
+export const SHOW_ATTRIBUTE_SET_LABELS_IN_DETAILS = getHint(
+  "SHOW_ATTRIBUTE_SET_LABELS_IN_DETAILS"
+);
 
 /*
  * --------------------------------

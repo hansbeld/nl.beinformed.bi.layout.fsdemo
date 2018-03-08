@@ -2,7 +2,7 @@
 import React from "react";
 
 import InlineEditStringCell from "beinformed/components/InlineEdit/InlineEditStringCell";
-import type MoneyAttributeModel from "beinformed/models/attributes/MoneyAttributeModel";
+import type { MoneyAttributeModel } from "beinformed/models";
 
 type InlineEditMoneyCellProps = {
   attribute: MoneyAttributeModel,

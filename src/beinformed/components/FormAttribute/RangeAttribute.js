@@ -2,15 +2,19 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 
-import NumberAttributeModel from "beinformed/models/attributes/NumberAttributeModel";
+import { NumberAttributeModel } from "beinformed/models";
+
 import NumberAttribute from "beinformed/components/FormAttribute/NumberAttribute";
 import DatetimeAttribute from "beinformed/components/FormAttribute/DatetimeAttribute";
 import FormAssistant from "beinformed/components/FormAssistant/FormAssistant";
 import FormLabel from "beinformed/components/FormLabel/FormLabel";
 import FormContent from "beinformed/components/FormContent/FormContent";
 import FormContentPopover from "beinformed/components/FormContent/FormContentPopover";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
-import type CompositeAttributeModel from "beinformed/models/attributes/CompositeAttributeModel";
+
+import type {
+  ContentConfigurationElements,
+  CompositeAttributeModel
+} from "beinformed/models";
 
 type RangeAttributeProps = {
   attribute: CompositeAttributeModel,

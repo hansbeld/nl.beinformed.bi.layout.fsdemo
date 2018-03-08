@@ -4,7 +4,7 @@ import React from "react";
 import "./Home.scss";
 import logo from "./logo.png";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 /**
  * Render a home page

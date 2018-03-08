@@ -4,7 +4,9 @@ import StringAttributeModel from "beinformed/models/attributes/StringAttributeMo
 /**
  * Memo attribute
  */
-export default class MemoAttributeModel extends StringAttributeModel {
+export default class MemoAttributeModel extends StringAttributeModel<
+  MemoAttributeContributionsJSON
+> {
   /**
    * @overwrite
    */

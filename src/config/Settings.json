@@ -1,7 +1,7 @@
 {
   "USE_CACHE": {
     "description":
-      "Indicates if contributions and routeprovider should be cached",
+      "Indicates if contributions should be cached",
     "value": true
   },
 

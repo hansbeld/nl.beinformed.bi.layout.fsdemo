@@ -10,9 +10,9 @@ import DropdownChildren from "beinformed/components/Dropdown/DropdownChildren";
 
 import Action from "beinformed/components/Actions/Action";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
-import type ActionModel from "beinformed/models/actions/ActionModel";
+import type { ActionModel } from "beinformed/models";
 
 type ActionChooserType = {
   actions: Array<ActionModel>,

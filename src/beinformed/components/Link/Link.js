@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import { NavLink as ReactRouterLink } from "react-router-dom";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 import { KEYCODES } from "beinformed/constants/Constants";
 
 type LinkProps = {

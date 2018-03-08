@@ -2,11 +2,15 @@
 import React from "react";
 import classNames from "classnames";
 
-import FormContentRenderer from "beinformed/components/FormContent/FormContentRenderer";
 import { KEYCODES } from "beinformed/constants/Constants";
+
+import FormContentRenderer from "beinformed/components/FormContent/FormContentRenderer";
 import { getChoiceOptionLabel } from "beinformed/components/FormInput/_util";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
-import type ChoiceAttributeOptionModel from "beinformed/models/attributes/ChoiceAttributeOptionModel";
+
+import type {
+  ChoiceAttributeOptionModel,
+  ContentConfigurationElements
+} from "beinformed/models";
 
 type LookupInputOptionProps = {
   activeOption: ChoiceAttributeOptionModel | null,

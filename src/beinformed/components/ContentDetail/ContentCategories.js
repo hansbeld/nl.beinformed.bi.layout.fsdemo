@@ -2,9 +2,8 @@
 import React from "react";
 
 import ContentLink from "beinformed/components/ContentLink/ContentLink";
-import type ContentTOCModel from "beinformed/models/content/ContentTOCModel";
-import type ContentModel from "beinformed/models/content/ContentModel";
 
+import type { ContentTOCModel, ContentModel } from "beinformed/models";
 type ContentCategoriesType = {
   contentDetail?: ContentModel,
   contentTOC: ContentTOCModel

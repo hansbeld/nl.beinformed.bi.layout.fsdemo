@@ -5,8 +5,10 @@ import FormAttribute from "beinformed/components/FormAttribute/AttributeRenderer
 import ResultAttributeClassification from "beinformed/components/InstrumentResult/ResultAttributeClassification";
 import ResultAttributeDecision from "beinformed/components/InstrumentResult/ResultAttributeDecision";
 
-import type ContentConfigurationResults from "beinformed/models/contentconfiguration/ContentConfigurationResults";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import type {
+  ContentConfigurationElements,
+  ContentConfigurationResults
+} from "beinformed/models";
 
 type ResultAttributeRendererProps = {
   id: string,

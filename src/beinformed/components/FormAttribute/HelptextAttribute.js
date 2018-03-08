@@ -3,7 +3,7 @@ import React from "react";
 import classNames from "classnames";
 
 import FormattedText from "beinformed/components/FormattedText/FormattedText";
-import type HelptextAttributeModel from "beinformed/models/attributes/HelptextAttributeModel";
+import type { HelptextAttributeModel } from "beinformed/models";
 type HelptextAttributeProps = {
   attribute: HelptextAttributeModel,
   className?: string

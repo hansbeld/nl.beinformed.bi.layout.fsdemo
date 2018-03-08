@@ -5,7 +5,9 @@ import ConstraintCollection from "beinformed/models/constraints/ConstraintCollec
 
 import type LinkModel from "beinformed/models/links/LinkModel";
 
-class CompositeAttributeModel extends AttributeModel {
+class CompositeAttributeModel extends AttributeModel<
+  CompositeAttributeContributionsJSON
+> {
   _children: CompositeAttributeChildCollection;
 
   constructor(

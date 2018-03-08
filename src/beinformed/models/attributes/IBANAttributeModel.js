@@ -7,7 +7,9 @@ import ConstraintCollection from "beinformed/models/constraints/ConstraintCollec
 /**
  * IBAN attribute
  */
-export default class IBANAttributeModel extends StringAttributeModel {
+export default class IBANAttributeModel extends StringAttributeModel<
+  StringAttributeContributionsJSON
+> {
   /**
    * @overwrite
    */

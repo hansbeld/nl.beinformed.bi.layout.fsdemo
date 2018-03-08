@@ -30,7 +30,7 @@ const DatepickerTimeMinutes = ({
             {minuteRow.map(minute => (
               <td
                 key={`minute-${minute}`}
-                className="datepicker-minute btn-light"
+                className="datepicker-minute"
                 data-value={minute}
                 role="gridcell"
                 tabIndex="-1"

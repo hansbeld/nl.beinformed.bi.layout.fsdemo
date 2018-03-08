@@ -1,4 +1,6 @@
 // @flow
+import { get } from "lodash";
+
 import NumberAttributeModel from "beinformed/models/attributes/NumberAttributeModel";
 
 import DecimalFormat from "beinformed/utils/number/DecimalFormat";
@@ -18,7 +20,7 @@ export default class MoneyAttributeModel extends NumberAttributeModel {
    * Retrieve currency symbol
    */
   get currencySymbol(): string {
-    return this.contributions.currencySymbol;
+    return get(this.contributions, "currencySymbol", "");
   }
 
   /**

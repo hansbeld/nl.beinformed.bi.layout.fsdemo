@@ -5,18 +5,15 @@ import classNames from "classnames";
 
 import { Redirect } from "react-router-dom";
 
-import { Message, withMessage } from "beinformed/containers/I18n/Message";
+import { AttributeFactory } from "beinformed/models";
+
+import { withMessage, Message } from "beinformed/i18n";
 
 import Button from "beinformed/components/Button/Button";
 import HTMLForm from "beinformed/components/HTMLForm/HTMLForm";
 
 import PasswordAttribute from "beinformed/components/FormAttribute/PasswordAttribute";
 import StringAttribute from "beinformed/components/FormAttribute/StringAttribute";
-
-import AttributeFactory from "beinformed/models/attributes/AttributeFactory";
-
-import StringAttributeModel from "beinformed/models/attributes/StringAttributeModel";
-import PasswordAttributeModel from "beinformed/models/attributes/PasswordAttributeModel";
 
 import Modal from "beinformed/components/Modal/Modal";
 import ModalBody from "beinformed/components/Modal/ModalBody";
@@ -26,6 +23,10 @@ import ModalTitle from "beinformed/components/Modal/ModalTitle";
 
 import "./SignIn.scss";
 
+import type {
+  StringAttributeModel,
+  PasswordAttributeModel
+} from "beinformed/models";
 import type { Location, RouterHistory } from "react-router-dom";
 
 type SignInProps = {

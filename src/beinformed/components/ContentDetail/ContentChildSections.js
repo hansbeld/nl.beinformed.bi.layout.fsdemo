@@ -2,7 +2,7 @@
 import React from "react";
 
 import ContentBody from "beinformed/components/ContentDetail/ContentBody";
-import type ContentModel from "beinformed/models/content/ContentModel";
+import type { ContentModel } from "beinformed/models";
 
 type ContentChildSectionsType = {
   childSections: ContentModel[],

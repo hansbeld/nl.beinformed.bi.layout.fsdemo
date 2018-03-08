@@ -2,13 +2,12 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 
-import ListItemCollection from "beinformed/models/list/ListItemCollection";
+import { ListItemCollection } from "beinformed/models";
 
 import AttributeList from "beinformed/components/AttributeList/AttributeList";
 import ListResults from "beinformed/components/List/ListResults";
 
-import type GroupingModel from "beinformed/models/grouping/GroupingModel";
-import type ListModel from "beinformed/models/list/ListModel";
+import type { GroupingModel, ListModel } from "beinformed/models";
 
 type ListGroupProps = {
   grouping: GroupingModel,

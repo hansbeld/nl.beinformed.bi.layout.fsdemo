@@ -6,11 +6,11 @@ import ChevronRightIcon from "mdi-react/ChevronRightIcon";
 import ChevronDoubleLeftIcon from "mdi-react/ChevronDoubleLeftIcon";
 import ChevronLeftIcon from "mdi-react/ChevronLeftIcon";
 
-import ListHref from "beinformed/models/href/ListHref";
+import { ListHref } from "beinformed/models";
 
 import Link from "beinformed/components/Link/Link";
 
-import type Href from "beinformed/models/href/Href";
+import type { Href } from "beinformed/models";
 
 type PagingItemArrowProps = {
   ariaLabel: string,

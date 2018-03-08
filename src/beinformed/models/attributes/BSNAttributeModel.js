@@ -5,7 +5,9 @@ import StringAttributeModel from "beinformed/models/attributes/StringAttributeMo
 /**
  * BSN attribute
  */
-export default class BSNAttributeModel extends StringAttributeModel {
+export default class BSNAttributeModel extends StringAttributeModel<
+  StringAttributeContributionsJSON
+> {
   /**
    * @overwrite
    */

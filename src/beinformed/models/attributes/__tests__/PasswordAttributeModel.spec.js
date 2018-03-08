@@ -14,10 +14,9 @@ describe("PasswordAttributeModel", () => {
       value: ""
     };
     const attributeContribution = {
-      type: "string",
+      type: "password",
       label: "Password",
       mandatory: false,
-      layouthint: ["password"],
       constraints: {
         upperAndLowerCaseMandatory: true,
         minNumberOfNumericCharacters: 1,

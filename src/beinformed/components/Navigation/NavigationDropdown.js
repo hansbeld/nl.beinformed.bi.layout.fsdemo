@@ -6,7 +6,7 @@ import DropdownButton from "beinformed/components/Dropdown/DropdownButton";
 import DropdownChildren from "beinformed/components/Dropdown/DropdownChildren";
 import DropdownLink from "beinformed/components/Dropdown/DropdownLink";
 
-import type LinkModel from "beinformed/models/links/LinkModel";
+import type { LinkModel } from "beinformed/models";
 
 type NavigationDropdownProps = {
   toggleLabel: string,

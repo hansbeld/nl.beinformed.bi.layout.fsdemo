@@ -1,4 +1,6 @@
 // @flow
+import { get } from "lodash";
+
 import { TimestampUtil } from "beinformed/utils/datetime/DateTimeUtil";
 import ConstraintCollection from "beinformed/models/constraints/ConstraintCollection";
 import StringAttributeModel from "beinformed/models/attributes/StringAttributeModel";
@@ -6,7 +8,9 @@ import StringAttributeModel from "beinformed/models/attributes/StringAttributeMo
 /**
  * Timestamp attribute
  */
-export default class TimestampAttributeModel extends StringAttributeModel {
+export default class TimestampAttributeModel extends StringAttributeModel<
+  DateTimeAttributeContributionsJSON
+> {
   _format: string;
 
   /**
@@ -29,7 +33,7 @@ export default class TimestampAttributeModel extends StringAttributeModel {
    * Get date format
    */
   get format(): string {
-    return TimestampUtil.convertFormat(this.contributions.format);
+    return TimestampUtil.convertFormat(get(this.contributions, "format", ""));
   }
 
   /**
@@ -72,7 +76,7 @@ export default class TimestampAttributeModel extends StringAttributeModel {
    */
   get readonlyvalue(): string {
     if (this.value && this.value !== null) {
-      return this.renderTimestamp(this.value);
+      return this.renderTimestamp(this.value.toString());
     }
 
     return "";

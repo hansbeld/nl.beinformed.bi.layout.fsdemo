@@ -16,7 +16,8 @@ declare type FilterJSON =
   | ChoiceFilterParamJSON
   | RangeNumberFilterParamJSON
   | RangeDateFilterParamJSON
-  | AssignmentsFilterParamJSON;
+  | AssignmentsFilterParamJSON
+  | EntryDateFilterJSON;
 
 declare type FilterContributionsJSON =
   | StringFilterContributionsJSON
@@ -35,13 +36,15 @@ declare type FilterParamJSON = {
 declare type StringFilterContributionsJSON = {
   type: "stringfilter",
   label: string,
-  layouthint: Array<string>
+  layouthint: Array<string>,
+  contextid?: string
 };
 declare type DateFilterContributionsJSON = {
   type: "datefilter",
   label: string,
   layouthint: Array<string>,
-  format: string
+  format: string,
+  contextid?: string
 };
 
 declare type ChoiceFilterParamJSON = {
@@ -64,10 +67,8 @@ declare type ChoiceFilterContributionsJSON = {
   label: string,
   layouthint: Array<"combobox" | "radiobutton" | "checkbox" | string>,
   multiplechoice: boolean,
-  options: Array<{
-    code: string,
-    label: string
-  }>
+  options: Array<ChoiceAttributeOptionContributionsJSON>,
+  contextid?: string
 };
 declare type RangeNumberFilterParamJSON = {
   name?: string,
@@ -119,7 +120,8 @@ declare type RangeNumberFilterContributionsJSON = {
         maximum?: number
       }
     }
-  ]
+  ],
+  contextid?: string
 };
 declare type RangeDateFilterContributionsJSON = {
   type: "daterangefilter",
@@ -146,13 +148,14 @@ declare type RangeDateFilterContributionsJSON = {
         maximum?: number
       }
     }
-  ]
+  ],
+  contextid?: string
 };
 
 declare type AssignmentsFilterParamJSON = {
   name?: string,
-  USERKEY?: ChoiceFilterParamJSON,
-  ASSIGNMENTTYPE?: ChoiceFilterParamJSON,
+  USERKEY: ChoiceFilterParamJSON,
+  ASSIGNMENTTYPE: ChoiceFilterParamJSON,
   dynamicschema?: Object
 };
 declare type AssignmentsFilterContributionsJSON = {
@@ -160,5 +163,53 @@ declare type AssignmentsFilterContributionsJSON = {
   label: string,
   layouthint: Array<string>,
   USERKEY: ChoiceFilterContributionsJSON,
-  ASSIGNMENTTYPE: ChoiceFilterContributionsJSON
+  ASSIGNMENTTYPE: ChoiceFilterContributionsJSON,
+  contextid?: string
+};
+
+declare type ConceptSearchFilterJSON = {
+  index: SearchIndexAndTypeFilterJSON,
+  label: SearchLabelFilterJSON,
+  type: SearchIndexAndTypeFilterJSON,
+  entryDate: EntryDateFilterJSON
+};
+
+declare type ContentSearchFilterJSON = {
+  index: SearchIndexAndTypeFilterJSON,
+  label: SearchLabelFilterJSON,
+  type: SearchIndexAndTypeFilterJSON
+};
+
+declare type SearchIndexAndTypeFilterJSON = {
+  param: "index" | "type",
+  name?: string,
+  value?: string | null,
+  options?: Array<{
+    key: string | null,
+    selected: boolean | null,
+    count: number | null
+  }>,
+  _links?: {
+    lookupservice: {
+      href: string
+    }
+  }
+};
+
+declare type SearchLabelFilterJSON = {
+  param: "label",
+  name?: string,
+  value?: string | null
+};
+
+declare type SearchTermFilterJSON = {
+  param: "searchTerm",
+  name?: string,
+  value?: string | null
+};
+
+declare type EntryDateFilterJSON = {
+  param: "entryDate",
+  name?: string,
+  value?: string | null
 };

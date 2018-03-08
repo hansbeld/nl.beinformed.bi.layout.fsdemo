@@ -23,6 +23,7 @@ declare type ModelCatalogContributionsJSON = {
 declare type ConceptSearchJSONResponse = {
   concepts: ConceptSearchJSON
 };
+
 declare type ConceptSearchJSON = {
   dynamicschema?: Object,
   _links: {
@@ -32,65 +33,33 @@ declare type ConceptSearchJSON = {
   },
   paging?: PagingJSON,
   sorting?: string,
-  filter?: {
-    index?: ConceptSearchIndexAndTypeFilterJSON,
-    label?: ConceptSearchLabelFilterJSON,
-    type?: ConceptSearchIndexAndTypeFilterJSON,
-    entryDate?: EntryDateFilterJSON
-  },
+  filter: ConceptSearchFilterJSON,
   _embedded: {
     results: Array<{
       concept: ConceptItemJSON
     }>
   }
 };
+
 declare type ConceptSearchContributionsJSONResponse = {
   concepts: ConceptSearchContributionsJSON
 };
+
 declare type ConceptSearchContributionsJSON = {
   label: string,
   resourcetype: "ConceptSearch",
-  filter: [
-    { index: ChoiceFilterContributionsJSON },
-    { label: StringFilterContributionsJSON },
-    { type: ChoiceFilterContributionsJSON },
-    { entryDate: DateFilterContributionsJSON }
-  ],
+  filter: Array<{
+    [FilterKey: string]: FilterContributionsJSON
+  }>,
   results: Array<{
     concept: ListItemContributionsJSON
   }>
 };
 
-declare type ConceptSearchIndexAndTypeFilterJSON = {
-  param: "index" | "type",
-  name?: string,
-  value?: string | null,
-  options?: Array<{
-    key: string | null,
-    selected: boolean | null,
-    count: number | null
-  }>,
-  _links?: {
-    lookupservice: {
-      href: string
-    }
-  }
-};
-
-declare type ConceptSearchLabelFilterJSON = {
-  param: "label",
-  name?: string,
-  value?: string | null
-};
-declare type EntryDateFilterJSON = {
-  param: "entryDate",
-  name?: string,
-  value?: string | null
-};
-
 declare type ConceptItemJSON = {
   _id: string,
-  label?: string | null,
+  label: string | null,
+  conceptLabel: string,
   _links: {
     self: LinkJSON,
     concepttype: LinkJSON
@@ -106,6 +75,7 @@ declare type ConceptDetailJSON = {
   formula?: string | null,
   taxonomyType?: string | null,
   label?: string | null,
+  conceptLabel: string,
   filter: {
     entryDate: EntryDateFilterJSON
   },
@@ -135,9 +105,9 @@ declare type ConceptDetailContributionsJSON = {
   label: string,
   resourcetype: "ConceptDetail",
   _links: {},
-  filter: {
-    entryDate: DateFilterContributionsJSON
-  },
+  filter: Array<{
+    [FilterKey: string]: FilterContributionsJSON
+  }>,
   metadata: {
     _id: {
       type: "string",
@@ -177,4 +147,83 @@ declare type SourceReferenceJSON = {
 declare type TextFragmentJSON = {
   type: string,
   text: string
+};
+
+declare type RelatedConceptsJSONResponse = {
+  relatedConcepts: RelatedConceptsJSON
+};
+declare type RelatedConceptsJSON = {
+  _links: {
+    self: LinkJSON,
+    api_doc: LinkJSON,
+    contributions: LinkJSON,
+    concept: LinkJSON
+  },
+  filter: {
+    datefilter: EntryDateFilterJSON
+  }
+};
+
+declare type RelatedConceptsContributionsJSONResponse = {
+  relatedConcepts: RelatedConceptsContributionsJSON
+};
+declare type RelatedConceptsContributionsJSON = {
+  label: string,
+  resourcetype: "relatedConcepts"
+};
+
+declare type ConceptTypeJSONResponse = {
+  concepttype: ConceptTypeJSON
+};
+declare type ConceptTypeJSON = {
+  _id: string,
+  label?: string | null,
+  icon?: string | null,
+  textColor?: string | null,
+  lineColor?: string | null,
+  backgroundColor?: string | null,
+  coreTaxonomy?: string | null,
+  textFragmentTypes?: Array<textFragmentType>,
+  sectionReferenceTypes?: Array<sectionReferenceType>,
+  propertyTypes?: Array<propertyType>,
+  labelTypes: Array<labelType>,
+  _links: {
+    self: LinkJSON,
+    api_doc: LinkJSON,
+    contributions: LinkJSON
+  }
+};
+declare type textFragmentType = {
+  _id: string,
+  label: string,
+  maximumAmountOfCharacters: string
+};
+declare type sectionReferenceType = {
+  _id: string,
+  label: string
+};
+declare type propertyType = {
+  _id: string,
+  label: string
+};
+declare type labelType = {
+  _id: string,
+  label: string
+};
+
+declare type ConceptTypeContributionsJSONResponse = {
+  concepttype: ConceptTypeJSON
+};
+declare type ConceptTypeContributionsJSON = {
+  label: string,
+  resourcetype: "ConceptTypeDetail",
+  metadata: {
+    _id: {
+      type: "string",
+      label: "Id"
+    }
+  },
+  attributes: Array<{
+    [CustomAttributeName: string]: AttributeContributionsJSON
+  }>
 };

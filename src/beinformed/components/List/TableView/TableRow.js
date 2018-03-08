@@ -3,10 +3,10 @@ import React from "react";
 import classNames from "classnames";
 
 import { MULTI_ROW_TASK } from "beinformed/constants/LayoutHints";
-import ListItemModel from "beinformed/models/list/ListItemModel";
-import ListModel from "beinformed/models/list/ListModel";
+
 import TableCellSelectable from "beinformed/components/List/TableView/TableCellSelectable";
 
+import type { ListModel, ListItemModel } from "beinformed/models";
 type TableRowProps = {
   className?: string,
   children?: any,

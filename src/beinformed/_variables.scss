@@ -18,8 +18,10 @@ $caseview-header-background: theme-color("light") !default;
 $icon-spacer: 0 0.5em 0 0 !default;
 
 // Datepicker
-$datepicker-item-disabled-background-color: $input-disabled-bg !default;
-$datepicker-today-background-color: theme-color("primary") !default;
+$datepicker-item-disabled-bg: $input-disabled-bg !default;
+
+$datepicker-today-bg: $component-active-bg !default;
+$datepicker-today-color: $component-active-color !default;
 
 // Password field
 $password-strength-transparent: rgba(255, 255, 255, 0) !default;

@@ -12,7 +12,15 @@ import {
   LOGIN_PATH
 } from "beinformed/constants/Constants";
 
-const ModalRoutes = ({ children, application, isModal }) =>
+import type { ApplicationModel } from "beinformed/models";
+
+type ModalRoutesProps = {
+  children?: any,
+  application?: ApplicationModel,
+  isModal?: boolean
+};
+
+const ModalRoutes = ({ children, application, isModal }: ModalRoutesProps) =>
   isModal ? (
     <Switch key="modalSwitch">
       {children}
@@ -22,11 +30,12 @@ const ModalRoutes = ({ children, application, isModal }) =>
         path={CHANGEPASSWORD_PATH}
         exact
         render={props =>
+          application &&
           application.userServices &&
           application.userServices.changePassword ? (
             <Form
               {...props}
-              href={this.props.application.userServices.changePassword}
+              href={application.userServices.changePassword}
               redirectTo={get(props.location, "state.from")}
             />
           ) : (

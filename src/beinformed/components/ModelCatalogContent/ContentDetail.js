@@ -9,7 +9,7 @@ import ContentTOCHeader from "beinformed/components/ContentDetail/ContentTOCHead
 
 import ContentDetailSection from "beinformed/containers/ModelCatalogContent/ContentDetailSection";
 
-import type ContentTOCModel from "beinformed/models/content/ContentTOCModel";
+import type { ContentTOCModel } from "beinformed/models";
 
 type ContentDetailProps = {
   contentTOC: ContentTOCModel,

@@ -6,8 +6,7 @@ import ActionChooser from "beinformed/components/Actions/ActionChooser";
 import CaseViewButton from "beinformed/components/CaseView/CaseViewButton";
 import PanelFooter from "beinformed/components/Panel/PanelFooter";
 
-import type ListItemModel from "beinformed/models/list/ListItemModel";
-import type DetailModel from "beinformed/models/detail/DetailModel";
+import type { DetailModel, ListItemModel } from "beinformed/models";
 
 /**
  * Render detail footer with actions and to caseview action

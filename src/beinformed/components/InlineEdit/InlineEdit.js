@@ -11,8 +11,7 @@ import InlineEditTableRows from "beinformed/components/InlineEdit/InlineEditTabl
 
 import "./InlineEdit.scss";
 
-import type ListModel from "beinformed/models/list/ListModel";
-import type EditableListItemModel from "beinformed/models/list/EditableListItemModel";
+import type { EditableListItemModel, ListModel } from "beinformed/models";
 
 export type InlineEditTableProps = {
   className?: string,

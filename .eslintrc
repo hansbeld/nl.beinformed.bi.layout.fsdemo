@@ -45,8 +45,8 @@
       "webpack": {}
     },
     "react": {
-      "version": "16.0",
-      "flowVersion": "0.53"
+      "version": "16.2",
+      "flowVersion": "0.66"
     }
   },
   "rules": {

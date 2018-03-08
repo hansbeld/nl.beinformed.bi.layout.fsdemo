@@ -3,12 +3,11 @@ import React from "react";
 
 import Link from "beinformed/components/Link/Link";
 import ConceptIcon from "beinformed/components/ConceptDetail/ConceptIcon";
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 import "./ConceptLink.scss";
 
-import type ConceptLinkModel from "beinformed/models/concepts/ConceptLinkModel";
-import type ConceptDetailModel from "beinformed/models/concepts/ConceptDetailModel";
+import type { ConceptLinkModel, ConceptDetailModel } from "beinformed/models";
 
 type ConceptLinkType = {
   concept: ConceptLinkModel | ConceptDetailModel

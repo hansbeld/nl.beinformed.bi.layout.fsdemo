@@ -6,7 +6,7 @@ import FormErrorMessages from "beinformed/components/FormError/FormErrorMessages
 
 import AttributeRenderer from "fsdemo/components/FormAttribute/AttributeRenderer";
 
-import type FormModel from "beinformed/models/form/FormModel";
+import type { FormModel } from "beinformed/models";
 
 type FormBodyProps = {
   form: FormModel,

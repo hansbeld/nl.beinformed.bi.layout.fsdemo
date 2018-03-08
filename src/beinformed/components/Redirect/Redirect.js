@@ -3,7 +3,7 @@ import React from "react";
 
 import { Redirect as ReactRouterRedirect } from "react-router-dom";
 
-import type Href from "beinformed/models/href/Href";
+import type { Href } from "beinformed/models";
 
 const Redirect = ({ href }: { href: Href }) => {
   const redirectLocation = {

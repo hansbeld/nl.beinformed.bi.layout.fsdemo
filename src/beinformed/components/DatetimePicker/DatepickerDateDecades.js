@@ -146,7 +146,7 @@ class DatepickerDateDecades extends Component<DatepickerDateDecadesProps> {
                 );
 
                 const YEARS_IN_DECADE = 10;
-                const decadeClass = classNames("datepicker-year btn-light", {
+                const decadeClass = classNames("datepicker-year", {
                   "datepicker-otherdecade": isOtherCentury,
                   "datepicker-disabled":
                     DateUtil.isBefore(decade, this.props.mindate) ||

@@ -3,7 +3,7 @@ import React from "react";
 import CalculatorIcon from "mdi-react/CalculatorIcon";
 
 import { Link } from "react-router-dom";
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import "./Banner.scss";
 

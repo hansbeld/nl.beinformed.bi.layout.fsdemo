@@ -1,10 +1,13 @@
 // @flow
-import StringAttributeModel from "beinformed/models/attributes/StringAttributeModel";
+
+import AttributeModel from "beinformed/models/attributes/AttributeModel";
 
 /**
  * Password attribute
  */
-export default class CaptchaAttributeModel extends StringAttributeModel {
+export default class CaptchaAttributeModel extends AttributeModel<
+  CaptchaAttributeContributionsJSON
+> {
   /**
    * @overwrite
    */

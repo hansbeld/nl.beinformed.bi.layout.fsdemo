@@ -1,10 +1,15 @@
 // @flow
+import { get } from "lodash";
+
 import ResourceModel from "beinformed/models/base/ResourceModel";
 
 /**
  * Model for concept details, available through modelcatalog
  */
-export default class ConceptTypeDetailModel extends ResourceModel {
+export default class ConceptTypeDetailModel extends ResourceModel<
+  ConceptTypeJSON,
+  ConceptTypeContributionsJSON
+> {
   /**
    * @overwrite
    */
@@ -26,62 +31,62 @@ export default class ConceptTypeDetailModel extends ResourceModel {
    * Get concept type label
    */
   get label(): string {
-    return this.data.label;
+    return get(this.data, "label", "");
   }
 
   /**
    * Get concept type icon
    */
   get icon(): string {
-    return this.data.icon;
+    return get(this.data, "icon", "");
   }
 
   /**
    * Get concept type text color
    */
   get textColor(): string {
-    return this.data.textColor;
+    return get(this.data, "textColor", "#000");
   }
 
   /**
    * Get concept type background color
    */
   get backgroundColor(): string {
-    return this.data.backgroundColor;
+    return get(this.data, "backgroundColor", "#fff");
   }
 
   /**
    * Get concept line color
    */
   get lineColor(): string {
-    return this.data.lineColor;
+    return get(this.data, "lineColor", "#000");
   }
 
   /**
    * Get label types
    */
-  get labelTypes(): Object[] {
+  get labelTypes(): Array<labelType> {
     return this.data.labelTypes;
   }
 
   /**
    * Get propertyTypes
    */
-  get propertyTypes(): Object[] {
-    return this.data.propertyTypes;
+  get propertyTypes(): Array<propertyType> {
+    return get(this.data, "propertyTypes", []);
   }
 
   /**
    * Get textFragmentTypes
    */
-  get textFragmentTypes(): Object[] {
-    return this.data.textFragmentTypes;
+  get textFragmentTypes(): Array<textFragmentType> {
+    return get(this.data, "textFragmentTypes", []);
   }
 
   /**
    * Get sectionReferenceTypes
    */
-  get sectionReferenceTypes(): Object[] {
-    return this.data.sectionReferenceTypes;
+  get sectionReferenceTypes(): Array<sectionReferenceType> {
+    return get(this.data, "sectionReferenceTypes", []);
   }
 }

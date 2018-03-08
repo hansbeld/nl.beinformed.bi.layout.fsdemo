@@ -5,7 +5,7 @@ import classNames from "classnames";
 import ResultAttributeRenderer from "beinformed/components/InstrumentResult/ResultAttributeRenderer";
 import FormattedText from "beinformed/components/FormattedText/FormattedText";
 
-import ContentConfigurationResults from "beinformed/models/contentconfiguration/ContentConfigurationResults";
+import type { ContentConfigurationResults } from "beinformed/models";
 
 import "./InstrumentResult.scss";
 

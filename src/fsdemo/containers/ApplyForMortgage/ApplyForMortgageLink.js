@@ -4,11 +4,11 @@ import classNames from "classnames";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import { applyForMortgageAction } from "fsdemo/containers/ApplyForMortgage/actions";
 
-import ActionModel from "beinformed/models/actions/ActionModel";
+import { ActionModel } from "beinformed/models";
 
 import type { Connector } from "react-redux";
 

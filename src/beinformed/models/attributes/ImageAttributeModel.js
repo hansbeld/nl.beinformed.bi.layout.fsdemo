@@ -4,7 +4,9 @@ import AttributeModel from "beinformed/models/attributes/AttributeModel";
 /**
  * Image attribute
  */
-export default class ImageAttributeModel extends AttributeModel {
+export default class ImageAttributeModel extends AttributeModel<
+  AttributeContributionsJSON
+> {
   /**
    * @overwrite
    */

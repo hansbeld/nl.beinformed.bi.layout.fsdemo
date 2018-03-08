@@ -2,7 +2,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import CaseViewModel from "beinformed/models/caseview/CaseViewModel";
+import { CaseViewModel } from "beinformed/models";
 
 import NavigationItem from "beinformed/components/Navigation/NavigationItem";
 

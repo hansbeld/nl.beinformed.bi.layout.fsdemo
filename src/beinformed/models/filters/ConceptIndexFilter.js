@@ -1,9 +1,9 @@
-import FilterModel from "beinformed/models/filters/FilterModel";
+import BaseFilterModel from "beinformed/models/filters/BaseFilterModel";
 
 /**
  * The concept index model is a special filter used to index all first concept label letters in de modelcatalog.
  */
-export default class ConceptIndexFilterModel extends FilterModel {
+export default class ConceptIndexFilterModel extends BaseFilterModel<> {
   /**
    * Construct a filter
    */

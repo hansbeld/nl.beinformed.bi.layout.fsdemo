@@ -11,7 +11,7 @@ import {
 } from "beinformed/containers/ProgressIndicator/actions";
 import { handleError } from "beinformed/containers/Error/actions";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 import ProductSuggestions from "fsdemo/components/ProductSuggestions/ProductSuggestions";
 import "./ApplyForMortgageSubmitted.scss";

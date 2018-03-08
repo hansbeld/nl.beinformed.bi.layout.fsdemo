@@ -2,13 +2,13 @@
 import ContentLinkModel from "beinformed/models/content/ContentLinkModel";
 
 class SourceReferenceItemModel {
-  _sourceReference: any;
-  _sourceReferenceType: any;
+  _sourceReference: SourceReferenceJSON;
+  _sourceReferenceType: sectionReferenceType;
   _entryDate: string | null;
 
   constructor(
-    sourceReference: any,
-    sourceReferenceType: any,
+    sourceReference: SourceReferenceJSON,
+    sourceReferenceType: sectionReferenceType,
     entryDate: string | null = null
   ) {
     this._sourceReference = sourceReference;

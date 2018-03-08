@@ -24,14 +24,14 @@ import type { Location } from "react-router-dom";
 /**
  * Model for Forms
  */
-class FormModel extends ResourceModel {
+class FormModel extends ResourceModel<FormJSON, FormContributionsJSON> {
   lastModification: number;
   _nextObjects: FormObjectCollection[];
   _missingObjects: FormObjectCollection;
   _endResultObjects: FormObjectCollection;
   _completeObjects: FormObjectCollection[];
   _errorCollection: ErrorCollection;
-  _tokens: string[];
+  _tokens: ?Array<string>;
   _type: string;
   _parameters: Parameter[];
   _commit: boolean;
@@ -44,7 +44,9 @@ class FormModel extends ResourceModel {
   /**
    * Construct a form
    */
-  constructor(modularuiResponse: ModularUIResponse) {
+  constructor(
+    modularuiResponse: ModularUIResponse<FormJSON, FormContributionsJSON>
+  ) {
     super(modularuiResponse);
 
     this.lastModification = Date.now();
@@ -63,7 +65,6 @@ class FormModel extends ResourceModel {
 
     this._errorCollection = new ErrorCollection("form");
 
-    this._tokens = this.data.tokens;
     this._type = "generic";
 
     this._commit = false;
@@ -517,24 +518,29 @@ class FormModel extends ResourceModel {
    */
   handleErrors(newForm: FormModel) {
     const errorAnchors = newForm.data.errors;
-    errorAnchors.forEach(error => {
-      if (error.anchor) {
-        // object errors
-        const errorObject = this.missingObjects.get(error.anchor.objectid);
-        if (errorObject) {
-          errorObject.addServerError(error);
+    if (errorAnchors) {
+      errorAnchors.forEach(error => {
+        if (error.anchor) {
+          // object errors
+          const errorObject = this.missingObjects.get(error.anchor.objectid);
+          if (errorObject) {
+            errorObject.addServerError(error);
+          }
+        } else {
+          this.errorCollection.addServerError(error.id, error.properties);
         }
-      } else {
-        this.errorCollection.addServerError(error.id, error.properties);
-      }
-    });
+      });
+    }
   }
 
   /**
    * Process missing from new form
    */
   handleMissing(newForm: FormModel) {
-    const newAnchors = newForm.data.missing ? newForm.data.missing.anchors : [];
+    const newAnchors =
+      newForm.data.missing && newForm.data.missing.anchors
+        ? newForm.data.missing.anchors
+        : [];
 
     if (this.hasNewObject(newAnchors)) {
       this._completeObjects = this.allObjects;
@@ -546,7 +552,11 @@ class FormModel extends ResourceModel {
   }
 
   processMissing(newForm: FormModel) {
-    const missingAnchors = newForm.data.missing.anchors;
+    const missingAnchors =
+      newForm.data.missing && newForm.data.missing.anchors
+        ? newForm.data.missing.anchors
+        : [];
+
     const newCollection = new FormObjectCollection();
     newCollection.collection = this.missingObjects.all.map(missingObject => {
       missingObject.attributeCollection.all.forEach(attribute => {
@@ -659,8 +669,16 @@ class FormModel extends ResourceModel {
   /**
    * Retrieve tokens of the form
    */
-  get tokens(): string[] {
+  get tokens(): ?Array<string> {
+    if (!this._tokens) {
+      this._tokens = this.data.tokens;
+    }
+
     return this._tokens;
+  }
+
+  set tokens(tokens: Array<string>) {
+    this._tokens = tokens;
   }
 
   get hasEndResultConfiguration(): boolean {

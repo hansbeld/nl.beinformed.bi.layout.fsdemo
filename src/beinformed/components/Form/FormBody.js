@@ -5,8 +5,7 @@ import FormObjects from "beinformed/components/FormObjects/FormObjects";
 import FormResults from "beinformed/components/FormResults/FormResults";
 import FormErrorMessages from "beinformed/components/FormError/FormErrorMessages";
 
-import type FormModel from "beinformed/models/form/FormModel";
-import type FormObjectModel from "beinformed/models/form/FormObjectModel";
+import type { FormModel, FormObjectModel } from "beinformed/models";
 
 export type FormBodyProps = {
   form: FormModel,
@@ -16,7 +15,8 @@ export type FormBodyProps = {
     form: FormModel,
     object: FormObjectModel,
     attribute: AttributeType,
-    inputvalue: string
+    inputvalue: string,
+    autosubmit?: boolean
   ) => void,
   onAttributeClick?: (
     form: FormModel,

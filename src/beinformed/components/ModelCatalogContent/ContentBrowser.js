@@ -1,14 +1,14 @@
 // @flow
 import React from "react";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
+
 import CharIndex from "beinformed/components/CharIndex/CharIndex";
 import ContentLink from "beinformed/components/ContentLink/ContentLink";
 
-import ChoiceAttributeModel from "beinformed/models/attributes/ChoiceAttributeModel";
-import Href from "beinformed/models/href/Href";
+import { ChoiceAttributeModel, Href } from "beinformed/models";
 
-import type ContentIndexModel from "beinformed/models/content/ContentIndexModel";
+import type { ContentIndexModel } from "beinformed/models";
 
 type ContentBrowserProps = {
   contentindex: ContentIndexModel,

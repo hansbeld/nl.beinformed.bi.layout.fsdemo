@@ -1,22 +1,26 @@
 // @flow
 import React from "react";
 import classNames from "classnames";
+import { withRouter } from "react-router-dom";
 
-import ListModel from "beinformed/models/list/ListModel";
+import type { ListModel } from "beinformed/models";
 import TableRow from "beinformed/components/List/TableView/TableRow";
 import TableRowLink from "beinformed/components/List/TableView/TableRowLink";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
+
+import type { Location } from "react-router-dom";
 
 type TableRowsProps = {
   children?: any,
-  list: ListModel
+  list: ListModel,
+  location: Location
 };
 
 /**
  * Render an HTML table rows
  */
-const TableRows = ({ children, list }: TableRowsProps) => {
+const TableRows = ({ children, list, location }: TableRowsProps) => {
   const tableRowsClass = classNames("table-rows");
 
   return (
@@ -53,4 +57,4 @@ const TableRows = ({ children, list }: TableRowsProps) => {
   );
 };
 
-export default TableRows;
+export default withRouter(TableRows);

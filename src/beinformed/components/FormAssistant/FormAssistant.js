@@ -4,12 +4,14 @@ import classNames from "classnames";
 import AlertCircleIcon from "mdi-react/AlertCircleIcon";
 import CheckboxMarkedCircleIcon from "mdi-react/CheckboxMarkedCircleIcon";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
-import type ErrorCollection from "beinformed/models/error/ErrorCollection";
-import type ErrorModel from "beinformed/models/error/ErrorModel";
-import type ConstraintCollection from "beinformed/models/constraints/ConstraintCollection";
-import type ConstraintModel from "beinformed/models/constraints/ConstraintModel";
+import type {
+  ErrorCollection,
+  ErrorModel,
+  ConstraintCollection,
+  ConstraintModel
+} from "beinformed/models";
 
 type FormAssistantProps = {
   assistantMessage?: string | null,

@@ -11,7 +11,7 @@ const initialState = null;
  */
 export default function errorReducer(
   state: ErrorState = initialState,
-  action: Action
+  action: ReduxAction
 ) {
   switch (action.type) {
     case "SAVE_ERROR":

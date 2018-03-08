@@ -1,6 +1,7 @@
 // @flow
 import Cache from "beinformed/utils/browser/Cache";
-import Authenticate from "beinformed/modularui/Authenticate";
+
+import { Authenticate } from "beinformed/modularui";
 
 import {
   startProgress,

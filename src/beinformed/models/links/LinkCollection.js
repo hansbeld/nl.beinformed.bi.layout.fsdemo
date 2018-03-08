@@ -8,10 +8,10 @@ export type LinkCollectionJSON = {
   self?: LinkJSON,
   api_doc?: LinkJSON,
   contributions?: LinkJSON,
-  [linkKey: string]: LinkJSON | Array<LinkJSON>
+  [linkKey: string]: LinkJSON
 };
 export type LinkCollectionContributionsJSON = {
-  [linkKey: string]: Array<LinkContributionsJSON> | LinkContributionsJSON
+  [linkKey: string]: LinkContributionsJSON
 };
 
 /**

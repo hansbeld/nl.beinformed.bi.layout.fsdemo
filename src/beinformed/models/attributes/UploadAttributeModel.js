@@ -15,7 +15,9 @@ type UploadConstraintsType = {
 /**
  * Upload attribute
  */
-export default class UploadAttributeModel extends StringAttributeModel {
+export default class UploadAttributeModel extends StringAttributeModel<
+  UploadAttributeContributionsJSON
+> {
   /**
    * @overwrite
    */
@@ -72,7 +74,7 @@ export default class UploadAttributeModel extends StringAttributeModel {
 
     if (this.uploadConstraints.fileSize) {
       constraints.addConstraint("Constraint.File.maxFilesize", null, {
-        "max-filesize": filesize(this.uploadConstraints.fileSize).human("si")
+        "max-filesize": filesize(this.uploadConstraints.fileSize).human("jedec")
       });
     }
 

@@ -2,7 +2,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 
-import GroupingPanelModel from "beinformed/models/panels/GroupingPanelModel";
+import { GroupingPanelModel } from "beinformed/models";
 
 import GroupingPanel from "beinformed/components/GroupingPanel/GroupingPanel";
 import ListPanel from "beinformed/components/ListPanel/ListPanel";
@@ -10,8 +10,7 @@ import DetailPanel from "beinformed/components/DetailPanel/DetailPanel";
 
 import { GOTO_CASEVIEW } from "beinformed/constants/LayoutHints";
 
-import type ListModel from "beinformed/models/list/ListModel";
-import type DetailModel from "beinformed/models/detail/DetailModel";
+import type { ListModel, DetailModel } from "beinformed/models";
 
 type PanelRendererProps = {
   isTab?: boolean,

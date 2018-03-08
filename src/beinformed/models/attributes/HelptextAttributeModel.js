@@ -1,4 +1,6 @@
 // @flow
+import { get } from "lodash";
+
 import LabelAttributeModel from "beinformed/models/attributes/LabelAttributeModel";
 
 /**
@@ -16,6 +18,6 @@ export default class HelptextAttributeModel extends LabelAttributeModel {
    * Get helptext text
    */
   get text(): string | null {
-    return this.contributions.text || null;
+    return get(this.contributions, "text", null);
   }
 }

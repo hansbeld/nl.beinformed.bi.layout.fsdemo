@@ -8,7 +8,10 @@ import LinkModel from "beinformed/models/links/LinkModel";
 /**
  * The Application model
  */
-export default class ApplicationModel extends ResourceModel {
+export default class ApplicationModel extends ResourceModel<
+  ApplicationJSON,
+  ApplicationContributionsJSON
+> {
   _userServices: UserServicesModel | null;
 
   /**

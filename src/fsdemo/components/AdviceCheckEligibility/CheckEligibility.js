@@ -19,7 +19,7 @@ import CheckEligibilityButtons from "./CheckEligibilityButtons";
 
 import "./CheckEligibility.scss";
 
-import type FormModel from "beinformed/models/form/FormModel";
+import type { FormModel } from "beinformed/models";
 import { HTTP_METHODS } from "beinformed/constants/Constants";
 import { storeAttributeInput } from "../../utils/AttributeInputCache";
 

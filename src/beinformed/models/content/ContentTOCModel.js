@@ -1,17 +1,26 @@
 // @flow
+import { get } from "lodash";
+
 import ResourceModel from "beinformed/models/base/ResourceModel";
 import FilterCollection from "beinformed/models/filters/FilterCollection";
 import ContentLinkModel from "beinformed/models/content/ContentLinkModel";
 import ContentTypeModel from "beinformed/models/content/ContentTypeModel";
-import { TIMEVERSION_FILTER_NAME } from "beinformed/constants/Constants";
+
 import Href from "beinformed/models/href/Href";
+
+import { TIMEVERSION_FILTER_NAME } from "beinformed/constants/Constants";
+
 import type LinkModel from "beinformed/models/links/LinkModel";
+
+type FilterCollectionData = {
+  entryDate: EntryDateFilterJSON
+};
 
 /**
  * Get content items recursively
  */
-const getItems = (items, entryDate) =>
-  items.map(item => {
+const getItems = (items: ContentItems, entryDate: string | null) =>
+  items.map((item: ContentItem) => {
     const link = new ContentLinkModel(
       {
         ...item,
@@ -36,9 +45,12 @@ const getCategories = categories =>
 /**
  * Content detail model
  */
-export default class ContentTOCModel extends ResourceModel {
+export default class ContentTOCModel extends ResourceModel<
+  ContentTOCJSON,
+  ContentTOCContributionsJSON
+> {
   _contentType: ContentTypeModel;
-  _filterCollection: FilterCollection;
+  _filterCollection: FilterCollection<FilterCollectionData>;
 
   /**
    * @overwrite
@@ -87,7 +99,7 @@ export default class ContentTOCModel extends ResourceModel {
    * Get content label
    */
   get label(): string {
-    return this.data.label;
+    return get(this.data, "label", "");
   }
 
   /**
@@ -134,7 +146,7 @@ export default class ContentTOCModel extends ResourceModel {
   /**
    * Retrieve available filters on concept toc
    */
-  get filterCollection(): FilterCollection {
+  get filterCollection(): FilterCollection<FilterCollectionData> {
     if (!this._filterCollection) {
       const filterData: Object = {
         entryDate: this.data.filter.datefilter
@@ -145,9 +157,7 @@ export default class ContentTOCModel extends ResourceModel {
       }
 
       this._filterCollection = new FilterCollection(filterData, {
-        filter: this.contributions.filter,
-        contexts: this.contributions.contexts,
-        dynamicschema: this.data.dynamicschema
+        filter: this.contributions.filter
       });
     }
 

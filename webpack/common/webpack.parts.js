@@ -14,6 +14,10 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const AddAssetsToServerHTMLPlugin = require("../plugins/AddAssetsToServerHTMLPlugin");
 
+exports.mode = (mode = "development") => ({
+  mode
+});
+
 exports.entry = (name, paths) => ({
   entry: {
     [name]: paths
@@ -22,22 +26,6 @@ exports.entry = (name, paths) => ({
 
 exports.output = config => ({
   output: config
-});
-
-exports.devServer = ({ host, port } = {}) => ({
-  devServer: {
-    historyApiFallback: true,
-    stats: "errors-only",
-    host, // Defaults to `localhost`
-    port, // Defaults to 8080,
-    hot: true,
-    headers: { "Access-Control-Allow-Origin": "*" },
-    overlay: {
-      errors: false,
-      warnings: false
-    }
-  },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
 });
 
 exports.setFreeVariable = (key, value) => {
@@ -134,10 +122,6 @@ exports.loadCSS = ({ include, exclude } = {}) => ({
 
 exports.extractCSS = ({ include, exclude, use }) => {
   // Output extracted CSS to a file
-  const plugin = new ExtractTextPlugin({
-    filename: "[name].css"
-  });
-
   return {
     module: {
       rules: [
@@ -146,14 +130,18 @@ exports.extractCSS = ({ include, exclude, use }) => {
           include,
           exclude,
 
-          use: plugin.extract({
-            use,
-            fallback: "style-loader"
+          use: ExtractTextPlugin.extract({
+            fallback: "style-loader",
+            use
           })
         }
       ]
     },
-    plugins: [plugin]
+    plugins: [
+      new ExtractTextPlugin({
+        filename: "[name].css"
+      })
+    ]
   };
 };
 
@@ -262,7 +250,7 @@ exports.clean = (path, options) => ({
   plugins: [new CleanWebpackPlugin([path], options)]
 });
 
-exports.stats = (option) => ({
+exports.stats = option => ({
   stats: option || {
     // minimal logging
     assets: false,
@@ -311,4 +299,24 @@ exports.filterMomentLocales = (localesToInclude = /en|nl/) => ({
 
 exports.copy = (from, to, options) => ({
   plugins: [new CopyWebpackPlugin([{ from, to }], options)]
+});
+
+exports.optimization = () => ({
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          chunks: "initial",
+          minChunks: 2
+        },
+        vendor: {
+          test: /node_modules/,
+          chunks: "initial",
+          name: "vendor",
+          priority: 10,
+          enforce: true
+        }
+      }
+    }
+  }
 });

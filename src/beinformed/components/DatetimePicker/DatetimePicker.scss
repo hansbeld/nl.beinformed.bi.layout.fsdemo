@@ -1,3 +1,5 @@
+@import "../../../variables";
+
 .datetimepicker.dropdown-menu {
   right: 0;
   left: auto;
@@ -7,4 +9,13 @@
   min-width: 265px;
 
   padding: 0;
+
+  .btn {
+    background-color: $gray-200;
+  }
+}
+
+.datetimepicker-pos-right {
+  right: auto;
+  left: 0;
 }

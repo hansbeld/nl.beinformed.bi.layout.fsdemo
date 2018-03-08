@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import InlineEditCellRenderer from "beinformed/components/InlineEdit/InlineEditCellRenderer";
 import TableCell from "beinformed/components/List/TableView/TableCell";
-import type EditableListItemModel from "beinformed/models/list/EditableListItemModel";
+import type { EditableListItemModel } from "beinformed/models";
 
 import "./ApplyForMortgageTableCell.scss";
 

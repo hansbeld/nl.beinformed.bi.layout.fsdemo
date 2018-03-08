@@ -2,9 +2,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import AssignmentFilterModel from "beinformed/models/filters/AssignmentFilterModel";
-import RangeFilterModel from "beinformed/models/filters/RangeFilterModel";
-import type FilterModel from "beinformed/models/filters/FilterModel";
+import { AssignmentFilterModel, RangeFilterModel } from "beinformed/models";
 
 import RangeAttribute from "beinformed/components/FormAttribute/RangeAttribute";
 import FormAttribute from "beinformed/components/FormAttribute/AttributeRenderer";
@@ -12,6 +10,7 @@ import AssignmentFilter from "beinformed/components/Filter/AssignmentFilter";
 
 import { PARAMETER_SEPARATOR } from "beinformed/constants/Constants";
 
+import type { FilterModel } from "beinformed/models";
 type FilterProps = {
   className?: string,
   filter: FilterModel,

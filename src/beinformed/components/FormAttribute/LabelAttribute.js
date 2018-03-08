@@ -2,7 +2,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import type LabelAttributeModel from "beinformed/models/attributes/LabelAttributeModel";
+import type { LabelAttributeModel } from "beinformed/models";
 
 type LabelAttributeProps = {
   attribute: LabelAttributeModel,

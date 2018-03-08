@@ -2,15 +2,16 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
+
 import Dropdown from "beinformed/components/Dropdown/Dropdown";
 import DropdownButton from "beinformed/components/Dropdown/DropdownButton";
 import DropdownChildren from "beinformed/components/Dropdown/DropdownChildren";
 import DropdownLink from "beinformed/components/Dropdown/DropdownLink";
 
-import ListHref from "beinformed/models/href/ListHref";
+import { ListHref } from "beinformed/models";
 
-import type ListModel from "beinformed/models/list/ListModel";
+import type { ListModel } from "beinformed/models";
 
 type PagesizeChooserProps = {
   align: "left" | "right",

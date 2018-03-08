@@ -9,7 +9,7 @@ import DropdownToggle from "beinformed/components/Dropdown/DropdownToggle";
 import DropdownItem from "beinformed/components/Dropdown/DropdownItem";
 import DropdownChildren from "beinformed/components/Dropdown/DropdownChildren";
 
-import { Message, withMessage } from "beinformed/containers/I18n/Message";
+import { Message, withMessage } from "beinformed/i18n";
 
 import "./YearAmountInput.scss";
 

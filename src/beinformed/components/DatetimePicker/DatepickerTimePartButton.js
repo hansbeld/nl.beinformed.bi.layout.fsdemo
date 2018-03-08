@@ -4,7 +4,7 @@ import ArrowUpIcon from "mdi-react/ArrowUpIcon";
 import ArrowDownIcon from "mdi-react/ArrowDownIcon";
 
 import { TimeUtil } from "beinformed/utils/datetime/DateTimeUtil";
-import { withMessage } from "beinformed/containers/I18n/Message";
+import { withMessage } from "beinformed/i18n";
 
 type DatepickerTimePartButtonType = {
   time: string,
@@ -34,7 +34,7 @@ const DatepickerTimePartButton = ({
     <div className={`datepicker-${partName}`}>
       <div className="datepicker-up">
         <button
-          className="btn btn-light"
+          className="btn"
           aria-label={message("DatePicker.up", "Up")}
           onClick={e => {
             e.preventDefault();
@@ -59,7 +59,7 @@ const DatepickerTimePartButton = ({
       </div>
       <div className="datepicker-content">
         <button
-          className="btn btn-light"
+          className="btn"
           onClick={e => {
             e.preventDefault();
             onClick(partName);
@@ -70,7 +70,7 @@ const DatepickerTimePartButton = ({
       </div>
       <div className="datepicker-down">
         <button
-          className="btn btn-light"
+          className="btn"
           aria-label={message("DatePicker.down", "Down")}
           onClick={e => {
             e.preventDefault();

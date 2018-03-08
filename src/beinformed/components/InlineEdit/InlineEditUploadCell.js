@@ -6,7 +6,7 @@ import UploadInput from "beinformed/components/FormInput/UploadInput";
 
 import CellAssistant from "beinformed/components/InlineEdit/CellAssistant";
 
-import type UploadAttributeModel from "beinformed/models/attributes/UploadAttributeModel";
+import type { UploadAttributeModel } from "beinformed/models";
 
 type InlineEditUploadCellProps = {
   attribute: UploadAttributeModel,

@@ -3,14 +3,14 @@ import React from "react";
 import classNames from "classnames";
 
 import { MULTI_ROW_TASK } from "beinformed/constants/LayoutHints";
-import ListItemModel from "beinformed/models/list/ListItemModel";
-import ListModel from "beinformed/models/list/ListModel";
+
 import TableCellSelectable from "beinformed/components/List/TableView/TableCellSelectable";
-import Href from "beinformed/models/href/Href";
+
 import Link from "beinformed/components/Link/Link";
 
 import "./TableRow.scss";
 
+import type { ListModel, ListItemModel, Href } from "beinformed/models";
 type TableRowLinkProps = {
   className?: string,
   children?: any,

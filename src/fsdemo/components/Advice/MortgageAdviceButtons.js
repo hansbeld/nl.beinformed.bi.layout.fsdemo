@@ -2,13 +2,13 @@
 import React from "react";
 import classNames from "classnames";
 
-import { withMessage } from "beinformed/containers/I18n/Message";
+import { withMessage } from "beinformed/i18n";
 import Button from "beinformed/components/Button/Button";
 import ButtonErrorPopover from "beinformed/components/Button/ButtonErrorPopover";
 
 import { HORIZONTAL_FORM_LABEL_CLASS } from "beinformed/constants/Constants";
 
-import type FormModel from "beinformed/models/form/FormModel";
+import type { FormModel } from "beinformed/models";
 
 type FormButtonsProps = {
   form: FormModel,

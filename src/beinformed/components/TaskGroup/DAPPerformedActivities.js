@@ -2,7 +2,7 @@
 import React from "react";
 import CheckCircleOutlineIcon from "mdi-react/CheckCircleOutlineIcon";
 
-import type ChoiceAttributeModel from "beinformed/models/attributes/ChoiceAttributeModel";
+import type { ChoiceAttributeModel } from "beinformed/models";
 
 /**
  * Dummy task group rendering the 'tasks' of a choice attribute that contains a collection of already performed actions

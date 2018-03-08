@@ -5,8 +5,7 @@ import classNames from "classnames";
 import AttributeValue from "beinformed/components/AttributeList/AttributeValue";
 import FormContentRenderer from "beinformed/components/FormContent/FormContentRenderer";
 
-import ContentConfiguration from "beinformed/models/contentconfiguration/ContentConfiguration";
-
+import type { ContentConfiguration } from "beinformed/models";
 type AttributeProps = {
   attribute: AttributeType,
   contentConfig?: ContentConfiguration

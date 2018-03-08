@@ -1,14 +1,17 @@
 // @flow
-import type ConceptTypeDetailModel from "beinformed/models/concepts/ConceptTypeDetailModel";
+import { get } from "lodash";
+
 import BaseModel from "beinformed/models/base/BaseModel";
 import Href from "beinformed/models/href/Href";
 import LinkModel from "beinformed/models/links/LinkModel";
 import { TIMEVERSION_FILTER_NAME } from "beinformed/constants/Constants";
 
+import type ConceptTypeDetailModel from "beinformed/models/concepts/ConceptTypeDetailModel";
+
 /**
  * Link to a concept
  */
-export default class ConceptLinkModel extends BaseModel {
+export default class ConceptLinkModel extends BaseModel<ConceptItemJSON, void> {
   _entryDate: string | null;
   _conceptType: ConceptTypeDetailModel;
 
@@ -39,14 +42,14 @@ export default class ConceptLinkModel extends BaseModel {
    * Retrieve key
    */
   get key(): string {
-    return this.data._id || this.data.conceptIdentifier;
+    return this.data._id;
   }
 
   /**
    * Retrieve label
    */
   get label(): string {
-    return this.data.label || this.data.conceptLabel;
+    return get(this.data, "label", get(this.data, "conceptLabel", ""));
   }
 
   /**

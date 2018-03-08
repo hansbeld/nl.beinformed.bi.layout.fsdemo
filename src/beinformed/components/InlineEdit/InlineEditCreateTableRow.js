@@ -6,13 +6,11 @@ import ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 
 import Link from "beinformed/components/Link/Link";
 import InlineEditActionsCell from "beinformed/components/InlineEdit/InlineEditActionsCell";
-import withModularUI from "beinformed/modularui/withModularUI";
+import { withModularUI } from "beinformed/modularui";
 
-import EditableListItemModel from "beinformed/models/list/EditableListItemModel";
-import FormModel from "beinformed/models/form/FormModel";
+import { EditableListItemModel, FormModel } from "beinformed/models";
 
-import type ActionModel from "beinformed/models/actions/ActionModel";
-import type ListModel from "beinformed/models/list/ListModel";
+import type { ListModel, ActionModel } from "beinformed/models";
 
 type InlineEditCreateTableRowProps = {
   action: ActionModel,

@@ -5,11 +5,14 @@ import setImmediate from "setimmediate";
 import { Provider } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
 
-import RootRoute from "beinformed/containers/ModularUI/RootRoute";
+import RootRoute from "beinformed/components/Routes/RootRoute";
 
 import Cache from "beinformed/utils/browser/Cache";
+import FetchError from "beinformed/utils/fetch/FetchError";
 
 import { showXHRErrorNotification } from "beinformed/containers/Notification/actions";
+import { handleError } from "beinformed/containers/Error/actions";
+
 import Application from "beinformed/containers/Application/Application";
 import ErrorBoundary from "beinformed/components/Error/ErrorBoundary";
 
@@ -71,6 +74,11 @@ const client = ({ ApplicationComponent = <Application /> }: clientProps) => {
 
   const { history, store } = createStore(rehydrate(data), false);
 
+  if (data && data.error && data.error.name) {
+    const error = new FetchError(data.error.response, null);
+    store.dispatch(handleError(error));
+  }
+
   if (Cache.getItem("auth")) {
     store.dispatch(loginSuccess());
   }
@@ -92,16 +100,18 @@ const client = ({ ApplicationComponent = <Application /> }: clientProps) => {
     document.body.className = "js";
   }
 
-  hydrate(
-    <Provider store={store}>
-      <ErrorBoundary>
-        <ConnectedRouter history={history} basename={BASE}>
-          <RootRoute>{ApplicationComponent}</RootRoute>
-        </ConnectedRouter>
-      </ErrorBoundary>
-    </Provider>,
-    document.getElementById("application")
-  );
+  window.addEventListener("DOMContentLoaded", () => {
+    hydrate(
+      <Provider store={store}>
+        <ErrorBoundary>
+          <ConnectedRouter history={history} basename={BASE}>
+            <RootRoute>{ApplicationComponent}</RootRoute>
+          </ConnectedRouter>
+        </ErrorBoundary>
+      </Provider>,
+      document.getElementById("application")
+    );
+  });
 };
 
-export { client };
+export default client;

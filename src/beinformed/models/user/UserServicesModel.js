@@ -1,12 +1,17 @@
 // @flow
-import type LinkModel from "beinformed/models/links/LinkModel";
 import ResourceModel from "beinformed/models/base/ResourceModel";
 import UserModel from "beinformed/models/user/UserModel";
+
+import type LinkModel from "beinformed/models/links/LinkModel";
+import type Href from "beinformed/models/href/Href";
 
 /**
  * UserServicesModel model
  */
-export default class UserServicesModel extends ResourceModel {
+export default class UserServicesModel extends ResourceModel<
+  UserServicesJSON,
+  UserServicesContributionsJSON
+> {
   _user: UserModel | null;
 
   /**

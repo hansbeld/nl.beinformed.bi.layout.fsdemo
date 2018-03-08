@@ -1,6 +1,6 @@
 // @flow
 import React, { PureComponent } from "react";
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 import { Switch, Route, Link } from "react-router-dom";
 import textile from "textilejs";
 
@@ -11,7 +11,7 @@ import {
 import { handleError } from "beinformed/containers/Error/actions";
 
 import ModularUI from "beinformed/modularui/ModularUIRequest";
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
 import MortgageInstrumentLink from "fsdemo/components/MortgageInstruments/MortgageInstrumentLink";
 

@@ -4,6 +4,7 @@ import DetailModel from "beinformed/models/detail/DetailModel";
 import LinkCollection from "beinformed/models/links/LinkCollection";
 import PanelCollection from "beinformed/models/panels/PanelCollection";
 import ContentConfiguration from "beinformed/models/contentconfiguration/ContentConfiguration";
+import AttributeSetModel from "beinformed/models/attributes/AttributeSetModel";
 
 import AttributeFactory from "beinformed/models/attributes/AttributeFactory";
 
@@ -14,7 +15,10 @@ import type LinkModel from "beinformed/models/links/LinkModel";
 /**
  * Detail of a list item
  */
-export default class ListDetailModel extends DetailModel {
+export default class ListDetailModel extends DetailModel<
+  ListDetailJSON,
+  ListDetailContributionsJSON
+> {
   _panelCollection: PanelCollection;
   _listitem: ListItemModel;
   _contentConfiguration: ContentConfiguration;
@@ -22,10 +26,17 @@ export default class ListDetailModel extends DetailModel {
   _givenAnswers: ?CompositeAttributeModel;
   _results: ?CompositeAttributeModel;
 
+  _eventdata: Array<AttributeSetModel>;
+
   /**
    * Construct
    */
-  constructor(modularUIResponse: ModularUIResponse) {
+  constructor(
+    modularUIResponse: ModularUIResponse<
+      ListDetailJSON,
+      ListDetailContributionsJSON
+    >
+  ) {
     super(modularUIResponse);
 
     this._panelCollection = new PanelCollection();
@@ -36,6 +47,7 @@ export default class ListDetailModel extends DetailModel {
     );
 
     this.setResultSection();
+    this.setEventData();
   }
 
   /**
@@ -194,5 +206,50 @@ export default class ListDetailModel extends DetailModel {
 
   get results(): CompositeAttributeModel {
     return this._results;
+  }
+
+  get hasEventData(): boolean {
+    return typeof this.contributions.eventdata !== "undefined";
+  }
+
+  addAttributes(
+    key: string,
+    eventData: AttributeSetAttributeData,
+    eventContributions: AttributeSetContributions
+  ) {
+    this._eventdata.push(
+      new AttributeSetModel(key, eventData, eventContributions)
+    );
+  }
+
+  setEventData() {
+    if (this.contributions.eventdata && this.data.eventdata) {
+      this._eventdata = [];
+
+      this.contributions.eventdata.forEach(eventDataContribution => {
+        const key = Object.keys(eventDataContribution)[0];
+        if (key in this.data.eventdata) {
+          if (Array.isArray(this.data.eventdata[key])) {
+            this.data.eventdata[key].forEach((eventDataData, i) => {
+              this.addAttributes(
+                `${key}-${i + 1}`,
+                eventDataData,
+                eventDataContribution[key]
+              );
+            });
+          } else {
+            this.addAttributes(
+              key,
+              this.data.eventdata[key],
+              eventDataContribution[key]
+            );
+          }
+        }
+      });
+    }
+  }
+
+  get eventdata(): Array<AttributeSetModel> {
+    return this._eventdata;
   }
 }

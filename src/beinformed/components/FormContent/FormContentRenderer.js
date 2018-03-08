@@ -3,9 +3,10 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import { connect } from "react-redux";
 
-import type ConceptDetailModel from "beinformed/models/concepts/ConceptDetailModel";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
-
+import type {
+  ConceptDetailModel,
+  ContentConfigurationElements
+} from "beinformed/models";
 import type { Connector } from "react-redux";
 
 import {
@@ -18,7 +19,7 @@ import FormContentProperties from "beinformed/components/FormContent/FormContent
 import FormContentTextFragments from "beinformed/components/FormContent/FormContentTextFragments";
 import FormContentSections from "beinformed/components/FormContent/FormContentSections";
 
-import withModularUI from "beinformed/modularui/withModularUI";
+import { withModularUI } from "beinformed/modularui";
 
 import {
   RENDER_CHILD_SECTIONS,

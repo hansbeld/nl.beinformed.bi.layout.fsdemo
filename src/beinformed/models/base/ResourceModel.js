@@ -10,7 +10,10 @@ import LinkCollection from "beinformed/models/links/LinkCollection";
 /**
  * Base model
  */
-class ResourceModel extends BaseModel {
+class ResourceModel<
+  Data: Object = any,
+  Contributions: Object = any
+> extends BaseModel<Data, Contributions> {
   _key: string;
   _links: LinkCollection;
   _childModels: ResolvableModels[];
@@ -19,7 +22,12 @@ class ResourceModel extends BaseModel {
   /**
    * constructor
    */
-  constructor(modularuiResponse: ModularUIResponse = new ModularUIResponse()) {
+  constructor(
+    modularuiResponse: ModularUIResponse<
+      Data,
+      Contributions
+    > = new ModularUIResponse()
+  ) {
     super(modularuiResponse.data, modularuiResponse.contributions);
 
     this._key = modularuiResponse.key;
@@ -34,7 +42,7 @@ class ResourceModel extends BaseModel {
    */
 
   static isApplicableModel(
-    data: ModularUIResponse // eslint-disable-line no-unused-vars
+    data: ModularUIResponse<Data, Contributions> // eslint-disable-line no-unused-vars
   ): boolean {
     throw new Error(
       "No isSupportedResourceTypes condition set on resourcemodel"
@@ -148,7 +156,7 @@ class ResourceModel extends BaseModel {
    */
   setChildModels(models: ResolvableModels[]) {} // eslint-disable-line no-unused-vars, no-empty-function
 
-  dehydrate() {
+  dehydrate(): Object {
     return {
       ...super.dehydrate(),
       key: this._key,

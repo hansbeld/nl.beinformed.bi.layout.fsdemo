@@ -5,7 +5,7 @@ import classNames from "classnames";
 
 import { Redirect, Link } from "react-router-dom";
 
-import { Message, withMessage } from "beinformed/containers/I18n/Message";
+import { Message, withMessage } from "beinformed/i18n";
 
 import Button from "beinformed/components/Button/Button";
 import HTMLForm from "beinformed/components/HTMLForm/HTMLForm";
@@ -13,10 +13,11 @@ import HTMLForm from "beinformed/components/HTMLForm/HTMLForm";
 import PasswordAttribute from "beinformed/components/FormAttribute/PasswordAttribute";
 import StringAttribute from "beinformed/components/FormAttribute/StringAttribute";
 
-import AttributeFactory from "beinformed/models/attributes/AttributeFactory";
-
-import StringAttributeModel from "beinformed/models/attributes/StringAttributeModel";
-import PasswordAttributeModel from "beinformed/models/attributes/PasswordAttributeModel";
+import {
+  AttributeFactory,
+  StringAttributeModel,
+  PasswordAttributeModel
+} from "beinformed/models";
 
 import Modal from "beinformed/components/Modal/Modal";
 import ModalBody from "beinformed/components/Modal/ModalBody";

@@ -3,11 +3,14 @@ import React from "react";
 
 import ContentLink from "beinformed/components/ContentLink/ContentLink";
 import ContentSections from "beinformed/components/ContentDetail/ContentSections";
-import type ContentModel from "beinformed/models/content/ContentModel";
-import type SourceReferenceCollection from "beinformed/models/concepts/SourceReferenceCollection";
-import type Href from "beinformed/models/href/Href";
-import { Message } from "beinformed/containers/I18n/Message";
 
+import { Href } from "beinformed/models";
+import { Message } from "beinformed/i18n";
+
+import type {
+  ContentModel,
+  SourceReferenceCollection
+} from "beinformed/models";
 type SourceReferencesType = {
   sourceReferences: SourceReferenceCollection,
   sources: ContentModel[],

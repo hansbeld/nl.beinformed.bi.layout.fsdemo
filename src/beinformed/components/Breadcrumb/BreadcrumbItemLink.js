@@ -3,7 +3,7 @@ import React from "react";
 
 import Link from "beinformed/components/Link/Link";
 
-import type Href from "beinformed/models/href/Href";
+import type { Href } from "beinformed/models";
 
 type BreadcrumbItemLinkType = {
   item: {

@@ -3,9 +3,7 @@ import { push } from "react-router-redux";
 
 import { MODULARUI } from "beinformed/redux/middleware/modularui";
 
-import ListModel from "beinformed/models/list/ListModel";
-
-import Href from "beinformed/models/href/Href";
+import { Href, ListModel } from "beinformed/models";
 
 import { retrieveAttributeInput } from "fsdemo/utils/AttributeInputCache";
 

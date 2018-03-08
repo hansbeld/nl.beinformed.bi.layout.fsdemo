@@ -1,15 +1,15 @@
 // @flow
 import React, { Component } from "react";
 
-import { withMessage, Message } from "beinformed/containers/I18n/Message";
-import withModularUI from "beinformed/modularui/withModularUI";
+import { withMessage, Message } from "beinformed/i18n";
+import { withModularUI } from "beinformed/modularui";
 
 import ConceptLink from "beinformed/components/ConceptLink/ConceptLink";
 import TextInput from "beinformed/components/FormInput/TextInput";
 
 import "./ConceptBrowserSearch.scss";
 
-import type ConceptIndexModel from "beinformed/models/concepts/ConceptIndexModel";
+import type { ConceptIndexModel } from "beinformed/models";
 
 type ConceptBrowserSearchProps = {
   message: messageFunctionType,

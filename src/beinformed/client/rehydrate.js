@@ -1,7 +1,7 @@
 // @flow
 import Locales from "beinformed/i18n/Locales";
 
-import resolveModel from "beinformed/models/resolveModel";
+import { resolveModel } from "beinformed/models";
 
 import ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 

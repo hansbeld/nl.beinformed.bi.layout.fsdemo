@@ -6,7 +6,7 @@ import { POPUP } from "beinformed/constants/LayoutHints";
 
 import "./FormContent.scss";
 
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+import type { ContentConfigurationElements } from "beinformed/models";
 
 type FormContentProps = {
   concept: ConceptDetailModel | null,

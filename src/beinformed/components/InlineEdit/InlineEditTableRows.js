@@ -2,9 +2,11 @@
 import React from "react";
 import classNames from "classnames";
 
-import EditableListItemModel from "beinformed/models/list/EditableListItemModel";
+import { EditableListItemModel } from "beinformed/models";
+
 import InlineEditTableRow from "beinformed/components/InlineEdit/InlineEditTableRow";
-import type ListModel from "beinformed/models/list/ListModel";
+
+import type { ListModel } from "beinformed/models";
 
 type InlineEditTableRowsProps = {
   children?: any,

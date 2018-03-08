@@ -1,13 +1,16 @@
 // @flow
 import React from "react";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 import ChoiceInputGroup from "beinformed/components/FormInput/ChoiceInputGroup";
 import InputGroup from "beinformed/components/FormInputGroup/InputGroup";
 import SelectInput from "beinformed/components/FormInput/SelectInput";
 import TreeInput from "beinformed/components/FormInput/TreeInput";
-import type ChoiceAttributeOptionModel from "beinformed/models/attributes/ChoiceAttributeOptionModel";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+
+import type {
+  ContentConfigurationElements,
+  ChoiceAttributeOptionModel
+} from "beinformed/models";
 
 type ChoiceInputProps = {
   className?: string,
@@ -23,6 +26,7 @@ type ChoiceInputProps = {
   type:
     | "checkbox"
     | "radiobutton"
+    | "list"
     | "listview"
     | "combobox"
     | "longlist"
@@ -57,6 +61,7 @@ const ChoiceInput = ({
   } else if (
     options.length > 0 &&
     (type === "table" ||
+      type === "list" ||
       type === "listview" ||
       type === "combobox" ||
       type === "longlist")

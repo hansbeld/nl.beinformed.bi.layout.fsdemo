@@ -12,7 +12,7 @@ export const getSetting = (setting: string) => {
   throw new Error(`Setting with name ${setting} not found in setting file`);
 };
 /**
- * Indicates if contributions and routeprovider should be cached
+ * Indicates if contributions should be cached
  */
 export const USE_CACHE = getSetting("USE_CACHE");
 

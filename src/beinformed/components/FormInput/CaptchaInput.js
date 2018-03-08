@@ -15,7 +15,7 @@ import {
 
 import { CAPTCHA_PATH, HTTP_METHODS } from "beinformed/constants/Constants";
 
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import "./CaptchaInput.scss";
 

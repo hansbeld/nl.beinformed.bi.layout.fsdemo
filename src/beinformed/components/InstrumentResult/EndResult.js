@@ -3,8 +3,10 @@ import React from "react";
 
 import InstrumentResult from "beinformed/components/InstrumentResult/InstrumentResult";
 
-import type ContentConfiguration from "beinformed/models/contentconfiguration/ContentConfiguration";
-import type ContentConfigurationResults from "beinformed/models/contentconfiguration/ContentConfigurationResults";
+import type {
+  ContentConfigurationResults,
+  ContentConfiguration
+} from "beinformed/models";
 
 type EndResultProps = {
   id: string,

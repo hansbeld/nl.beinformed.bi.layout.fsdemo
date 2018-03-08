@@ -35,13 +35,13 @@ function getTemplates(source) {
   };
 
   if (templates.css === null || templates.js === null) {
-	return {
-	  css: "",
-	  js: ""
-	}
-	console.error(
-	  "CSS or JS templates not found using regex: /{CSSASSETS:(.*?):CSSASSETS}/g and /{JSASSETS:(.*?):JSASSETS}/g in build script"
-	);
+    return {
+      css: "",
+      js: ""
+    };
+    console.error(
+      "CSS or JS templates not found using regex: /{CSSASSETS:(.*?):CSSASSETS}/g and /{JSASSETS:(.*?):JSASSETS}/g in build script"
+    );
   }
 
   return {
@@ -66,13 +66,10 @@ AddAssetsToServerHTMLPlugin.prototype.apply = function(compiler) {
     const files = getFiles(compilation.assets);
 
     const serverSource = compilation.assets[files.js.server].source();
-
     const templates = getTemplates(serverSource);
 
     const jsImports = [];
-    jsImports.push(
-      replaceTemplate(templates.js, files.js.manifest)
-    );
+    jsImports.push(replaceTemplate(templates.js, files.js.manifest));
     files.js.common.forEach(commonFile => {
       jsImports.push(replaceTemplate(templates.js, commonFile));
     });

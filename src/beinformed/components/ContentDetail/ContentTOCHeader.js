@@ -5,7 +5,7 @@ import { BASE } from "beinformed/constants/Constants";
 
 import "./ContentTOCHeader.scss";
 
-import type ContentTOCModel from "beinformed/models/content/ContentTOCModel";
+import type { ContentTOCModel } from "beinformed/models";
 
 /**
  * Content header

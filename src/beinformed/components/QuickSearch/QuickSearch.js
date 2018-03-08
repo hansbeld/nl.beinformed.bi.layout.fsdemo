@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import { withRouter } from "react-router-dom";
 
-import CaseSearchModel from "beinformed/models/search/CaseSearchModel";
-
 import HTMLForm from "beinformed/components/HTMLForm/HTMLForm";
 import QuickSearchChooser from "beinformed/components/QuickSearch/QuickSearchChooser";
 import QuickSearchInput from "beinformed/components/QuickSearch/QuickSearchInput";
@@ -12,11 +10,14 @@ import QuickSearchResults from "beinformed/components/QuickSearch/QuickSearchRes
 
 import "./QuickSearch.scss";
 
-import type FilterModel from "beinformed/models/filters/FilterModel";
-import type Href from "beinformed/models/href/Href";
+import type { RouterHistory } from "react-router-dom";
+import type { Href, FilterModel, CaseSearchModel } from "beinformed/models";
+import type { ModularUIOptions } from "beinformed/modularui";
 
 type QuickSearchProps = {
   search: CaseSearchModel,
+  fetchModularUI: (url: string | Href, fetchOptions?: ModularUIOptions) => void,
+  history: RouterHistory,
   onItemClick: (href: Href) => void,
   onQuickSearch: (
     searchModel: CaseSearchModel,
@@ -42,7 +43,7 @@ type QuickSearchState = {
  */
 class QuickSearch extends Component<QuickSearchProps, QuickSearchState> {
   _inputGroupClick: boolean;
-  _timeout: number;
+  _timeout: TimeoutID;
 
   constructor(props: QuickSearchProps) {
     super(props);
@@ -196,10 +197,13 @@ class QuickSearch extends Component<QuickSearchProps, QuickSearchState> {
     const newSearch = this.props.search.clone();
 
     newSearch.filterCollection.reset();
-    newSearch.filterCollection.update(
-      this.state.searchOption.attribute,
-      this.state.searchValue
-    );
+    if (this.state.searchOption) {
+      newSearch.filterCollection.update(
+        this.state.searchOption.attribute,
+        this.state.searchValue
+      );
+    }
+
     if (!newSearch.filterCollection.isValid) {
       return false;
     }

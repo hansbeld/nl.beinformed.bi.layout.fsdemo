@@ -11,19 +11,26 @@ import type FilterModel from "beinformed/models/filters/FilterModel";
 /**
  * Get Index of concepts, to filter model catalog
  */
-export default class ContentIndexModel extends ResourceModel {
-  _filterCollection: FilterCollection;
+export default class ContentIndexModel extends ResourceModel<
+  ContentSearchJSON,
+  ContentSearchContributionsJSON
+> {
+  _filterCollection: FilterCollection<ContentSearchFilterJSON>;
   _content: BaseCollection<ContentLinkModel>;
 
   /**
    * @override
    */
-  constructor(modularuiResponse: ModularUIResponse) {
+  constructor(
+    modularuiResponse: ModularUIResponse<
+      ContentSearchJSON,
+      ContentSearchContributionsJSON
+    >
+  ) {
     super(modularuiResponse);
 
     this._filterCollection = new FilterCollection(this.data.filter, {
       filter: this.contributions.filter,
-      contexts: this.contributions.contexts,
       dynamicschema: this.data.dynamicschema
     });
 
@@ -74,7 +81,7 @@ export default class ContentIndexModel extends ResourceModel {
   /**
    * Retrieve filters of conceptindex model
    */
-  get filterCollection(): FilterCollection {
+  get filterCollection(): FilterCollection<ContentSearchFilterJSON> {
     return this._filterCollection;
   }
 

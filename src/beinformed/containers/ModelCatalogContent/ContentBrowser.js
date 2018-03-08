@@ -1,5 +1,6 @@
 // @flow
-import modularui from "beinformed/modularui/modularui";
+import { modularui } from "beinformed/modularui";
+
 import ContentBrowser from "beinformed/components/ModelCatalogContent/ContentBrowser";
 
 export const connector = modularui("ContentBrowser", ({ href }) => href, {

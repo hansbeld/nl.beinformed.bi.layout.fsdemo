@@ -3,8 +3,11 @@ import React from "react";
 import classNames from "classnames";
 
 import StringAttribute from "beinformed/components/FormAttribute/StringAttribute";
-import type NumberAttributeModel from "beinformed/models/attributes/NumberAttributeModel";
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
+
+import type {
+  NumberAttributeModel,
+  ContentConfigurationElements
+} from "beinformed/models";
 
 type NumberAttributeProps = {
   attribute: NumberAttributeModel,

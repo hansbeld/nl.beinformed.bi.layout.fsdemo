@@ -7,10 +7,6 @@ import HTMLForm from "beinformed/components/HTMLForm/HTMLForm";
 import FormTitle from "beinformed/components/Form/FormTitle";
 import FormBody from "fsdemo/containers/Advice/FormBody";
 
-import "../Advice/MortgageAdvice.scss";
-
-import type FormModel from "beinformed/models/form/FormModel";
-
 import ResultWhatWillMyMortgageCost from "../AdviceMortgageCost/ResultWhatWillMyMortgageCost";
 import MortgageAdviceButtons from "../Advice/MortgageAdviceButtons";
 
@@ -19,6 +15,10 @@ import MortgageComparison from "fsdemo/components/AdviceComparison/MortgageCompa
 import withModularUI from "beinformed/modularui/withModularUI";
 import { HTTP_METHODS } from "beinformed/constants/Constants";
 import { storeAttributeInput } from "../../utils/AttributeInputCache";
+
+import "../Advice/MortgageAdvice.scss";
+
+import type { FormModel } from "beinformed/models";
 
 export type MortgageData = {
   isComplete: boolean,
@@ -129,6 +129,7 @@ class MortgageAdvice extends Component<
         .fetch()
         .then(mortgageForm => {
           const compareForm = requestForm.update(mortgageForm);
+
           return {
             key: requestForm.formdata,
             isComplete: mortgageForm.isComplete,
@@ -140,7 +141,9 @@ class MortgageAdvice extends Component<
 
     Promise.all(requests).then(mortgages => {
       this.setState({
-        comparison: mortgages
+        comparison: mortgages.filter(
+          mortgage => mortgage.mortgageForm.isFinished
+        )
       });
     });
   }

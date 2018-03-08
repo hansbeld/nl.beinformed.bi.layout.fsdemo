@@ -7,13 +7,18 @@ import type ModularUIResponse from "beinformed/modularui/ModularUIResponse";
 /**
  * User model
  */
-export default class UserModel extends ResourceModel {
+export default class UserModel extends ResourceModel<
+  UserJSON,
+  UserContributionsJSON
+> {
   _attributeCollection: AttributeCollection;
 
   /**
    * constructor
    */
-  constructor(modularuiResponse: ModularUIResponse) {
+  constructor(
+    modularuiResponse: ModularUIResponse<UserJSON, UserContributionsJSON>
+  ) {
     super(modularuiResponse);
 
     this._attributeCollection = new AttributeCollection(

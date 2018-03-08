@@ -4,11 +4,12 @@ import React from "react";
 import ConceptLink from "beinformed/components/ConceptLink/ConceptLink";
 
 import IconPopover from "beinformed/components/Popover/IconPopover";
-import { withMessage } from "beinformed/containers/I18n/Message";
+import { withMessage } from "beinformed/i18n";
 
 import "./ConceptRelations.scss";
 
-import type ConceptRelationCollection from "beinformed/models/concepts/ConceptRelationCollection";
+import type { ConceptRelationCollection } from "beinformed/models";
+
 type ConceptRelationsProps = {
   relations: ConceptRelationCollection,
   message: messageFunctionType,

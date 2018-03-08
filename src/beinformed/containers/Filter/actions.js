@@ -1,9 +1,9 @@
 // @flow
 import { requestList } from "beinformed/containers/List/actions";
 
-import { updateModel } from "beinformed/containers/ModularUI/actions";
+import { updateModel } from "beinformed/modularui";
 
-import type ListModel from "beinformed/models/list/ListModel";
+import type { ListModel } from "beinformed/models";
 
 /**
  * handles the submit of the filters by executing the list action submitFilters

@@ -1,4 +1,6 @@
 // @flow
+import { get } from "lodash";
+
 import AttributeModel from "beinformed/models/attributes/AttributeModel";
 import ConstraintCollection from "beinformed/models/constraints/ConstraintCollection";
 
@@ -7,7 +9,9 @@ import DecimalFormat from "beinformed/utils/number/DecimalFormat";
 /**
  * Number attribute
  */
-export default class NumberAttributeModel extends AttributeModel {
+export default class NumberAttributeModel extends AttributeModel<
+  NumberAttributeContributionsJSON
+> {
   /**
    * @overwrite
    */
@@ -67,7 +71,7 @@ export default class NumberAttributeModel extends AttributeModel {
    * Get postfix text
    */
   get postfix(): string {
-    return this.contributions.postfix || "";
+    return get(this.contributions, "postfix", "");
   }
 
   /**
@@ -226,6 +230,17 @@ export default class NumberAttributeModel extends AttributeModel {
 
     const outputNumber = this.parseToNumber(value);
     this.value = isNaN(outputNumber) ? null : outputNumber.toString();
+  }
+
+  /**
+   * Getting the value of the attribute
+   */
+  getValue(): number | null {
+    const value = this._value.value;
+
+    return typeof value === "undefined" || value === null || value === ""
+      ? null
+      : Number(value);
   }
 
   /**

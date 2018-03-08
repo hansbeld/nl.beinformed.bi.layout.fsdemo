@@ -3,12 +3,14 @@ import React, { Component } from "react";
 import createAttribute from "beinformed/components/FormAttribute/createAttribute";
 import PasswordInput from "beinformed/components/FormInput/PasswordInput";
 
-import withMessage from "beinformed/containers/I18n/withMessage";
+import { withMessage } from "beinformed/i18n";
 
 import { CONFIRM_PASSWORD } from "beinformed/constants/LayoutHints";
 
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
-import type PasswordAttributeModel from "beinformed/models/attributes/PasswordAttributeModel";
+import type {
+  PasswordAttributeModel,
+  ContentConfigurationElements
+} from "beinformed/models";
 
 type PasswordAttributeProps = {
   attribute: PasswordAttributeModel,

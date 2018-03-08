@@ -15,9 +15,9 @@ import Form from "beinformed/containers/Form/Form";
 
 import PanelRenderer from "beinformed/containers/Panel/PanelRenderer";
 
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
-import type ListModel from "beinformed/models/list/ListModel";
+import type { ListModel } from "beinformed/models";
 
 export type ListProps = {
   list: ListModel,
@@ -28,7 +28,8 @@ export type ListProps = {
 /**
  * Render a list
  */
-const List = ({ className, list, viewType }: ListProps) => {
+const List = (props: ListProps) => {
+  const { className, list, viewType } = props;
   // this is arbitrary, but when a list has many attributes on the list,
   // make more room for them by creating a smaller detail
   const SMALL_AMOUNT_OF_COLUMNS_NUMBER = 4;
@@ -78,7 +79,7 @@ const List = ({ className, list, viewType }: ListProps) => {
               <Switch>
                 <Route
                   path={list.actionCollection.routePath}
-                  component={Form}
+                  render={routeProps => <Form {...routeProps} isModal={true} />}
                 />
 
                 <Route
@@ -96,6 +97,7 @@ const List = ({ className, list, viewType }: ListProps) => {
                         );
                       }
                     }
+
                     return null;
                   }}
                 />

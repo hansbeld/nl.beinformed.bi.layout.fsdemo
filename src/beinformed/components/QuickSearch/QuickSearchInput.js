@@ -2,8 +2,10 @@
 import React from "react";
 import MagnifyIcon from "mdi-react/MagnifyIcon";
 
-import { withMessage, Message } from "beinformed/containers/I18n/Message";
-import ChoiceAttributeModel from "beinformed/models/attributes/ChoiceAttributeModel";
+import { ChoiceAttributeModel } from "beinformed/models";
+
+import { withMessage, Message } from "beinformed/i18n";
+
 import Button from "beinformed/components/Button/Button";
 import DatetimeInput from "beinformed/components/FormInput/DatetimeInput";
 import SelectInput from "beinformed/components/FormInput/SelectInput";
@@ -11,7 +13,7 @@ import TextInput from "beinformed/components/FormInput/TextInput";
 
 import "./QuickSearchInput.scss";
 
-import type FilterModel from "beinformed/models/filters/FilterModel";
+import type { FilterModel } from "beinformed/models";
 
 type QuickSearchInputProps = {
   message: messageFunctionType,

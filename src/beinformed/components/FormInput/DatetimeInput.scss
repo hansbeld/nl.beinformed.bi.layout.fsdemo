@@ -1,6 +1,11 @@
 .datewidget {
-  .datetimepicker {
+  .datetimepicker.datetimepicker-pos-left {
     right: 0;
     left: auto;
+  }
+
+  .datetimepicker.datetimepicker-pos-right {
+    right: auto;
+    left: 0;
   }
 }

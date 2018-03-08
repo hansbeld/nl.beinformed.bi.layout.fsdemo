@@ -1,6 +1,6 @@
 // @flow
 import React from "react";
-import { Message } from "beinformed/containers/I18n/Message";
+import { Message } from "beinformed/i18n";
 
 import MortgageAdviceResult from "fsdemo/components/Advice/MortgageAdviceResult";
 
@@ -9,7 +9,7 @@ import AdviceExplain from "fsdemo/components/AdviceMortgageCost/AdviceExplain";
 
 import "./ResultWhatWillMyMortgageCost.scss";
 
-import type FormModel from "beinformed/models/form/FormModel";
+import type { FormModel } from "beinformed/models";
 
 type ResultWhatWillMyMortgageCostProps = {
   form: FormModel,

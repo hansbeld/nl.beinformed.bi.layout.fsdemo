@@ -6,7 +6,7 @@ import PasswordInput from "beinformed/components/FormInput/PasswordInput";
 
 import CellAssistant from "beinformed/components/InlineEdit/CellAssistant";
 
-import type PasswordAttributeModel from "beinformed/models/attributes/PasswordAttributeModel";
+import type { PasswordAttributeModel } from "beinformed/models";
 
 type InlineEditPasswordCellProps = {
   attribute: PasswordAttributeModel,

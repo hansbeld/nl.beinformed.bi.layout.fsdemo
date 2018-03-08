@@ -17,7 +17,7 @@ import DetailPanelFooter from "beinformed/components/DetailPanel/DetailPanelFoot
 
 import "./DetailPanel.scss";
 
-import type DetailModel from "beinformed/models/detail/DetailModel";
+import type { DetailModel } from "beinformed/models";
 
 export type DetailPanelProps = {
   className?: string,

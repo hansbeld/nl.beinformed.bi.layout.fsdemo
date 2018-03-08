@@ -29,11 +29,13 @@ declare type CaseViewContributionsJSONResponse = {
 };
 declare type CaseViewContributionsJSON = {
   label: string,
-  resourcetype: "CaseView.js",
-  texts?: {
-    type: "master",
-    text: string
-  },
+  resourcetype: "CaseView",
+  texts?: [
+    {
+      type: "master",
+      text: string
+    }
+  ],
   _links?: {
     panel: Array<LinkContributionsJSON>,
     taskgroup?: Array<LinkContributionsJSON>

@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from "react";
+import classNames from "classnames";
 
 import {
   TimestampUtil,
@@ -23,7 +24,8 @@ type DatetimePickerProps = {
 type DatetimePickerState = {
   hasDate: boolean,
   hasTime: boolean,
-  type: "date" | "time"
+  type: "date" | "time",
+  position: "left" | "right"
 };
 
 /**
@@ -52,8 +54,21 @@ class DatetimePicker extends Component<
     this.state = {
       hasDate,
       hasTime,
-      type: hasDate ? "date" : "time"
+      type: hasDate ? "date" : "time",
+      position: "left"
     };
+  }
+
+  componentDidMount() {
+    if (this._datetimePicker) {
+      const boundingClientRect = this._datetimePicker.getBoundingClientRect();
+
+      if (boundingClientRect.left < 0) {
+        this.setState({
+          position: "right"
+        });
+      }
+    }
   }
 
   /**
@@ -92,12 +107,17 @@ class DatetimePicker extends Component<
   render() {
     const date = this.toIso(this.props.date);
 
+    const datetimePickerClass = classNames(
+      "dropdown-menu datetimepicker",
+      `datetimepicker-pos-${this.state.position}`
+    );
+
     return (
       <div
         ref={c => {
           this._datetimePicker = c;
         }}
-        className="dropdown-menu datetimepicker"
+        className={datetimePickerClass}
         onClick={this.props.onClick}
         onKeyDown={this.props.onClick}
         tabIndex="0"

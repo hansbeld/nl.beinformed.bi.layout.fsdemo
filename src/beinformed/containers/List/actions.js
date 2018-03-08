@@ -3,12 +3,11 @@ import { push, replace } from "react-router-redux";
 
 import { MODULARUI } from "beinformed/redux/middleware/modularui";
 
-import Href from "beinformed/models/href/Href";
+import { ListDetailModel, Href } from "beinformed/models";
 
-import ListModel from "beinformed/models/list/ListModel";
-import ListDetailModel from "beinformed/models/list/ListDetailModel";
+import { updateModel } from "beinformed/modularui";
 
-import { updateModel } from "beinformed/containers/ModularUI/actions";
+import type { ListModel, ListHref } from "beinformed/models";
 
 /**
  * Receive a list
@@ -18,7 +17,7 @@ export const receiveList = (list: ListModel) => updateModel(list);
 /**
  * Request a list
  */
-export const requestList = (href: Href): ThunkAction => (
+export const requestList = (href: ListHref): ThunkAction => (
   dispatch,
   getState
 ) => {

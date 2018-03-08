@@ -3,7 +3,7 @@ import React from "react";
 
 import ListNoResults from "beinformed/components/List/ListNoResults";
 
-import type ListModel from "beinformed/models/list/ListModel";
+import type { ListModel } from "beinformed/models";
 
 type ResultsProps = {
   className?: string,

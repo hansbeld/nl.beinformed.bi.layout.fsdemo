@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import classNames from "classnames";
 
 import Link from "beinformed/components/Link/Link";
-import type Href from "beinformed/models/href/Href";
+import type { Href } from "beinformed/models";
 
 type DropdownLinkProp = {
   ariaLabel?: string,

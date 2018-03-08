@@ -1,17 +1,18 @@
 // @flow
+import { get } from "lodash";
+
 import AttributeModel from "beinformed/models/attributes/AttributeModel";
 import ConstraintCollection from "beinformed/models/constraints/ConstraintCollection";
 
 /**
  * String attribute
  */
-export default class StringAttributeModel extends AttributeModel {
+export default class StringAttributeModel<
+  Contributions: StringAttributeContributionsJSON
+> extends AttributeModel<Contributions> {
   _placeholder: string;
 
-  constructor(
-    attribute: AttributeJSON,
-    attributeContributions: AttributeContributionsJSON
-  ) {
+  constructor(attribute: AttributeJSON, attributeContributions: Contributions) {
     super(attribute, attributeContributions);
 
     this._placeholder = this.contributions.placeholder || "";
@@ -28,25 +29,25 @@ export default class StringAttributeModel extends AttributeModel {
    * Get Regexp pattern
    */
   get regexp(): string | null {
-    return this.contributions.regexp || null;
+    return get(this.contributions, "regexp", null);
   }
 
   get regexpvalidationmessage(): string | null {
-    return this.contributions.regexpvalidationmessage || null;
+    return get(this.contributions, "regexpvalidationmessage", null);
   }
 
   /**
    * Get postfix text
    */
   get postfix(): string {
-    return this.contributions.postfix || "";
+    return get(this.contributions, "postfix", "");
   }
 
   /**
    * Get prefix text
    */
   get prefix(): string {
-    return this.contributions.prefix || "";
+    return get(this.contributions, "prefix", "");
   }
 
   /**

@@ -9,7 +9,7 @@ import DropdownItem from "beinformed/components/Dropdown/DropdownItem";
 
 import "./QuickSearchChooser.scss";
 
-import type FilterModel from "beinformed/models/filters/FilterModel";
+import type { FilterModel } from "beinformed/models";
 
 type QuickSearchChooserType = {
   active: FilterModel,

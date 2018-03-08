@@ -7,7 +7,7 @@ import CloseIcon from "mdi-react/CloseIcon";
 import DeleteIcon from "mdi-react/DeleteIcon";
 import AlertCircleOutlineIcon from "mdi-react/AlertCircleOutlineIcon";
 
-import { withMessage, Message } from "beinformed/containers/I18n/Message";
+import { withMessage, Message } from "beinformed/i18n";
 import { UPLOAD_PATH, HTTP_METHODS } from "beinformed/constants/Constants";
 
 import "./UploadInput.scss";
@@ -207,10 +207,10 @@ class UploadInput extends Component<UploadInputProps, UploadInputState> {
           "UploadInput.errorExceedsMaxFileSize",
           "Filesize of {ACTUAL_FILESIZE} exceeds the maximum filesize of {MAXIMUM_FILESIZE}",
           {
-            ACTUAL_FILESIZE: filesize(file.size).human("si"),
+            ACTUAL_FILESIZE: filesize(file.size).human("jedec"),
             MAXIMUM_FILESIZE: filesize(
               this.props.uploadConstraints.fileSize
-            ).human("si")
+            ).human("jedec")
           }
         )
       };
@@ -330,7 +330,9 @@ class UploadInput extends Component<UploadInputProps, UploadInputState> {
     return (
       <li className="file" key={file.name}>
         <span className="name mr-1">{file.name}</span>
-        <small className="filesize">({filesize(file.size).human("si")})</small>
+        <small className="filesize">
+          ({filesize(file.size).human("jedec")})
+        </small>
         <button
           className="btn btn-link btn-remove"
           onClick={() => this.removeUpload(file)}

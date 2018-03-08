@@ -12,8 +12,10 @@ import { KEYCODES } from "beinformed/constants/Constants";
 
 import "./TreeInput.scss";
 
-import type ContentConfigurationElements from "beinformed/models/contentconfiguration/ContentConfigurationElements";
-import type ChoiceAttributeOptionModel from "beinformed/models/attributes/ChoiceAttributeOptionModel";
+import type {
+  ContentConfigurationElements,
+  ChoiceAttributeOptionModel
+} from "beinformed/models";
 
 type TreeInputProps = {
   ariaLabel?: string,

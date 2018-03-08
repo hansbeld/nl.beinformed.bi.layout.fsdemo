@@ -2,13 +2,12 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 
-import { withMessage } from "beinformed/containers/I18n/Message";
+import { withMessage } from "beinformed/i18n";
 
 import PagingItem from "beinformed/components/Paging/PagingItem";
 import PagingItemArrow from "beinformed/components/Paging/PagingItemArrow";
 
-import type ListModel from "beinformed/models/list/ListModel";
-import type Href from "beinformed/models/href/Href";
+import type { Href, ListModel } from "beinformed/models";
 
 type PaginationProps = {
   className?: string,

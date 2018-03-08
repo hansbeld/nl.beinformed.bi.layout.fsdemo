@@ -4,7 +4,8 @@ import classNames from "classnames";
 
 import ChoiceInput from "beinformed/components/FormInput/ChoiceInput";
 import CellAssistant from "beinformed/components/InlineEdit/CellAssistant";
-import type ChoiceAttributeModel from "beinformed/models/attributes/ChoiceAttributeModel";
+
+import type { ChoiceAttributeModel } from "beinformed/models";
 
 type InlineEditChoiceCellProps = {
   attribute: ChoiceAttributeModel,
