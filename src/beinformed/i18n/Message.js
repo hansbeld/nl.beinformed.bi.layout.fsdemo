@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 
-import withMessage from "beinformed/containers/I18n/withMessage";
+import withMessage from "./withMessage";
 
 type MessageProps = {
   id: string,
@@ -30,6 +30,4 @@ const Message = ({
   return <span className="msg">{translatedMessage}</span>;
 };
 
-const WrappedMessage = withMessage(Message);
-
-export { WrappedMessage as Message, withMessage };
+export default withMessage(Message);

@@ -1,7 +1,14 @@
 // @flow
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 
+/**
+ * Get the application model, which is the model with selfhref '/'
+ */
 export const getApplication = (state: State) => modelByHref(state, "/");
+
+/**
+ * Get the model by it's href
+ */
 
 export const modelByHref = (state: State, href: Href | string) => {
   if (state && state.modularui) {
@@ -19,6 +26,9 @@ export const modelByHref = (state: State, href: Href | string) => {
   return null;
 };
 
+/**
+ * Return the selfhref of a model by the key the model is saved in the reducer
+ */
 export const keyByHref = (state: State, href: Href | string) => {
   if (state && state.modularui) {
     const findHref = href instanceof Href ? href : new Href(href);

@@ -11,6 +11,14 @@ export type receiveLocaleType = {
   payload: string
 };
 
+export type setLocalesType = {
+  type: "SET_LOCALES",
+  payload: {
+    locales: Locales,
+    locale: string
+  }
+};
+
 /**
  * Update current locale
  */
@@ -29,7 +37,10 @@ export const updateLocale = (locale: string): ThunkAction => dispatch => {
   dispatch(finishProgress());
 };
 
-export const setLocales = (locales: Locales, locale: string) => ({
+export const setLocales = (
+  locales: Locales,
+  locale: string
+): setLocalesType => ({
   type: "SET_LOCALES",
   payload: {
     locales,

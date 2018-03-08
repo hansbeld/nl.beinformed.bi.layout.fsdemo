@@ -2,7 +2,7 @@
 import { isFunction } from "lodash";
 
 import { MODULARUI } from "beinformed/redux/middleware/modularui";
-import Href from "beinformed/models/href/Href";
+import { Href } from "beinformed/models";
 import {
   finishProgress,
   startProgress
@@ -24,6 +24,14 @@ export type ModularUISuccessType = {
 export type ModularUIRemoveKeyType = {
   type: "MODULARUI/REMOVE_KEY",
   payload: string
+};
+
+export type updateStatusType = {
+  type: "MODULARUI/STATUS",
+  payload: {
+    key: string,
+    status: string
+  }
 };
 
 export const loadModel = (
@@ -81,14 +89,6 @@ export const removeModelByKey = (key: string): ModularUIRemoveKeyType => ({
   type: "MODULARUI/REMOVE_KEY",
   payload: key
 });
-
-export type updateStatusType = {
-  type: "MODULARUI/STATUS",
-  payload: {
-    key: string,
-    status: string
-  }
-};
 
 export const updateStatus = (
   key: string,

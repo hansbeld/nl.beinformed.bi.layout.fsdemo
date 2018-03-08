@@ -63,7 +63,7 @@ class PasswordInput extends Component<PasswordInputProps, PasswordInputState> {
 
       /*
        * don't do anything when request of zxcvbn fails, just don't show password hints
-       * this uses webpack dynamic imports: https://webpack.js.org/guides/code-splitting-import/#dynamic-import
+       * this uses webpack dynamic imports: https://webpack.js.org/guides/code-splitting/#dynamic-imports
        */
       import(/* webpackChunkName: "zxcvbn" */ "zxcvbn") // eslint-disable-line no-inline-comments
         .then(module => {

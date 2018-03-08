@@ -6,7 +6,8 @@ const parts = require("./common/webpack.parts");
 module.exports = PATHS =>
   merge([
     parts.clean(`${PATHS.build}/**/*`, {
-      root: PATHS.root
+      root: PATHS.root,
+      verbose: false
     }),
 
     parts.entry("client", ["babel-polyfill", `${PATHS.src}/client.js`]),

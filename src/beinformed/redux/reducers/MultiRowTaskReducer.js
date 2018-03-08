@@ -23,7 +23,7 @@ const initialState = [];
  */
 export default function MultiRowTaskReducer(
   state: MultiRowTaskState = initialState,
-  action: Action
+  action: ReduxAction
 ) {
   switch (action.type) {
     case "SELECT_LIST_ITEM":
