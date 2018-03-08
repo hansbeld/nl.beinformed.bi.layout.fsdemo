@@ -1,9 +1,9 @@
 {
-  "name": "nl.beinformed.bi.layout.general",
-  "version": "1.0.0",
+  "name": "nl.beinformed.bi.layout.fsdemo",
+  "version": "3.16.0",
   "description": "Default UI for Be Informed projects based on the modular UI",
   "main": "WEB-INF/server.js",
-  "repository": "http://repo.pd.beinformed.nl/svn/product3/trunk/source/nl.beinformed.bi.layout.general",
+  "repository": "http://repo.pd.beinformed.nl/svn/product3/trunk/source/nl.beinformed.bi.layout.fsdemo",
   "license": "UNLICENSED",
   "scripts": {
     "eclipse": "webpack --env.eclipse",
