@@ -63,6 +63,9 @@ export const updateFormAttribute = (
   if (attribute.key === "MortgageProductPackage") {
     if (!newForm.missingObjects.has(formObject.key)) {
       newForm.setPreviousObject();
+      if (!newForm.missingObjects.has(formObject.key)) {
+        newForm.setPreviousObject();
+      }
 
       newForm.missingObjects
         .get(formObject.key)

@@ -122,7 +122,7 @@ class MortgageAdvice extends Component<
 
     const requests = requestForms.map(requestForm =>
       this.props
-        .modularui(this.props.form.selfhref, {
+        .modularui(this.props.form.selfhref.addParameter("commit", "false"), {
           method: "post",
           data: requestForm.formdata
         })
@@ -142,7 +142,7 @@ class MortgageAdvice extends Component<
     Promise.all(requests).then(mortgages => {
       this.setState({
         comparison: mortgages.filter(
-          mortgage => mortgage.mortgageForm.isFinished
+          mortgage => mortgage.isComplete
         )
       });
     });
@@ -172,7 +172,7 @@ class MortgageAdvice extends Component<
   }
 
   handleSubmit = (form: FormModel) => {
-    this.props.fetchModularUI(form.selfhref, {
+    this.props.fetchModularUI(form.selfhref.addParameter("commit", "false"), {
       propName: "form",
       method: HTTP_METHODS.POST,
       data: form.formdata,

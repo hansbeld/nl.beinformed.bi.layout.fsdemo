@@ -41,7 +41,7 @@ class Form extends Component<FormProps> {
   };
 
   handleSubmit = (form: FormModel) => {
-    this.props.fetchModularUI(form.selfhref, {
+    this.props.fetchModularUI(form.selfhref.addParameter("commit", "false"), {
       propName: "form",
       method: HTTP_METHODS.POST,
       data: form.formdata,

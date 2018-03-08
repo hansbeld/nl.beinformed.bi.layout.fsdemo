@@ -649,6 +649,7 @@ class FormModel extends ResourceModel<FormJSON, FormContributionsJSON> {
     this.isComplete = false;
 
     this._nextObjects = [this._missingObjects, ...this._nextObjects];
+
     this._missingObjects = this._completeObjects[
       this._completeObjects.length - 1
     ];
