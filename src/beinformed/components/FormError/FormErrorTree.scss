@@ -1,0 +1,17 @@
+@import "../../../variables";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/gradients";
+
+@keyframes highlight {
+  0% {
+    background: mix(#fff, $warning, abs(-10) * $theme-color-interval);
+  }
+
+  100% {
+    background: none;
+  }
+}
+
+.error-highlight {
+  animation: highlight 1s;
+}

@@ -50,10 +50,7 @@
       ]
     },
     "production": {
-      "plugins": [
-        "transform-react-constant-elements",
-        "transform-react-inline-elements"
-      ]
+      "plugins": ["transform-react-inline-elements"]
     },
     "development": {
       "plugins": ["transform-react-jsx-source"]
