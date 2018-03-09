@@ -1,6 +1,6 @@
 // @flow
 import { get } from "lodash";
-import { push } from "react-router-redux";
+import { push, replace } from "react-router-redux";
 
 import {
   LOGIN_PATH,
@@ -50,7 +50,7 @@ export const handleError = (error: Error | FetchError): ThunkAction => (
     Cache.removeItem("auth");
 
     return dispatch(
-      push({
+      replace({
         pathname: LOGIN_PATH,
         state: {
           from: locationFrom ? locationFrom : getState().router.location,
