@@ -119,7 +119,7 @@
     "global": "^4.3.2",
     "history": "^4.7.2",
     "iban": "^0.0.10",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.19",
     "mdi": "^2.1.99",
     "mdi-react": "^2.1.19",
     "message-format": "^5.2.1",
